@@ -1,0 +1,46 @@
+{
+    "success": {
+        "contentFontSize": 13.3,
+        "contentTextColor": "#000000",
+        "imageName": "NotificationBackgroundSuccessIcon.png",
+        "shadowColor": "#67B759",
+        "shadowOffsetX": 0,
+        "shadowOffsetY": -1,
+        "textColor": "#FFFFFF",
+        "titleFontSize": 18,
+        "backgroundColor": "#13ad10"
+    },
+    "message": {
+        "contentFontSize": 13.3,
+        "contentTextColor": "#000000",
+        "imageName": "NotificationBackgroundSuccessIcon.png",
+        "shadowColor": "#67B759",
+        "shadowOffsetX": 0,
+        "shadowOffsetY": -1,
+        "textColor": "#FFFFFF",
+        "titleFontSize": 18,
+        "backgroundColor": "#aaaaaa"
+    },
+    "warning": {
+        "contentFontSize": 13.3,
+        "contentTextColor": "#FFFFFF",
+        "imageName": "NotificationBackgroundSuccessIcon.png",
+        "shadowColor": "#67B759",
+        "shadowOffsetX": 0,
+        "shadowOffsetY": -1,
+        "textColor": "#FFFFFF",
+        "titleFontSize": 18,
+        "backgroundColor": "#DAC43C"
+    },
+    "error": {
+        "contentFontSize": 13.3,
+        "contentTextColor": "#000000",
+        "imageName": "NotificationBackgroundErrorIcon.png",
+        "shadowColor": "#67B759",
+        "shadowOffsetX": 0,
+        "shadowOffsetY": -1,
+        "textColor": "#FFFFFF",
+        "titleFontSize": 18,
+        "backgroundColor": "#da3610"
+    }
+}
