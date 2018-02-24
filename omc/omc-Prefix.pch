@@ -1,0 +1,28 @@
+//
+//  RiceWallet-Prefix.pch
+//  RiceWallet
+//
+//  Created by 方焘 on 16/7/21.
+//  Copyright © 2016年 taofang. All rights reserved.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_8_0
+#warning "This project uses features only available in iOS SDK 8.0 and later."
+#endif
+
+#ifdef __OBJC__
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "TJKit.h"
+#import "MJRefresh.h"
+#import "UIScrollView+MJRefresh.h"
+//#import "RWProgressHUD.h"
+#import "TJNetworkKit.h"
+//#import "RWStaticString.h"
+//#import "RWRouteManager.h"
+#import "TJURLConfigurator.h"
+#import "masonry.h"
+#endif
