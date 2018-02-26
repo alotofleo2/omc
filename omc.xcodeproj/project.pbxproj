@@ -75,6 +75,11 @@
 		B348439B2027EA9F008FE754 /* TJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34843652027EA9F008FE754 /* TJNavigationController.m */; };
 		B348439C2027EA9F008FE754 /* WKWebView+JSFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = B34843672027EA9F008FE754 /* WKWebView+JSFunction.m */; };
 		B348439D2027EA9F008FE754 /* TJBaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B348436A2027EA9F008FE754 /* TJBaseWebViewController.m */; };
+		B3D9739420439983006AC9AF /* TJBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D9739320439983006AC9AF /* TJBaseModel.m */; };
+		B3D97397204399EE006AC9AF /* TJHomeBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D97396204399EE006AC9AF /* TJHomeBannerModel.m */; };
+		B3D9739A20439CB1006AC9AF /* TJHomeDateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D9739920439CB1006AC9AF /* TJHomeDateManager.m */; };
+		B3D9739D2043A264006AC9AF /* TJHomeCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D9739C2043A264006AC9AF /* TJHomeCategoryCell.m */; };
+		B3D973A02043A9AC006AC9AF /* TJHomeCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D9739F2043A9AC006AC9AF /* TJHomeCategoryModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -221,6 +226,16 @@
 		B348436A2027EA9F008FE754 /* TJBaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJBaseWebViewController.m; sourceTree = "<group>"; };
 		B348436C2027EA9F008FE754 /* TJCommonKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJCommonKit.h; sourceTree = "<group>"; };
 		B348439E2027EB96008FE754 /* omc-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "omc-Prefix.pch"; sourceTree = "<group>"; };
+		B3D9739220439982006AC9AF /* TJBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJBaseModel.h; sourceTree = "<group>"; };
+		B3D9739320439983006AC9AF /* TJBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJBaseModel.m; sourceTree = "<group>"; };
+		B3D97395204399EE006AC9AF /* TJHomeBannerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJHomeBannerModel.h; sourceTree = "<group>"; };
+		B3D97396204399EE006AC9AF /* TJHomeBannerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJHomeBannerModel.m; sourceTree = "<group>"; };
+		B3D9739820439CB1006AC9AF /* TJHomeDateManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJHomeDateManager.h; sourceTree = "<group>"; };
+		B3D9739920439CB1006AC9AF /* TJHomeDateManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJHomeDateManager.m; sourceTree = "<group>"; };
+		B3D9739B2043A264006AC9AF /* TJHomeCategoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJHomeCategoryCell.h; sourceTree = "<group>"; };
+		B3D9739C2043A264006AC9AF /* TJHomeCategoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJHomeCategoryCell.m; sourceTree = "<group>"; };
+		B3D9739E2043A9AC006AC9AF /* TJHomeCategoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJHomeCategoryModel.h; sourceTree = "<group>"; };
+		B3D9739F2043A9AC006AC9AF /* TJHomeCategoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJHomeCategoryModel.m; sourceTree = "<group>"; };
 		C873E38C2212F51CC3C33026 /* Pods-omc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-omc.release.xcconfig"; path = "Pods/Target Support Files/Pods-omc/Pods-omc.release.xcconfig"; sourceTree = "<group>"; };
 		FE1AE3875C50D329EF8EE8C9 /* Pods-omc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-omc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-omc/Pods-omc.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -296,6 +311,8 @@
 		B32ADA75203E4EF0006A6EAB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B3D9739220439982006AC9AF /* TJBaseModel.h */,
+				B3D9739320439983006AC9AF /* TJBaseModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -362,6 +379,8 @@
 		B32ADA9A203E6031006A6EAB /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				B3D9739820439CB1006AC9AF /* TJHomeDateManager.h */,
+				B3D9739920439CB1006AC9AF /* TJHomeDateManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -369,6 +388,10 @@
 		B32ADA9B203E6031006A6EAB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B3D97395204399EE006AC9AF /* TJHomeBannerModel.h */,
+				B3D97396204399EE006AC9AF /* TJHomeBannerModel.m */,
+				B3D9739E2043A9AC006AC9AF /* TJHomeCategoryModel.h */,
+				B3D9739F2043A9AC006AC9AF /* TJHomeCategoryModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -378,6 +401,8 @@
 			children = (
 				B32ADAA0203E6098006A6EAB /* TJHomeTopBannerCell.h */,
 				B32ADAA1203E6098006A6EAB /* TJHomeTopBannerCell.m */,
+				B3D9739B2043A264006AC9AF /* TJHomeCategoryCell.h */,
+				B3D9739C2043A264006AC9AF /* TJHomeCategoryCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -975,6 +1000,7 @@
 				B348436F2027EA9F008FE754 /* NSString+Hash.m in Sources */,
 				B34843802027EA9F008FE754 /* TJLoopScrollView.m in Sources */,
 				B34843812027EA9F008FE754 /* UIScrollView+EmptyDataView.m in Sources */,
+				B3D9739A20439CB1006AC9AF /* TJHomeDateManager.m in Sources */,
 				B34843992027EA9F008FE754 /* TJBaseTableViewController.m in Sources */,
 				B34843832027EA9F008FE754 /* NSArray+Log.m in Sources */,
 				B34843722027EA9F008FE754 /* ThreeDES.m in Sources */,
@@ -988,6 +1014,7 @@
 				B34842D72027E8AD008FE754 /* main.m in Sources */,
 				B34843772027EA9F008FE754 /* NSString+URL.m in Sources */,
 				B348438A2027EA9F008FE754 /* TJButton.m in Sources */,
+				B3D973A02043A9AC006AC9AF /* TJHomeCategoryModel.m in Sources */,
 				B348438F2027EA9F008FE754 /* TJTableLoadingView.m in Sources */,
 				B348439A2027EA9F008FE754 /* TJBannerView.m in Sources */,
 				B32ADA97203E53A6006A6EAB /* TJRouteManager.m in Sources */,
@@ -997,10 +1024,12 @@
 				B34843792027EA9F008FE754 /* NSString+Size.m in Sources */,
 				B34843762027EA9F008FE754 /* TJURLParser.m in Sources */,
 				B348436E2027EA9F008FE754 /* GTMBase64.m in Sources */,
+				B3D9739D2043A264006AC9AF /* TJHomeCategoryCell.m in Sources */,
 				B34843782027EA9F008FE754 /* NSString+JSON.m in Sources */,
 				B348438B2027EA9F008FE754 /* TJBaseView.m in Sources */,
 				B32ADA7C203E5101006A6EAB /* TJTabBar.m in Sources */,
 				B34843822027EA9F008FE754 /* UIView+ViewUtils.m in Sources */,
+				B3D97397204399EE006AC9AF /* TJHomeBannerModel.m in Sources */,
 				B32ADA93203E5257006A6EAB /* TJTokenManager.m in Sources */,
 				B32ADA90203E5257006A6EAB /* TJAccountDefines.m in Sources */,
 				B34842C92027E8AD008FE754 /* AppDelegate.m in Sources */,
@@ -1009,6 +1038,7 @@
 				B34843752027EA9F008FE754 /* NSString+MD5Password.m in Sources */,
 				B348439C2027EA9F008FE754 /* WKWebView+JSFunction.m in Sources */,
 				B32ADA94203E5257006A6EAB /* TJResult.m in Sources */,
+				B3D9739420439983006AC9AF /* TJBaseModel.m in Sources */,
 				B34843952027EA9F008FE754 /* FTMessage.m in Sources */,
 				B34843882027EA9F008FE754 /* TJResponder.m in Sources */,
 				B348438C2027EA9F008FE754 /* TJWebViewProgressView.m in Sources */,

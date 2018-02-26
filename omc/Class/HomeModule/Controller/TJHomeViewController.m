@@ -8,6 +8,7 @@
 
 #import "TJHomeViewController.h"
 #import "TJHomeTopBannerCell.h"
+#import "TJHomeDateManager.h"
 
 @interface TJHomeViewController ()
 
@@ -17,7 +18,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationItem.title = @"欧曼辰";
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    //消除阴影
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
     [self registerCellWithClassName:@"TJHomeTopBannerCell" reuseIdentifier:@"TJHomeTopBannerCell"];
+    [self registerCellWithClassName:@"TJHomeCategoryCell" reuseIdentifier:@"TJHomeCategoryCell"];
 }
 
 #pragma mark tableview delegate
@@ -26,16 +33,47 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TJHomeTopBannerCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TJHomeTopBannerCell" forIndexPath:indexPath];
+    TJBaseTableViewCell *cell;
+    switch (indexPath.row) {
+        case 0:
+        {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"TJHomeTopBannerCell" forIndexPath:indexPath];
+            
+            [cell setupViewWithModel:[TJHomeDateManager sharedInstance].bannerModels];
+        }
+            break;
+            
+        case 1:
+        {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"TJHomeCategoryCell" forIndexPath:indexPath];
+            
+            [cell setupViewWithModel:[TJHomeDateManager sharedInstance].curtainCategoryModel];
+        }
+            break;
+            
+        default:
+            break;
+    }
     return cell;
+
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return TJSystem1080Height(500);
+    CGFloat heigt = 0.0;
+    switch (indexPath.row) {
+        case 0:
+            heigt = TJSystem2Xphone6Height(250);
+            break;
+            
+        case 1:
+            heigt = DEVICE_SCREEN_WIDTH / 4 + TJSystem2Xphone6Height(103) + 2;
+
+    }
+    return heigt;
 }
 
 @end

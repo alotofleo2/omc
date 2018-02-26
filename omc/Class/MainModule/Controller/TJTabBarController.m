@@ -41,7 +41,7 @@
     
     //创建自己的tabbar，然后用kvc将自己的tabbar和系统的tabBar替换下
     TJTabBar *tabbar = [[TJTabBar alloc] init];
-    tabbar.myDelegate = self;
+    tabbar.myDelegate = (id)self;
     //kvc实质是修改了系统的_tabBar
     [self setValue:tabbar forKeyPath:@"tabBar"];
     
@@ -88,9 +88,6 @@
 {
     TJNavigationController *nav = [[TJNavigationController alloc] initWithRootViewController:Vc];
     
-    
-    Vc.view.backgroundColor = [self randomColor];
-    
     UIImage *myImage = [UIImage imageNamed:image];
     myImage = [myImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
@@ -124,22 +121,12 @@
     
     
     UIViewController *plusVC = [[UIViewController alloc] init];
-    plusVC.view.backgroundColor = [self randomColor];
+    
     
     TJNavigationController *navVc = [[TJNavigationController alloc] initWithRootViewController:plusVC];
     
     [self presentViewController:navVc animated:YES completion:nil];
     
-    
-}
-
-
-- (UIColor *)randomColor
-{
-    CGFloat r = arc4random_uniform(256);
-    CGFloat g = arc4random_uniform(256);
-    CGFloat b = arc4random_uniform(256);
-    return [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0];
     
 }
 

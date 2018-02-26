@@ -92,10 +92,12 @@
         
         [TJPageManager sharedInstance].currentViewController = self;
     }
-    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
     [[UIApplication sharedApplication] setStatusBarStyle:self.statusBarStyle animated:NO];
 }
-
+#pragma clang diagnostic pop
 
 - (void)viewDidAppear:(BOOL)animated {
     

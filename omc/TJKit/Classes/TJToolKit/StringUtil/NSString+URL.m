@@ -10,6 +10,10 @@
 #import "StringUtil.h"
 
 @implementation NSString (URL)
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
+
 
 - (NSString *)URLEncodedString {
     
@@ -31,7 +35,7 @@
     NSString * decoded = (__bridge_transfer NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(NULL, (CFStringRef)self, CFSTR(""), kCFStringEncodingUTF8);
     return decoded;
 }
-
+#pragma clang diagnostic pop
 - (NSString *)URLQueryEncode{
     
     return [self stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
