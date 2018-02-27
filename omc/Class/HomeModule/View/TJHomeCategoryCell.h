@@ -9,6 +9,9 @@
 #import "TJBaseTableViewCell.h"
 #import "TJHomeCategoryModel.h"
 
+/**
+ 小选项cell
+ */
 @interface TJCategoryCell :UICollectionViewCell
 
 
@@ -16,6 +19,9 @@
 
 typedef void(^itemActionHandle)(NSInteger);
 
+/**
+ 分类的tableviewcell
+ */
 @interface TJHomeCategoryCell : TJBaseTableViewCell
 
 /**

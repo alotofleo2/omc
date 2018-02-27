@@ -80,6 +80,7 @@
 		B3D9739A20439CB1006AC9AF /* TJHomeDateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D9739920439CB1006AC9AF /* TJHomeDateManager.m */; };
 		B3D9739D2043A264006AC9AF /* TJHomeCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D9739C2043A264006AC9AF /* TJHomeCategoryCell.m */; };
 		B3D973A02043A9AC006AC9AF /* TJHomeCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D9739F2043A9AC006AC9AF /* TJHomeCategoryModel.m */; };
+		B3D973A32045385A006AC9AF /* TJHomeMiddleContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D973A22045385A006AC9AF /* TJHomeMiddleContentCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -236,6 +237,8 @@
 		B3D9739C2043A264006AC9AF /* TJHomeCategoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJHomeCategoryCell.m; sourceTree = "<group>"; };
 		B3D9739E2043A9AC006AC9AF /* TJHomeCategoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJHomeCategoryModel.h; sourceTree = "<group>"; };
 		B3D9739F2043A9AC006AC9AF /* TJHomeCategoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJHomeCategoryModel.m; sourceTree = "<group>"; };
+		B3D973A12045385A006AC9AF /* TJHomeMiddleContentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJHomeMiddleContentCell.h; sourceTree = "<group>"; };
+		B3D973A22045385A006AC9AF /* TJHomeMiddleContentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJHomeMiddleContentCell.m; sourceTree = "<group>"; };
 		C873E38C2212F51CC3C33026 /* Pods-omc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-omc.release.xcconfig"; path = "Pods/Target Support Files/Pods-omc/Pods-omc.release.xcconfig"; sourceTree = "<group>"; };
 		FE1AE3875C50D329EF8EE8C9 /* Pods-omc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-omc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-omc/Pods-omc.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -403,6 +406,8 @@
 				B32ADAA1203E6098006A6EAB /* TJHomeTopBannerCell.m */,
 				B3D9739B2043A264006AC9AF /* TJHomeCategoryCell.h */,
 				B3D9739C2043A264006AC9AF /* TJHomeCategoryCell.m */,
+				B3D973A12045385A006AC9AF /* TJHomeMiddleContentCell.h */,
+				B3D973A22045385A006AC9AF /* TJHomeMiddleContentCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1002,6 +1007,7 @@
 				B34843812027EA9F008FE754 /* UIScrollView+EmptyDataView.m in Sources */,
 				B3D9739A20439CB1006AC9AF /* TJHomeDateManager.m in Sources */,
 				B34843992027EA9F008FE754 /* TJBaseTableViewController.m in Sources */,
+				B3D973A32045385A006AC9AF /* TJHomeMiddleContentCell.m in Sources */,
 				B34843832027EA9F008FE754 /* NSArray+Log.m in Sources */,
 				B34843722027EA9F008FE754 /* ThreeDES.m in Sources */,
 				B34843842027EA9F008FE754 /* TJPageManager.m in Sources */,

@@ -85,9 +85,9 @@ static NSString * const categoryViewIdentifier = @"categoryViewIdentifier";
 
 @property (nonatomic, strong) UIView *lineView;
 
-@property (nonatomic, strong)UICollectionView *collectionView;
+@property (nonatomic, strong) UICollectionView *collectionView;
 
-@property (nonatomic, strong)UICollectionViewFlowLayout *layout;
+@property (nonatomic, strong) UICollectionViewFlowLayout *layout;
 
 @property (nonatomic, strong) TJHomeCategoryModel *HomeCategorymodel;
 
