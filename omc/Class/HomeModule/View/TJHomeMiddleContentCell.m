@@ -7,6 +7,8 @@
 //
 
 #import "TJHomeMiddleContentCell.h"
+#import "UIImageView+WebCache.h"
+#import "TJHomeMiddleContentModel.h"
 
 
 @class TJHomeContentItemCell;
@@ -17,7 +19,7 @@
 
 @property (nonatomic, strong) UILabel *titleLabel;
 
-
+@property (nonatomic, strong) NSMutableArray <TJHomeContentItemCell *>*items;
 @end
 
 @implementation TJHomeMiddleContentCell
@@ -75,18 +77,63 @@
     }];
 }
 
-- (void)setupViewWithModel:(id)model {
-    self.titleLabel.text = @"热销窗帘";
+- (void)setupViewWithModel:(TJHomeMiddleContentModel *)model {
+    self.titleLabel.text = model.titleName;
+    
+    [self setupItemWithDataArray:model.items];
 }
 
-- (TJHomeContentItemCell *)createItemWithImageUrl:(NSString *)imageUrl title:(NSString *)title number:(NSString *)number {
+- (void)setupItemWithDataArray:(NSArray <TJHomeMiddleItemModel *>*)dataArr {
     
-    TJHomeContentItemCell *item = [[TJHomeContentItemCell alloc]init];
+    if (!self.items) {
+        self.items = [NSMutableArray arrayWithCapacity:0];
+
+    }
     
-    [item setupWithImageUrl:imageUrl title:title number:number];
+    //添加缺省的item数量
+    if (self.items.count <dataArr.count) {
+        NSInteger addCount = dataArr.count - self.items.count;
+        for (NSInteger i = 0; i < addCount; i++) {
+            TJHomeContentItemCell *item = [[TJHomeContentItemCell alloc]init];
+            
+            [self.items addObject:item];
+            
+            [self.backGroundView addSubview:item];
+        }
+        //删除多余的item
+    } else if (self.items.count > dataArr.count) {
+        NSInteger deleteCount = self.items.count - dataArr.count;
+        for (NSInteger i = 0 ; i < deleteCount; i++) {
+            
+            [self.items[i] removeFromSuperview];
+            
+            [self.items removeObject:self.items[i]];
+        }
+    }
     
-    return item;
+    //设置数据
+    for (NSInteger i = 0; i < dataArr.count; i++) {
+        [self.items[i] setModel:dataArr[i]];
+    }
+    
+    //设置约束
+    for (NSInteger i = 0; i < self.items.count; i++) {
+        
+        [self.items[i] mas_remakeConstraints:^(MASConstraintMaker *make) {
+            if (i % 2 == 0) {
+                
+                make.left.equalTo(self.backGroundView).mas_offset(TJHomeMiddleContentMargin);
+            }else {
+                make.right.equalTo(self.backGroundView).mas_offset(-TJHomeMiddleContentMargin);
+            }
+            
+            make.width.height.equalTo(@(TJHomeMiddleContentItemWidth));
+            make.top.equalTo(self.backGroundView).mas_offset((TJHomeMiddleContentTopMargin + ((TJHomeMiddleContentItemWidth + TJHomeMiddleContentMargin) * (i/2))));
+        }];
+    }
+    
 }
+
 
 @end
 
@@ -115,6 +162,7 @@
 }
 - (void)setupSubviews {
     UIImageView *imageview = [[UIImageView alloc]init];
+    imageview.contentMode = UIViewContentModeScaleToFill;
     self.imageView = imageview;
     [self addSubview:imageview];
     
@@ -130,16 +178,47 @@
     [self addSubview:self.numberLabel];
     self.numberLabel.textColor = UIColorFromRGB(0xa0a0a0);
     self.numberLabel.font = [UIFont systemFontOfSize:10 *[TJAdaptiveManager adaptiveScale]];
+    
+    //设置圆角
+    self.layer.cornerRadius = 7;
+    self.layer.borderWidth = 0.5;
+    self.layer.borderColor = [[UIColor grayColor] colorWithAlphaComponent:0.3].CGColor;
+    self.layer.masksToBounds = YES;
 }
 
 - (void)setupLayoutSubviews {
     
     [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
         
+        make.left.right.top.equalTo(self);
+        make.height.equalTo(self.mas_width).multipliedBy(223.f / 355.f);
+    }];
+    
+    
+    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.left.equalTo(self).mas_offset(TJSystem2Xphone6Width(14));
+        make.top.equalTo(self.imageView.mas_bottom).mas_offset(TJSystem2Xphone6Height(20));
+        
+    }];
+    
+    [self.numberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.left.equalTo(self).mas_offset(TJSystem2Xphone6Width(14));
+        make.top.equalTo(self.titleLabel.mas_bottom).mas_offset(TJSystem2Xphone6Height(20));
+        
     }];
 }
 
-- (void)setupWithImageUrl:(NSString *)imageUrl title:(NSString *)title number:(NSString *)number {
+- (void)setModel:(TJHomeMiddleItemModel *)model {
+    _model = model;
     
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:model.imageUrl]];
+    
+    self.titleLabel.text = model.titleName;
+    
+    self.numberLabel.text = [NSString stringWithFormat:@"编号-%@", model.number];
 }
+
+
 @end

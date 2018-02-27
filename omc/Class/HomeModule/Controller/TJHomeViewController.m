@@ -20,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView.showsVerticalScrollIndicator = NO;
+    self.tableView.showsHorizontalScrollIndicator = NO;
+    
     self.navigationItem.title = @"欧曼辰";
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     //消除阴影
@@ -60,7 +63,7 @@
         {
             cell = [tableView dequeueReusableCellWithIdentifier:@"TJHomeMiddleContentCell" forIndexPath:indexPath];
 
-            [cell setupViewWithModel:[TJHomeDateManager sharedInstance].curtainCategoryModel];
+            [cell setupViewWithModel:[TJHomeDateManager sharedInstance].curtainContentModel];
         }
             break;
             
@@ -82,7 +85,7 @@
             heigt = DEVICE_SCREEN_WIDTH / 4 + TJSystem2Xphone6Height(103) + 2;
             break;
         case 2:
-            heigt = TJSystem2Xphone6Height(600);
+            heigt = [TJHomeDateManager sharedInstance].curtainContentModel.rowHeight;
             break;
     }
     return heigt;

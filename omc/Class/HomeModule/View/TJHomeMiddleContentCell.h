@@ -7,7 +7,7 @@
 //
 
 #import "TJBaseTableViewCell.h"
-
+@class TJHomeMiddleItemModel;
 /**
  中间窗帘内容cell
  */
@@ -16,5 +16,5 @@
 @end
 
 @interface TJHomeContentItemCell : UIView
-- (void)setupWithImageUrl:(NSString *)imageUrl title:(NSString *)title number:(NSString *)number;
+@property (nonatomic, strong) TJHomeMiddleItemModel *model;
 @end

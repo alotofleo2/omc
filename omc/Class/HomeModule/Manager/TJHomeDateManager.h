@@ -9,6 +9,7 @@
 #import "TJBaseSharedInstance.h"
 #import "TJHomeBannerModel.h"
 #import "TJHomeCategoryModel.h"
+#import "TJHomeMiddleContentModel.h"
 
 @interface TJHomeDateManager : TJBaseSharedInstance
 
@@ -19,4 +20,9 @@
  窗帘分类头模型
  */
 @property (nonatomic, strong) TJHomeCategoryModel * curtainCategoryModel;
+
+/**
+ 窗帘内容模型
+ */
+@property (nonatomic, strong) TJHomeMiddleContentModel *curtainContentModel;
 @end

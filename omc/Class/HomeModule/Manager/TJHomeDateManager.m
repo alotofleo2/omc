@@ -54,4 +54,22 @@
     
     return model;
 }
+
+
+- (TJHomeMiddleContentModel *)curtainContentModel {
+    if (!_curtainContentModel) {
+        _curtainContentModel = [[TJHomeMiddleContentModel alloc]init];
+        _curtainContentModel.titleName = @"热销窗帘";
+        _curtainContentModel.items = [NSMutableArray arrayWithCapacity:6];
+        for (int i = 0; i < 6; i++) {
+            TJHomeMiddleItemModel *model = [[TJHomeMiddleItemModel alloc]init];
+            
+            model.imageUrl =@"http://wimg.spriteapp.cn/picture/2016/0616/57620c1f354ae_31.jpg";
+            model.titleName =@"雨后星晴";
+            model.number = @"123123123";
+            [_curtainContentModel.items addObject:model];
+        }
+    }
+    return _curtainContentModel;
+}
 @end
