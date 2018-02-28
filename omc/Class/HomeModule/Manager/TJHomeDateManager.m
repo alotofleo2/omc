@@ -155,8 +155,8 @@
     for (int i = 0; i < categoryNumb + 3; i++) {
         TJHomeMiddleItemModel *model = [[TJHomeMiddleItemModel alloc]init];
         
-        model.imageUrl =@"http://wimg.spriteapp.cn/picture/2016/0616/57620c1f354ae_31.jpg";
-        model.titleName =@"雨后星晴";
+        model.imageUrl = @"http://wimg.spriteapp.cn/picture/2016/0616/57620c1f354ae_31.jpg";
+        model.titleName = @"雨后星晴";
         model.number = @"123123123";
         [_curtainHeadContentModel.items addObject:model];
     }

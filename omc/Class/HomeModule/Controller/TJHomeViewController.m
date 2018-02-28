@@ -11,9 +11,11 @@
 #import "TJHomeCategoryCell.h"
 #import "TJHomeDateManager.h"
 #import "TJHomeMiddleContentCell.h"
+#import "TJPersonalView.h"
+#import "TJCurtainEditManager.h"
 
 @interface TJHomeViewController ()
-
+@property (nonatomic, strong) UIButton *backToTopButton;
 @end
 
 @implementation TJHomeViewController
@@ -37,6 +39,7 @@
     
     
     UIButton *leftButton = [TJButton buttonWithType:UIButtonTypeCustom];
+    self.leftButton = leftButton;
     leftButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, TJSystem2Xphone6Width(20));
     [leftButton setImage:[UIImage imageNamed:@"home_mine"] forState:UIControlStateNormal];
     leftButton.frame = CGRectMake(0, 0, TJSystem2Xphone6Width(60), TJSystem2Xphone6Width(43));
@@ -51,7 +54,7 @@
     
     UIButton *rightfirstButton = [TJButton buttonWithType:UIButtonTypeCustom];
     [rightfirstButton setImage:[UIImage imageNamed:@"home_search"] forState:UIControlStateNormal];
-    rightfirstButton.frame = CGRectMake(0, 0, TJSystem2Xphone6Width(44), TJSystem2Xphone6Width(38));
+    rightfirstButton.frame = CGRectMake(0, 0, TJSystem2Xphone6Width(44), TJSystem2Xphone6Width(60));
     rightfirstButton.titleLabel.font = [UIFont systemFontOfSize:40 / 3];
     [rightfirstButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     rightfirstButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
@@ -62,7 +65,7 @@
     
     UIButton *rightSecendButton = [TJButton buttonWithType:UIButtonTypeCustom];
     [rightSecendButton setImage:[UIImage imageNamed:@"home_camera"] forState:UIControlStateNormal];
-    rightSecendButton.frame = CGRectMake(0, 0, TJSystem2Xphone6Width(55), TJSystem2Xphone6Width(38));
+    rightSecendButton.frame = CGRectMake(0, 0, TJSystem2Xphone6Width(55), TJSystem2Xphone6Width(60));
     rightSecendButton.titleLabel.font = [UIFont systemFontOfSize:40 / 3];
     [rightSecendButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     rightSecendButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
@@ -71,6 +74,17 @@
     UIBarButtonItem *secendItem = [[UIBarButtonItem alloc] initWithCustomView:rightSecendButton];
     
     self.navigationItem.rightBarButtonItems = @[secendItem, firstitem];
+    
+    self.backToTopButton = [TJButton buttonWithType:UIButtonTypeCustom];
+    [self.view addSubview:self.backToTopButton];
+    [self.backToTopButton addTarget:self action:@selector(backtoTopButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    [self.backToTopButton setImage:[UIImage imageNamed:@"home_backToTop"] forState:UIControlStateNormal];
+    
+    [self.backToTopButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_offset(-TJSystem2Xphone6Width(38));
+        make.bottom.mas_offset(-TJSystem2Xphone6Height(150));
+        make.width.height.equalTo(@(TJSystem2Xphone6Width(94)));
+    }];
     
 }
 - (void)requestTableViewDataSource {
@@ -234,11 +248,24 @@
 
 #pragma mark 左边第二个点击事件 照片编辑
 - (void)rightSecendButtonPressed {
-    NSLog(@"照片编辑被呗点击");
+    
+    [[TJCurtainEditManager sharedInstance] startEdit];
 }
 
 #pragma mark 左边navigation 点击事件
 - (void)leftButtonPressed {
-    NSLog(@"左边navigation点击");
+
+    [TJPersonalView showPersonnalView];
+    
+    self.leftButton.enabled = NO;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.leftButton.enabled = YES;
+    });
+}
+
+#pragma mark 返回顶部按钮点击
+- (void)backtoTopButtonPressed {
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 @end

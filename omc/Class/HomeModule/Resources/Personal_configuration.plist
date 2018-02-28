@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>修改密码</string>
+		<key>iconImageName</key>
+		<string>personal_changePassword</string>
+		<key>target</key>
+		<string>TJForgetPasswordViewController</string>
+		<key>isNeedLogin</key>
+		<string>1</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>消息中心</string>
+		<key>iconImageName</key>
+		<string>personal_message_unRead</string>
+		<key>target</key>
+		<string>TJPersonalMessageVC</string>
+		<key>isNeedLogin</key>
+		<string>1</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>退出</string>
+		<key>iconImageName</key>
+		<string>personal_out</string>
+		<key>target</key>
+		<string>exit</string>
+		<key>isNeedLogin</key>
+		<string>1</string>
+	</dict>
+</array>
+</plist>

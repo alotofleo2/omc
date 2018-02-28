@@ -7,6 +7,7 @@
 //
 
 #import "TJTabBarController.h"
+#import "TJCurtainEditManager.h"
 #import "TJHomeViewController.h"
 #import "TJTabBar.h"
 
@@ -116,18 +117,8 @@
 #pragma mark - ------------------------------------------------------------------
 #pragma mark - TJTabBarDelegate
 //点击中间按钮的代理方法
-- (void)tabBarPlusBtnClick:(TJTabBar *)tabBar
-{
-    
-    
-    UIViewController *plusVC = [[UIViewController alloc] init];
-    
-    
-    TJNavigationController *navVc = [[TJNavigationController alloc] initWithRootViewController:plusVC];
-    
-    [self presentViewController:navVc animated:YES completion:nil];
-    
-    
+- (void)tabBarPlusBtnClick:(TJTabBar *)tabBar {
+    [[TJCurtainEditManager sharedInstance]startEdit];
 }
 
 @end
