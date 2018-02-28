@@ -160,6 +160,7 @@ static NSString * const categoryViewIdentifier = @"categoryViewIdentifier";
     [self.titleImageView sizeToFit];
     
     [self.collectionView reloadData];
+    
 }
 
 #pragma mark - Getter

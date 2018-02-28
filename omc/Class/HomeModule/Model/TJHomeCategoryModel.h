@@ -28,6 +28,12 @@
  是否被选中
  */
 @property (nonatomic, assign) BOOL isSelected;
+
+
+/**
+ 索引号
+ */
+@property (nonatomic, assign) NSInteger categoryNumb;
 @end
 
 @interface TJHomeCategoryModel : TJBaseModel
