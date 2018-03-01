@@ -8,6 +8,7 @@
 static NSString * const categoryViewIdentifier = @"categoryViewIdentifier";
 
 #import "TJHomeCategoryCell.h"
+#import "UIImageView+WebCache.h"
 
 #pragma  mark - TJCategoryCell
 @interface TJCategoryCell ()
@@ -49,6 +50,7 @@ static NSString * const categoryViewIdentifier = @"categoryViewIdentifier";
         
         make.centerX.equalTo(self.contentView);
         make.centerY.equalTo(self.contentView).mas_offset(- TJSystem2Xphone6Height(20));
+        make.width.height.equalTo(@(TJSystem2Xphone6Width(100)));
     }];
     
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -62,17 +64,28 @@ static NSString * const categoryViewIdentifier = @"categoryViewIdentifier";
     
     if (categoryModel.isSelected  ) {
         
-        self.iconImage.image = [UIImage imageNamed:categoryModel.selectedIconImageName];
+        if ([categoryModel.activeIcon hasPrefix:@"http"]) {
+            [self.iconImage sd_setImageWithURL:[NSURL URLWithString:categoryModel.activeIcon]];
+        } else {
+            self.iconImage.image =  [UIImage imageNamed:categoryModel.activeIcon];
+            
+        }
         self.nameLabel.textColor = UIColorFromRGB(0x808283);
     } else {
         
-        self.iconImage.image = [UIImage imageNamed:categoryModel.iconImageName];
+        if ([categoryModel.activeIcon hasPrefix:@"http"]) {
+            [self.iconImage sd_setImageWithURL:[NSURL URLWithString:categoryModel.inactiveIcon]];
+        } else {
+            
+            self.iconImage.image = [UIImage imageNamed:categoryModel.inactiveIcon];
+            
+        }
         self.nameLabel.textColor = UIColorFromRGB(0xdad9d3);
     }
     
-    [self.iconImage sizeToFit];
     
-    self.nameLabel.text = categoryModel.titleName;
+    
+    self.nameLabel.text = categoryModel.name;
     
 }
 @end
@@ -80,6 +93,8 @@ static NSString * const categoryViewIdentifier = @"categoryViewIdentifier";
 //------------------------------------------------------------------------------------------------
 #pragma mark - TJHomeCategoryCell
 @interface TJHomeCategoryCell()<UICollectionViewDelegate, UICollectionViewDataSource>
+
+@property (nonatomic, strong) UILabel *titleLabel;
 
 @property (nonatomic, strong) UIImageView *titleImageView;
 
@@ -120,9 +135,16 @@ static NSString * const categoryViewIdentifier = @"categoryViewIdentifier";
     self.collectionView.showsHorizontalScrollIndicator = NO;
     [self.contentView addSubview:self.collectionView];
     
+    //添加titleLabel
+    self.titleLabel = [[UILabel alloc]init];
+    self.titleLabel.font = [UIFont systemFontOfSize:16 *[TJAdaptiveManager adaptiveScale]];
+    self.titleLabel.textColor = [UIColor blackColor];
+    [self.contentView addSubview:self.titleLabel];
     //添加imageView
     self.titleImageView = [[UIImageView alloc]init];
     [self.contentView addSubview:self.titleImageView];
+    self.titleImageView.image = [UIImage imageNamed:@"xinpintuijian"];
+    self.titleImageView.contentMode = UIViewContentModeScaleAspectFill;
     
     //lineView
     self.lineView = [[UIView alloc]init];
@@ -131,10 +153,18 @@ static NSString * const categoryViewIdentifier = @"categoryViewIdentifier";
 }
 
 - (void)setupLayoutSubviews {
+    
+    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.centerX.equalTo(self.contentView);
+        make.centerY.equalTo(self.contentView.mas_top).mas_offset(TJSystem2Xphone6Height(103) / 2);
+    }];
+    
     [self.titleImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.centerX.equalTo(self.contentView);
-        make.centerY.equalTo(self.contentView.mas_top).mas_offset(TJSystem2Xphone6Height(103) / 2);
+        make.centerY.equalTo(self.titleLabel.mas_bottom).mas_offset(TJSystem2Xphone6Height(15));
+        make.width.equalTo(@(TJSystem2Xphone6Width(219)));
     }];
     
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -156,7 +186,7 @@ static NSString * const categoryViewIdentifier = @"categoryViewIdentifier";
     
     self.HomeCategorymodel = model;
     
-    self.titleImageView.image = [UIImage imageNamed:model.titleImageName];
+    self.titleLabel.text = model.cateName;
     [self.titleImageView sizeToFit];
     
     [self.collectionView reloadData];

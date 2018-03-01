@@ -64,7 +64,7 @@
         
         for (TJHomeBannerModel *bannerModel in self.models) {
             
-            [imgArr addObject:bannerModel.imageUrl];
+            [imgArr addObject:bannerModel.image];
         }
         
         self.bannerView.imageUrlArray = imgArr.copy;

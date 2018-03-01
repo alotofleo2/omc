@@ -7,6 +7,8 @@
 //
 
 #import "TJHomeDateManager.h"
+#import "TJHomeTask.h"
+#import "MJExtension.h"
 
 @implementation TJHomeDateManager
 - (NSMutableArray<TJHomeBannerModel *> *)bannerModels {
@@ -16,7 +18,7 @@
         for (int i = 0; i < 6; i++) {
             
             TJHomeBannerModel *model = [[TJHomeBannerModel alloc]init];
-            model.imageUrl = @"http://wimg.spriteapp.cn/picture/2016/0616/57620c1f354ae_31.jpg";
+            model.image = @"http://imagecl.gunaimu.com/20180228/daa2d57f5139639cf04a2aedccd99bc5.jpg";
             [_bannerModels addObject:model];
         }
         
@@ -27,7 +29,7 @@
     if (!_curtainCategoryModel) {
         
         _curtainCategoryModel = [[TJHomeCategoryModel alloc]init];
-        _curtainCategoryModel.titleImageName = @"xinpintuijian";
+        _curtainCategoryModel.cateName = @"罗马帘";
         
         NSMutableArray *categoryModels = [NSMutableArray arrayWithCapacity:4];
         TJCategoryModel *firstModel = [self creatCategoryModelWithNormalImageName:@"quanbu" selectedImageName:@"quanbu" titleName:@"查看全部" categoryNumb:0];
@@ -48,13 +50,13 @@
 - (TJCategoryModel *)creatCategoryModelWithNormalImageName:(NSString *)imageName selectedImageName:(NSString *)selectedImageName titleName:(NSString *)titleName categoryNumb:(NSInteger)categoryNumb{
     TJCategoryModel *model = [[TJCategoryModel alloc]init];
     
-    model.iconImageName = imageName;
+    model.inactiveIcon = imageName;
     
-    model.selectedIconImageName = selectedImageName;
+    model.activeIcon = selectedImageName;
     
-    model.titleName = titleName;
+    model.name = titleName;
     
-    model.categoryNumb = categoryNumb;
+    model.primaryKey = categoryNumb;
     
     return model;
 }
@@ -64,15 +66,15 @@
     if (!_curtainContentModel) {
         _curtainContentModel = [[TJHomeMiddleContentModel alloc]init];
         _curtainContentModel.titleName = @"热销窗帘";
-        _curtainContentModel.items = [NSMutableArray arrayWithCapacity:6];
-        for (int i = 0; i < 6; i++) {
-            TJHomeMiddleItemModel *model = [[TJHomeMiddleItemModel alloc]init];
-            
-            model.imageUrl =@"http://wimg.spriteapp.cn/picture/2016/0616/57620c1f354ae_31.jpg";
-            model.titleName =@"雨后星晴";
-            model.number = @"123123123";
-            [_curtainContentModel.items addObject:model];
-        }
+//        _curtainContentModel.items = [NSMutableArray arrayWithCapacity:6];
+//        for (int i = 0; i < 6; i++) {
+//            TJHomeMiddleItemModel *model = [[TJHomeMiddleItemModel alloc]init];
+//
+//            model.image =@"http://wimg.spriteapp.cn/picture/2016/0616/57620c1f354ae_31.jpg";
+//            model.name =@"雨后星晴";
+//            model.number = @"123123123";
+//            [_curtainContentModel.items addObject:model];
+//        }
     }
     return _curtainContentModel;
 }
@@ -81,7 +83,7 @@
     if (!_curtainHeadCategoryModel) {
         
         _curtainHeadCategoryModel = [[TJHomeCategoryModel alloc]init];
-        _curtainHeadCategoryModel.titleImageName = @"xinpintuijian";
+        _curtainHeadCategoryModel.cateName = @"窗头";
         
         NSMutableArray *categoryModels = [NSMutableArray arrayWithCapacity:4];
         TJCategoryModel *firstModel = [self creatCategoryModelWithNormalImageName:@"quanbu" selectedImageName:@"quanbu" titleName:@"查看全部" categoryNumb:0];
@@ -107,13 +109,51 @@
         for (int i = 0; i < 6; i++) {
             TJHomeMiddleItemModel *model = [[TJHomeMiddleItemModel alloc]init];
             
-            model.imageUrl =@"http://wimg.spriteapp.cn/picture/2016/0616/57620c1f354ae_31.jpg";
-            model.titleName =@"雨后星晴";
+            model.image =@"http://wimg.spriteapp.cn/picture/2016/0616/57620c1f354ae_31.jpg";
+            model.name =@"雨后星晴";
             model.number = @"123123123";
             [_curtainHeadContentModel.items addObject:model];
         }
     }
     return _curtainHeadContentModel;
+}
+#pragma mark 首页内容请求
+- (void)requestHomeWithCompleteHandle:(void(^)(void))completeHandle {
+    [TJHomeTask getHomeWithSuccessBlock:^(TJResult *result) {
+        
+        self.bannerModels = [TJHomeBannerModel mj_objectArrayWithKeyValuesArray:[result.data objectForKey:@"banner"]];
+        
+        //设置一级窗帘分类
+        NSArray *curtainCategorys = [[result.data objectForKey:@"product"][0] objectForKey:@"cate"];
+        //插入第一个全部分类
+        self.curtainCategoryModel.categoryModels = [TJCategoryModel mj_objectArrayWithKeyValuesArray:curtainCategorys];
+        TJCategoryModel *firstModel = [self creatCategoryModelWithNormalImageName:@"quanbu" selectedImageName:@"quanbu" titleName:@"查看全部" categoryNumb:0];
+        firstModel.isSelected = YES;
+        [self.curtainCategoryModel.categoryModels insertObject:firstModel atIndex:0];
+        //设置第二个分类选择状态
+        self.curtainCategoryModel.categoryModels[1].isSelected = YES;
+        
+        
+        
+        
+        //设置一级分类窗头
+        NSArray *curtainHeadCategorys = [[result.data objectForKey:@"product"][1] objectForKey:@"cate"];
+        //插入第一个全部分类
+        self.curtainHeadCategoryModel.categoryModels = [TJCategoryModel mj_objectArrayWithKeyValuesArray:curtainHeadCategorys];
+        TJCategoryModel *headFirstModel = [self creatCategoryModelWithNormalImageName:@"quanbu" selectedImageName:@"quanbu" titleName:@"查看全部" categoryNumb:0];
+        headFirstModel.isSelected = YES;
+        [self.curtainHeadCategoryModel.categoryModels insertObject:headFirstModel atIndex:0];
+        //设置第二个分类选择状态
+        self.curtainHeadCategoryModel.categoryModels[1].isSelected = YES;
+        
+        
+        
+        if (completeHandle) {
+            completeHandle();
+        }
+    } failureBlock:^(TJResult *result) {
+        NSLog(@"%@",result.message);
+    }];
 }
 #pragma mark 窗帘头部分类请求
 - (void)requestCurtainCategoryWithCompleteHandle:(void(^)(void))completeHandle {
@@ -124,20 +164,32 @@
 
 #pragma mark  窗帘内容请求
 - (void)requestCurtainContentWithCategoryNumb:(NSInteger)categoryNumb completeHandle:(void(^)(void))completeHandle {
-    _curtainContentModel = [[TJHomeMiddleContentModel alloc]init];
-    _curtainContentModel.titleName = @"热销窗帘";
-    _curtainContentModel.items = [NSMutableArray arrayWithCapacity:6];
-    for (int i = 0; i < categoryNumb + 2; i++) {
-        TJHomeMiddleItemModel *model = [[TJHomeMiddleItemModel alloc]init];
-        
-        model.imageUrl =@"http://wimg.spriteapp.cn/picture/2016/0616/57620c1f354ae_31.jpg";
-        model.titleName =@"雨后星晴";
-        model.number = @"123123123";
-        [_curtainContentModel.items addObject:model];
-    }
-    if (completeHandle) {
-        completeHandle();
-    }
+//    _curtainContentModel.items = [NSMutableArray arrayWithCapacity:6];
+//    for (int i = 0; i < categoryNumb + 2; i++) {
+//        TJHomeMiddleItemModel *model = [[TJHomeMiddleItemModel alloc]init];
+//        
+//        model.image =@"http://wimg.spriteapp.cn/picture/2016/0616/57620c1f354ae_31.jpg";
+//        model.name =@"雨后星晴";
+//        model.number = @"123123123";
+//        [_curtainContentModel.items addObject:model];
+//    }
+    [TJHomeTask getHomeContentWithPrimaryKey:categoryNumb SuccessBlock:^(TJResult *result) {
+        NSLog(@"%@", result.data);
+        _curtainContentModel = [[TJHomeMiddleContentModel alloc]init];
+        _curtainContentModel.titleName = @"热销窗帘";
+
+        _curtainHeadContentModel.items = [TJHomeMiddleItemModel mj_objectArrayWithKeyValuesArray:result.data];
+        NSLog(@"%@",_curtainHeadContentModel.items);
+        if (completeHandle) {
+            completeHandle();
+        }
+    } failureBlock:^(TJResult *result) {
+    
+    }];
+    
+//    if (completeHandle) {
+//        completeHandle();
+//    }
 }
 #pragma mark 窗头头部分类请求
 - (void)requestCurtainHeadCategoryWithCompleteHandle:(void(^)(void))completeHandle {
@@ -155,8 +207,8 @@
     for (int i = 0; i < categoryNumb + 3; i++) {
         TJHomeMiddleItemModel *model = [[TJHomeMiddleItemModel alloc]init];
         
-        model.imageUrl = @"http://wimg.spriteapp.cn/picture/2016/0616/57620c1f354ae_31.jpg";
-        model.titleName = @"雨后星晴";
+        model.image = @"http://wimg.spriteapp.cn/picture/2016/0616/57620c1f354ae_31.jpg";
+        model.name = @"雨后星晴";
         model.number = @"123123123";
         [_curtainHeadContentModel.items addObject:model];
     }

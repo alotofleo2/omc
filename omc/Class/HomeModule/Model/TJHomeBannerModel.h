@@ -12,5 +12,21 @@
 /**
  *  图片地址
  */
-@property (nonatomic, copy) NSString *imageUrl;
+@property (nonatomic, copy) NSString *image;
+
+/**
+ *  名字
+ */
+@property (nonatomic, copy) NSString *name;
+
+/**
+ *  类别key
+ */
+@property (nonatomic, copy) NSString *primaryKey;
+
+
+/**
+ *  产品ID
+ */
+@property (nonatomic, copy) NSString *productId;
 @end

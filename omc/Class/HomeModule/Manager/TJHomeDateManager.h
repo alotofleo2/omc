@@ -38,6 +38,12 @@
 @property (nonatomic, strong) TJHomeMiddleContentModel *curtainHeadContentModel;
 
 
+/**
+ 首页内容请求
+
+ @param completeHandle 完成回调
+ */
+- (void)requestHomeWithCompleteHandle:(void(^)(void))completeHandle;
 //========================窗帘请求
 /**
  窗帘头部分类请求

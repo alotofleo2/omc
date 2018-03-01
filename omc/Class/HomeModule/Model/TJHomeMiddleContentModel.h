@@ -12,11 +12,13 @@
 #import "TJBaseModel.h"
 @interface TJHomeMiddleItemModel : TJBaseModel
 
-@property (nonatomic, copy) NSString *imageUrl;
+@property (nonatomic, copy) NSString *image;
 
-@property (nonatomic, copy) NSString *titleName;
+@property (nonatomic, copy) NSString *name;
 
 @property (nonatomic, copy) NSString *number;
+
+@property (nonatomic, copy) NSString *productId;
 
 @end
 

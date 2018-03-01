@@ -213,9 +213,9 @@
 - (void)setModel:(TJHomeMiddleItemModel *)model {
     _model = model;
     
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:model.imageUrl]];
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:model.image]];
     
-    self.titleLabel.text = model.titleName;
+    self.titleLabel.text = model.name;
     
     self.numberLabel.text = [NSString stringWithFormat:@"编号-%@", model.number];
 }

@@ -52,7 +52,7 @@
         case TJEnvironmentTypeProduction: {
             
             // 生产环境
-            _baseURL = @"https://api.360mijin.com/";
+            _baseURL = @"http://cl.gunaimu.com/";
             _prefixUrl = @"https://m.360mijin.com";
             break;
         }
@@ -68,7 +68,7 @@
         case TJEnvironmentTypeDebug: {
             
             // 测试环境
-            _baseURL = @"http://dev.whaledata.cn:81/mili/mili/";
+            _baseURL = @"http://cl.gunaimu.com/";
             _prefixUrl = @"http://dev.whaledata.cn:81/wallet";
             break;
         }

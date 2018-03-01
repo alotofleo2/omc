@@ -12,17 +12,17 @@
 /**
  title名字
  */
-@property (nonatomic, copy) NSString *titleName;
+@property (nonatomic, copy) NSString *name;
 
 /**
  icon图片名
  */
-@property (nonatomic, copy) NSString *iconImageName;
+@property (nonatomic, copy) NSString *inactiveIcon;
 
 /**
  选中时icon图片名
  */
-@property (nonatomic, copy) NSString *selectedIconImageName;
+@property (nonatomic, copy) NSString *activeIcon;
 
 /**
  是否被选中
@@ -33,7 +33,7 @@
 /**
  索引号
  */
-@property (nonatomic, assign) NSInteger categoryNumb;
+@property (nonatomic, assign) NSInteger primaryKey;
 @end
 
 @interface TJHomeCategoryModel : TJBaseModel
@@ -41,7 +41,7 @@
 /**
  头image的名字
  */
-@property (nonatomic, copy) NSString *titleImageName;
+@property (nonatomic, copy) NSString *cateName;
 
 @property (nonatomic, strong) NSMutableArray<TJCategoryModel *> *categoryModels;
 
