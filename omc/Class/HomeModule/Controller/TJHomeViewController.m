@@ -90,7 +90,7 @@
 - (void)requestTableViewDataSource {
     BLOCK_WEAK_SELF
     [[TJHomeDateManager sharedInstance]requestHomeWithCompleteHandle:^{
-        [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0], [NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0], [NSIndexPath indexPathForRow:1 inSection:0],[NSIndexPath indexPathForRow:3 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
         
         BLOCK_STRONG_SELF
         //窗帘内容请求
@@ -108,27 +108,7 @@
         }];
     }];
     
-//    //窗帘分类请求
-//    [[TJHomeDateManager sharedInstance] requestCurtainCategoryWithCompleteHandle:^{
-//        [weakSelf.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
-//        //窗帘内容请求
-//        NSInteger categoryNumb = [TJHomeDateManager sharedInstance].curtainCategoryModel.categoryModels[1].primaryKey;
-//        [[TJHomeDateManager sharedInstance] requestCurtainContentWithCategoryNumb:categoryNumb completeHandle:^{
-//            
-//            [weakSelf.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:2 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
-//        }];
-//    }];
-//    
-//    //窗头分类请求
-//    [[TJHomeDateManager sharedInstance] requestCurtainHeadCategoryWithCompleteHandle:^{
-//        [weakSelf.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:3 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
-//        //窗头内容请求
-//        NSInteger categoryNumb = [TJHomeDateManager sharedInstance].curtainHeadCategoryModel.categoryModels[1].primaryKey;
-//        [[TJHomeDateManager sharedInstance] requestCurtainHeadContentWithCategoryNumb:categoryNumb completeHandle:^{
-//            
-//            [weakSelf.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:4 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
-//        }];
-//    }];
+
 }
 
 #pragma mark tableview delegate
@@ -250,6 +230,7 @@
         [[TJPageManager sharedInstance] pushViewControllerWithName:@""];
         return ;
     }
+    
     
     //如果不是第一个请求数据
     NSInteger categoryNumb = [TJHomeDateManager sharedInstance].curtainHeadCategoryModel.categoryModels[index].primaryKey;

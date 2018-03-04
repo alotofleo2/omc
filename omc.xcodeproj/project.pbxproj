@@ -89,6 +89,7 @@
 		B3C87166204702FD0061146E /* TJPersonalDataVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C87165204702FD0061146E /* TJPersonalDataVC.m */; };
 		B3C871692047031F0061146E /* TJPersonalDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C871682047031F0061146E /* TJPersonalDataCell.m */; };
 		B3C8716C204703370061146E /* TJPersonalDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C8716B204703370061146E /* TJPersonalDataModel.m */; };
+		B3C8717120482D440061146E /* TJCurtainEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C8717020482D440061146E /* TJCurtainEditViewController.m */; };
 		B3D9739420439983006AC9AF /* TJBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D9739320439983006AC9AF /* TJBaseModel.m */; };
 		B3D97397204399EE006AC9AF /* TJHomeBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D97396204399EE006AC9AF /* TJHomeBannerModel.m */; };
 		B3D9739A20439CB1006AC9AF /* TJHomeDateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D9739920439CB1006AC9AF /* TJHomeDateManager.m */; };
@@ -270,6 +271,8 @@
 		B3C871682047031F0061146E /* TJPersonalDataCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJPersonalDataCell.m; sourceTree = "<group>"; };
 		B3C8716A204703370061146E /* TJPersonalDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJPersonalDataModel.h; sourceTree = "<group>"; };
 		B3C8716B204703370061146E /* TJPersonalDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJPersonalDataModel.m; sourceTree = "<group>"; };
+		B3C8716F20482D440061146E /* TJCurtainEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCurtainEditViewController.h; sourceTree = "<group>"; };
+		B3C8717020482D440061146E /* TJCurtainEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCurtainEditViewController.m; sourceTree = "<group>"; };
 		B3D9739220439982006AC9AF /* TJBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJBaseModel.h; sourceTree = "<group>"; };
 		B3D9739320439983006AC9AF /* TJBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJBaseModel.m; sourceTree = "<group>"; };
 		B3D97395204399EE006AC9AF /* TJHomeBannerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJHomeBannerModel.h; sourceTree = "<group>"; };
@@ -966,6 +969,8 @@
 		B3C871542046DADC0061146E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B3C8716F20482D440061146E /* TJCurtainEditViewController.h */,
+				B3C8717020482D440061146E /* TJCurtainEditViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1152,6 +1157,7 @@
 				B34843922027EA9F008FE754 /* TJTableLoadFailView.m in Sources */,
 				B34843852027EA9F008FE754 /* TJAdaptiveManager.m in Sources */,
 				B348438E2027EA9F008FE754 /* TJBannerCell.m in Sources */,
+				B3C8717120482D440061146E /* TJCurtainEditViewController.m in Sources */,
 				B34843862027EA9F008FE754 /* TJUserDefaultsManager.m in Sources */,
 				B32ADA9F203E605E006A6EAB /* TJHomeViewController.m in Sources */,
 				B348437B2027EA9F008FE754 /* UITextView+PlaceHolder.m in Sources */,

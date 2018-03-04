@@ -106,14 +106,14 @@
         _curtainHeadContentModel = [[TJHomeMiddleContentModel alloc]init];
         _curtainHeadContentModel.titleName = @"热销窗帘";
         _curtainHeadContentModel.items = [NSMutableArray arrayWithCapacity:6];
-        for (int i = 0; i < 6; i++) {
-            TJHomeMiddleItemModel *model = [[TJHomeMiddleItemModel alloc]init];
-            
-            model.image =@"http://wimg.spriteapp.cn/picture/2016/0616/57620c1f354ae_31.jpg";
-            model.name =@"雨后星晴";
-            model.number = @"123123123";
-            [_curtainHeadContentModel.items addObject:model];
-        }
+//        for (int i = 0; i < 6; i++) {
+//            TJHomeMiddleItemModel *model = [[TJHomeMiddleItemModel alloc]init];
+//
+//            model.image =@"http://wimg.spriteapp.cn/picture/2016/0616/57620c1f354ae_31.jpg";
+//            model.name =@"雨后星晴";
+//            model.number = @"123123123";
+//            [_curtainHeadContentModel.items addObject:model];
+//        }
     }
     return _curtainHeadContentModel;
 }
@@ -134,11 +134,10 @@
         self.curtainCategoryModel.categoryModels[1].isSelected = YES;
         
         
-        
-        
         //设置一级分类窗头
         NSArray *curtainHeadCategorys = [[result.data objectForKey:@"product"][1] objectForKey:@"cate"];
         //插入第一个全部分类
+        NSLog(@"%@", curtainHeadCategorys);
         self.curtainHeadCategoryModel.categoryModels = [TJCategoryModel mj_objectArrayWithKeyValuesArray:curtainHeadCategorys];
         TJCategoryModel *headFirstModel = [self creatCategoryModelWithNormalImageName:@"quanbu" selectedImageName:@"quanbu" titleName:@"查看全部" categoryNumb:0];
         headFirstModel.isSelected = YES;
@@ -164,22 +163,14 @@
 
 #pragma mark  窗帘内容请求
 - (void)requestCurtainContentWithCategoryNumb:(NSInteger)categoryNumb completeHandle:(void(^)(void))completeHandle {
-//    _curtainContentModel.items = [NSMutableArray arrayWithCapacity:6];
-//    for (int i = 0; i < categoryNumb + 2; i++) {
-//        TJHomeMiddleItemModel *model = [[TJHomeMiddleItemModel alloc]init];
-//        
-//        model.image =@"http://wimg.spriteapp.cn/picture/2016/0616/57620c1f354ae_31.jpg";
-//        model.name =@"雨后星晴";
-//        model.number = @"123123123";
-//        [_curtainContentModel.items addObject:model];
-//    }
+
     [TJHomeTask getHomeContentWithPrimaryKey:categoryNumb SuccessBlock:^(TJResult *result) {
-        NSLog(@"%@", result.data);
+        
         _curtainContentModel = [[TJHomeMiddleContentModel alloc]init];
         _curtainContentModel.titleName = @"热销窗帘";
 
-        _curtainHeadContentModel.items = [TJHomeMiddleItemModel mj_objectArrayWithKeyValuesArray:result.data];
-        NSLog(@"%@",_curtainHeadContentModel.items);
+        _curtainContentModel.items = [TJHomeMiddleItemModel mj_objectArrayWithKeyValuesArray:result.data];
+        
         if (completeHandle) {
             completeHandle();
         }
@@ -187,9 +178,6 @@
     
     }];
     
-//    if (completeHandle) {
-//        completeHandle();
-//    }
 }
 #pragma mark 窗头头部分类请求
 - (void)requestCurtainHeadCategoryWithCompleteHandle:(void(^)(void))completeHandle {
@@ -201,20 +189,18 @@
 #pragma mark  窗头内容请求
 - (void)requestCurtainHeadContentWithCategoryNumb:(NSInteger)categoryNumb completeHandle:(void(^)(void))completeHandle {
     
-    _curtainHeadContentModel = [[TJHomeMiddleContentModel alloc]init];
-    _curtainHeadContentModel.titleName = @"热销窗头";
-    _curtainHeadContentModel.items = [NSMutableArray arrayWithCapacity:6];
-    for (int i = 0; i < categoryNumb + 3; i++) {
-        TJHomeMiddleItemModel *model = [[TJHomeMiddleItemModel alloc]init];
+    [TJHomeTask getHomeContentWithPrimaryKey:categoryNumb SuccessBlock:^(TJResult *result) {
         
-        model.image = @"http://wimg.spriteapp.cn/picture/2016/0616/57620c1f354ae_31.jpg";
-        model.name = @"雨后星晴";
-        model.number = @"123123123";
-        [_curtainHeadContentModel.items addObject:model];
-    }
-    
-    if (completeHandle) {
-        completeHandle();
-    }
+        _curtainHeadContentModel = [[TJHomeMiddleContentModel alloc]init];
+        _curtainHeadContentModel.titleName = @"热销窗头";
+        
+        _curtainHeadContentModel.items = [TJHomeMiddleItemModel mj_objectArrayWithKeyValuesArray:result.data];
+        
+        if (completeHandle) {
+            completeHandle();
+        }
+    } failureBlock:^(TJResult *result) {
+        
+    }];
 }
 @end

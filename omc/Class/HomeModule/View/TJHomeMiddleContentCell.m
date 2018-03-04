@@ -85,6 +85,12 @@
 
 - (void)setupItemWithDataArray:(NSArray <TJHomeMiddleItemModel *>*)dataArr {
     
+    
+//    for (TJHomeContentItemCell *cell in self.items) {
+//        [self.items removeObject:cell];
+//        [cell removeFromSuperview];
+//
+//    }
     if (!self.items) {
         self.items = [NSMutableArray arrayWithCapacity:0];
 
