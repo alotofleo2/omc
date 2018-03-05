@@ -94,14 +94,14 @@
         
         BLOCK_STRONG_SELF
         //窗帘内容请求
-        NSInteger categoryNumb = [TJHomeDateManager sharedInstance].curtainCategoryModel.categoryModels[1].primaryKey;
+        NSInteger categoryNumb = [TJHomeDateManager sharedInstance].curtainCategoryModel.categoryModels[1].productCateId;
         [[TJHomeDateManager sharedInstance] requestCurtainContentWithCategoryNumb:categoryNumb completeHandle:^{
             
             [strongSelf.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:2 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
         }];
         
         //窗头内容请求
-        NSInteger headCategoryNumb = [TJHomeDateManager sharedInstance].curtainHeadCategoryModel.categoryModels[1].primaryKey;
+        NSInteger headCategoryNumb = [TJHomeDateManager sharedInstance].curtainHeadCategoryModel.categoryModels[1].productCateId;
         [[TJHomeDateManager sharedInstance] requestCurtainHeadContentWithCategoryNumb:headCategoryNumb completeHandle:^{
             
             [weakSelf.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:4 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
@@ -217,7 +217,7 @@
     }
     BLOCK_WEAK_SELF
     //如果不是第一个请求数据
-    NSInteger categoryNumb = [TJHomeDateManager sharedInstance].curtainCategoryModel.categoryModels[index].primaryKey;
+    NSInteger categoryNumb = [TJHomeDateManager sharedInstance].curtainCategoryModel.categoryModels[index].productCateId;
     [[TJHomeDateManager sharedInstance] requestCurtainContentWithCategoryNumb:categoryNumb completeHandle:^{
         BLOCK_STRONG_SELF
        [strongSelf.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:2 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
@@ -233,7 +233,7 @@
     
     
     //如果不是第一个请求数据
-    NSInteger categoryNumb = [TJHomeDateManager sharedInstance].curtainHeadCategoryModel.categoryModels[index].primaryKey;
+    NSInteger categoryNumb = [TJHomeDateManager sharedInstance].curtainHeadCategoryModel.categoryModels[index].productCateId;
     [[TJHomeDateManager sharedInstance] requestCurtainHeadContentWithCategoryNumb:categoryNumb completeHandle:^{
         
         [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:4 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
@@ -243,6 +243,7 @@
 #pragma mark 左边第一个点击事件 搜索
 - (void)rightfirstButtonPressed {
     NSLog(@"搜索被呗点击");
+
 }
 
 #pragma mark 左边第二个点击事件 照片编辑
@@ -254,13 +255,14 @@
 #pragma mark 左边navigation 点击事件
 - (void)leftButtonPressed {
 
-    [TJPersonalView showPersonnalView];
-    
-    self.leftButton.enabled = NO;
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.leftButton.enabled = YES;
-    });
+//    [TJPersonalView showPersonnalView];
+//
+//    self.leftButton.enabled = NO;
+//
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        self.leftButton.enabled = YES;
+//    });
+    [[TJPageManager sharedInstance] pushViewControllerWithName:@"TJLoginViewController"];
 }
 
 #pragma mark 返回顶部按钮点击

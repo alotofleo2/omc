@@ -74,7 +74,7 @@ typedef NS_ENUM(NSUInteger, TJPanGestureDirection) {
     // Do any additional setup after loading the view.
     
     self.navigationBar.translucent = YES;
-    self.navigationBar.barTintColor = [UIColor whiteColor];
+    self.navigationBar.barTintColor = UIColorFromRGB(0xf0f0f0);
     
     
     NSDictionary *titleAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName,[UIFont systemFontOfSize:18],NSFontAttributeName, nil];

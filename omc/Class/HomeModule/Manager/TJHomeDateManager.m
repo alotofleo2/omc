@@ -56,7 +56,7 @@
     
     model.name = titleName;
     
-    model.primaryKey = categoryNumb;
+    model.productCateId = categoryNumb;
     
     return model;
 }
@@ -137,7 +137,7 @@
         //设置一级分类窗头
         NSArray *curtainHeadCategorys = [[result.data objectForKey:@"product"][1] objectForKey:@"cate"];
         //插入第一个全部分类
-        NSLog(@"%@", curtainHeadCategorys);
+        
         self.curtainHeadCategoryModel.categoryModels = [TJCategoryModel mj_objectArrayWithKeyValuesArray:curtainHeadCategorys];
         TJCategoryModel *headFirstModel = [self creatCategoryModelWithNormalImageName:@"quanbu" selectedImageName:@"quanbu" titleName:@"查看全部" categoryNumb:0];
         headFirstModel.isSelected = YES;

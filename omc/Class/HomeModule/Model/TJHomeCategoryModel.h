@@ -33,7 +33,7 @@
 /**
  索引号
  */
-@property (nonatomic, assign) NSInteger primaryKey;
+@property (nonatomic, assign) NSInteger productCateId;
 @end
 
 @interface TJHomeCategoryModel : TJBaseModel

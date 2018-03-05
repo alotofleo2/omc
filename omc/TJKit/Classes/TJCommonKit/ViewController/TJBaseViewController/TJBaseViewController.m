@@ -198,12 +198,12 @@
     
     if ([leftImageName hasPrefix:@"http"]) {
         
-        [self.leftButton sd_setImageWithURL:[NSURL URLWithString:leftImageName] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"trPhoto"]];
+        [self.leftButton sd_setImageWithURL:[NSURL URLWithString:leftImageName] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"return"]];
     }
     
     if (leftImageName.length ==0||[leftImageName isKindOfClass:[NSNull class]]) {
         
-        [self.leftButton setImage:[UIImage imageNamed:@"trPhoto"] forState:UIControlStateNormal];
+        [self.leftButton setImage:[UIImage imageNamed:@"return"] forState:UIControlStateNormal];
     }
 }
 
@@ -593,7 +593,7 @@
     
     self.backButton = [TJButton buttonWithType:UIButtonTypeCustom];
     self.backButton.frame = CGRectMake(0.f, 0.f, TJSystem2Xphone6Width(60), TJSystem2Xphone6Width(60));
-    [self.backButton setImage:[UIImage imageNamed:@"navIcon_return"] forState:UIControlStateNormal];
+    [self.backButton setImage:[UIImage imageNamed:@"return"] forState:UIControlStateNormal];
     [self.backButton setImageEdgeInsets:UIEdgeInsetsMake(0, - TJSystem2Xphone6Width(60) / 2, 0, 0)];
     [self.backButton addTarget:self action:@selector(backButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     

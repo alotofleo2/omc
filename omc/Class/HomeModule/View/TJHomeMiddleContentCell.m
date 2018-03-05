@@ -219,7 +219,7 @@
 - (void)setModel:(TJHomeMiddleItemModel *)model {
     _model = model;
     
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:model.image]];
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:nil];
     
     self.titleLabel.text = model.name;
     

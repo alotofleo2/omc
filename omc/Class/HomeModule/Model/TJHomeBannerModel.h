@@ -20,9 +20,9 @@
 @property (nonatomic, copy) NSString *name;
 
 /**
- *  类别key
+ *  bannerkey
  */
-@property (nonatomic, copy) NSString *primaryKey;
+@property (nonatomic, copy) NSString *bannerId;
 
 
 /**
