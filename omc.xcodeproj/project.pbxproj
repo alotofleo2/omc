@@ -90,6 +90,14 @@
 		B3C871692047031F0061146E /* TJPersonalDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C871682047031F0061146E /* TJPersonalDataCell.m */; };
 		B3C8716C204703370061146E /* TJPersonalDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C8716B204703370061146E /* TJPersonalDataModel.m */; };
 		B3C8717120482D440061146E /* TJCurtainEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C8717020482D440061146E /* TJCurtainEditViewController.m */; };
+		B3D095CA204E2414009D19FE /* TJSettingDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D095C9204E2414009D19FE /* TJSettingDefines.m */; };
+		B3D095CD204E2471009D19FE /* TJSettingTask.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D095CC204E2471009D19FE /* TJSettingTask.m */; };
+		B3D095D1204F8202009D19FE /* TJProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D095D0204F8202009D19FE /* TJProgressHUD.m */; };
+		B3D095D4204F88AD009D19FE /* TJSettingMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D095D3204F88AD009D19FE /* TJSettingMainVC.m */; };
+		B3D095D7204F894C009D19FE /* TJSettingMainTopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D095D6204F894C009D19FE /* TJSettingMainTopCell.m */; };
+		B3D095DA204FB787009D19FE /* TJSettingMainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D095D9204FB787009D19FE /* TJSettingMainModel.m */; };
+		B3D095E0204FB9FA009D19FE /* TJUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D095DF204FB9FA009D19FE /* TJUserModel.m */; };
+		B3D095E3204FCD6C009D19FE /* TJSettingMainNormalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D095E2204FCD6C009D19FE /* TJSettingMainNormalCell.m */; };
 		B3D9739420439983006AC9AF /* TJBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D9739320439983006AC9AF /* TJBaseModel.m */; };
 		B3D97397204399EE006AC9AF /* TJHomeBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D97396204399EE006AC9AF /* TJHomeBannerModel.m */; };
 		B3D9739A20439CB1006AC9AF /* TJHomeDateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D9739920439CB1006AC9AF /* TJHomeDateManager.m */; };
@@ -273,6 +281,22 @@
 		B3C8716B204703370061146E /* TJPersonalDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJPersonalDataModel.m; sourceTree = "<group>"; };
 		B3C8716F20482D440061146E /* TJCurtainEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCurtainEditViewController.h; sourceTree = "<group>"; };
 		B3C8717020482D440061146E /* TJCurtainEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCurtainEditViewController.m; sourceTree = "<group>"; };
+		B3D095C8204E2414009D19FE /* TJSettingDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJSettingDefines.h; sourceTree = "<group>"; };
+		B3D095C9204E2414009D19FE /* TJSettingDefines.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJSettingDefines.m; sourceTree = "<group>"; };
+		B3D095CB204E2471009D19FE /* TJSettingTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJSettingTask.h; sourceTree = "<group>"; };
+		B3D095CC204E2471009D19FE /* TJSettingTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJSettingTask.m; sourceTree = "<group>"; };
+		B3D095CF204F8202009D19FE /* TJProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJProgressHUD.h; sourceTree = "<group>"; };
+		B3D095D0204F8202009D19FE /* TJProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJProgressHUD.m; sourceTree = "<group>"; };
+		B3D095D2204F88AD009D19FE /* TJSettingMainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJSettingMainVC.h; sourceTree = "<group>"; };
+		B3D095D3204F88AD009D19FE /* TJSettingMainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJSettingMainVC.m; sourceTree = "<group>"; };
+		B3D095D5204F894C009D19FE /* TJSettingMainTopCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJSettingMainTopCell.h; sourceTree = "<group>"; };
+		B3D095D6204F894C009D19FE /* TJSettingMainTopCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJSettingMainTopCell.m; sourceTree = "<group>"; };
+		B3D095D8204FB787009D19FE /* TJSettingMainModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJSettingMainModel.h; sourceTree = "<group>"; };
+		B3D095D9204FB787009D19FE /* TJSettingMainModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJSettingMainModel.m; sourceTree = "<group>"; };
+		B3D095DE204FB9FA009D19FE /* TJUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJUserModel.h; sourceTree = "<group>"; };
+		B3D095DF204FB9FA009D19FE /* TJUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJUserModel.m; sourceTree = "<group>"; };
+		B3D095E1204FCD6C009D19FE /* TJSettingMainNormalCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJSettingMainNormalCell.h; sourceTree = "<group>"; };
+		B3D095E2204FCD6C009D19FE /* TJSettingMainNormalCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJSettingMainNormalCell.m; sourceTree = "<group>"; };
 		B3D9739220439982006AC9AF /* TJBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJBaseModel.h; sourceTree = "<group>"; };
 		B3D9739320439983006AC9AF /* TJBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJBaseModel.m; sourceTree = "<group>"; };
 		B3D97395204399EE006AC9AF /* TJHomeBannerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJHomeBannerModel.h; sourceTree = "<group>"; };
@@ -383,11 +407,11 @@
 				B32ADA7E203E5257006A6EAB /* TJURLConfigurator.h */,
 				B32ADA88203E5257006A6EAB /* TJURLConfigurator.m */,
 				B32ADA7F203E5257006A6EAB /* TJTokenManager.h */,
+				B32ADA89203E5257006A6EAB /* TJTokenManager.m */,
 				B32ADA80203E5257006A6EAB /* TJRequest.m */,
 				B32ADA81203E5257006A6EAB /* TJResult.h */,
 				B32ADA82203E5257006A6EAB /* TJHTTPSessionManager.m */,
 				B32ADA83203E5257006A6EAB /* TJAPI */,
-				B32ADA89203E5257006A6EAB /* TJTokenManager.m */,
 				B32ADA8A203E5257006A6EAB /* TJResult.m */,
 				B32ADA8B203E5257006A6EAB /* TJRequest.h */,
 				B32ADA8C203E5257006A6EAB /* TJNetworkKit.h */,
@@ -809,6 +833,7 @@
 		B348433A2027EA9F008FE754 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B3D095CE204F81D1009D19FE /* Progress */,
 				B348434C2027EA9F008FE754 /* TJButton.h */,
 				B348433B2027EA9F008FE754 /* TJButton.m */,
 				B34843582027EA9F008FE754 /* TJBaseView.h */,
@@ -854,10 +879,10 @@
 			isa = PBXGroup;
 			children = (
 				B348434E2027EA9F008FE754 /* TJAlertView.m */,
-				B348434F2027EA9F008FE754 /* TJAlertUtil.h */,
-				B34843502027EA9F008FE754 /* FTMessage */,
 				B34843542027EA9F008FE754 /* TJAlertView.h */,
+				B348434F2027EA9F008FE754 /* TJAlertUtil.h */,
 				B34843552027EA9F008FE754 /* TJAlertUtil.m */,
+				B34843502027EA9F008FE754 /* FTMessage */,
 			);
 			path = TJAlert;
 			sourceTree = "<group>";
@@ -985,6 +1010,7 @@
 		B3C8715D2047022C0061146E /* SettingModule */ = {
 			isa = PBXGroup;
 			children = (
+				B3D095C7204E23F3009D19FE /* Network */,
 				B3C8715E2047022C0061146E /* Models */,
 				B3C8715F2047022C0061146E /* Controllers */,
 				B3C871602047022C0061146E /* Views */,
@@ -997,6 +1023,10 @@
 			children = (
 				B3C8716A204703370061146E /* TJPersonalDataModel.h */,
 				B3C8716B204703370061146E /* TJPersonalDataModel.m */,
+				B3D095D8204FB787009D19FE /* TJSettingMainModel.h */,
+				B3D095D9204FB787009D19FE /* TJSettingMainModel.m */,
+				B3D095DE204FB9FA009D19FE /* TJUserModel.h */,
+				B3D095DF204FB9FA009D19FE /* TJUserModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1006,6 +1036,8 @@
 			children = (
 				B3C87161204702560061146E /* TJLoginViewController.h */,
 				B3C87162204702560061146E /* TJLoginViewController.m */,
+				B3D095D2204F88AD009D19FE /* TJSettingMainVC.h */,
+				B3D095D3204F88AD009D19FE /* TJSettingMainVC.m */,
 				B3C87164204702FD0061146E /* TJPersonalDataVC.h */,
 				B3C87165204702FD0061146E /* TJPersonalDataVC.m */,
 			);
@@ -1017,8 +1049,32 @@
 			children = (
 				B3C871672047031F0061146E /* TJPersonalDataCell.h */,
 				B3C871682047031F0061146E /* TJPersonalDataCell.m */,
+				B3D095D5204F894C009D19FE /* TJSettingMainTopCell.h */,
+				B3D095D6204F894C009D19FE /* TJSettingMainTopCell.m */,
+				B3D095E1204FCD6C009D19FE /* TJSettingMainNormalCell.h */,
+				B3D095E2204FCD6C009D19FE /* TJSettingMainNormalCell.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B3D095C7204E23F3009D19FE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B3D095C8204E2414009D19FE /* TJSettingDefines.h */,
+				B3D095C9204E2414009D19FE /* TJSettingDefines.m */,
+				B3D095CB204E2471009D19FE /* TJSettingTask.h */,
+				B3D095CC204E2471009D19FE /* TJSettingTask.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		B3D095CE204F81D1009D19FE /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				B3D095CF204F8202009D19FE /* TJProgressHUD.h */,
+				B3D095D0204F8202009D19FE /* TJProgressHUD.m */,
+			);
+			path = Progress;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1164,6 +1220,7 @@
 				B34843732027EA9F008FE754 /* TJInputChecker.m in Sources */,
 				B32ADAA2203E6098006A6EAB /* TJHomeTopBannerCell.m in Sources */,
 				B32ADA91203E5257006A6EAB /* TJAccountTask.m in Sources */,
+				B3D095D4204F88AD009D19FE /* TJSettingMainVC.m in Sources */,
 				B34843982027EA9F008FE754 /* TJBaseViewController.m in Sources */,
 				B34842CC2027E8AD008FE754 /* ViewController.m in Sources */,
 				B32ADA8F203E5257006A6EAB /* TJHTTPSessionManager.m in Sources */,
@@ -1181,6 +1238,7 @@
 				B34843702027EA9F008FE754 /* AESUtil.m in Sources */,
 				B34843962027EA9F008FE754 /* TJAlertUtil.m in Sources */,
 				B348437C2027EA9F008FE754 /* UIImage+Extension.m in Sources */,
+				B3D095D7204F894C009D19FE /* TJSettingMainTopCell.m in Sources */,
 				B348439D2027EA9F008FE754 /* TJBaseWebViewController.m in Sources */,
 				B32ADA79203E4F34006A6EAB /* TJTabBarController.m in Sources */,
 				B34842D72027E8AD008FE754 /* main.m in Sources */,
@@ -1188,6 +1246,7 @@
 				B348438A2027EA9F008FE754 /* TJButton.m in Sources */,
 				B3D973A02043A9AC006AC9AF /* TJHomeCategoryModel.m in Sources */,
 				B348438F2027EA9F008FE754 /* TJTableLoadingView.m in Sources */,
+				B3D095CA204E2414009D19FE /* TJSettingDefines.m in Sources */,
 				B348439A2027EA9F008FE754 /* TJBannerView.m in Sources */,
 				B32D7AED2047A1BE00518687 /* TJHomeTask.m in Sources */,
 				B32ADA97203E53A6006A6EAB /* TJRouteManager.m in Sources */,
@@ -1219,16 +1278,21 @@
 				B3C87166204702FD0061146E /* TJPersonalDataVC.m in Sources */,
 				B3C871442046D4D90061146E /* TJPersonalDataDelegate.m in Sources */,
 				B34843882027EA9F008FE754 /* TJResponder.m in Sources */,
+				B3D095CD204E2471009D19FE /* TJSettingTask.m in Sources */,
 				B348438C2027EA9F008FE754 /* TJWebViewProgressView.m in Sources */,
+				B3D095E3204FCD6C009D19FE /* TJSettingMainNormalCell.m in Sources */,
 				B348437A2027EA9F008FE754 /* StringUtil.m in Sources */,
+				B3D095D1204F8202009D19FE /* TJProgressHUD.m in Sources */,
 				B34843712027EA9F008FE754 /* NSData+AES.m in Sources */,
 				B32ADA92203E5257006A6EAB /* TJURLConfigurator.m in Sources */,
 				B34843932027EA9F008FE754 /* TJAlertView.m in Sources */,
 				B348439B2027EA9F008FE754 /* TJNavigationController.m in Sources */,
 				B348437D2027EA9F008FE754 /* UIFont+Extension.m in Sources */,
 				B32D7AEA20479CE700518687 /* TJHomeDefines.m in Sources */,
+				B3D095DA204FB787009D19FE /* TJSettingMainModel.m in Sources */,
 				B3C871412046D48B0061146E /* TJPersonalView.m in Sources */,
 				B34843912027EA9F008FE754 /* TJTableEmptyView.m in Sources */,
+				B3D095E0204FB9FA009D19FE /* TJUserModel.m in Sources */,
 				B348437E2027EA9F008FE754 /* TJColor.m in Sources */,
 				B348436D2027EA9F008FE754 /* TJDeviceInfo.m in Sources */,
 				B3C871492046D4FD0061146E /* TJPersonalTableHeaderView.m in Sources */,

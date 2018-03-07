@@ -8,10 +8,9 @@
 
 #import "TJURLConfigurator.h"
 #import "TJTokenManager.h"
-//#import "RWUserModel.h"
 #import "TJToolKit.h"
 #import "TJRequest.h"
-
+#import "TJSettingTask.h"
 @interface TJRequest ()
 
 /**
@@ -277,7 +276,7 @@
     manager.requestSerializer.timeoutInterval = 30;
     
 
-    NSString * cookieValue = [NSString stringWithFormat:@"%@ %@", [TJTokenManager sharedInstance].tokenType, [TJTokenManager sharedInstance].accessToken];
+    NSString * cookieValue = [NSString stringWithFormat:@"Bearer %@", [TJTokenManager sharedInstance].token];
     [manager.requestSerializer setValue:cookieValue forHTTPHeaderField:@"Authorization"];
     
     self.task = [manager POST:urlString parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
@@ -353,40 +352,40 @@
                 //token超时
                 if (result.errcode == TJResponseCodeTokenTimeout && [[TJTokenManager sharedInstance]isLogin]) {
 //                    //刷新token
-//                    [RWAccountTask refreshTokenWithSuccessBlock:^(TJResult *result) {
-//                        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-//
-//                            //重新请求
-//                            NSURLSession *session = [NSURLSession sharedSession];
-//
-//
-//                            NSMutableDictionary *allHTTPHeaderFields =  task.originalRequest.allHTTPHeaderFields.mutableCopy;
-//
-//                            [allHTTPHeaderFields setValue:[NSString stringWithFormat:@"%@ %@", [TJTokenManager sharedInstance].tokenType, [TJTokenManager sharedInstance].accessToken] forKey:@"Authorization"];
-//
-//                            NSMutableURLRequest *request = task.originalRequest.mutableCopy;
-//
-//                            request.allHTTPHeaderFields = allHTTPHeaderFields.copy;
-//
-//                            __block NSURLSessionDataTask *newTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-//                                id responseObject = data;
-//                                if (data) {
-//
-//                                    NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-//
-//                                    responseObject = jsonDict;
-//                                }
-//                                dispatch_async(dispatch_get_main_queue(), ^{
-//
-//                                    [self requestFinishedWithParams:params task:newTask responseObject:responseObject error:error SuccessBlock:successBlock failureBlock:failureBlock];
-//                                });
-//                            }];
-//                            [newTask resume];
-//                        });
-//                    } failureBlock:^(TJResult *result) {
-//
-//                    }];
-                    
+                    [TJSettingTask refreshTokenWithSuccessBlock:^(TJResult *result) {
+                        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                            
+                            //重新请求
+                            NSURLSession *session = [NSURLSession sharedSession];
+                            
+                            
+                            NSMutableDictionary *allHTTPHeaderFields =  task.originalRequest.allHTTPHeaderFields.mutableCopy;
+                            
+                            [allHTTPHeaderFields setValue:[NSString stringWithFormat:@"Bearer %@", [TJTokenManager sharedInstance].token] forKey:@"Authorization"];
+                            
+                            NSMutableURLRequest *request = task.originalRequest.mutableCopy;
+                            
+                            request.allHTTPHeaderFields = allHTTPHeaderFields.copy;
+                            
+                            __block NSURLSessionDataTask *newTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                id responseObject = data;
+                                if (data) {
+                                    
+                                    NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+                                    
+                                    responseObject = jsonDict;
+                                }
+                                dispatch_async(dispatch_get_main_queue(), ^{
+                                    
+                                    [self requestFinishedWithParams:params task:newTask responseObject:responseObject error:error SuccessBlock:successBlock failureBlock:failureBlock];
+                                });
+                            }];
+                            [newTask resume];
+                        });
+                    } failureBlock:^(TJResult *result) {
+                        
+                    }];
+                   
                     return;
                     
                 }

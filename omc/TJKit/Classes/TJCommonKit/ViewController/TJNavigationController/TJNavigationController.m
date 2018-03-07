@@ -75,7 +75,7 @@ typedef NS_ENUM(NSUInteger, TJPanGestureDirection) {
     
     self.navigationBar.translucent = YES;
     self.navigationBar.barTintColor = UIColorFromRGB(0xf0f0f0);
-    
+    self.interactivePopGestureRecognizer.delegate =  self;
     
     NSDictionary *titleAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName,[UIFont systemFontOfSize:18],NSFontAttributeName, nil];
     [self.navigationBar setTitleTextAttributes:titleAttributes];
@@ -151,6 +151,14 @@ typedef NS_ENUM(NSUInteger, TJPanGestureDirection) {
 
 
 #pragma mark - UIGestureRecognizerDelegate
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    if (self.viewControllers.count <= 1 ) {
+        return NO;
+    }
+    
+    return YES;
+}
 //- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
 //    
 //    if (self.viewControllers.count <= 1 || !self.dragBackEnable)

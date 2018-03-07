@@ -10,6 +10,7 @@ inhibit_all_warnings!
     pod 'MJExtension'
     pod 'MJRefresh'
     pod 'pop'
+    pod 'Toast'
     pod 'AGGeometryKit'
     pod 'SVProgressHUD'
     pod 'WechatOpenSDK'

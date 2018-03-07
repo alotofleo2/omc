@@ -9,8 +9,8 @@
 #import "TJResult.h"
 #import "StringUtil.h"
 
-#define KEY_ERRCODE @"errcode"
-#define KEY_MESSAGE @"errmsg"
+#define KEY_ERRCODE @"code"
+#define KEY_MESSAGE @"message"
 #define KEY_DATA @"data"
 
 @implementation TJResult

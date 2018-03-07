@@ -10,15 +10,15 @@
 #import "TJBaseSharedInstance.h"
 
 
-#define TJ_TOKEN_SIGN  @"access_token"
-#define TJ_REFRESHTOKEN @"refresh_token"
+#define TJ_TOKEN_SIGN  @"token"
+#define TJ_REFRESHTOKEN @"longToken"
 #define TJ_TOKENTYPE @"token_type"
 #define TJEXPIRESTIME @"expires_in"
 @interface TJTokenManager : TJBaseSharedInstance
 
-@property (nonatomic, strong) NSString *accessToken;
+@property (nonatomic, strong) NSString *token;
 
-@property (nonatomic, copy) NSString *refreshToken;
+@property (nonatomic, copy) NSString *longToken;
 
 @property (nonatomic, copy) NSString *tokenType;
 

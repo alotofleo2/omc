@@ -243,7 +243,7 @@
 #pragma mark 左边第一个点击事件 搜索
 - (void)rightfirstButtonPressed {
     NSLog(@"搜索被呗点击");
-
+    [[TJPageManager sharedInstance] pushViewControllerWithName:@"TJLoginViewController"];
 }
 
 #pragma mark 左边第二个点击事件 照片编辑
@@ -255,14 +255,9 @@
 #pragma mark 左边navigation 点击事件
 - (void)leftButtonPressed {
 
-//    [TJPersonalView showPersonnalView];
-//
-//    self.leftButton.enabled = NO;
-//
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        self.leftButton.enabled = YES;
-//    });
-    [[TJPageManager sharedInstance] pushViewControllerWithName:@"TJLoginViewController"];
+
+    [[TJPageManager sharedInstance] pushViewControllerWithName:@"TJSettingMainVC"];
+
 }
 
 #pragma mark 返回顶部按钮点击

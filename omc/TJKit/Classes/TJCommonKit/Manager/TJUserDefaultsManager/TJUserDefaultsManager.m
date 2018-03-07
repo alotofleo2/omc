@@ -377,7 +377,7 @@ static NSString *const FINGERPRINT_LOGIN_PASSWORD = @"fingerPrintLoginPassword";
 }
 #pragma mark 提示更新
 + (void)showUpdateAlert {
-    UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"米粒钱包有新内容发布,请更新后使用" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"" message:nil preferredStyle:UIAlertControllerStyleAlert];
     [alertController addAction:[UIAlertAction actionWithTitle:@"前往更新" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [TJGCDManager asyncMainThreadBlock:^{
             

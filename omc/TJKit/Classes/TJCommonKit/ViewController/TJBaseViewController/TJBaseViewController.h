@@ -243,4 +243,7 @@ typedef NS_ENUM(NSInteger, TJReturnType) {
  */
 - (void)addNavBackButtonWithDefaultAction;
 
+#pragma mark toast
+- (void)showToastWithString:(NSString *)string;
+
 @end

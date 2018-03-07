@@ -7,6 +7,7 @@
 //
 
 #import "TJLoginViewController.h"
+#import "TJSettingTask.h"
 
 @interface TJLoginViewController () <UITextFieldDelegate>
 //首行显示title
@@ -59,7 +60,7 @@
     
     self.userNameTextField = [[UITextField alloc]init];
     self.userNameTextField.delegate = self;
-    self.userNameTextField.keyboardType = UIKeyboardTypeDefault;
+    self.userNameTextField.keyboardType = UIKeyboardTypePhonePad;
     self.userNameTextField.font = [UIFont systemFontOfSize:15 *[TJAdaptiveManager adaptiveScale]];
     self.userNameTextField.placeholder = @"请输入您的经销商账户";
     [self.view addSubview:self.userNameTextField];
@@ -78,6 +79,7 @@
     self.passwordTextField.keyboardType = UIKeyboardTypeDefault;
     self.passwordTextField.font = [UIFont systemFontOfSize:15 *[TJAdaptiveManager adaptiveScale]];
     self.passwordTextField.placeholder = @"请输入您的密码";
+    self.passwordTextField.secureTextEntry = YES;
     [self.view addSubview:self.passwordTextField];
     
     self.passwordLine = [[UIView alloc]init];
@@ -169,8 +171,82 @@
         self.actionButton.layer.shadowOpacity = 0.3;
     }];
     
+    if (self.userNameTextField.text.length == 0) {
+        
+        [self showToastWithString:@"请输入用户名"];
+        return;
+    }
+    
+    if (self.passwordTextField.text.length == 0) {
+        
+        [self showToastWithString:@"请输入密码"];
+        return;
+    }
+    
+    [self cancelTask];
+    
+    self.actionButton.enabled = NO;
+    
+    
+    TJRequest *request = [TJSettingTask loginWithUserName:self.userNameTextField.text password:self.passwordTextField.text SuccessBlock:^(TJResult *result) {
+        if (result.errcode != 200) {
+            
+            [self showToastWithString:@"登录出错"];
+        }
+        //更新token
+        [[TJTokenManager sharedInstance]updateTokenWithInfo:result.data];
+        
+        //获取用户信息
+        [TJSettingTask getPersonalDataWithSuccessBlock:^(TJResult *result) {
+            
+            [[TJUserModel sharedInstance] updateUserInfo:result.data];
+        } failureBlock:^(TJResult *result) {
+            
+            [self showToastWithString:@"获取用户信息错误"];
+        }];
+        self.actionButton.enabled = YES;
+        
+        [self showToastWithString:@"登录成功"];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            if (self.navigationController.childViewControllers.count > 1) {
+                [[TJPageManager sharedInstance] popViewControllerWithParams:nil];
+            } else {
+                
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }
+        });
+        
+    } failureBlock:^(TJResult *result) {
+        
+        self.actionButton.enabled = YES;
+        NSString *message = nil;
+        if ([result.data valueForKey:@"error"]) {
+            if ([[result.data valueForKey:@"error"] valueForKey:@"username"]) {
+                
+                message = [[[result.data valueForKey:@"error"] valueForKey:@"username"] firstObject];
+
+                
+            } else if ([[result.data valueForKey:@"error"] valueForKey:@"password"]) {
+
+                message = [[[result.data valueForKey:@"error"] valueForKey:@"password"] firstObject];
+
+            } else {
+                
+                message = result.message;
+            }
+            
+            [self showToastWithString:message];
+            
+        }
+
+    }];
+
+    [self.taskArray addObject:request];
     
 }
+
+#pragma mark 按下阴影解除操作
 - (void)actionButtonTouchDown:(UIButton *)sender {
     [UIView animateWithDuration:0.25 animations:^{
         self.actionButton.layer.shadowOpacity = 0;

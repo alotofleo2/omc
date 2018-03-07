@@ -27,6 +27,7 @@ PODS:
     - SDWebImage/Core (= 4.3.0)
   - SDWebImage/Core (4.3.0)
   - SVProgressHUD (2.2.2)
+  - Toast (4.0.0)
   - WechatOpenSDK (1.8.1)
   - Weibo_SDK (3.2.3)
 
@@ -39,6 +40,7 @@ DEPENDENCIES:
   - pop
   - SDWebImage
   - SVProgressHUD
+  - Toast
   - WechatOpenSDK
   - Weibo_SDK (from `https://github.com/sinaweibosdk/weibo_ios_sdk.git`)
 
@@ -60,9 +62,10 @@ SPEC CHECKSUMS:
   pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
   SDWebImage: 6da6c8bca115addc4de8613362e1b15f66333825
   SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
+  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   WechatOpenSDK: 491d965d79335070328571d3e79f714549e79a5e
   Weibo_SDK: 652ca78c2f7147a5de5e75e7cbea89838a81772a
 
-PODFILE CHECKSUM: 348c5349dfe24ca19492104341e1abc874c8d7c2
+PODFILE CHECKSUM: 33402d303394e7a0a93d8ae4f93bf750887708ee
 
 COCOAPODS: 1.4.0.beta.2

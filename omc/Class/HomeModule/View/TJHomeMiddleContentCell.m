@@ -86,35 +86,19 @@
 - (void)setupItemWithDataArray:(NSArray <TJHomeMiddleItemModel *>*)dataArr {
     
     
-//    for (TJHomeContentItemCell *cell in self.items) {
-//        [self.items removeObject:cell];
-//        [cell removeFromSuperview];
-//
-//    }
-    if (!self.items) {
-        self.items = [NSMutableArray arrayWithCapacity:0];
+    for (TJHomeContentItemCell *cell in self.items) {
+        [cell removeFromSuperview];
 
     }
-    
-    //添加缺省的item数量
-    if (self.items.count <dataArr.count) {
-        NSInteger addCount = dataArr.count - self.items.count;
-        for (NSInteger i = 0; i < addCount; i++) {
-            TJHomeContentItemCell *item = [[TJHomeContentItemCell alloc]init];
-            
-            [self.items addObject:item];
-            
-            [self.backGroundView addSubview:item];
-        }
-        //删除多余的item
-    } else if (self.items.count > dataArr.count) {
-        NSInteger deleteCount = self.items.count - dataArr.count;
-        for (NSInteger i = 0 ; i < deleteCount; i++) {
-            
-            [self.items[i] removeFromSuperview];
-            
-            [self.items removeObject:self.items[i]];
-        }
+    [self.items removeAllObjects];
+
+    self.items = [NSMutableArray arrayWithCapacity:0];
+    for (NSInteger i = 0; i < dataArr.count; i++) {
+        TJHomeContentItemCell *item = [[TJHomeContentItemCell alloc]init];
+        
+        [self.items addObject:item];
+        
+        [self.backGroundView addSubview:item];
     }
     
     //设置数据

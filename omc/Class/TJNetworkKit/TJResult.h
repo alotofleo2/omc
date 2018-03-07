@@ -10,22 +10,22 @@
 /**
  *  请求成功
  */
-#define TJResponseCodeSuccess 0
+#define TJResponseCodeSuccess 200
 
 /**
- *  服务器繁忙
+ *  服务器错误
  */
-#define TJResponseCodeError -1
+#define TJResponseCodeError  500
 
 /**
  *  Token超时
  */
-#define TJResponseCodeTokenTimeout          40001
+#define TJResponseCodeTokenTimeout          401
 
 /**
  *  Token刷新时超时
  */
-#define TJResponseCodeRefreshTokenTimeout   40002
+#define TJResponseCodeRefreshTokenTimeout   407
 
 
 /**

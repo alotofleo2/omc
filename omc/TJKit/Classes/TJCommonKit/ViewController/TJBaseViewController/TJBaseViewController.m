@@ -8,6 +8,7 @@
 
 #import "TJBaseViewController.h"
 #import "UIButton+WebCache.h"
+#import "UIView+Toast.h"
 
 @interface TJBaseViewController ()
 @property (nonatomic, assign) BOOL isInitData;
@@ -632,5 +633,11 @@
 - (void)reloadViewPressed {
     
     
+}
+
+#pragma mark toast
+- (void)showToastWithString:(NSString *)string {
+    
+    [self.view makeToast:string duration:2 position:CSToastPositionCenter];
 }
 @end

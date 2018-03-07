@@ -45,5 +45,5 @@ typedef NS_ENUM(NSInteger, TJMessageNotificationType) {
                              type:(TJMessageNotificationType)type
                  inViewController:(UIViewController *)viewController;
 
-
++ (void)toastWithString:(NSString *)string;
 @end

@@ -8,6 +8,7 @@
 
 #import "TJAlertUtil.h"
 #import "FTMessage.h"
+#import "UIView+Toast.h"
 
 @implementation TJAlertUtil
 
@@ -28,5 +29,10 @@
     [FTMessage showTopNotificationWithTitle:title subtitle:message type:(NSInteger)type duration:3 imageName:nil];
     
 }
-
++ (void)toastWithString:(NSString *)string {
+    
+    UIView * view = [UIApplication sharedApplication].keyWindow.rootViewController.view;
+    
+    [view makeToast:string duration:2 position:CSToastPositionCenter];
+}
 @end
