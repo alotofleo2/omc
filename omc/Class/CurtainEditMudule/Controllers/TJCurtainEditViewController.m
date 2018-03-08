@@ -35,9 +35,12 @@
     
     [self setupViews];
     [self setupLayoutViews];
+    
 }
 
 - (void)setupViews {
+    
+    BLOCK_WEAK_SELF
     
     //编辑view
     self.editContentView = [[TJCurtainEditContentView alloc]init];
@@ -46,6 +49,10 @@
     
     //头部view
     self.topBar = [[TJCurtainEditTopBar alloc]init];
+    self.topBar.closeActionHandle = ^{ [weakSelf closeButtonPressed];};
+    self.topBar.contentActionHandle = ^{[weakSelf contentSelectPressed];};
+    self.topBar.settingActionHandle = ^{[weakSelf settingPressed];};
+    self.topBar.sureActionHandle = ^{[weakSelf surePressed];};
     [self.view addSubview:self.topBar];
 }
 
@@ -69,6 +76,30 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - 各种点击事件
+#pragma mark 关闭按钮点击事件
+- (void)closeButtonPressed {
+    if (self.navigationController.childViewControllers.count > 1) {
+        
+        [[TJPageManager sharedInstance] popViewControllerWithParams:nil];
+    } else {
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
 
+#pragma mark 选择内容按钮
+- (void)contentSelectPressed {
+    
+}
 
+#pragma mark 设置按钮
+- (void)settingPressed {
+    
+}
+
+#pragma mark 确认按钮
+- (void)surePressed {
+    
+}
 @end

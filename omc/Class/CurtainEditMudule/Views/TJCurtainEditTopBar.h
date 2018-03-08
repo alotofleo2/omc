@@ -9,5 +9,15 @@
 #import "TJBaseView.h"
 
 @interface TJCurtainEditTopBar : TJBaseView
+//关闭按钮点击事件
+@property (nonatomic, copy) void(^closeActionHandle)(void);
 
+//内容选择点击事件
+@property (nonatomic, copy) void(^contentActionHandle)(void);
+
+//设置按钮点击事件
+@property (nonatomic, copy) void(^settingActionHandle)(void);
+
+//确认按钮点击事件
+@property (nonatomic, copy) void(^sureActionHandle)(void);
 @end

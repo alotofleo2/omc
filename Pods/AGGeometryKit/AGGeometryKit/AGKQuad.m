@@ -111,9 +111,9 @@ int AGKQuadCornerIndexForCorner(AGKCorner corner)
     return 0;
 }
 
-AGKCorner AGKQuadCornerForCornerIndex(int cornerIndex)
+AGKCorner AGKQuadCornerForCornerIndex(int i)
 {
-    return kAGKQuadCornersOrdered[cornerIndex];
+    return kAGKQuadCornersOrdered[i];
 }
 
 AGKQuad AGKQuadMove(AGKQuad q, CGFloat x, CGFloat y)
@@ -272,35 +272,6 @@ CGPoint AGKQuadGetCenter(AGKQuad q)
     return center;
 }
 
-CGPoint AGKQuadGetCenterForSide(AGKQuad q, AGKSide side)
-{
-    AGKLine line;
-
-    switch (side) {
-        case AGKSideTop:
-            line = AGKLineMake(q.tl, q.tr);
-            break;
-
-        case AGKSideRight:
-            line = AGKLineMake(q.tr, q.br);
-            break;
-
-        case AGKSideBottom:
-            line = AGKLineMake(q.bl, q.br);
-            break;
-
-        case AGKSideLeft:
-            line = AGKLineMake(q.tl, q.bl);
-            break;
-
-        default:
-            [NSException raise:NSInternalInconsistencyException format:@"Wrong side"];
-            break;
-    }
-    
-    return AGKLineCenter(line);
-}
-
 CGSize AGKQuadGetSize(AGKQuad q)
 {
     CGRect smallestRect = AGKQuadGetBoundingRect(q);
@@ -313,9 +284,9 @@ CGPoint AGKQuadGetPointForCorner(AGKQuad q, AGKCorner corner)
     return AGKQuadGet(q, index);
 }
 
-CGPoint AGKQuadGet(AGKQuad q, int cornerIndex)
+CGPoint AGKQuadGet(AGKQuad q, int index)
 {
-    switch (cornerIndex) {
+    switch (index) {
         case 0:
             return q.tl;
         case 1:
@@ -328,38 +299,6 @@ CGPoint AGKQuadGet(AGKQuad q, int cornerIndex)
             [NSException raise:NSInternalInconsistencyException format:@"Index beyond scope"];
             return CGPointZero;
     }
-}
-
-AGKQuad AGKQuadModifyCorner(AGKQuad q, AGKCorner corner, CGPoint point)
-{
-    switch (corner) {
-        case AGKCornerTopLeft:
-            q.tl = point;
-            break;
-
-        case AGKCornerTopRight:
-            q.tr = point;
-            break;
-
-        case AGKCornerBottomRight:
-            q.br = point;
-            break;
-
-        case AGKCornerBottomLeft:
-            q.bl = point;
-            break;
-
-        default:
-            [NSException raise:NSInternalInconsistencyException format:@"Wrong corner"];
-            break;
-    }
-
-    return q;
-}
-
-AGKQuad AGKQuadModifyCornerAtIndex(AGKQuad q, int cornerIndex, CGPoint point)
-{
-    return AGKQuadModifyCorner(q, AGKQuadCornerForCornerIndex(cornerIndex), point);
 }
 
 void AGKQuadGetValues(AGKQuad q, CGPoint *out_values)

@@ -78,7 +78,7 @@
 
 #pragma mark delegate
 - (void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
-//    NSLog(@"%@", info);
+
     
     NSString *type = [info objectForKey:UIImagePickerControllerMediaType];
     
@@ -86,13 +86,12 @@
         
         UIImage* image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
         
-        NSLog(@"%@",info);
         UIImage *newImg = [image compressedImage:KEditViewContentHeight];
-        NSLog(@"--------newimage%@", newImg);
-        NSDictionary *params = @{@"backGoundImage" : image};
+        
+        NSDictionary *params = @{@"backGoundImage" : newImg};
         [picker dismissViewControllerAnimated:YES completion:^{
+            
             [[TJPageManager sharedInstance] presentViewControllerWithName:@"TJCurtainEditViewController" params:params inNavigationController:YES animated:YES];
-//            [[TJPageManager sharedInstance] pushViewControllerWithName:@"TJCurtainEditViewController" params:params animated:YES];
         }];
     } else {
         NSLog(@"照片选择出错");
