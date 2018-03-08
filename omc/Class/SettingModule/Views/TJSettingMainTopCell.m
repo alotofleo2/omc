@@ -55,13 +55,13 @@
 - (void)setupLayoutSubviews {
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
        
-        make.centerX.equalTo(self.contentView);
+        make.centerX.equalTo(self);
         make.bottom.equalTo(self.contentView.mas_centerY).mas_offset(-TJSystem2Xphone6Height(38));
     }];
     
     [self.actionButton mas_makeConstraints:^(MASConstraintMaker *make) {
        
-        make.centerX.equalTo(self.contentView);
+        make.centerX.equalTo(self);
         make.top.equalTo(self.contentView.mas_centerY);
         make.width.equalTo(@(TJSystem2Xphone6Width(258)));
         make.height.equalTo(@(TJSystem2Xphone6Width(76)));
@@ -82,7 +82,7 @@
         self.actionButton.hidden = YES;
         [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
            
-            make.centerX.centerY.equalTo(self.contentView);
+            make.centerX.centerY.equalTo(self);
         }];
         
     }else {
@@ -93,7 +93,7 @@
         self.actionButton.hidden = NO;
         [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
             
-            make.centerX.equalTo(self.contentView);
+            make.centerX.equalTo(self);
             make.bottom.equalTo(self.contentView.mas_centerY).mas_offset(-TJSystem2Xphone6Height(38));
         }];
     }

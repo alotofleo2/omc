@@ -34,6 +34,12 @@
  */
 @property (nonatomic, strong) NSString * name;
 
+/**
+ *  地址
+ */
+@property (nonatomic, strong) NSString * address;
+
+
 #pragma mark 此方法不允许任何人在外面调用，只有在登录成功才需要调用，管理员权限
 - (void)updateUserInfo:(NSDictionary *)info;
 

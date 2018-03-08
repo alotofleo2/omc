@@ -86,10 +86,13 @@
         
         UIImage* image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
         
-        NSLog(@"%@",image);
-        NSDictionary *params = @{@"image" : image};
+        NSLog(@"%@",info);
+        UIImage *newImg = [image compressedImage:KEditViewContentHeight];
+        NSLog(@"--------newimage%@", newImg);
+        NSDictionary *params = @{@"backGoundImage" : image};
         [picker dismissViewControllerAnimated:YES completion:^{
-            [[TJPageManager sharedInstance] pushViewControllerWithName:@"" params:params animated:YES];
+            [[TJPageManager sharedInstance] presentViewControllerWithName:@"TJCurtainEditViewController" params:params inNavigationController:YES animated:YES];
+//            [[TJPageManager sharedInstance] pushViewControllerWithName:@"TJCurtainEditViewController" params:params animated:YES];
         }];
     } else {
         NSLog(@"照片选择出错");

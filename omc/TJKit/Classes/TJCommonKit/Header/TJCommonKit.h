@@ -64,6 +64,11 @@
  */
 #define DEVICE_SCREEN_HEIGHT        ([[UIScreen mainScreen] bounds].size.height)
 
+/**
+ *  设备状态栏高度
+ */
+#define DEVICE_STATUSBAR_HEIGHT     ([[UIApplication sharedApplication] statusBarFrame].size.height)
+
 
 /**
  *  设备屏幕的最大长度

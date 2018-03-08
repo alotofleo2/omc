@@ -7,6 +7,7 @@
 //
 
 #import "TJBaseSharedInstance.h"
+#define KEditViewContentHeight DEVICE_SCREEN_HEIGHT - TJSystem2Xphone6Height(348)
 
 @interface TJCurtainEditManager : TJBaseSharedInstance
 - (void)startEdit;

@@ -44,8 +44,8 @@
     request.requestType = TJHTTPReuestTypePOST;
     
     
-    NSDictionary * params = @{
-                              
+    NSDictionary * params = @{@"token" : [TJTokenManager sharedInstance].token ?: @"",
+                              @"longToken" : [TJTokenManager sharedInstance].longToken ?: @""
                               };
     [request startWithURLString:kSetting_login Params:params successBlock:^(TJResult *result) {
         
@@ -95,6 +95,31 @@
         
         if (failureBlock) failureBlock(result);
         
+    }];
+    
+    return request;
+}
+
+#pragma mark 发送验证码
++ (TJRequest *)getAuthCodeWithPhone:(NSString *)phone
+                               type:(NSString *)type
+                       SuccessBlock:(void (^)(TJResult *result))successBlock
+                       failureBlock:(TJRequestFinishedBlock)failureBlock{
+    TJRequest *request = [[TJRequest alloc]init];
+    
+    request.requestType = TJHTTPReuestTypePOST;
+    
+    NSDictionary * params = @{@"phone" : phone ?: @"",
+                              @"type"  : type ?:@""
+                              };
+    [request startWithURLString:kSetting_authCode Params:params successBlock:^(TJResult *result) {
+
+        if (successBlock) successBlock(result);
+
+    } failureBlock:^(TJResult *result) {
+
+        if (failureBlock) failureBlock(result);
+
     }];
     
     return request;

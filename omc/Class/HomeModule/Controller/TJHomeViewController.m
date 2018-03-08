@@ -121,7 +121,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TJBaseTableViewCell *cell;
+    TJBaseTableViewCell *cell = nil;
     switch (indexPath.row) {
         case 0:
         {

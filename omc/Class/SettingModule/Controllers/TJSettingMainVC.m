@@ -106,19 +106,22 @@
     if (section == 0) {
         return 0;
     }
-    return TJSystem2Xphone6Height(30);
+    return TJSystem2Xphone6Height(24);
 }
 
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if (indexPath.section == 0) {
         
-        return NO;
+        return [TJTokenManager sharedInstance].isLogin;
     } else {
         return YES;
     }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     TJSettingMainModel *model = self.dataSource[indexPath.section][indexPath.row];
     
     //如果非登录状态下的第一行不做操作

@@ -98,6 +98,11 @@
 		B3D095DA204FB787009D19FE /* TJSettingMainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D095D9204FB787009D19FE /* TJSettingMainModel.m */; };
 		B3D095E0204FB9FA009D19FE /* TJUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D095DF204FB9FA009D19FE /* TJUserModel.m */; };
 		B3D095E3204FCD6C009D19FE /* TJSettingMainNormalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D095E2204FCD6C009D19FE /* TJSettingMainNormalCell.m */; };
+		B3D095E620510F38009D19FE /* TJSettingPersonalDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D095E520510F38009D19FE /* TJSettingPersonalDataCell.m */; };
+		B3D095E92051131F009D19FE /* TJSettingChangePasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D095E82051131F009D19FE /* TJSettingChangePasswordVC.m */; };
+		B3D095EC205122BC009D19FE /* TJSettingChangePhoneVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D095EB205122BC009D19FE /* TJSettingChangePhoneVC.m */; };
+		B3D095F0205133F2009D19FE /* TJCurtainEditContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D095EF205133F2009D19FE /* TJCurtainEditContentView.m */; };
+		B3D095F3205138F6009D19FE /* TJCurtainEditTopBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D095F2205138F6009D19FE /* TJCurtainEditTopBar.m */; };
 		B3D9739420439983006AC9AF /* TJBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D9739320439983006AC9AF /* TJBaseModel.m */; };
 		B3D97397204399EE006AC9AF /* TJHomeBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D97396204399EE006AC9AF /* TJHomeBannerModel.m */; };
 		B3D9739A20439CB1006AC9AF /* TJHomeDateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D9739920439CB1006AC9AF /* TJHomeDateManager.m */; };
@@ -297,6 +302,16 @@
 		B3D095DF204FB9FA009D19FE /* TJUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJUserModel.m; sourceTree = "<group>"; };
 		B3D095E1204FCD6C009D19FE /* TJSettingMainNormalCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJSettingMainNormalCell.h; sourceTree = "<group>"; };
 		B3D095E2204FCD6C009D19FE /* TJSettingMainNormalCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJSettingMainNormalCell.m; sourceTree = "<group>"; };
+		B3D095E420510F38009D19FE /* TJSettingPersonalDataCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJSettingPersonalDataCell.h; sourceTree = "<group>"; };
+		B3D095E520510F38009D19FE /* TJSettingPersonalDataCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJSettingPersonalDataCell.m; sourceTree = "<group>"; };
+		B3D095E72051131F009D19FE /* TJSettingChangePasswordVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJSettingChangePasswordVC.h; sourceTree = "<group>"; };
+		B3D095E82051131F009D19FE /* TJSettingChangePasswordVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJSettingChangePasswordVC.m; sourceTree = "<group>"; };
+		B3D095EA205122BC009D19FE /* TJSettingChangePhoneVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJSettingChangePhoneVC.h; sourceTree = "<group>"; };
+		B3D095EB205122BC009D19FE /* TJSettingChangePhoneVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJSettingChangePhoneVC.m; sourceTree = "<group>"; };
+		B3D095EE205133F2009D19FE /* TJCurtainEditContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCurtainEditContentView.h; sourceTree = "<group>"; };
+		B3D095EF205133F2009D19FE /* TJCurtainEditContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCurtainEditContentView.m; sourceTree = "<group>"; };
+		B3D095F1205138F6009D19FE /* TJCurtainEditTopBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCurtainEditTopBar.h; sourceTree = "<group>"; };
+		B3D095F2205138F6009D19FE /* TJCurtainEditTopBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCurtainEditTopBar.m; sourceTree = "<group>"; };
 		B3D9739220439982006AC9AF /* TJBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJBaseModel.h; sourceTree = "<group>"; };
 		B3D9739320439983006AC9AF /* TJBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJBaseModel.m; sourceTree = "<group>"; };
 		B3D97395204399EE006AC9AF /* TJHomeBannerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJHomeBannerModel.h; sourceTree = "<group>"; };
@@ -967,10 +982,10 @@
 		B3C871512046DADC0061146E /* CurtainEditMudule */ = {
 			isa = PBXGroup;
 			children = (
+				B3D095ED205133D7009D19FE /* Views */,
 				B3C871522046DADC0061146E /* Managers */,
 				B3C871532046DADC0061146E /* Models */,
 				B3C871542046DADC0061146E /* Controllers */,
-				B3C871552046DADC0061146E /* Views */,
 			);
 			path = CurtainEditMudule;
 			sourceTree = "<group>";
@@ -998,13 +1013,6 @@
 				B3C8717020482D440061146E /* TJCurtainEditViewController.m */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		B3C871552046DADC0061146E /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		B3C8715D2047022C0061146E /* SettingModule */ = {
@@ -1040,6 +1048,10 @@
 				B3D095D3204F88AD009D19FE /* TJSettingMainVC.m */,
 				B3C87164204702FD0061146E /* TJPersonalDataVC.h */,
 				B3C87165204702FD0061146E /* TJPersonalDataVC.m */,
+				B3D095E72051131F009D19FE /* TJSettingChangePasswordVC.h */,
+				B3D095E82051131F009D19FE /* TJSettingChangePasswordVC.m */,
+				B3D095EA205122BC009D19FE /* TJSettingChangePhoneVC.h */,
+				B3D095EB205122BC009D19FE /* TJSettingChangePhoneVC.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1053,6 +1065,8 @@
 				B3D095D6204F894C009D19FE /* TJSettingMainTopCell.m */,
 				B3D095E1204FCD6C009D19FE /* TJSettingMainNormalCell.h */,
 				B3D095E2204FCD6C009D19FE /* TJSettingMainNormalCell.m */,
+				B3D095E420510F38009D19FE /* TJSettingPersonalDataCell.h */,
+				B3D095E520510F38009D19FE /* TJSettingPersonalDataCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1075,6 +1089,17 @@
 				B3D095D0204F8202009D19FE /* TJProgressHUD.m */,
 			);
 			path = Progress;
+			sourceTree = "<group>";
+		};
+		B3D095ED205133D7009D19FE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B3D095EE205133F2009D19FE /* TJCurtainEditContentView.h */,
+				B3D095EF205133F2009D19FE /* TJCurtainEditContentView.m */,
+				B3D095F1205138F6009D19FE /* TJCurtainEditTopBar.h */,
+				B3D095F2205138F6009D19FE /* TJCurtainEditTopBar.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1211,6 +1236,7 @@
 			files = (
 				B34843742027EA9F008FE754 /* NSUserDefaults+Secure.m in Sources */,
 				B34843922027EA9F008FE754 /* TJTableLoadFailView.m in Sources */,
+				B3D095F0205133F2009D19FE /* TJCurtainEditContentView.m in Sources */,
 				B34843852027EA9F008FE754 /* TJAdaptiveManager.m in Sources */,
 				B348438E2027EA9F008FE754 /* TJBannerCell.m in Sources */,
 				B3C8717120482D440061146E /* TJCurtainEditViewController.m in Sources */,
@@ -1221,6 +1247,7 @@
 				B32ADAA2203E6098006A6EAB /* TJHomeTopBannerCell.m in Sources */,
 				B32ADA91203E5257006A6EAB /* TJAccountTask.m in Sources */,
 				B3D095D4204F88AD009D19FE /* TJSettingMainVC.m in Sources */,
+				B3D095E620510F38009D19FE /* TJSettingPersonalDataCell.m in Sources */,
 				B34843982027EA9F008FE754 /* TJBaseViewController.m in Sources */,
 				B34842CC2027E8AD008FE754 /* ViewController.m in Sources */,
 				B32ADA8F203E5257006A6EAB /* TJHTTPSessionManager.m in Sources */,
@@ -1275,10 +1302,12 @@
 				B32ADA94203E5257006A6EAB /* TJResult.m in Sources */,
 				B3D9739420439983006AC9AF /* TJBaseModel.m in Sources */,
 				B34843952027EA9F008FE754 /* FTMessage.m in Sources */,
+				B3D095E92051131F009D19FE /* TJSettingChangePasswordVC.m in Sources */,
 				B3C87166204702FD0061146E /* TJPersonalDataVC.m in Sources */,
 				B3C871442046D4D90061146E /* TJPersonalDataDelegate.m in Sources */,
 				B34843882027EA9F008FE754 /* TJResponder.m in Sources */,
 				B3D095CD204E2471009D19FE /* TJSettingTask.m in Sources */,
+				B3D095EC205122BC009D19FE /* TJSettingChangePhoneVC.m in Sources */,
 				B348438C2027EA9F008FE754 /* TJWebViewProgressView.m in Sources */,
 				B3D095E3204FCD6C009D19FE /* TJSettingMainNormalCell.m in Sources */,
 				B348437A2027EA9F008FE754 /* StringUtil.m in Sources */,
@@ -1287,6 +1316,7 @@
 				B32ADA92203E5257006A6EAB /* TJURLConfigurator.m in Sources */,
 				B34843932027EA9F008FE754 /* TJAlertView.m in Sources */,
 				B348439B2027EA9F008FE754 /* TJNavigationController.m in Sources */,
+				B3D095F3205138F6009D19FE /* TJCurtainEditTopBar.m in Sources */,
 				B348437D2027EA9F008FE754 /* UIFont+Extension.m in Sources */,
 				B32D7AEA20479CE700518687 /* TJHomeDefines.m in Sources */,
 				B3D095DA204FB787009D19FE /* TJSettingMainModel.m in Sources */,
@@ -1438,6 +1468,7 @@
 			baseConfigurationReference = FE1AE3875C50D329EF8EE8C9 /* Pods-omc.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T6HBF7SS63;
 				GCC_PREFIX_HEADER = "./omc/omc-Prefix.pch";
@@ -1455,6 +1486,7 @@
 			baseConfigurationReference = C873E38C2212F51CC3C33026 /* Pods-omc.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T6HBF7SS63;
 				GCC_PREFIX_HEADER = "./omc/omc-Prefix.pch";

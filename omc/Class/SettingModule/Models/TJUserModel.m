@@ -13,6 +13,7 @@
 #define KEY_PHONE     @"phone"
 #define KEY_NAME      @"name"
 #define KEY_SEX       @"sex"
+#define KEY_ADDRESS    @"address"
 
 @implementation TJUserModel
 - (id)initWithCoder:(NSCoder *)aDecoder{
@@ -24,6 +25,7 @@
         self.name = [aDecoder decodeObjectForKey:KEY_NAME];
         self.sex = [aDecoder decodeObjectForKey:KEY_SEX];
         self.phone = [aDecoder decodeObjectForKey:KEY_PHONE];
+        self.address = [aDecoder decodeObjectForKey:KEY_ADDRESS];
        
     }
     
@@ -39,7 +41,7 @@
     [aCoder encodeObject:self.name forKey:KEY_NAME];
     [aCoder encodeObject:self.sex forKey:KEY_SEX];
     [aCoder encodeObject:self.phone forKey:KEY_PHONE];
- 
+    [aCoder encodeObject:self.address forKey:KEY_ADDRESS];
 }
 
 
@@ -51,7 +53,7 @@
     copy.phone = [self.phone copyWithZone:zone];
     copy.sex = [self.sex copyWithZone:zone];
     copy.name = [self.name copyWithZone:zone];
-
+    copy.address = [self.address copyWithZone:zone];
     return copy;
 }
 
@@ -95,6 +97,14 @@
         self.name = [basicInfo objectForKey:@"name"];
     }
     
+    /**
+     *  地址
+     */
+    if (![StringUtil isEmpty:[basicInfo objectForKey:@"address"]])
+    {
+        self.address = [basicInfo objectForKey:@"address"];
+    }
+    
     [self archiver];
 }
 
@@ -107,6 +117,7 @@
     self.phone = @"";
     self.sex = @"";
     self.name = @"";
+    self.address = @"";
     
     
     //归档清空
@@ -162,7 +173,7 @@
         self.name = userModel.name;
         self.sex = userModel.sex;
         self.phone = userModel.phone;
-        
+        self.address = userModel.address;
     }
 }
 @end

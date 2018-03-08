@@ -32,6 +32,14 @@ typedef void (^TJRequestFinishedBlock)(TJResult * result);
 //获取用户资料
 + (TJRequest *)getPersonalDataWithSuccessBlock:(void (^)(TJResult *result))successBlock
                                   failureBlock:(TJRequestFinishedBlock)failureBlock;
+/**
+ 发送验证码
 
-
+ @param phone 电话号码
+ @param type 验证码类型 (forget, )
+ */
++ (TJRequest *)getAuthCodeWithPhone:(NSString *)phone
+                               type:(NSString *)type
+                      SuccessBlock:(void (^)(TJResult *result))successBlock
+                      failureBlock:(TJRequestFinishedBlock)failureBlock;
 @end

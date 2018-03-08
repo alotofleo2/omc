@@ -14,4 +14,5 @@
 extern NSString* const kSetting_login;           //登录API
 extern NSString* const kSetting_personals;       //获取用户资料API
 extern NSString* const kSetting_logout;          //退出登录API
+extern NSString* const kSetting_authCode;        //获取验证码API
 #endif

@@ -50,7 +50,7 @@
 
 - (void)setUpUI {
     
-    self.backgroundColor = self.backgroundColor = TJMainBackgroundColor;
+    self.backgroundColor = TJMainBackgroundColor;
     self.loadImg = [[UIImageView alloc] initWithFrame:CGRectZero];
     self.loadImg.image= [UIImage imageNamed:@"load_fail"];
     [self addSubview:self.loadImg ];
