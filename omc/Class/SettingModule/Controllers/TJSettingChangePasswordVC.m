@@ -215,7 +215,26 @@
     
     [self cancelTask];
     
+    TJRequest *request = [TJSettingTask forgetPasswordWithPhone:self.userNameTextField.text authCode:self.authCodeTextField.text newPassword:self.passwordTextField.text SuccessBlock:^(TJResult *result) {
+        if (result.errcode == 200) {
+            
+            if ([TJTokenManager sharedInstance].isLogin) {
+                
+                [[TJTokenManager sharedInstance] logout];
+            }
+            
+            [TJAlertUtil toastWithString:@"密码重置成功"];
+            [[TJPageManager sharedInstance] popViewControllerWithParams:nil];
+        } else {
+            
+             [self showToastWithString:result.message];
+        }
+    } failureBlock:^(TJResult *result) {
+        
+         [self showToastWithString:result.message];
+    }];
     
+    [self.taskArray addObject:request];
     
    
     

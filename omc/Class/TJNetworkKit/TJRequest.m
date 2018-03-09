@@ -383,7 +383,7 @@
                             [newTask resume];
                         });
                     } failureBlock:^(TJResult *result) {
-                        
+
                     }];
                    
                     return;

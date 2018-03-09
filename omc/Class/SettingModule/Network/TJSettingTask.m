@@ -44,11 +44,10 @@
     request.requestType = TJHTTPReuestTypePOST;
     
     
-    NSDictionary * params = @{@"token" : [TJTokenManager sharedInstance].token ?: @"",
-                              @"longToken" : [TJTokenManager sharedInstance].longToken ?: @""
+    NSDictionary * params = @{@"longToken" : [TJTokenManager sharedInstance].longToken ?: @""
                               };
-    [request startWithURLString:kSetting_login Params:params successBlock:^(TJResult *result) {
-        
+    [request startWithURLString:KSetting_refreshToken Params:params successBlock:^(TJResult *result) {
+         [[TJTokenManager sharedInstance] updateTokenWithInfo:result.data];
         if (successBlock) successBlock(result);
         
     } failureBlock:^(TJResult *result) {
@@ -120,6 +119,32 @@
 
         if (failureBlock) failureBlock(result);
 
+    }];
+    
+    return request;
+}
+#pragma mark 忘记密码
++ (TJRequest *)forgetPasswordWithPhone:(NSString *)phone
+                              authCode:(NSString *)authCode
+                           newPassword:(NSString *)newPassword
+                          SuccessBlock:(void (^)(TJResult *result))successBlock
+                          failureBlock:(TJRequestFinishedBlock)failureBlock {
+    TJRequest *request = [[TJRequest alloc]init];
+    
+    request.requestType = TJHTTPReuestTypePOST;
+    
+    NSDictionary * params = @{@"phone" : phone ?: @"",
+                              @"code"  : authCode ?:@"",
+                              @"newPwd"      : newPassword ?: @""
+                              };
+    [request startWithURLString:kSetting_forgets Params:params successBlock:^(TJResult *result) {
+        
+        if (successBlock) successBlock(result);
+        
+    } failureBlock:^(TJResult *result) {
+        
+        if (failureBlock) failureBlock(result);
+        
     }];
     
     return request;

@@ -9,6 +9,7 @@
 #import "TJTabBarController.h"
 #import "TJCurtainEditManager.h"
 #import "TJHomeViewController.h"
+#import "TJCategoryViewContoller.h"
 #import "TJTabBar.h"
 
 @interface TJTabBarController ()
@@ -60,8 +61,8 @@
     TJHomeViewController *HomeVC = [[TJHomeViewController alloc] init];
     [self setUpOneChildVcWithVc:HomeVC Image:@"home_normal" selectedImage:@"home_highlight" title:@"首页"];
 
-    UIViewController *FishVC = [[UIViewController alloc] init];
-    [self setUpOneChildVcWithVc:FishVC Image:@"class_normal" selectedImage:@"class_highlight" title:@"分类"];
+    TJCategoryViewContoller *categoryVC = [[TJCategoryViewContoller alloc] init];
+    [self setUpOneChildVcWithVc:categoryVC Image:@"class_normal" selectedImage:@"class_highlight" title:@"分类"];
 
     UIViewController *MessageVC = [[UIViewController alloc] init];
     [self setUpOneChildVcWithVc:MessageVC Image:@"video_normal" selectedImage:@"video_highlight" title:@"安装视频"];
