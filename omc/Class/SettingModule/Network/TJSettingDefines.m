@@ -8,7 +8,9 @@
 
 #import "TJSettingDefines.h"
 
-NSString* const kSetting_login                              = @"users";                        //登录
-NSString* const kSetting_personals                          = @"personals";                    //获取用户资料
+NSString* const kSetting_login                              = @"users";                         //登录
+NSString* const kSetting_personals                          = @"personals";                     //获取用户资料
 NSString* const kSetting_logout                             = @"logouts";                       //退出登录
-NSString* const kSetting_authCode                           = @"sms";                              //获取验证码
+NSString* const kSetting_authCode                           = @"sms";                           //获取验证码
+NSString* const kSetting_forgets                            = @"forgets";                       //忘记密码
+NSString* const KSetting_refreshToken                       = @"tokens";                        //刷新token

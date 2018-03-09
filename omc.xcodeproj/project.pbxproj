@@ -109,6 +109,7 @@
 		B3D9739D2043A264006AC9AF /* TJHomeCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D9739C2043A264006AC9AF /* TJHomeCategoryCell.m */; };
 		B3D973A02043A9AC006AC9AF /* TJHomeCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D9739F2043A9AC006AC9AF /* TJHomeCategoryModel.m */; };
 		B3D973A32045385A006AC9AF /* TJHomeMiddleContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D973A22045385A006AC9AF /* TJHomeMiddleContentCell.m */; };
+		B3F321E5205218190008DB2E /* TJCategoryViewContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F321E4205218190008DB2E /* TJCategoryViewContoller.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -324,6 +325,8 @@
 		B3D9739F2043A9AC006AC9AF /* TJHomeCategoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJHomeCategoryModel.m; sourceTree = "<group>"; };
 		B3D973A12045385A006AC9AF /* TJHomeMiddleContentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJHomeMiddleContentCell.h; sourceTree = "<group>"; };
 		B3D973A22045385A006AC9AF /* TJHomeMiddleContentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJHomeMiddleContentCell.m; sourceTree = "<group>"; };
+		B3F321E3205218190008DB2E /* TJCategoryViewContoller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCategoryViewContoller.h; sourceTree = "<group>"; };
+		B3F321E4205218190008DB2E /* TJCategoryViewContoller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCategoryViewContoller.m; sourceTree = "<group>"; };
 		C873E38C2212F51CC3C33026 /* Pods-omc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-omc.release.xcconfig"; path = "Pods/Target Support Files/Pods-omc/Pods-omc.release.xcconfig"; sourceTree = "<group>"; };
 		FE1AE3875C50D329EF8EE8C9 /* Pods-omc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-omc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-omc/Pods-omc.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -360,10 +363,11 @@
 		B32ADA71203E4EF0006A6EAB /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				B32ADA72203E4EF0006A6EAB /* MainModule */,
+				B3F321DE205215130008DB2E /* CategoryMudule */,
 				B32ADA98203E6031006A6EAB /* HomeModule */,
 				B3C871512046DADC0061146E /* CurtainEditMudule */,
 				B32ADA7D203E5257006A6EAB /* TJNetworkKit */,
-				B32ADA72203E4EF0006A6EAB /* MainModule */,
 				B3C8715D2047022C0061146E /* SettingModule */,
 			);
 			path = Class;
@@ -1102,6 +1106,47 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		B3F321DE205215130008DB2E /* CategoryMudule */ = {
+			isa = PBXGroup;
+			children = (
+				B3F321DF205215130008DB2E /* Controller */,
+				B3F321E0205215130008DB2E /* Manager */,
+				B3F321E1205215130008DB2E /* Model */,
+				B3F321E2205215130008DB2E /* View */,
+			);
+			path = CategoryMudule;
+			sourceTree = "<group>";
+		};
+		B3F321DF205215130008DB2E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B3F321E3205218190008DB2E /* TJCategoryViewContoller.h */,
+				B3F321E4205218190008DB2E /* TJCategoryViewContoller.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B3F321E0205215130008DB2E /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		B3F321E1205215130008DB2E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B3F321E2205215130008DB2E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1297,6 +1342,7 @@
 				B3C8714D2046D5770061146E /* TJPersonalModel.m in Sources */,
 				B348437F2027EA9F008FE754 /* UIColor+Extension.m in Sources */,
 				B34843972027EA9F008FE754 /* TJBaseTableViewCell.m in Sources */,
+				B3F321E5205218190008DB2E /* TJCategoryViewContoller.m in Sources */,
 				B34843752027EA9F008FE754 /* NSString+MD5Password.m in Sources */,
 				B348439C2027EA9F008FE754 /* WKWebView+JSFunction.m in Sources */,
 				B32ADA94203E5257006A6EAB /* TJResult.m in Sources */,

@@ -42,4 +42,19 @@ typedef void (^TJRequestFinishedBlock)(TJResult * result);
                                type:(NSString *)type
                       SuccessBlock:(void (^)(TJResult *result))successBlock
                       failureBlock:(TJRequestFinishedBlock)failureBlock;
+
+
+/**
+ 忘记密码
+
+ @param phone 电话号码
+ @param authCode 验证码
+ @param newPassword 新密码
+
+ */
++ (TJRequest *)forgetPasswordWithPhone:(NSString *)phone
+                              authCode:(NSString *)authCode
+                           newPassword:(NSString *)newPassword
+                          SuccessBlock:(void (^)(TJResult *result))successBlock
+                          failureBlock:(TJRequestFinishedBlock)failureBlock;
 @end
