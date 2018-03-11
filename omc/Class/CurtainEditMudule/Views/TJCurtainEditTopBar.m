@@ -7,7 +7,8 @@
 //
 
 #import "TJCurtainEditTopBar.h"
-
+#import "TJCurtainEditTopContentAlerView.h"
+#import "TJCurtainEditSettingAlerView.h"
 @interface TJCurtainEditTopBar()
 
 @property (nonatomic, strong)UIImageView *backgroundImageView;
@@ -23,6 +24,18 @@
 
 //确认按钮
 @property (nonatomic, strong)UIImageView *sureImageView;
+
+//弹出的窗头窗帘选择视图
+@property (nonatomic, strong)TJCurtainEditTopContentAlerView *contentAlerView;
+
+@property (nonatomic, assign)TJCurtainContentType currentType;
+
+//弹出的设置视图
+@property (nonatomic, strong)TJCurtainEditSettingAlerView *settingAlerView;
+
+//遮罩view
+@property (nonatomic, strong)UIView *maskView;
+
 @end
 
 @implementation TJCurtainEditTopBar
@@ -34,6 +47,8 @@
         [self setupSubviews];
         
         [self setupLayoutSubviews];
+        
+        self.currentType = TJCurtainContentTypeCurtain;
     }
     return self;
 }
@@ -116,7 +131,66 @@
     }];
 }
 
-#pragma mark 点击事件
+#pragma mark - getter
+#pragma mark 懒加载内容选择视图
+- (UIView *)contentAlerView {
+    if (!_contentAlerView) {
+        
+        BLOCK_WEAK_SELF
+        _contentAlerView = [[TJCurtainEditTopContentAlerView alloc]initWithType:self.currentType];
+        _contentAlerView.hidden = YES;
+        _contentAlerView.contentButtonPressedHandle = ^(TJCurtainContentType type) {
+            weakSelf.currentType = type;
+            if (weakSelf.contentActionHandle) {
+                weakSelf.contentActionHandle(type);
+            }
+                
+            weakSelf.contentAlerView.hidden = YES;
+            
+        };
+        [self.superview addSubview:_contentAlerView];
+        [_contentAlerView mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.top.equalTo(self.mas_bottom);
+            make.centerX.equalTo(self.contentSelectImageView.mas_centerX).mas_offset(TJSystem2Xphone6Width(370) / 4);
+            make.height.equalTo(@(TJSystem2Xphone6Width(108)));
+            make.width.equalTo(@(TJSystem2Xphone6Width(360)));
+        }];
+        
+    }
+    return _contentAlerView;
+}
+
+#pragma mark 懒加载设置视图
+- (TJCurtainEditSettingAlerView *)settingAlerView {
+    if (!_settingAlerView) {
+        _settingAlerView = [[TJCurtainEditSettingAlerView alloc]init];
+        _settingAlerView.hidden = YES;
+        [self.superview addSubview:_settingAlerView];
+        
+        [_settingAlerView mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.top.equalTo(self.mas_bottom);
+            make.centerX.equalTo(self.settingButton.mas_centerX).mas_offset(-TJSystem2Xphone6Width(480) / 3);
+            make.height.equalTo(@(TJSystem2Xphone6Width(500)));
+            make.width.equalTo(@(TJSystem2Xphone6Width(480)));
+        }];
+    }
+    return _settingAlerView;
+}
+
+- (UIView *)maskView {
+    if (!_maskView) {
+        _maskView = [[UIView alloc]init];
+        _maskView.frame = CGRectMake(0, 0, DEVICE_SCREEN_WIDTH, DEVICE_SCREEN_HEIGHT);
+        _maskView.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.2];
+        UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(maskViewPressed)];
+        [_maskView addGestureRecognizer:gesture];
+        [self.superview addSubview:_maskView];
+    }
+    return _maskView;
+}
+#pragma mark - 点击事件
 - (void)actionPressed:(UIGestureRecognizer *)recognizer {
     
     if (recognizer.view == self.closeImageView) {
@@ -124,8 +198,9 @@
         if (self.closeActionHandle) self.closeActionHandle();
         
     } else if (recognizer.view == self.contentSelectImageView) {
-        
-        if (self.contentActionHandle) self.contentActionHandle();
+            
+        self.contentAlerView.hidden = !self.contentAlerView.isHidden;
+        self.maskView.hidden = self.contentAlerView.isHidden;
 
     } else if (recognizer.view == self.sureImageView) {
         
@@ -136,6 +211,15 @@
 
 - (void)settingButtonPressed {
     
+    self.settingAlerView.hidden = !self.settingAlerView.isHidden;
+    self.maskView.hidden = self.settingAlerView.isHidden;
     if (self.settingActionHandle) self.settingActionHandle();
+}
+
+- (void)maskViewPressed {
+    
+    self.contentAlerView.hidden = YES;
+    self.settingAlerView.hidden = YES;
+    self.maskView.hidden = YES;
 }
 @end

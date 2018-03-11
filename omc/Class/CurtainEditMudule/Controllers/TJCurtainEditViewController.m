@@ -50,7 +50,7 @@
     //头部view
     self.topBar = [[TJCurtainEditTopBar alloc]init];
     self.topBar.closeActionHandle = ^{ [weakSelf closeButtonPressed];};
-    self.topBar.contentActionHandle = ^{[weakSelf contentSelectPressed];};
+    self.topBar.contentActionHandle = ^(TJCurtainContentType type) { [weakSelf contentSelectPressedWithType:(TJCurtainContentType)type];};
     self.topBar.settingActionHandle = ^{[weakSelf settingPressed];};
     self.topBar.sureActionHandle = ^{[weakSelf surePressed];};
     [self.view addSubview:self.topBar];
@@ -89,7 +89,7 @@
 }
 
 #pragma mark 选择内容按钮
-- (void)contentSelectPressed {
+- (void)contentSelectPressedWithType:(TJCurtainContentType)type {
     
 }
 

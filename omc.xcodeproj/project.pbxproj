@@ -77,6 +77,8 @@
 		B348439B2027EA9F008FE754 /* TJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34843652027EA9F008FE754 /* TJNavigationController.m */; };
 		B348439C2027EA9F008FE754 /* WKWebView+JSFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = B34843672027EA9F008FE754 /* WKWebView+JSFunction.m */; };
 		B348439D2027EA9F008FE754 /* TJBaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B348436A2027EA9F008FE754 /* TJBaseWebViewController.m */; };
+		B384ED052055084A00A131BA /* TJCurtainEditTopContentAlerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B384ED042055084A00A131BA /* TJCurtainEditTopContentAlerView.m */; };
+		B384ED0820552FA800A131BA /* TJCurtainEditSettingAlerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B384ED0720552FA800A131BA /* TJCurtainEditSettingAlerView.m */; };
 		B3C8713E2045A6FE0061146E /* TJHomeMiddleContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C8713D2045A6FE0061146E /* TJHomeMiddleContentModel.m */; };
 		B3C871412046D48B0061146E /* TJPersonalView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C871402046D48B0061146E /* TJPersonalView.m */; };
 		B3C871442046D4D90061146E /* TJPersonalDataDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C871432046D4D90061146E /* TJPersonalDataDelegate.m */; };
@@ -258,6 +260,10 @@
 		B348436A2027EA9F008FE754 /* TJBaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJBaseWebViewController.m; sourceTree = "<group>"; };
 		B348436C2027EA9F008FE754 /* TJCommonKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJCommonKit.h; sourceTree = "<group>"; };
 		B348439E2027EB96008FE754 /* omc-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "omc-Prefix.pch"; sourceTree = "<group>"; };
+		B384ED032055084A00A131BA /* TJCurtainEditTopContentAlerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCurtainEditTopContentAlerView.h; sourceTree = "<group>"; };
+		B384ED042055084A00A131BA /* TJCurtainEditTopContentAlerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCurtainEditTopContentAlerView.m; sourceTree = "<group>"; };
+		B384ED0620552FA800A131BA /* TJCurtainEditSettingAlerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCurtainEditSettingAlerView.h; sourceTree = "<group>"; };
+		B384ED0720552FA800A131BA /* TJCurtainEditSettingAlerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCurtainEditSettingAlerView.m; sourceTree = "<group>"; };
 		B3C8713C2045A6FE0061146E /* TJHomeMiddleContentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJHomeMiddleContentModel.h; sourceTree = "<group>"; };
 		B3C8713D2045A6FE0061146E /* TJHomeMiddleContentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJHomeMiddleContentModel.m; sourceTree = "<group>"; };
 		B3C8713F2046D48B0061146E /* TJPersonalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJPersonalView.h; sourceTree = "<group>"; };
@@ -1102,6 +1108,10 @@
 				B3D095EF205133F2009D19FE /* TJCurtainEditContentView.m */,
 				B3D095F1205138F6009D19FE /* TJCurtainEditTopBar.h */,
 				B3D095F2205138F6009D19FE /* TJCurtainEditTopBar.m */,
+				B384ED032055084A00A131BA /* TJCurtainEditTopContentAlerView.h */,
+				B384ED042055084A00A131BA /* TJCurtainEditTopContentAlerView.m */,
+				B384ED0620552FA800A131BA /* TJCurtainEditSettingAlerView.h */,
+				B384ED0720552FA800A131BA /* TJCurtainEditSettingAlerView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1283,6 +1293,7 @@
 				B34843922027EA9F008FE754 /* TJTableLoadFailView.m in Sources */,
 				B3D095F0205133F2009D19FE /* TJCurtainEditContentView.m in Sources */,
 				B34843852027EA9F008FE754 /* TJAdaptiveManager.m in Sources */,
+				B384ED0820552FA800A131BA /* TJCurtainEditSettingAlerView.m in Sources */,
 				B348438E2027EA9F008FE754 /* TJBannerCell.m in Sources */,
 				B3C8717120482D440061146E /* TJCurtainEditViewController.m in Sources */,
 				B34843862027EA9F008FE754 /* TJUserDefaultsManager.m in Sources */,
@@ -1376,6 +1387,7 @@
 				B3C8716C204703370061146E /* TJPersonalDataModel.m in Sources */,
 				B3C87163204702560061146E /* TJLoginViewController.m in Sources */,
 				B32ADA8E203E5257006A6EAB /* TJRequest.m in Sources */,
+				B384ED052055084A00A131BA /* TJCurtainEditTopContentAlerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
