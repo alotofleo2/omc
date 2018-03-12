@@ -45,6 +45,9 @@
     //编辑view
     self.editContentView = [[TJCurtainEditContentView alloc]init];
     self.editContentView.backGroundImageView.image = self.backGoundImage;
+    TJCurtainContentImagemodel *model = [[TJCurtainContentImagemodel alloc]init];
+    model.contentImageName = @"rexiao";
+    [self.editContentView addImageWithModel:model];
     [self.view addSubview:self.editContentView];
     
     //头部view
@@ -100,6 +103,10 @@
 
 #pragma mark 确认按钮
 - (void)surePressed {
+    UIImage *capture =[self.editContentView getCapture];
+    NSDictionary *params = @{@"backGoundImage" : capture};
     
+        
+        [[TJPageManager sharedInstance] presentViewControllerWithName:@"TJCurtainEditViewController" params:params inNavigationController:YES animated:YES];
 }
 @end

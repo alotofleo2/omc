@@ -45,7 +45,7 @@
 
 - (void)setupSubviews {
     self.backGroudView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"edit_header"]];
-    self.backGroudView.contentMode = UIViewContentModeScaleAspectFill;
+    self.backGroudView.contentMode = UIViewContentModeScaleToFill;
     [self addSubview:self.backGroudView];
 
     self.firstButton = [UIButton buttonWithType:UIButtonTypeCustom];

@@ -14,3 +14,4 @@ NSString* const kSetting_logout                             = @"logouts";       
 NSString* const kSetting_authCode                           = @"sms";                           //获取验证码
 NSString* const kSetting_forgets                            = @"forgets";                       //忘记密码
 NSString* const KSetting_refreshToken                       = @"tokens";                        //刷新token
+NSString* const KSetting_changePhoneNumber                  = @"phones";                              //忘记密码

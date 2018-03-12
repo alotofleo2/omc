@@ -109,7 +109,7 @@
     request.requestType = TJHTTPReuestTypePOST;
     
     NSDictionary * params = @{@"phone" : phone ?: @"",
-                              @"type"  : type ?:@""
+                              @"use"  : type ?:@""
                               };
     [request startWithURLString:kSetting_authCode Params:params successBlock:^(TJResult *result) {
 
@@ -138,6 +138,31 @@
                               @"newPwd"      : newPassword ?: @""
                               };
     [request startWithURLString:kSetting_forgets Params:params successBlock:^(TJResult *result) {
+        
+        if (successBlock) successBlock(result);
+        
+    } failureBlock:^(TJResult *result) {
+        
+        if (failureBlock) failureBlock(result);
+        
+    }];
+    
+    return request;
+}
+
+#pragma mark 修改手机号
++ (TJRequest *)changePhoneNumberWithNewphone:(NSString *)newPhone
+                                    authCode:(NSString *)authCode
+                                SuccessBlock:(void (^)(TJResult *result))successBlock
+                                failureBlock:(TJRequestFinishedBlock)failureBlock {
+    TJRequest *request = [[TJRequest alloc]init];
+    
+    request.requestType = TJHTTPReuestTypePOST;
+    
+    NSDictionary * params = @{@"newPhone" : newPhone ?: @"",
+                              @"code"  : authCode ?:@"",
+                              };
+    [request startWithURLString:KSetting_changePhoneNumber Params:params successBlock:^(TJResult *result) {
         
         if (successBlock) successBlock(result);
         

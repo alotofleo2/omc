@@ -189,7 +189,22 @@
     
     [self cancelTask];
     
+    TJRequest *request = [TJSettingTask changePhoneNumberWithNewphone:self.userNameTextField.text authCode:self.authCodeTextField.text SuccessBlock:^(TJResult *result) {
+        if (result.errcode == 200) {
+
+            
+            [TJAlertUtil toastWithString:@"手机号修改成功"];
+            [[TJPageManager sharedInstance] popViewControllerWithParams:nil];
+        } else {
+            
+            [self showToastWithString:result.message];
+        }
+    } failureBlock:^(TJResult *result) {
+        
+        [self showToastWithString:result.message];
+    }];
     
+    [self.taskArray addObject:request];
     
     
     
@@ -208,7 +223,7 @@
     
     [self cancelTask];
     
-    TJRequest *request = [TJSettingTask getAuthCodeWithPhone:self.userNameTextField.text type:@"forget" SuccessBlock:^(TJResult *result) {
+    TJRequest *request = [TJSettingTask getAuthCodeWithPhone:self.userNameTextField.text type:@"updPhone" SuccessBlock:^(TJResult *result) {
         
         [self startChangeCheckCodeButton];
         [self showToastWithString:@"发送验证码成功"];

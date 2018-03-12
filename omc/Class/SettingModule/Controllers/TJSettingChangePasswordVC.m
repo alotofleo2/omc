@@ -227,11 +227,11 @@
             [[TJPageManager sharedInstance] popViewControllerWithParams:nil];
         } else {
             
-             [self showToastWithString:result.message];
+            [self showToastWithString:result.message];
         }
     } failureBlock:^(TJResult *result) {
         
-         [self showToastWithString:result.message];
+        [self showToastWithString:result.message];
     }];
     
     [self.taskArray addObject:request];

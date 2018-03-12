@@ -57,4 +57,16 @@ typedef void (^TJRequestFinishedBlock)(TJResult * result);
                            newPassword:(NSString *)newPassword
                           SuccessBlock:(void (^)(TJResult *result))successBlock
                           failureBlock:(TJRequestFinishedBlock)failureBlock;
+/**
+ 修改手机号
+ 
+ @param newPhone 电话号码
+ @param authCode 验证码
+
+ 
+ */
++ (TJRequest *)changePhoneNumberWithNewphone:(NSString *)newPhone
+                                    authCode:(NSString *)authCode
+                                SuccessBlock:(void (^)(TJResult *result))successBlock
+                                failureBlock:(TJRequestFinishedBlock)failureBlock;
 @end

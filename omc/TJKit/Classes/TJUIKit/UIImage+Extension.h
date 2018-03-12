@@ -109,4 +109,14 @@
  *  @return 圆形图片
  */
 - (UIImage *)cutCircleImage;
+
+
+/**
+ 图片重新设置大小
+
+ @param size 设置大小
+ @return 返回修改图片
+ */
+-(UIImage *)scaleToSize:(CGSize)size;
+
 @end

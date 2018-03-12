@@ -17,4 +17,5 @@ extern NSString* const kSetting_logout;          //退出登录API
 extern NSString* const kSetting_authCode;        //获取验证码API
 extern NSString* const kSetting_forgets;         //忘记密码API
 extern NSString* const KSetting_refreshToken;    //刷新token
+extern NSString* const KSetting_changePhoneNumber;//修改手机号API
 #endif

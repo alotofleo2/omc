@@ -404,5 +404,12 @@ static CGFloat edgeSizeFromCornerRadius(CGFloat cornerRadius)
     return outputImage;
 }
 
-
+//修改图片大小
+-(UIImage *)scaleToSize:(CGSize)size {
+    UIGraphicsBeginImageContext(size);
+    [self drawInRect:CGRectMake(0,0, size.width, size.height)];
+    UIImage *scaleImage=UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return scaleImage;
+}
 @end

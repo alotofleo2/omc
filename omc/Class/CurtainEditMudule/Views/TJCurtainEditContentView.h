@@ -7,7 +7,12 @@
 //
 
 #import "TJBaseView.h"
+#import "TJCurtainContentImagemodel.h"
 
 @interface TJCurtainEditContentView : TJBaseView
 @property (nonatomic, strong) UIImageView *backGroundImageView;
+
+- (void)addImageWithModel:(TJCurtainContentImagemodel* )model;
+
+- (UIImage *)getCapture;
 @end

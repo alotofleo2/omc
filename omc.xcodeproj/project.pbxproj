@@ -112,6 +112,8 @@
 		B3D973A02043A9AC006AC9AF /* TJHomeCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D9739F2043A9AC006AC9AF /* TJHomeCategoryModel.m */; };
 		B3D973A32045385A006AC9AF /* TJHomeMiddleContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D973A22045385A006AC9AF /* TJHomeMiddleContentCell.m */; };
 		B3F321E5205218190008DB2E /* TJCategoryViewContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F321E4205218190008DB2E /* TJCategoryViewContoller.m */; };
+		B3F321E9205651770008DB2E /* POPAnimatableProperty+AGGeometryKit.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F321E8205651770008DB2E /* POPAnimatableProperty+AGGeometryKit.m */; };
+		B3F321EC20566A440008DB2E /* TJCurtainContentImagemodel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F321EB20566A440008DB2E /* TJCurtainContentImagemodel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -333,6 +335,10 @@
 		B3D973A22045385A006AC9AF /* TJHomeMiddleContentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJHomeMiddleContentCell.m; sourceTree = "<group>"; };
 		B3F321E3205218190008DB2E /* TJCategoryViewContoller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCategoryViewContoller.h; sourceTree = "<group>"; };
 		B3F321E4205218190008DB2E /* TJCategoryViewContoller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCategoryViewContoller.m; sourceTree = "<group>"; };
+		B3F321E7205651770008DB2E /* POPAnimatableProperty+AGGeometryKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "POPAnimatableProperty+AGGeometryKit.h"; sourceTree = "<group>"; };
+		B3F321E8205651770008DB2E /* POPAnimatableProperty+AGGeometryKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "POPAnimatableProperty+AGGeometryKit.m"; sourceTree = "<group>"; };
+		B3F321EA20566A440008DB2E /* TJCurtainContentImagemodel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCurtainContentImagemodel.h; sourceTree = "<group>"; };
+		B3F321EB20566A440008DB2E /* TJCurtainContentImagemodel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCurtainContentImagemodel.m; sourceTree = "<group>"; };
 		C873E38C2212F51CC3C33026 /* Pods-omc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-omc.release.xcconfig"; path = "Pods/Target Support Files/Pods-omc/Pods-omc.release.xcconfig"; sourceTree = "<group>"; };
 		FE1AE3875C50D329EF8EE8C9 /* Pods-omc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-omc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-omc/Pods-omc.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -992,10 +998,11 @@
 		B3C871512046DADC0061146E /* CurtainEditMudule */ = {
 			isa = PBXGroup;
 			children = (
-				B3D095ED205133D7009D19FE /* Views */,
 				B3C871522046DADC0061146E /* Managers */,
-				B3C871532046DADC0061146E /* Models */,
+				B3D095ED205133D7009D19FE /* Views */,
 				B3C871542046DADC0061146E /* Controllers */,
+				B3F321E6205651770008DB2E /* Source */,
+				B3C871532046DADC0061146E /* Models */,
 			);
 			path = CurtainEditMudule;
 			sourceTree = "<group>";
@@ -1012,6 +1019,8 @@
 		B3C871532046DADC0061146E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B3F321EA20566A440008DB2E /* TJCurtainContentImagemodel.h */,
+				B3F321EB20566A440008DB2E /* TJCurtainContentImagemodel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1157,6 +1166,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		B3F321E6205651770008DB2E /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				B3F321E7205651770008DB2E /* POPAnimatableProperty+AGGeometryKit.h */,
+				B3F321E8205651770008DB2E /* POPAnimatableProperty+AGGeometryKit.m */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1294,6 +1312,7 @@
 				B3D095F0205133F2009D19FE /* TJCurtainEditContentView.m in Sources */,
 				B34843852027EA9F008FE754 /* TJAdaptiveManager.m in Sources */,
 				B384ED0820552FA800A131BA /* TJCurtainEditSettingAlerView.m in Sources */,
+				B3F321E9205651770008DB2E /* POPAnimatableProperty+AGGeometryKit.m in Sources */,
 				B348438E2027EA9F008FE754 /* TJBannerCell.m in Sources */,
 				B3C8717120482D440061146E /* TJCurtainEditViewController.m in Sources */,
 				B34843862027EA9F008FE754 /* TJUserDefaultsManager.m in Sources */,
@@ -1348,6 +1367,7 @@
 				B34843822027EA9F008FE754 /* UIView+ViewUtils.m in Sources */,
 				B3D97397204399EE006AC9AF /* TJHomeBannerModel.m in Sources */,
 				B32ADA93203E5257006A6EAB /* TJTokenManager.m in Sources */,
+				B3F321EC20566A440008DB2E /* TJCurtainContentImagemodel.m in Sources */,
 				B32ADA90203E5257006A6EAB /* TJAccountDefines.m in Sources */,
 				B34842C92027E8AD008FE754 /* AppDelegate.m in Sources */,
 				B3C8714D2046D5770061146E /* TJPersonalModel.m in Sources */,

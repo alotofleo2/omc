@@ -49,6 +49,8 @@
         [self setupLayoutSubviews];
         
         self.currentType = TJCurtainContentTypeCurtain;
+        
+
     }
     return self;
 }
@@ -62,7 +64,7 @@
     self.closeImageView = [[UIImageView alloc]init];
     self.closeImageView.image = [UIImage imageNamed:@"edit_cancel"] ;
     self.closeImageView.userInteractionEnabled = YES;
-    self.closeImageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.closeImageView.contentMode = UIViewContentModeScaleAspectFit;
     UITapGestureRecognizer *closeGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(actionPressed:)];
     [self.closeImageView addGestureRecognizer:closeGesture];
     [self addSubview:self.closeImageView];
@@ -77,7 +79,8 @@
     [self addSubview:self.contentSelectImageView];
     
     self.settingButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.settingButton setImage:[UIImage imageNamed:@"edit_image"] forState:UIControlStateNormal];
+    [self.settingButton setImage:[UIImage imageNamed:@"edit_setting"] forState:UIControlStateNormal];
+    self.settingButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, TJSystem2Xphone6Width(15));
     [self.settingButton setTitle:@"设置" forState:UIControlStateNormal];
     [self.settingButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     self.settingButton.titleLabel.font = [UIFont systemFontOfSize:14 *[TJAdaptiveManager adaptiveScale]];
@@ -90,7 +93,7 @@
     self.sureImageView = [[UIImageView alloc]init];
     self.sureImageView.image = [UIImage imageNamed:@"edit_selected"] ;
     self.sureImageView.userInteractionEnabled = YES;
-    self.sureImageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.sureImageView.contentMode = UIViewContentModeScaleAspectFit;
     UITapGestureRecognizer *sureGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(actionPressed:)];
     [self.sureImageView addGestureRecognizer:sureGesture];
     [self addSubview:self.sureImageView];
@@ -107,7 +110,8 @@
        
         make.bottom.mas_offset(-TJSystem2Xphone6Height(25));
         make.left.mas_offset(TJSystem2Xphone6Width(20));
-        make.height.width.equalTo(@(TJSystem2Xphone6Width(38)));
+        make.height.equalTo(@(TJSystem2Xphone6Width(38)));
+        make.width.equalTo(@(TJSystem2Xphone6Width(30)));
     }];
     
     [self.contentSelectImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -172,7 +176,7 @@
             
             make.top.equalTo(self.mas_bottom);
             make.centerX.equalTo(self.settingButton.mas_centerX).mas_offset(-TJSystem2Xphone6Width(480) / 3);
-            make.height.equalTo(@(TJSystem2Xphone6Width(500)));
+            make.height.equalTo(@(TJSystem2Xphone6Height(420)));
             make.width.equalTo(@(TJSystem2Xphone6Width(480)));
         }];
     }
@@ -183,7 +187,7 @@
     if (!_maskView) {
         _maskView = [[UIView alloc]init];
         _maskView.frame = CGRectMake(0, 0, DEVICE_SCREEN_WIDTH, DEVICE_SCREEN_HEIGHT);
-        _maskView.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.2];
+        _maskView.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.1];
         UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(maskViewPressed)];
         [_maskView addGestureRecognizer:gesture];
         [self.superview addSubview:_maskView];
@@ -201,7 +205,7 @@
             
         self.contentAlerView.hidden = !self.contentAlerView.isHidden;
         self.maskView.hidden = self.contentAlerView.isHidden;
-
+        [self.contentAlerView.superview bringSubviewToFront:self.contentAlerView];
     } else if (recognizer.view == self.sureImageView) {
         
         if (self.sureActionHandle) self.sureActionHandle();
@@ -213,6 +217,7 @@
     
     self.settingAlerView.hidden = !self.settingAlerView.isHidden;
     self.maskView.hidden = self.settingAlerView.isHidden;
+    [self.settingAlerView.superview bringSubviewToFront:self.settingAlerView];
     if (self.settingActionHandle) self.settingActionHandle();
 }
 
