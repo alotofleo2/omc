@@ -243,7 +243,7 @@
 #pragma mark 左边第一个点击事件 搜索
 - (void)rightfirstButtonPressed {
     NSLog(@"搜索被呗点击");
-    [[TJPageManager sharedInstance] pushViewControllerWithName:@"TJLoginViewController"];
+    [[TJPageManager sharedInstance] pushViewControllerWithName:@"TJUploadViewController"];
 }
 
 #pragma mark 左边第二个点击事件 照片编辑

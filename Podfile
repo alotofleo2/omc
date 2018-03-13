@@ -15,5 +15,5 @@ inhibit_all_warnings!
     pod 'SVProgressHUD'
     pod 'WechatOpenSDK'
     pod 'Weibo_SDK', :git => 'https://github.com/sinaweibosdk/weibo_ios_sdk.git'
-
+    pod 'FTImagePickerController',:git => 'https://github.com/alotofleo2/FTImagePickerController.git'
 end

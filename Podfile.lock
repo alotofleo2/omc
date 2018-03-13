@@ -1,39 +1,41 @@
 PODS:
-  - AFNetworking (3.1.0):
-    - AFNetworking/NSURLSession (= 3.1.0)
-    - AFNetworking/Reachability (= 3.1.0)
-    - AFNetworking/Security (= 3.1.0)
-    - AFNetworking/Serialization (= 3.1.0)
-    - AFNetworking/UIKit (= 3.1.0)
-  - AFNetworking/NSURLSession (3.1.0):
+  - AFNetworking (3.2.0):
+    - AFNetworking/NSURLSession (= 3.2.0)
+    - AFNetworking/Reachability (= 3.2.0)
+    - AFNetworking/Security (= 3.2.0)
+    - AFNetworking/Serialization (= 3.2.0)
+    - AFNetworking/UIKit (= 3.2.0)
+  - AFNetworking/NSURLSession (3.2.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (3.1.0)
-  - AFNetworking/Security (3.1.0)
-  - AFNetworking/Serialization (3.1.0)
-  - AFNetworking/UIKit (3.1.0):
+  - AFNetworking/Reachability (3.2.0)
+  - AFNetworking/Security (3.2.0)
+  - AFNetworking/Serialization (3.2.0)
+  - AFNetworking/UIKit (3.2.0):
     - AFNetworking/NSURLSession
-  - AGGeometryKit (1.2.5):
-    - AGGeometryKit/CALayerProperties (= 1.2.5)
-    - AGGeometryKit/UIViewProperties (= 1.2.5)
-  - AGGeometryKit/CALayerProperties (1.2.5)
-  - AGGeometryKit/UIViewProperties (1.2.5)
+  - AGGeometryKit (1.2.7):
+    - AGGeometryKit/CALayerProperties (= 1.2.7)
+    - AGGeometryKit/UIViewProperties (= 1.2.7)
+  - AGGeometryKit/CALayerProperties (1.2.7)
+  - AGGeometryKit/UIViewProperties (1.2.7)
+  - FTImagePickerController (1.0.0)
   - Masonry (1.1.0)
   - MJExtension (3.0.13)
-  - MJRefresh (3.1.12)
+  - MJRefresh (3.1.15.3)
   - pop (1.0.10)
-  - SDWebImage (4.1.0):
-    - SDWebImage/Core (= 4.1.0)
-  - SDWebImage/Core (4.1.0)
-  - SVProgressHUD (2.2.1)
-  - Toast (3.1.0)
-  - WechatOpenSDK (1.8.0)
+  - SDWebImage (4.3.0):
+    - SDWebImage/Core (= 4.3.0)
+  - SDWebImage/Core (4.3.0)
+  - SVProgressHUD (2.2.2)
+  - Toast (4.0.0)
+  - WechatOpenSDK (1.8.1)
   - Weibo_SDK (3.2.3)
 
 DEPENDENCIES:
   - AFNetworking
   - AGGeometryKit
+  - FTImagePickerController (from `https://github.com/alotofleo2/FTImagePickerController.git`)
   - Masonry
   - MJExtension
   - MJRefresh
@@ -45,27 +47,33 @@ DEPENDENCIES:
   - Weibo_SDK (from `https://github.com/sinaweibosdk/weibo_ios_sdk.git`)
 
 EXTERNAL SOURCES:
+  FTImagePickerController:
+    :git: https://github.com/alotofleo2/FTImagePickerController.git
   Weibo_SDK:
     :git: https://github.com/sinaweibosdk/weibo_ios_sdk.git
 
 CHECKOUT OPTIONS:
+  FTImagePickerController:
+    :commit: 2060ed1aa009d4a96a6875f7819b589f06bd1fae
+    :git: https://github.com/alotofleo2/FTImagePickerController.git
   Weibo_SDK:
     :commit: f5b138320aefe0ed20b76b8510521432f1a6c9ac
     :git: https://github.com/sinaweibosdk/weibo_ios_sdk.git
 
 SPEC CHECKSUMS:
-  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  AGGeometryKit: ad2aa0c4daaad6d199d92ae6fe8e7e42c38d97ca
+  AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
+  AGGeometryKit: 3364603783bfade7a9a61d40c7a75428ba744d38
+  FTImagePickerController: 18892b338c9b611adb37a1734a1a775d73cd8f4a
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
-  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
   pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
-  SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
-  SVProgressHUD: db27c54e6e18bc903341661fc9feb55e04905cc4
-  Toast: 14a93686d6c8bfe2727afd342414e35660a8a1f3
-  WechatOpenSDK: 0ee07a8d492299d3e47372a33da5af26524a7576
+  SDWebImage: 6da6c8bca115addc4de8613362e1b15f66333825
+  SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
+  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
+  WechatOpenSDK: 491d965d79335070328571d3e79f714549e79a5e
   Weibo_SDK: 652ca78c2f7147a5de5e75e7cbea89838a81772a
 
-PODFILE CHECKSUM: 33402d303394e7a0a93d8ae4f93bf750887708ee
+PODFILE CHECKSUM: 202a3940fde687670775c08e25b89263cf318560
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.4.0.beta.2
