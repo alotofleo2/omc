@@ -43,6 +43,9 @@
     self.navigationItem.title = @"登录";
     
     self.view.backgroundColor = [UIColor whiteColor];
+    // 点击屏幕回收键盘
+    UITapGestureRecognizer *viewGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyBoardresignFirstResponder)];
+    [self.view addGestureRecognizer:viewGesture];
 }
 
 - (void)setUpSubviews {
@@ -252,5 +255,8 @@
         self.actionButton.layer.shadowOpacity = 0;
     }];
 }
-
+#pragma mark - 隐藏键盘
+- (void)keyBoardresignFirstResponder{
+    [self.view endEditing:YES];
+}
 @end

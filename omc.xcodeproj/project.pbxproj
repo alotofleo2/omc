@@ -82,6 +82,8 @@
 		B39D9CEC205760AA001076AA /* TJUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B39D9CEB205760AA001076AA /* TJUploadViewController.m */; };
 		B39D9CEF205761AE001076AA /* TJUploadNormalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B39D9CEE205761AE001076AA /* TJUploadNormalCell.m */; };
 		B39D9CF22057BEB2001076AA /* TJUploadBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B39D9CF12057BEB2001076AA /* TJUploadBottomCell.m */; };
+		B39D9CF52058B752001076AA /* TJUploadBottomItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B39D9CF42058B752001076AA /* TJUploadBottomItem.m */; };
+		B39D9CF82058BAD1001076AA /* TJUploadBottomItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B39D9CF72058BAD1001076AA /* TJUploadBottomItemModel.m */; };
 		B3C8713E2045A6FE0061146E /* TJHomeMiddleContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C8713D2045A6FE0061146E /* TJHomeMiddleContentModel.m */; };
 		B3C871412046D48B0061146E /* TJPersonalView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C871402046D48B0061146E /* TJPersonalView.m */; };
 		B3C871442046D4D90061146E /* TJPersonalDataDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C871432046D4D90061146E /* TJPersonalDataDelegate.m */; };
@@ -275,6 +277,10 @@
 		B39D9CEE205761AE001076AA /* TJUploadNormalCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJUploadNormalCell.m; sourceTree = "<group>"; };
 		B39D9CF02057BEB2001076AA /* TJUploadBottomCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJUploadBottomCell.h; sourceTree = "<group>"; };
 		B39D9CF12057BEB2001076AA /* TJUploadBottomCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJUploadBottomCell.m; sourceTree = "<group>"; };
+		B39D9CF32058B752001076AA /* TJUploadBottomItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJUploadBottomItem.h; sourceTree = "<group>"; };
+		B39D9CF42058B752001076AA /* TJUploadBottomItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJUploadBottomItem.m; sourceTree = "<group>"; };
+		B39D9CF62058BAD1001076AA /* TJUploadBottomItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJUploadBottomItemModel.h; sourceTree = "<group>"; };
+		B39D9CF72058BAD1001076AA /* TJUploadBottomItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJUploadBottomItemModel.m; sourceTree = "<group>"; };
 		B3C8713C2045A6FE0061146E /* TJHomeMiddleContentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJHomeMiddleContentModel.h; sourceTree = "<group>"; };
 		B3C8713D2045A6FE0061146E /* TJHomeMiddleContentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJHomeMiddleContentModel.m; sourceTree = "<group>"; };
 		B3C8713F2046D48B0061146E /* TJPersonalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJPersonalView.h; sourceTree = "<group>"; };
@@ -384,12 +390,12 @@
 		B32ADA71203E4EF0006A6EAB /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				B32ADA7D203E5257006A6EAB /* TJNetworkKit */,
 				B39D9CE62057602E001076AA /* UploadMudle */,
 				B32ADA72203E4EF0006A6EAB /* MainModule */,
 				B3F321DE205215130008DB2E /* CategoryMudule */,
 				B32ADA98203E6031006A6EAB /* HomeModule */,
 				B3C871512046DADC0061146E /* CurtainEditMudule */,
-				B32ADA7D203E5257006A6EAB /* TJNetworkKit */,
 				B3C8715D2047022C0061146E /* SettingModule */,
 			);
 			path = Class;
@@ -1010,6 +1016,8 @@
 		B39D9CE72057602E001076AA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B39D9CF62058BAD1001076AA /* TJUploadBottomItemModel.h */,
+				B39D9CF72058BAD1001076AA /* TJUploadBottomItemModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1030,6 +1038,8 @@
 				B39D9CEE205761AE001076AA /* TJUploadNormalCell.m */,
 				B39D9CF02057BEB2001076AA /* TJUploadBottomCell.h */,
 				B39D9CF12057BEB2001076AA /* TJUploadBottomCell.m */,
+				B39D9CF32058B752001076AA /* TJUploadBottomItem.h */,
+				B39D9CF42058B752001076AA /* TJUploadBottomItem.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1359,6 +1369,7 @@
 				B34843922027EA9F008FE754 /* TJTableLoadFailView.m in Sources */,
 				B3D095F0205133F2009D19FE /* TJCurtainEditContentView.m in Sources */,
 				B39D9CEF205761AE001076AA /* TJUploadNormalCell.m in Sources */,
+				B39D9CF82058BAD1001076AA /* TJUploadBottomItemModel.m in Sources */,
 				B34843852027EA9F008FE754 /* TJAdaptiveManager.m in Sources */,
 				B384ED0820552FA800A131BA /* TJCurtainEditSettingAlerView.m in Sources */,
 				B3F321E9205651770008DB2E /* POPAnimatableProperty+AGGeometryKit.m in Sources */,
@@ -1373,6 +1384,7 @@
 				B3D095D4204F88AD009D19FE /* TJSettingMainVC.m in Sources */,
 				B3D095E620510F38009D19FE /* TJSettingPersonalDataCell.m in Sources */,
 				B34843982027EA9F008FE754 /* TJBaseViewController.m in Sources */,
+				B39D9CF52058B752001076AA /* TJUploadBottomItem.m in Sources */,
 				B34842CC2027E8AD008FE754 /* ViewController.m in Sources */,
 				B32ADA8F203E5257006A6EAB /* TJHTTPSessionManager.m in Sources */,
 				B348436F2027EA9F008FE754 /* NSString+Hash.m in Sources */,

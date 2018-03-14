@@ -7,12 +7,15 @@
 //
 
 #define kImageMargin TJSystem2Xphone6Width(20)
+#define kItemWidth ((DEVICE_SCREEN_WIDTH - 5 * kImageMargin) / 4)
 #import "TJUploadBottomCell.h"
+#import "TJUploadBottomItem.h"
+#import "TJUploadBottomItemModel.h"
+
 @interface TJUploadBottomCell ()
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *detialLabel;
 @property (nonatomic, strong) UIButton *uploadButton;
-
 @property (nonatomic, strong) TJUploadBottomImagesView *imagesView;
 @end
 
@@ -29,6 +32,7 @@
     return self;
 }
 - (void)setupSubviews {
+    BLOCK_WEAK_SELF
     self.titleLabel = [[UILabel alloc]init];
     self.titleLabel.text = @"文件上传";
     self.titleLabel.font = [UIFont systemFontOfSize:16 *[TJAdaptiveManager adaptiveScale]];
@@ -42,6 +46,9 @@
     [self.contentView addSubview:self.detialLabel];
     
     self.imagesView = [[TJUploadBottomImagesView alloc]init];
+    self.imagesView.placeHolderPressedHandle = ^{if (weakSelf.placeHolderPressedHandle)  weakSelf.placeHolderPressedHandle();};
+    self.imagesView.closeHandle = ^(NSInteger index){if(weakSelf.closeHandle) weakSelf.closeHandle(index);};
+    self.imagesView.imagePrssedHandle = ^(NSInteger index){if(weakSelf.imagePrssedHandle) weakSelf.imagePrssedHandle(index);};
     [self.contentView addSubview:self.imagesView];
     
     self.uploadButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -87,25 +94,41 @@
     }];
     
 }
+- (void)setupViewWithModel:(NSMutableArray <TJUploadBottomItemModel *>*)model {
+    [self.imagesView setImageModels:model];
+    [self.imagesView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.contentView);
+        make.top.equalTo(self.detialLabel.mas_bottom).mas_offset(TJSystem2Xphone6Height(40));
+        make.height.equalTo(@(((kItemWidth + kImageMargin) * (model.count / 4 + 1))));
+    }];
+}
 #pragma mark 点击事件
 - (void)uploadButtonPressed:(UIButton *)sender {
     
     [UIView animateWithDuration:0.25 animations:^{
+        
         self.uploadButton.layer.shadowOpacity = 0.3;
     }];
+    if (self.uploadPressedHandle) {
+        self.uploadPressedHandle();
+    }
 }
+
 #pragma mark 按下阴影解除操作
 - (void)uploadButtonTouchDown:(UIButton *)sender {
     [UIView animateWithDuration:0.25 animations:^{
+        
         self.uploadButton.layer.shadowOpacity = 0;
     }];
 }
+
 @end
 
 @interface TJUploadBottomImagesView ()
 @property (nonatomic, strong) UIView *placeHoder;
 @property (nonatomic, strong) UILabel *hoderLabel;
 @end
+
 @implementation TJUploadBottomImagesView
 - (instancetype)init {
     if (self = [super init]) {
@@ -124,9 +147,43 @@
 - (void)setupLayoutSubviews {
     [self.placeHoder mas_makeConstraints:^(MASConstraintMaker *make) {
        
-        make.height.width.equalTo(@((DEVICE_SCREEN_WIDTH - 5 * kImageMargin) / 4));
+        make.height.width.equalTo(@((kItemWidth)));
         make.left.top.mas_offset(kImageMargin);
     }];
+}
+- (void)setImageModels:(NSMutableArray<TJUploadBottomItemModel *> *)imageModels {
+    _imageModels = imageModels;
+    for (UIView *view in self.subviews) {
+        [view removeFromSuperview];
+    }
+    BLOCK_WEAK_SELF
+    for (TJUploadBottomItemModel *model in imageModels) {
+        TJUploadBottomItem *item = [[TJUploadBottomItem alloc]init];
+        item.closeHandle = ^(NSInteger index){if(weakSelf.closeHandle) weakSelf.closeHandle(index); };
+        item.imagePrssedHandle  = ^(NSInteger index){if(weakSelf.imagePrssedHandle) weakSelf.imagePrssedHandle(index); };
+        [item setupViewWithModel:model];
+        [self addSubview:item];
+        NSInteger index = [imageModels indexOfObject:model];
+        
+        [item mas_makeConstraints:^(MASConstraintMaker *make) {
+           
+            make.height.width.equalTo(@(kItemWidth));
+            make.left.mas_offset((index % 4) * (kItemWidth + kImageMargin) + kImageMargin);
+            make.top.mas_offset((index / 4) * (kItemWidth + kImageMargin) + kImageMargin);
+        }];
+    }
+    if (imageModels.count == 5) {
+        return;
+    }
+    
+    [self addSubview:self.placeHoder];
+    [self.placeHoder mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.height.width.equalTo(@(kItemWidth));
+        make.left.mas_offset(((imageModels.count) % 4) * (kItemWidth + kImageMargin) + kImageMargin);
+        make.top.mas_offset((imageModels.count / 4) * (kItemWidth + kImageMargin) + kImageMargin);
+    }];
+    self.hoderLabel.text = [NSString stringWithFormat:@"%ld / 5", imageModels.count];
+    
 }
 #pragma mark - getter
 - (UIView *)placeHoder {
@@ -144,14 +201,16 @@
         self.hoderLabel = [[UILabel alloc]init];
         self.hoderLabel.textColor = UIColorFromRGB(0xafafaf);
         self.hoderLabel.font = [UIFont systemFontOfSize:11 *[TJAdaptiveManager adaptiveScale]];
-        self.hoderLabel.text = @"0 / 5";
-        [_placeHoder addSubview:self.hoderLabel];
-        [self.hoderLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-           
-            make.centerX.equalTo(_placeHoder).mas_offset(TJSystem2Xphone6Width(4));
-            make.top.equalTo(_placeHoder.mas_centerY).mas_offset(TJSystem2Xphone6Height(20));
-        }];
+        self.userInteractionEnabled = YES;
+        BLOCK_WEAK_SELF
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:weakSelf action:@selector(placeholderPressed)];
+        [_placeHoder addGestureRecognizer:tapGesture];
     }
     return _placeHoder;
+}
+- (void)placeholderPressed {
+    if (self.placeHolderPressedHandle) {
+        self.placeHolderPressedHandle();
+    }
 }
 @end
