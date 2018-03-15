@@ -32,6 +32,8 @@
 
 - (void)setupSubviews {
     self.imageView = [[UIImageView alloc]init];
+    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.imageView.clipsToBounds = YES;
     self.imageView.userInteractionEnabled = YES;
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imagePressed)];
     [self.imageView addGestureRecognizer:gesture];

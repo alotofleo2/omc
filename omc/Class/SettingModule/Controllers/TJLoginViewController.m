@@ -63,7 +63,7 @@
     
     self.userNameTextField = [[UITextField alloc]init];
     self.userNameTextField.delegate = self;
-    self.userNameTextField.keyboardType = UIKeyboardTypePhonePad;
+    self.userNameTextField.keyboardType = UIKeyboardTypeDefault;
     self.userNameTextField.font = [UIFont systemFontOfSize:15 *[TJAdaptiveManager adaptiveScale]];
     self.userNameTextField.placeholder = @"请输入您的经销商账户";
     [self.view addSubview:self.userNameTextField];

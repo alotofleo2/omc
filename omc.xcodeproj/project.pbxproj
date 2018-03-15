@@ -84,6 +84,12 @@
 		B39D9CF22057BEB2001076AA /* TJUploadBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B39D9CF12057BEB2001076AA /* TJUploadBottomCell.m */; };
 		B39D9CF52058B752001076AA /* TJUploadBottomItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B39D9CF42058B752001076AA /* TJUploadBottomItem.m */; };
 		B39D9CF82058BAD1001076AA /* TJUploadBottomItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B39D9CF72058BAD1001076AA /* TJUploadBottomItemModel.m */; };
+		B39D9CFC205A17C7001076AA /* TJUploadDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = B39D9CFB205A17C6001076AA /* TJUploadDefines.m */; };
+		B39D9CFF205A1C88001076AA /* TJUploadTask.m in Sources */ = {isa = PBXBuildFile; fileRef = B39D9CFE205A1C88001076AA /* TJUploadTask.m */; };
+		B39D9D02205A5665001076AA /* TJUploadListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B39D9D01205A5665001076AA /* TJUploadListViewController.m */; };
+		B39D9D05205A60F4001076AA /* TJUploadListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B39D9D04205A60F4001076AA /* TJUploadListCell.m */; };
+		B39D9D08205A6364001076AA /* TJUploadListHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B39D9D07205A6364001076AA /* TJUploadListHeaderView.m */; };
+		B39D9D0B205A6469001076AA /* TJUploadListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B39D9D0A205A6469001076AA /* TJUploadListModel.m */; };
 		B3C8713E2045A6FE0061146E /* TJHomeMiddleContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C8713D2045A6FE0061146E /* TJHomeMiddleContentModel.m */; };
 		B3C871412046D48B0061146E /* TJPersonalView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C871402046D48B0061146E /* TJPersonalView.m */; };
 		B3C871442046D4D90061146E /* TJPersonalDataDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C871432046D4D90061146E /* TJPersonalDataDelegate.m */; };
@@ -281,6 +287,18 @@
 		B39D9CF42058B752001076AA /* TJUploadBottomItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJUploadBottomItem.m; sourceTree = "<group>"; };
 		B39D9CF62058BAD1001076AA /* TJUploadBottomItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJUploadBottomItemModel.h; sourceTree = "<group>"; };
 		B39D9CF72058BAD1001076AA /* TJUploadBottomItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJUploadBottomItemModel.m; sourceTree = "<group>"; };
+		B39D9CFA205A17C6001076AA /* TJUploadDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJUploadDefines.h; sourceTree = "<group>"; };
+		B39D9CFB205A17C6001076AA /* TJUploadDefines.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJUploadDefines.m; sourceTree = "<group>"; };
+		B39D9CFD205A1C88001076AA /* TJUploadTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJUploadTask.h; sourceTree = "<group>"; };
+		B39D9CFE205A1C88001076AA /* TJUploadTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJUploadTask.m; sourceTree = "<group>"; };
+		B39D9D00205A5665001076AA /* TJUploadListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJUploadListViewController.h; sourceTree = "<group>"; };
+		B39D9D01205A5665001076AA /* TJUploadListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJUploadListViewController.m; sourceTree = "<group>"; };
+		B39D9D03205A60F4001076AA /* TJUploadListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJUploadListCell.h; sourceTree = "<group>"; };
+		B39D9D04205A60F4001076AA /* TJUploadListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJUploadListCell.m; sourceTree = "<group>"; };
+		B39D9D06205A6364001076AA /* TJUploadListHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJUploadListHeaderView.h; sourceTree = "<group>"; };
+		B39D9D07205A6364001076AA /* TJUploadListHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJUploadListHeaderView.m; sourceTree = "<group>"; };
+		B39D9D09205A6469001076AA /* TJUploadListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJUploadListModel.h; sourceTree = "<group>"; };
+		B39D9D0A205A6469001076AA /* TJUploadListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJUploadListModel.m; sourceTree = "<group>"; };
 		B3C8713C2045A6FE0061146E /* TJHomeMiddleContentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJHomeMiddleContentModel.h; sourceTree = "<group>"; };
 		B3C8713D2045A6FE0061146E /* TJHomeMiddleContentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJHomeMiddleContentModel.m; sourceTree = "<group>"; };
 		B3C8713F2046D48B0061146E /* TJPersonalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJPersonalView.h; sourceTree = "<group>"; };
@@ -1006,6 +1024,7 @@
 		B39D9CE62057602E001076AA /* UploadMudle */ = {
 			isa = PBXGroup;
 			children = (
+				B39D9CF9205A17A1001076AA /* Network */,
 				B39D9CE72057602E001076AA /* Models */,
 				B39D9CE82057602E001076AA /* Controllers */,
 				B39D9CE92057602E001076AA /* Views */,
@@ -1018,6 +1037,8 @@
 			children = (
 				B39D9CF62058BAD1001076AA /* TJUploadBottomItemModel.h */,
 				B39D9CF72058BAD1001076AA /* TJUploadBottomItemModel.m */,
+				B39D9D09205A6469001076AA /* TJUploadListModel.h */,
+				B39D9D0A205A6469001076AA /* TJUploadListModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1027,6 +1048,8 @@
 			children = (
 				B39D9CEA205760AA001076AA /* TJUploadViewController.h */,
 				B39D9CEB205760AA001076AA /* TJUploadViewController.m */,
+				B39D9D00205A5665001076AA /* TJUploadListViewController.h */,
+				B39D9D01205A5665001076AA /* TJUploadListViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1040,8 +1063,23 @@
 				B39D9CF12057BEB2001076AA /* TJUploadBottomCell.m */,
 				B39D9CF32058B752001076AA /* TJUploadBottomItem.h */,
 				B39D9CF42058B752001076AA /* TJUploadBottomItem.m */,
+				B39D9D03205A60F4001076AA /* TJUploadListCell.h */,
+				B39D9D04205A60F4001076AA /* TJUploadListCell.m */,
+				B39D9D06205A6364001076AA /* TJUploadListHeaderView.h */,
+				B39D9D07205A6364001076AA /* TJUploadListHeaderView.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B39D9CF9205A17A1001076AA /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B39D9CFA205A17C6001076AA /* TJUploadDefines.h */,
+				B39D9CFB205A17C6001076AA /* TJUploadDefines.m */,
+				B39D9CFD205A1C88001076AA /* TJUploadTask.h */,
+				B39D9CFE205A1C88001076AA /* TJUploadTask.m */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		B3C8714E2046D90F0061146E /* Resources */ = {
@@ -1366,6 +1404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B34843742027EA9F008FE754 /* NSUserDefaults+Secure.m in Sources */,
+				B39D9CFC205A17C7001076AA /* TJUploadDefines.m in Sources */,
 				B34843922027EA9F008FE754 /* TJTableLoadFailView.m in Sources */,
 				B3D095F0205133F2009D19FE /* TJCurtainEditContentView.m in Sources */,
 				B39D9CEF205761AE001076AA /* TJUploadNormalCell.m in Sources */,
@@ -1378,6 +1417,7 @@
 				B34843862027EA9F008FE754 /* TJUserDefaultsManager.m in Sources */,
 				B32ADA9F203E605E006A6EAB /* TJHomeViewController.m in Sources */,
 				B348437B2027EA9F008FE754 /* UITextView+PlaceHolder.m in Sources */,
+				B39D9D0B205A6469001076AA /* TJUploadListModel.m in Sources */,
 				B34843732027EA9F008FE754 /* TJInputChecker.m in Sources */,
 				B32ADAA2203E6098006A6EAB /* TJHomeTopBannerCell.m in Sources */,
 				B32ADA91203E5257006A6EAB /* TJAccountTask.m in Sources */,
@@ -1386,6 +1426,7 @@
 				B34843982027EA9F008FE754 /* TJBaseViewController.m in Sources */,
 				B39D9CF52058B752001076AA /* TJUploadBottomItem.m in Sources */,
 				B34842CC2027E8AD008FE754 /* ViewController.m in Sources */,
+				B39D9D02205A5665001076AA /* TJUploadListViewController.m in Sources */,
 				B32ADA8F203E5257006A6EAB /* TJHTTPSessionManager.m in Sources */,
 				B348436F2027EA9F008FE754 /* NSString+Hash.m in Sources */,
 				B34843802027EA9F008FE754 /* TJLoopScrollView.m in Sources */,
@@ -1409,6 +1450,7 @@
 				B39D9CF22057BEB2001076AA /* TJUploadBottomCell.m in Sources */,
 				B348438A2027EA9F008FE754 /* TJButton.m in Sources */,
 				B3D973A02043A9AC006AC9AF /* TJHomeCategoryModel.m in Sources */,
+				B39D9D05205A60F4001076AA /* TJUploadListCell.m in Sources */,
 				B348438F2027EA9F008FE754 /* TJTableLoadingView.m in Sources */,
 				B3D095CA204E2414009D19FE /* TJSettingDefines.m in Sources */,
 				B348439A2027EA9F008FE754 /* TJBannerView.m in Sources */,
@@ -1464,11 +1506,13 @@
 				B34843912027EA9F008FE754 /* TJTableEmptyView.m in Sources */,
 				B3D095E0204FB9FA009D19FE /* TJUserModel.m in Sources */,
 				B348437E2027EA9F008FE754 /* TJColor.m in Sources */,
+				B39D9CFF205A1C88001076AA /* TJUploadTask.m in Sources */,
 				B348436D2027EA9F008FE754 /* TJDeviceInfo.m in Sources */,
 				B3C871492046D4FD0061146E /* TJPersonalTableHeaderView.m in Sources */,
 				B3C871582046DAFE0061146E /* TJCurtainEditManager.m in Sources */,
 				B3C8716C204703370061146E /* TJPersonalDataModel.m in Sources */,
 				B3C87163204702560061146E /* TJLoginViewController.m in Sources */,
+				B39D9D08205A6364001076AA /* TJUploadListHeaderView.m in Sources */,
 				B32ADA8E203E5257006A6EAB /* TJRequest.m in Sources */,
 				B384ED052055084A00A131BA /* TJCurtainEditTopContentAlerView.m in Sources */,
 			);

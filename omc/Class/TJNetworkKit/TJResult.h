@@ -29,9 +29,9 @@
 
 
 /**
- *  Token为空
+ *  参数未满足条件
  */
-#define TJResponseCodeTokenEmpty            40010
+#define TJResponseCodeParamError            412
 
 /**
  *  Token刷新时为空

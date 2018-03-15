@@ -12,6 +12,7 @@
 #import "TJUploadBottomCell.h"
 #import "FTImagePickerController.h"
 #import "TJUploadBottomItemModel.h"
+#import "TJUploadTask.h"
 
 @interface TJUploadViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, FTImagePickerControllerDelegate>
 @property (nonatomic, strong) UIImagePickerController *imagePickerController;
@@ -67,7 +68,7 @@
             bottomcell.placeHolderPressedHandle = ^{ [weakSelf placeHoderPressed];};
             bottomcell.closeHandle = ^(NSInteger index){[weakSelf imageItemCloseWithIndex:index];};
             bottomcell.imagePrssedHandle = ^(NSInteger index){[weakSelf imageChangeWithIndex:index];};
-            bottomcell.uploadPressedHandle = ^{[weakSelf uploadPressed];};
+            bottomcell.uploadPressedHandle = ^(UIButton *sender){[weakSelf uploadPressed:sender];};
             [cell setupViewWithModel:self.imageModels];
         }
     }
@@ -123,7 +124,7 @@
     
     picker.maxMultipleCount = 5 - self.imageModels.count;
     
-    picker.allowsEditing = YES;
+    picker.allowsEditing = NO;
     //返回图片大小
     picker.cropSize = CGSizeMake(750, 750);
     
@@ -162,7 +163,7 @@
         
         UIImage* image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
         
-        UIImage *newImg = [[image scaleToSize:CGSizeMake(750, 750)] compressedImage:750];
+        UIImage *newImg = [[image scaleToSize:CGSizeMake(750, image.size.height / image.size.width * 750)] compressedImage:750];
         UIImage *fineImg = [[UIImage alloc]initWithData:[newImg compressedData:0.8]];
         
         TJUploadBottomItemModel *model = [[TJUploadBottomItemModel alloc]init];
@@ -242,7 +243,7 @@
 }
 #pragma mark 事件
 - (void)placeHoderPressed {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"照片选择" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"请先拍照或从相册中选择您的室内实景图" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
@@ -282,7 +283,7 @@
     [self placeHoderPressed];
 }
 #pragma mark 上传按钮点击事件
-- (void)uploadPressed {
+- (void)uploadPressed:(UIButton *)sender {
     if (self.firstCell.textView.text.length == 0) {
         [self showToastWithString:@"请输入产品编号"];
         return;
@@ -297,9 +298,33 @@
     }
     
     [self cancelTask];
+    sender.enabled = NO;
+    [TJProgressHUD show];
+    NSMutableDictionary *images = [NSMutableDictionary dictionaryWithCapacity:self.imageModels.count];
+    for (NSInteger i = 0; i < self.imageModels.count; i++) {
+        NSData *data = UIImagePNGRepresentation(self.imageModels[i].image);
+        [images setObject:data forKey:[NSString stringWithFormat:@"image%ld", i + 1]];
+    }
+    
+    TJRequest *request = [TJUploadTask uploadWithImages:images number:self.firstCell.textView.text describe:self.secendCell.textView.text progressBlock:^(NSProgress *progress) {
+        
+    } successBlock:^(TJResult *result) {
+        if (result.errcode == 200) {
+            [TJAlertUtil toastWithString:@"上传成功"];
+            [[TJPageManager sharedInstance]popViewControllerWithParams:nil];
+        }
+        [TJProgressHUD dismiss];
+        sender.enabled = YES;
+    } failureBlock:^(TJResult *result) {
+        [self showToastWithString:result.message];
+        sender.enabled =YES;
+        [TJProgressHUD dismiss];
+    }];
+    [self.taskArray addObject:request];
+    
 }
 #pragma mark - 隐藏键盘
-- (void)keyBoardresignFirstResponder{
+- (void)keyBoardresignFirstResponder {
     [self.view endEditing:YES];
 }
 @end

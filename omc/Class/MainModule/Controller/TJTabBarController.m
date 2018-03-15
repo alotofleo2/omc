@@ -10,6 +10,7 @@
 #import "TJCurtainEditManager.h"
 #import "TJHomeViewController.h"
 #import "TJCategoryViewContoller.h"
+#import "TJUploadListViewController.h"
 #import "TJTabBar.h"
 
 @interface TJTabBarController ()
@@ -67,8 +68,8 @@
     UIViewController *MessageVC = [[UIViewController alloc] init];
     [self setUpOneChildVcWithVc:MessageVC Image:@"video_normal" selectedImage:@"video_highlight" title:@"安装视频"];
 
-    UIViewController *MineVC = [[UIViewController alloc] init];
-    [self setUpOneChildVcWithVc:MineVC Image:@"buyerShow_normal" selectedImage:@"buyerShow_highlight" title:@"实景案例"];
+    TJUploadListViewController *uploadListVC = [[TJUploadListViewController alloc] init];
+    [self setUpOneChildVcWithVc:uploadListVC Image:@"buyerShow_normal" selectedImage:@"buyerShow_highlight" title:@"实景案例"];
     
     [[UITabBar appearance] setShadowImage:[UIImage imageWithColor:UIColorFromRGB(0x2d2d2d)]];
     [[UITabBar appearance] setBackgroundImage:[UIImage imageWithColor:UIColorFromRGB(0x2d2d2d)]];

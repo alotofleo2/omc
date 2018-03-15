@@ -287,7 +287,7 @@
             [allKeys enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                 NSString *imageKey = obj;
                 NSData *imageData = [images valueForKey:imageKey];
-                [formData appendPartWithFileData:imageData name:imageKey fileName:imageKey mimeType:@"image/jpeg"];
+                [formData appendPartWithFileData:imageData name:imageKey fileName:[NSString stringWithFormat:@"%@.jpg", imageKey] mimeType:@"image/jpeg"];
             }];
         }
         
@@ -336,6 +336,12 @@
                 
             } else {
                 
+                if (result.errcode == TJResponseCodeParamError) {
+                    
+                    //参数未满足条件
+                    result.message = @"参数未满足条件";
+                    
+                }
                 if (result.errcode == TJResponseCodeError) {
                     
                     // 判断服务器是否处于维护中

@@ -14,7 +14,7 @@
 @property (nonatomic, copy) void(^placeHolderPressedHandle)(void);
 
 //上传点击事件
-@property (nonatomic, copy) void(^uploadPressedHandle)(void);
+@property (nonatomic, copy) void(^uploadPressedHandle)(UIButton *);
 
 //照片关闭点击事件
 @property (nonatomic, copy) void(^closeHandle)(NSInteger);

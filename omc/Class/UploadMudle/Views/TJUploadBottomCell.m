@@ -110,7 +110,7 @@
         self.uploadButton.layer.shadowOpacity = 0.3;
     }];
     if (self.uploadPressedHandle) {
-        self.uploadPressedHandle();
+        self.uploadPressedHandle(sender);
     }
 }
 
@@ -182,7 +182,7 @@
         make.left.mas_offset(((imageModels.count) % 4) * (kItemWidth + kImageMargin) + kImageMargin);
         make.top.mas_offset((imageModels.count / 4) * (kItemWidth + kImageMargin) + kImageMargin);
     }];
-    self.hoderLabel.text = [NSString stringWithFormat:@"%ld / 5", imageModels.count];
+    self.hoderLabel.text = [NSString stringWithFormat:@"%ld / 5", imageModels.count ? : 0];
     
 }
 #pragma mark - getter
@@ -201,6 +201,12 @@
         self.hoderLabel = [[UILabel alloc]init];
         self.hoderLabel.textColor = UIColorFromRGB(0xafafaf);
         self.hoderLabel.font = [UIFont systemFontOfSize:11 *[TJAdaptiveManager adaptiveScale]];
+        [_placeHoder addSubview:self.hoderLabel];
+        [self.hoderLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+           
+            make.centerX.equalTo(_placeHoder).mas_offset(TJSystem2Xphone6Width(5));
+            make.top.equalTo(_placeHoder.mas_centerY);
+        }];
         self.userInteractionEnabled = YES;
         BLOCK_WEAK_SELF
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:weakSelf action:@selector(placeholderPressed)];
