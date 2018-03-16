@@ -24,9 +24,11 @@ PODS:
   - MJExtension (3.0.13)
   - MJRefresh (3.1.15.3)
   - pop (1.0.10)
-  - SDWebImage (4.3.0):
-    - SDWebImage/Core (= 4.3.0)
-  - SDWebImage/Core (4.3.0)
+  - SCAlertView (1.0.0)
+  - SCPictureBrowser (1.0.0)
+  - SDWebImage (3.7.6):
+    - SDWebImage/Core (= 3.7.6)
+  - SDWebImage/Core (3.7.6)
   - SVProgressHUD (2.2.2)
   - Toast (4.0.0)
   - WechatOpenSDK (1.8.1)
@@ -40,7 +42,9 @@ DEPENDENCIES:
   - MJExtension
   - MJRefresh
   - pop
-  - SDWebImage
+  - SCAlertView (from `https://github.com/SeJasonWang/SCAlertView.git`)
+  - SCPictureBrowser (from `https://github.com/SeJasonWang/SCPictureBrowser.git`)
+  - SDWebImage (~> 3.7.5)
   - SVProgressHUD
   - Toast
   - WechatOpenSDK
@@ -49,6 +53,10 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   FTImagePickerController:
     :git: https://github.com/alotofleo2/FTImagePickerController.git
+  SCAlertView:
+    :git: https://github.com/SeJasonWang/SCAlertView.git
+  SCPictureBrowser:
+    :git: https://github.com/SeJasonWang/SCPictureBrowser.git
   Weibo_SDK:
     :git: https://github.com/sinaweibosdk/weibo_ios_sdk.git
 
@@ -56,6 +64,12 @@ CHECKOUT OPTIONS:
   FTImagePickerController:
     :commit: 2060ed1aa009d4a96a6875f7819b589f06bd1fae
     :git: https://github.com/alotofleo2/FTImagePickerController.git
+  SCAlertView:
+    :commit: 4f051a750b94bddec09c64aaf422f8813d51163f
+    :git: https://github.com/SeJasonWang/SCAlertView.git
+  SCPictureBrowser:
+    :commit: fed3f6430939f8e834325ee3737c51134057047b
+    :git: https://github.com/SeJasonWang/SCPictureBrowser.git
   Weibo_SDK:
     :commit: f5b138320aefe0ed20b76b8510521432f1a6c9ac
     :git: https://github.com/sinaweibosdk/weibo_ios_sdk.git
@@ -68,12 +82,14 @@ SPEC CHECKSUMS:
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
   pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
-  SDWebImage: 6da6c8bca115addc4de8613362e1b15f66333825
+  SCAlertView: e16c8c08b3c365c94a7c3e2a8c2e6a698dff8697
+  SCPictureBrowser: aef9887639179ff78a038c3a96327eafd2840101
+  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   WechatOpenSDK: 491d965d79335070328571d3e79f714549e79a5e
   Weibo_SDK: 652ca78c2f7147a5de5e75e7cbea89838a81772a
 
-PODFILE CHECKSUM: 202a3940fde687670775c08e25b89263cf318560
+PODFILE CHECKSUM: bb57be000f31b2e7a9dcd86e903bde2ae3b14507
 
 COCOAPODS: 1.4.0.beta.2

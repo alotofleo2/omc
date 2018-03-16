@@ -116,34 +116,34 @@
         MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingBlock:^{
             [weakSelf requestTableViewDataSource];
         }];
-        NSArray *animationImages = @[
-                                     [UIImage imageNamed:@"dropdown_loading_01"],
-                                     [UIImage imageNamed:@"dropdown_loading_02"],
-                                     [UIImage imageNamed:@"dropdown_loading_03"],
-                                     [UIImage imageNamed:@"dropdown_loading_04"],
-                                     [UIImage imageNamed:@"dropdown_loading_05"],
-                                     [UIImage imageNamed:@"dropdown_loading_06"],
-                                     [UIImage imageNamed:@"dropdown_loading_07"],
-                                     [UIImage imageNamed:@"dropdown_loading_08"],
-                                     ];
-        
-        NSArray *normalAnimationImages = @[
-                                     [UIImage imageNamed:@"dropdown_loading_00"],
-
-                                     ];
-        //设置动画图片
-        [header setImages:normalAnimationImages forState:MJRefreshStateIdle];
-        [header setImages:animationImages forState:MJRefreshStatePulling];
-        [header setImages:animationImages forState:MJRefreshStateRefreshing];
+//        NSArray *animationImages = @[
+//                                     [UIImage imageNamed:@"dropdown_loading_01"],
+//                                     [UIImage imageNamed:@"dropdown_loading_02"],
+//                                     [UIImage imageNamed:@"dropdown_loading_03"],
+//                                     [UIImage imageNamed:@"dropdown_loading_04"],
+//                                     [UIImage imageNamed:@"dropdown_loading_05"],
+//                                     [UIImage imageNamed:@"dropdown_loading_06"],
+//                                     [UIImage imageNamed:@"dropdown_loading_07"],
+//                                     [UIImage imageNamed:@"dropdown_loading_08"],
+//                                     ];
+//
+//        NSArray *normalAnimationImages = @[
+//                                     [UIImage imageNamed:@"dropdown_loading_00"],
+//
+//                                     ];
+//        //设置动画图片
+//        [header setImages:normalAnimationImages forState:MJRefreshStateIdle];
+//        [header setImages:animationImages forState:MJRefreshStatePulling];
+//        [header setImages:animationImages forState:MJRefreshStateRefreshing];
         
         //设置状态文字
-//        [header setTitle:@"下拉更新..." forState:MJRefreshStateIdle];
-//        [header setTitle:@"松手更新..." forState:MJRefreshStatePulling];
-//        [header setTitle:@"更新中....." forState:MJRefreshStateRefreshing];
+        [header setTitle:@"下拉更新..." forState:MJRefreshStateIdle];
+        [header setTitle:@"松手更新..." forState:MJRefreshStatePulling];
+        [header setTitle:@"更新中....." forState:MJRefreshStateRefreshing];
         
         //设置文字
         header.stateLabel.font = TJSystemFont15;
-        header.stateLabel.hidden = YES;
+        header.stateLabel.hidden = NO;
         
         //隐藏时间栏
         header.lastUpdatedTimeLabel.hidden = YES;

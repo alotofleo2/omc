@@ -1351,6 +1351,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-omc/Pods-omc-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FTImagePickerController/FTImagePickerController.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/SCPictureBrowser/SCPictureBrowser.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 				"${PODS_ROOT}/Weibo_SDK/libWeiboSDK/WeiboSDK.bundle",
 			);
@@ -1660,7 +1661,7 @@
 				INFOPLIST_FILE = omc/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.omc.omc;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.oumancheng.oumancheng;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1678,7 +1679,7 @@
 				INFOPLIST_FILE = omc/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.omc.omc;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.oumancheng.oumancheng;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

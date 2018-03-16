@@ -19,11 +19,10 @@
 #import "TJKit.h"
 #import "MJRefresh.h"
 #import "UIScrollView+MJRefresh.h"
+#import "UIImageView+WebCache.h"
 #import "TJProgressHUD.h"
 #import "TJNetworkKit.h"
 #import "TJUserModel.h"
-//#import "RWStaticString.h"
-//#import "RWRouteManager.h"
 #import "TJURLConfigurator.h"
 #import "masonry.h"
 #endif

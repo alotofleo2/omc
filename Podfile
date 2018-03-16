@@ -5,7 +5,7 @@ target "omc" do
 inhibit_all_warnings!
 
     pod 'Masonry'
-    pod 'SDWebImage'
+    pod 'SDWebImage',               "~> 3.7.5"
     pod 'AFNetworking'
     pod 'MJExtension'
     pod 'MJRefresh'
@@ -16,4 +16,6 @@ inhibit_all_warnings!
     pod 'WechatOpenSDK'
     pod 'Weibo_SDK', :git => 'https://github.com/sinaweibosdk/weibo_ios_sdk.git'
     pod 'FTImagePickerController',:git => 'https://github.com/alotofleo2/FTImagePickerController.git'
+    pod 'SCPictureBrowser',:git => 'https://github.com/SeJasonWang/SCPictureBrowser.git'
+    pod 'SCAlertView',:git => 'https://github.com/SeJasonWang/SCAlertView.git'
 end

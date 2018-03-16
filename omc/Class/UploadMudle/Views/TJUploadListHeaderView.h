@@ -9,5 +9,6 @@
 #import "TJBaseView.h"
 
 @interface TJUploadListHeaderView : TJBaseView
-
+//回调 1 已上传   2 未通过
+@property (nonatomic, copy) void(^buttonPressedHandle)(NSInteger);
 @end

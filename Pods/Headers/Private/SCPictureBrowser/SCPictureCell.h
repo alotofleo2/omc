@@ -1,0 +1,1 @@
+../../../SCPictureBrowser/SCPictureBrowser/SCPictureBrowser/SCPictureCell.h

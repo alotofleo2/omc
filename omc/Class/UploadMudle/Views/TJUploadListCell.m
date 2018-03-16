@@ -9,11 +9,12 @@
 #import "TJUploadListCell.h"
 #import "TJUploadListModel.h"
 #import "UIImageView+WebCache.h"
+#import "SCPictureBrowser.h"
 
 #define kMargin TJSystem2Xphone6Width(20)
 #define kImageWidth ((DEVICE_SCREEN_WIDTH - kMargin * 3.5) / 4)
 
-@interface TJUploadListCell ()
+@interface TJUploadListCell ()<SCPictureBrowserDelegate>
 @property (nonatomic, strong) UILabel *titlelabel;
 
 @property (nonatomic, strong) UILabel *numberLabel;
@@ -22,7 +23,9 @@
 
 @property (nonatomic, strong) UILabel *timeLabel;
 
-@property (nonatomic, strong) NSMutableArray *imageViews;
+@property (nonatomic, strong) NSMutableArray<UIImageView *> *imageViews;
+
+@property (nonatomic, strong) NSMutableArray *items;
 @end
 
 @implementation TJUploadListCell
@@ -36,6 +39,8 @@
         [self setupLayoutSubviews];
         
         self.imageViews = [NSMutableArray arrayWithCapacity:0];
+        
+        self.items = [NSMutableArray arrayWithCapacity:0];
     }
     return self;
 }
@@ -52,7 +57,7 @@
     self.numberLabel.font = [UIFont systemFontOfSize:15 * [TJAdaptiveManager adaptiveScale]];
     [self.contentView addSubview:self.numberLabel];
     
-    self.timeIconImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@""]];
+    self.timeIconImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"upLoad_time"]];
     [self.contentView addSubview:self.timeIconImageView];
     
     self.timeLabel = [[UILabel alloc]init];
@@ -74,7 +79,7 @@
     [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
        
         make.right.mas_offset(- kMargin);
-        make.bottom.mas_offset(TJSystem2Xphone6Height(30));
+        make.bottom.mas_offset( - TJSystem2Xphone6Height(30));
     }];
     
     [self.timeIconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -87,36 +92,77 @@
 }
 
 - (void)setupViewWithModel:(TJUploadListModel *)model {
-    NSLog(@"%@", model.image);
+    
+    //删除imageview
     for (UIImageView *imageView in self.imageViews) {
         [imageView removeFromSuperview];
     }
     [self.imageViews removeAllObjects];
+    [self.items removeAllObjects];
     
+    //重新创建imageview
     for (NSString *imageUrl in model.image) {
       UIImageView *imageView =  [self createImageViewWithImageName:imageUrl];
         [self.contentView addSubview:imageView];
         [self.imageViews addObject:imageView];
         NSInteger index = [model.image indexOfObject:imageUrl];
+        //imageview 约束
         [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
            
             make.width.height.equalTo(@(kImageWidth));
             make.top.equalTo(self.titlelabel.mas_bottom).mas_offset(TJSystem2Xphone6Height(35) + (kImageWidth + kMargin / 2) *(index / 4));
             make.left.mas_offset(kMargin + (kImageWidth + kMargin / 2) * (index % 4));
         }];
+        
+        //添加图片浏览模型数组
+        SCPictureItem *item = [[SCPictureItem alloc] init];
+        item.url = [NSURL URLWithString:imageUrl];
+        
+        // 如果sourceView为nil，则以其他动画开启和关闭
+        item.sourceView = imageView;
+        [self.items addObject:item];
     }
-    
-    [self.numberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    //从新设置底部view
+    [self.numberLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_offset(-TJSystem2Xphone6Height(30));
+        make.left.mas_offset(kMargin);
         if (model.image.count > 0) {
-            
+            make.top.equalTo(self.imageViews.lastObject.mas_bottom).mas_offset(TJSystem2Xphone6Height(40));
+        } else {
+             make.top.equalTo(self.titlelabel).mas_offset(TJSystem2Xphone6Height(40));
         }
     }];
+    
+    //设置数据
+    self.titlelabel.text = model.desc;
+    self.numberLabel.text = [NSString stringWithFormat:@"窗帘编号:%@", model.number];
+    
+    NSTimeInterval interval    = model.time;
+    NSDate *date               = [NSDate dateWithTimeIntervalSince1970:interval];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy.MM.dd"];
+    self.timeLabel.text = [formatter stringFromDate: date];
 }
 
 - (UIImageView *)createImageViewWithImageName:(NSString *)imageName {
     UIImageView *imageView = [[UIImageView alloc]init];
     [imageView sd_setImageWithURL:[NSURL URLWithString:imageName] placeholderImage:[UIImage imageNamed:@""]];
-    
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    imageView.clipsToBounds = YES;
+    imageView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imagePressed:)];
+    [imageView addGestureRecognizer:gesture];
     return imageView;
+}
+
+- (void)imagePressed:(UITapGestureRecognizer *)recognizer {
+    SCPictureBrowser *browser = [[SCPictureBrowser alloc] init];
+    browser.delegate = self;
+    browser.items = self.items;
+    browser.index = [self.imageViews indexOfObject:(UIImageView *)recognizer.view];
+    browser.numberOfPrefetchURLs = 2;
+    browser.supportDelete = YES;
+    [browser show];
 }
 @end

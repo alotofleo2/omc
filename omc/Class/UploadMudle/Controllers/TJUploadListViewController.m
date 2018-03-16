@@ -15,6 +15,9 @@
 
 @interface TJUploadListViewController ()
 @property (nonatomic, strong) TJUploadListHeaderView *headerView;
+
+//1已上传 2未通过
+@property (nonatomic, assign) NSInteger currentType;
 @end
 
 @implementation TJUploadListViewController
@@ -24,6 +27,8 @@
     [self registerCellWithClassName:@"TJUploadListCell" reuseIdentifier:@"TJUploadListCell"];
     
     self.headerView = [[TJUploadListHeaderView alloc]init];
+    BLOCK_WEAK_SELF
+    self.headerView.buttonPressedHandle = ^(NSInteger index) {[weakSelf topViewButtonPressedWithIndex:index];};
     [self.view addSubview: self.headerView];
     
     [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -39,17 +44,34 @@
     }];
     
     self.userPullToRefreshEnable = YES;
+    self.tableView.estimatedRowHeight = 44.f;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    self.currentType = 1;
+    
+    if (![TJTokenManager sharedInstance].isLogin) {
+        
+        NSDictionary * params = @{@"closeButtonEnable" : @(1)};
+        [[TJPageManager sharedInstance] presentViewControllerWithName:@"TJLoginViewController" params:params inNavigationController:YES animated:YES];
+    }
 }
 
 
 - (void)requestTableViewDataSource {
+
     [self cancelTask];
     BLOCK_WEAK_SELF
-    TJRequest *request = [TJUploadTask getUploadListWithType:@"fasle" successBlock:^(TJResult *result) {
-        NSLog(@"%@", result.data);
+    //fasle 已上传 其他未通过
+    TJRequest *request = [TJUploadTask getUploadListWithType:self.currentType == 1 ? @"fasle" : @"true" successBlock:^(TJResult *result) {
+        
         weakSelf.dataSource = [TJUploadListModel mj_objectArrayWithKeyValuesArray:result.data];
         [weakSelf.tableView reloadData];
+        //关闭下拉刷新
+        [self requestTableViewDataSourceSuccess:@[@(1), @(2)]];
     } failureBlock:^(TJResult *result) {
+        
+        //关闭下拉刷新
+        [self requestTableViewDataSourceSuccess:@[@(1), @(2)]];
         [self showToastWithString:result.message];
     }];
     [self.taskArray addObject:request];
@@ -76,6 +98,18 @@
     return TJSystem2Xphone6Height(26);
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    
     return 0.01;
+}
+
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return NO;
+}
+#pragma mark - 点击事件
+- (void)topViewButtonPressedWithIndex:(NSInteger)index {
+    self.currentType = index;
+    
+    [self requestTableViewDataSource];
 }
 @end
