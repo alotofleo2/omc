@@ -47,15 +47,25 @@
     self.tableView.estimatedRowHeight = 44.f;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
+    //设置当前选中的类型(已上传或者未通过)
     self.currentType = 1;
     
+}
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    BLOCK_WEAK_SELF
     if (![TJTokenManager sharedInstance].isLogin) {
-        
-        NSDictionary * params = @{@"closeButtonEnable" : @(1)};
+        void(^backBlock)(void)  = ^{
+
+            [weakSelf dismissViewControllerAnimated:YES completion:^{
+                UITabBarController *tabbarVC = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+                [tabbarVC setSelectedIndex:0];
+            }];
+        };
+        NSDictionary * params = @{@"backBlock" : backBlock};
         [[TJPageManager sharedInstance] presentViewControllerWithName:@"TJLoginViewController" params:params inNavigationController:YES animated:YES];
     }
 }
-
 
 - (void)requestTableViewDataSource {
 
