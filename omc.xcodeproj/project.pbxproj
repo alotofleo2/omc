@@ -24,7 +24,6 @@
 		B32D7AED2047A1BE00518687 /* TJHomeTask.m in Sources */ = {isa = PBXBuildFile; fileRef = B32D7AEC2047A1BE00518687 /* TJHomeTask.m */; };
 		B34842C92027E8AD008FE754 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B34842C82027E8AD008FE754 /* AppDelegate.m */; };
 		B34842CC2027E8AD008FE754 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34842CB2027E8AD008FE754 /* ViewController.m */; };
-		B34842CF2027E8AD008FE754 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B34842CD2027E8AD008FE754 /* Main.storyboard */; };
 		B34842D12027E8AD008FE754 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B34842D02027E8AD008FE754 /* Assets.xcassets */; };
 		B34842D42027E8AD008FE754 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B34842D22027E8AD008FE754 /* LaunchScreen.storyboard */; };
 		B34842D72027E8AD008FE754 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B34842D62027E8AD008FE754 /* main.m */; };
@@ -79,6 +78,11 @@
 		B348439D2027EA9F008FE754 /* TJBaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B348436A2027EA9F008FE754 /* TJBaseWebViewController.m */; };
 		B384ED052055084A00A131BA /* TJCurtainEditTopContentAlerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B384ED042055084A00A131BA /* TJCurtainEditTopContentAlerView.m */; };
 		B384ED0820552FA800A131BA /* TJCurtainEditSettingAlerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B384ED0720552FA800A131BA /* TJCurtainEditSettingAlerView.m */; };
+		B38C5103205CDC620004D41B /* TJVideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B38C5102205CDC620004D41B /* TJVideoListViewController.m */; };
+		B38C5107205CDF3B0004D41B /* TJVideoListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B38C5106205CDF3B0004D41B /* TJVideoListCell.m */; };
+		B38C510A205D34AE0004D41B /* TJVideoListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B38C5109205D34AE0004D41B /* TJVideoListModel.m */; };
+		B38C510D205D36540004D41B /* TJVideoDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = B38C510C205D36540004D41B /* TJVideoDefines.m */; };
+		B38C5110205D36A40004D41B /* TJVideoTask.m in Sources */ = {isa = PBXBuildFile; fileRef = B38C510F205D36A40004D41B /* TJVideoTask.m */; };
 		B39D9CEC205760AA001076AA /* TJUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B39D9CEB205760AA001076AA /* TJUploadViewController.m */; };
 		B39D9CEF205761AE001076AA /* TJUploadNormalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B39D9CEE205761AE001076AA /* TJUploadNormalCell.m */; };
 		B39D9CF22057BEB2001076AA /* TJUploadBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B39D9CF12057BEB2001076AA /* TJUploadBottomCell.m */; };
@@ -277,6 +281,16 @@
 		B384ED042055084A00A131BA /* TJCurtainEditTopContentAlerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCurtainEditTopContentAlerView.m; sourceTree = "<group>"; };
 		B384ED0620552FA800A131BA /* TJCurtainEditSettingAlerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCurtainEditSettingAlerView.h; sourceTree = "<group>"; };
 		B384ED0720552FA800A131BA /* TJCurtainEditSettingAlerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCurtainEditSettingAlerView.m; sourceTree = "<group>"; };
+		B38C5101205CDC620004D41B /* TJVideoListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJVideoListViewController.h; sourceTree = "<group>"; };
+		B38C5102205CDC620004D41B /* TJVideoListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJVideoListViewController.m; sourceTree = "<group>"; };
+		B38C5105205CDF3B0004D41B /* TJVideoListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJVideoListCell.h; sourceTree = "<group>"; };
+		B38C5106205CDF3B0004D41B /* TJVideoListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJVideoListCell.m; sourceTree = "<group>"; };
+		B38C5108205D34AE0004D41B /* TJVideoListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJVideoListModel.h; sourceTree = "<group>"; };
+		B38C5109205D34AE0004D41B /* TJVideoListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJVideoListModel.m; sourceTree = "<group>"; };
+		B38C510B205D36540004D41B /* TJVideoDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJVideoDefines.h; sourceTree = "<group>"; };
+		B38C510C205D36540004D41B /* TJVideoDefines.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJVideoDefines.m; sourceTree = "<group>"; };
+		B38C510E205D36A40004D41B /* TJVideoTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJVideoTask.h; sourceTree = "<group>"; };
+		B38C510F205D36A40004D41B /* TJVideoTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJVideoTask.m; sourceTree = "<group>"; };
 		B39D9CEA205760AA001076AA /* TJUploadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJUploadViewController.h; sourceTree = "<group>"; };
 		B39D9CEB205760AA001076AA /* TJUploadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJUploadViewController.m; sourceTree = "<group>"; };
 		B39D9CED205761AE001076AA /* TJUploadNormalCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJUploadNormalCell.h; sourceTree = "<group>"; };
@@ -314,10 +328,8 @@
 		B3C8714F2046D9300061146E /* Personal_configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Personal_configuration.plist; sourceTree = "<group>"; };
 		B3C871562046DAFE0061146E /* TJCurtainEditManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCurtainEditManager.h; sourceTree = "<group>"; };
 		B3C871572046DAFE0061146E /* TJCurtainEditManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCurtainEditManager.m; sourceTree = "<group>"; };
-		B3C871592046ED2E0061146E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		B3C8715A2046ED2E0061146E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		B3C8715B2046F1D30061146E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
-		B3C8715C2046F1D60061146E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/Main.storyboard"; sourceTree = "<group>"; };
 		B3C87161204702560061146E /* TJLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJLoginViewController.h; sourceTree = "<group>"; };
 		B3C87162204702560061146E /* TJLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJLoginViewController.m; sourceTree = "<group>"; };
 		B3C87164204702FD0061146E /* TJPersonalDataVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJPersonalDataVC.h; sourceTree = "<group>"; };
@@ -415,6 +427,7 @@
 				B32ADA98203E6031006A6EAB /* HomeModule */,
 				B3C871512046DADC0061146E /* CurtainEditMudule */,
 				B3C8715D2047022C0061146E /* SettingModule */,
+				B38C50FD205CDC170004D41B /* VideoMudle */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -602,7 +615,6 @@
 				B34842CA2027E8AD008FE754 /* ViewController.h */,
 				B34842CB2027E8AD008FE754 /* ViewController.m */,
 				B348439E2027EB96008FE754 /* omc-Prefix.pch */,
-				B34842CD2027E8AD008FE754 /* Main.storyboard */,
 				B34842D02027E8AD008FE754 /* Assets.xcassets */,
 				B34842D22027E8AD008FE754 /* LaunchScreen.storyboard */,
 				B34842D52027E8AD008FE754 /* Info.plist */,
@@ -1021,6 +1033,55 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
+		B38C50FD205CDC170004D41B /* VideoMudle */ = {
+			isa = PBXGroup;
+			children = (
+				B38C5104205CDCC20004D41B /* Network */,
+				B38C50FE205CDC170004D41B /* Models */,
+				B38C50FF205CDC170004D41B /* Controllers */,
+				B38C5100205CDC170004D41B /* Views */,
+			);
+			path = VideoMudle;
+			sourceTree = "<group>";
+		};
+		B38C50FE205CDC170004D41B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B38C5108205D34AE0004D41B /* TJVideoListModel.h */,
+				B38C5109205D34AE0004D41B /* TJVideoListModel.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B38C50FF205CDC170004D41B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B38C5101205CDC620004D41B /* TJVideoListViewController.h */,
+				B38C5102205CDC620004D41B /* TJVideoListViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B38C5100205CDC170004D41B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B38C5105205CDF3B0004D41B /* TJVideoListCell.h */,
+				B38C5106205CDF3B0004D41B /* TJVideoListCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B38C5104205CDCC20004D41B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B38C510B205D36540004D41B /* TJVideoDefines.h */,
+				B38C510C205D36540004D41B /* TJVideoDefines.m */,
+				B38C510E205D36A40004D41B /* TJVideoTask.h */,
+				B38C510F205D36A40004D41B /* TJVideoTask.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		B39D9CE62057602E001076AA /* UploadMudle */ = {
 			isa = PBXGroup;
 			children = (
@@ -1335,7 +1396,6 @@
 				B34842D42027E8AD008FE754 /* LaunchScreen.storyboard in Resources */,
 				B34843942027EA9F008FE754 /* FTMessagesDefaultDesign.json in Resources */,
 				B34842D12027E8AD008FE754 /* Assets.xcassets in Resources */,
-				B34842CF2027E8AD008FE754 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1405,11 +1465,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B34843742027EA9F008FE754 /* NSUserDefaults+Secure.m in Sources */,
+				B38C510A205D34AE0004D41B /* TJVideoListModel.m in Sources */,
 				B39D9CFC205A17C7001076AA /* TJUploadDefines.m in Sources */,
 				B34843922027EA9F008FE754 /* TJTableLoadFailView.m in Sources */,
 				B3D095F0205133F2009D19FE /* TJCurtainEditContentView.m in Sources */,
+				B38C5110205D36A40004D41B /* TJVideoTask.m in Sources */,
 				B39D9CEF205761AE001076AA /* TJUploadNormalCell.m in Sources */,
 				B39D9CF82058BAD1001076AA /* TJUploadBottomItemModel.m in Sources */,
+				B38C5103205CDC620004D41B /* TJVideoListViewController.m in Sources */,
 				B34843852027EA9F008FE754 /* TJAdaptiveManager.m in Sources */,
 				B384ED0820552FA800A131BA /* TJCurtainEditSettingAlerView.m in Sources */,
 				B3F321E9205651770008DB2E /* POPAnimatableProperty+AGGeometryKit.m in Sources */,
@@ -1420,6 +1483,7 @@
 				B348437B2027EA9F008FE754 /* UITextView+PlaceHolder.m in Sources */,
 				B39D9D0B205A6469001076AA /* TJUploadListModel.m in Sources */,
 				B34843732027EA9F008FE754 /* TJInputChecker.m in Sources */,
+				B38C510D205D36540004D41B /* TJVideoDefines.m in Sources */,
 				B32ADAA2203E6098006A6EAB /* TJHomeTopBannerCell.m in Sources */,
 				B32ADA91203E5257006A6EAB /* TJAccountTask.m in Sources */,
 				B3D095D4204F88AD009D19FE /* TJSettingMainVC.m in Sources */,
@@ -1458,6 +1522,7 @@
 				B39D9CEC205760AA001076AA /* TJUploadViewController.m in Sources */,
 				B32D7AED2047A1BE00518687 /* TJHomeTask.m in Sources */,
 				B32ADA97203E53A6006A6EAB /* TJRouteManager.m in Sources */,
+				B38C5107205CDF3B0004D41B /* TJVideoListCell.m in Sources */,
 				B34843892027EA9F008FE754 /* TJGCDManager.m in Sources */,
 				B348438D2027EA9F008FE754 /* TJModalView.m in Sources */,
 				B3C8713E2045A6FE0061146E /* TJHomeMiddleContentModel.m in Sources */,
@@ -1522,15 +1587,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B34842CD2027E8AD008FE754 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B3C871592046ED2E0061146E /* zh-Hans */,
-				B3C8715C2046F1D60061146E /* zh-Hans */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B34842D22027E8AD008FE754 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

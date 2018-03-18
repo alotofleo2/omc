@@ -25,4 +25,5 @@
 #import "TJUserModel.h"
 #import "TJURLConfigurator.h"
 #import "masonry.h"
+#import "MJExtension.h"
 #endif

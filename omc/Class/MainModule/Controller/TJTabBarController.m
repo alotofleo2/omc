@@ -11,6 +11,7 @@
 #import "TJHomeViewController.h"
 #import "TJCategoryViewContoller.h"
 #import "TJUploadListViewController.h"
+#import "TJVideoListViewController.h"
 #import "TJTabBar.h"
 
 @interface TJTabBarController ()
@@ -65,8 +66,8 @@
     TJCategoryViewContoller *categoryVC = [[TJCategoryViewContoller alloc] init];
     [self setUpOneChildVcWithVc:categoryVC Image:@"class_normal" selectedImage:@"class_highlight" title:@"分类"];
 
-    UIViewController *MessageVC = [[UIViewController alloc] init];
-    [self setUpOneChildVcWithVc:MessageVC Image:@"video_normal" selectedImage:@"video_highlight" title:@"安装视频"];
+    TJVideoListViewController *videoVC = [[TJVideoListViewController alloc] init];
+    [self setUpOneChildVcWithVc:videoVC Image:@"video_normal" selectedImage:@"video_highlight" title:@"安装视频"];
 
     TJUploadListViewController *uploadListVC = [[TJUploadListViewController alloc] init];
     [self setUpOneChildVcWithVc:uploadListVC Image:@"buyerShow_normal" selectedImage:@"buyerShow_highlight" title:@"实景案例"];

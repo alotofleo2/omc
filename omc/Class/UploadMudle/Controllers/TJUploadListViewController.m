@@ -44,8 +44,11 @@
     }];
     
     self.userPullToRefreshEnable = YES;
+    self.needReloadData = YES;
     self.tableView.estimatedRowHeight = 44.f;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    self.rightImageName = @"upload_upload";
     
     //设置当前选中的类型(已上传或者未通过)
     self.currentType = 1;
@@ -56,10 +59,10 @@
     BLOCK_WEAK_SELF
     if (![TJTokenManager sharedInstance].isLogin) {
         void(^backBlock)(void)  = ^{
-
+            UITabBarController *tabbarVC = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+            [tabbarVC setSelectedIndex:0];
             [weakSelf dismissViewControllerAnimated:YES completion:^{
-                UITabBarController *tabbarVC = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
-                [tabbarVC setSelectedIndex:0];
+
             }];
         };
         NSDictionary * params = @{@"backBlock" : backBlock};
@@ -121,5 +124,11 @@
     self.currentType = index;
     
     [self requestTableViewDataSource];
+}
+
+#pragma mark 上传按钮点击
+- (void)rigthButtonPressed {
+    NSDictionary *params = nil;
+    [[TJPageManager sharedInstance] pushViewControllerWithName:@"TJUploadViewController" params:params];
 }
 @end
