@@ -91,16 +91,14 @@ NSString *const TJVideoListCellIdertifier = @"TJVideoListCellIdertifier";
     
     
     cell.imagePressedHandele = ^{
-        [TJAlertUtil toastWithString:model.videoUrl];
+        
+       NSDictionary * params = @{@"videoUrlString" : model.videoUrl};
+        [[TJPageManager sharedInstance] pushViewControllerWithName:@"TJVideoPlayerViewController" params:params];
     };
     
     return cell;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-
-}
 #pragma mark - Getter
 #pragma mark 懒加载
 - (UICollectionViewFlowLayout *)layout {

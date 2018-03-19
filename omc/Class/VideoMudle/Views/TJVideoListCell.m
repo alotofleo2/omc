@@ -8,6 +8,7 @@
 
 #import "TJVideoListCell.h"
 #import "TJVideoListModel.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface TJVideoListCell ()
 @property (nonatomic, strong) UIImageView *videoImageView;
@@ -98,29 +99,105 @@
 
 - (void)setupViewWithModel:(TJVideoListModel *)model {
     
-    if ([model.videoCipeImageUrl hasPrefix:@"http"]) {
-        [self.videoImageView sd_setImageWithURL:[NSURL URLWithString:model.videoCipeImageUrl] placeholderImage:[UIImage imageNamed:@"placeholder"]];
-    } else {
-        
-        self.videoImageView.image = [UIImage imageWithColor:[UIColor blueColor]];
-    }
+    self.videoImageView.image = [UIImage imageWithColor:[UIColor grayColor]];
     
     self.titleLabel.text = model.videoName;
     
     self.detialLabel.text = model.videoDesc;
     
-    NSTimeInterval interval    = model.videoTime;
-    NSDate *date               = [NSDate dateWithTimeIntervalSince1970:interval];
+    self.timeLabel.text = @"00:00";
     
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"hh:mm:ss"];
-    self.timeLabel.text = [formatter stringFromDate: date];
+    BLOCK_WEAK_SELF
+    
+    //设置图片
+    //读取缓存文件
+    NSMutableDictionary *plistDic = [[NSMutableDictionary alloc] initWithContentsOfFile:[self getFilePathWithUrlString:model.videoUrl]];
+    NSLog(@"%@", plistDic[@"timeString"]);
+    if ([plistDic valueForKey:@"image"]) {
+        NSData *data = [[NSData alloc]initWithBase64EncodedString:[plistDic valueForKey:@"image"] options:NSDataBase64DecodingIgnoreUnknownCharacters];
+        self.videoImageView.image = [UIImage imageWithData:data];
+        
+        self.timeLabel.text = [plistDic valueForKey:@"timeString"];
+        
+    } else {
+        [TJGCDManager asyncGlobalQueueThreadBlock:^{
+            //获取视频时长
+            NSDictionary *opts = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO]
+                                                             forKey:AVURLAssetPreferPreciseDurationAndTimingKey];
+            AVURLAsset *urlAsset = [AVURLAsset URLAssetWithURL:[NSURL URLWithString:model.videoUrl] options:opts];  // 初始化视频媒体文件
+            NSInteger  minute = 0, second = 0;
+            second = urlAsset.duration.value / urlAsset.duration.timescale; // 获取视频总时长,单位秒
+            //NSLog(@"movie duration : %d", second);
+            if (second >= 60) {
+                NSInteger index = second / 60;
+                minute = index;
+                second = second - index*60;
+            }
+            
+            //从网络获取
+            UIImage *image = [weakSelf thumbnailImageForVideo:[NSURL URLWithString:model.videoUrl] atTime:1];
+            //缓存图片
+            [self cacheImageWithImage:image urlString:model.videoUrl timeString:[NSString stringWithFormat:@"%02ld:%02ld", minute, second]];
+            //转主线程设置图片和时间
+            [TJGCDManager asyncMainThreadBlock:^{
+                self.videoImageView.image = image;
+                weakSelf.timeLabel.text = [NSString stringWithFormat:@"%02ld:%02ld", minute, second];
+            }];
+        }];
+        
+    }
 }
-
+#pragma mark 点击事件
 - (void)actionButtonPressed {
     
     if (self.imagePressedHandele) {
         self.imagePressedHandele();
     }
+}
+
+- (void)cacheImageWithImage:(UIImage *)image urlString:(NSString *)urlString timeString:(NSString *)timeString {
+   NSData *data = UIImagePNGRepresentation(image);
+    NSString *base64StringImage = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    NSDictionary *addDic = @{@"image" : base64StringImage ?: @"",
+                             @"timeString" : timeString ?: @""};
+    NSString *filePath = [self getFilePathWithUrlString:urlString];
+    //将字典写入文件
+    [TJGCDManager asyncGlobalQueueThreadBlock:^{
+        
+        [addDic writeToFile:filePath atomically:YES];
+    }];
+
+}
+
+- (NSString *)getFilePathWithUrlString:(NSString *)urlString {
+    //将字典保存到document文件->获取appdocument路径
+    NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    //截取文件名
+    NSRange range = NSMakeRange(urlString.length - 36, 32);
+    NSString *douName =  [urlString substringWithRange:range];
+    //要创建的plist文件名 -> 路径
+    NSString *filePath = [docPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist", douName]];
+    return filePath;
+}
+
+- (UIImage*)thumbnailImageForVideo:(NSURL *)videoURL atTime:(NSTimeInterval)time {
+    
+    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:videoURL options:nil];
+    NSParameterAssert(asset);
+    AVAssetImageGenerator *assetImageGenerator =[[AVAssetImageGenerator alloc] initWithAsset:asset];
+    assetImageGenerator.appliesPreferredTrackTransform = YES;
+    assetImageGenerator.apertureMode = AVAssetImageGeneratorApertureModeEncodedPixels;
+    
+    CGImageRef thumbnailImageRef = NULL;
+    CFTimeInterval thumbnailImageTime = time;
+    NSError *thumbnailImageGenerationError = nil;
+    thumbnailImageRef = [assetImageGenerator copyCGImageAtTime:CMTimeMake(thumbnailImageTime, 60)actualTime:NULL error:&thumbnailImageGenerationError];
+    
+    if(!thumbnailImageRef)
+        NSLog(@"thumbnailImageGenerationError %@",thumbnailImageGenerationError);
+    
+    UIImage*thumbnailImage = thumbnailImageRef ? [[UIImage alloc]initWithCGImage: thumbnailImageRef] : nil;
+    
+    return thumbnailImage;
 }
 @end

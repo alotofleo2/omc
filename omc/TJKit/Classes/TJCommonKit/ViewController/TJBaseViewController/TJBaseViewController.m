@@ -610,7 +610,7 @@
         
         self.pageManagerEnable = YES;
         self.taskArray = [NSMutableArray array];
-        self.statusBarStyle = UIStatusBarStyleLightContent;
+        self.statusBarStyle = UIStatusBarStyleDefault;
         
 //        [TJPatchManager runJavaScriptFile:[NSStringFromClass([self class]) stringByAppendingString:@".js"]];
         

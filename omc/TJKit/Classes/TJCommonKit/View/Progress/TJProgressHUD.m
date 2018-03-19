@@ -16,7 +16,8 @@
     [SVProgressHUD setMinimumDismissTimeInterval:1.f];
     [SVProgressHUD show];
 }
-
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnonnull"
 + (void)showWithTitle:(NSString *)title {
     
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
@@ -33,6 +34,7 @@
     [SVProgressHUD setMinimumDismissTimeInterval:interval];
     [SVProgressHUD showImage:nil status:title];
 }
+#pragma clang diagnostic pop
 + (void)dismiss {
     
     [SVProgressHUD dismiss];

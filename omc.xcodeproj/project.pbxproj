@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		715E6E297FF5ABA67B9B8893 /* libPods-omc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 328D0D9E82AF086C78D2D9DC /* libPods-omc.a */; };
+		B314100C205F9B2F00F6B902 /* TJCategoryListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B314100B205F9B2F00F6B902 /* TJCategoryListModel.m */; };
+		B3141010205F9E7B00F6B902 /* TJCategoryDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = B314100F205F9E7B00F6B902 /* TJCategoryDefines.m */; };
+		B3141013205FA04C00F6B902 /* TJCategoryTask.m in Sources */ = {isa = PBXBuildFile; fileRef = B3141012205FA04C00F6B902 /* TJCategoryTask.m */; };
+		B3141016205FA36200F6B902 /* TJCategoryListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3141015205FA36200F6B902 /* TJCategoryListCell.m */; };
+		B3141019205FC51600F6B902 /* TJCategoryProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3141018205FC51600F6B902 /* TJCategoryProductCell.m */; };
+		B314101C205FC8B000F6B902 /* TJCategoryProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B314101B205FC8B000F6B902 /* TJCategoryProductModel.m */; };
 		B32ADA79203E4F34006A6EAB /* TJTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B32ADA78203E4F34006A6EAB /* TJTabBarController.m */; };
 		B32ADA7C203E5101006A6EAB /* TJTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B32ADA7B203E5101006A6EAB /* TJTabBar.m */; };
 		B32ADA8E203E5257006A6EAB /* TJRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B32ADA80203E5257006A6EAB /* TJRequest.m */; };
@@ -126,6 +132,13 @@
 		B3D9739D2043A264006AC9AF /* TJHomeCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D9739C2043A264006AC9AF /* TJHomeCategoryCell.m */; };
 		B3D973A02043A9AC006AC9AF /* TJHomeCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D9739F2043A9AC006AC9AF /* TJHomeCategoryModel.m */; };
 		B3D973A32045385A006AC9AF /* TJHomeMiddleContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D973A22045385A006AC9AF /* TJHomeMiddleContentCell.m */; };
+		B3E124E5205F4C9D000B3FA9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3E124E4205F4C9D000B3FA9 /* AVFoundation.framework */; };
+		B3E124F2205F58AE000B3FA9 /* SelPlaybackControls.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E124E7205F58AE000B3FA9 /* SelPlaybackControls.m */; };
+		B3E124F3205F58AE000B3FA9 /* SelVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E124E8205F58AE000B3FA9 /* SelVideoPlayer.m */; };
+		B3E124F4205F58AE000B3FA9 /* UIViewController+PlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E124EC205F58AE000B3FA9 /* UIViewController+PlayerRotation.m */; };
+		B3E124F5205F58AE000B3FA9 /* SelPlayerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E124EF205F58AE000B3FA9 /* SelPlayerConfiguration.m */; };
+		B3E124F6205F58AE000B3FA9 /* SelVideoSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E124F1205F58AE000B3FA9 /* SelVideoSlider.m */; };
+		B3E124F9205F58F1000B3FA9 /* TJVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E124F8205F58F1000B3FA9 /* TJVideoPlayerViewController.m */; };
 		B3F321E5205218190008DB2E /* TJCategoryViewContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F321E4205218190008DB2E /* TJCategoryViewContoller.m */; };
 		B3F321E9205651770008DB2E /* POPAnimatableProperty+AGGeometryKit.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F321E8205651770008DB2E /* POPAnimatableProperty+AGGeometryKit.m */; };
 		B3F321EC20566A440008DB2E /* TJCurtainContentImagemodel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F321EB20566A440008DB2E /* TJCurtainContentImagemodel.m */; };
@@ -133,6 +146,18 @@
 
 /* Begin PBXFileReference section */
 		328D0D9E82AF086C78D2D9DC /* libPods-omc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-omc.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B314100A205F9B2F00F6B902 /* TJCategoryListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCategoryListModel.h; sourceTree = "<group>"; };
+		B314100B205F9B2F00F6B902 /* TJCategoryListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCategoryListModel.m; sourceTree = "<group>"; };
+		B314100E205F9E7B00F6B902 /* TJCategoryDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCategoryDefines.h; sourceTree = "<group>"; };
+		B314100F205F9E7B00F6B902 /* TJCategoryDefines.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCategoryDefines.m; sourceTree = "<group>"; };
+		B3141011205FA04C00F6B902 /* TJCategoryTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCategoryTask.h; sourceTree = "<group>"; };
+		B3141012205FA04C00F6B902 /* TJCategoryTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCategoryTask.m; sourceTree = "<group>"; };
+		B3141014205FA36200F6B902 /* TJCategoryListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCategoryListCell.h; sourceTree = "<group>"; };
+		B3141015205FA36200F6B902 /* TJCategoryListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCategoryListCell.m; sourceTree = "<group>"; };
+		B3141017205FC51600F6B902 /* TJCategoryProductCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCategoryProductCell.h; sourceTree = "<group>"; };
+		B3141018205FC51600F6B902 /* TJCategoryProductCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCategoryProductCell.m; sourceTree = "<group>"; };
+		B314101A205FC8B000F6B902 /* TJCategoryProductModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCategoryProductModel.h; sourceTree = "<group>"; };
+		B314101B205FC8B000F6B902 /* TJCategoryProductModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCategoryProductModel.m; sourceTree = "<group>"; };
 		B32ADA77203E4F34006A6EAB /* TJTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJTabBarController.h; sourceTree = "<group>"; };
 		B32ADA78203E4F34006A6EAB /* TJTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJTabBarController.m; sourceTree = "<group>"; };
 		B32ADA7A203E5101006A6EAB /* TJTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJTabBar.h; sourceTree = "<group>"; };
@@ -378,6 +403,19 @@
 		B3D9739F2043A9AC006AC9AF /* TJHomeCategoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJHomeCategoryModel.m; sourceTree = "<group>"; };
 		B3D973A12045385A006AC9AF /* TJHomeMiddleContentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJHomeMiddleContentCell.h; sourceTree = "<group>"; };
 		B3D973A22045385A006AC9AF /* TJHomeMiddleContentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJHomeMiddleContentCell.m; sourceTree = "<group>"; };
+		B3E124E4205F4C9D000B3FA9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		B3E124E7205F58AE000B3FA9 /* SelPlaybackControls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelPlaybackControls.m; sourceTree = "<group>"; };
+		B3E124E8205F58AE000B3FA9 /* SelVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelVideoPlayer.m; sourceTree = "<group>"; };
+		B3E124E9205F58AE000B3FA9 /* SelVideoSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelVideoSlider.h; sourceTree = "<group>"; };
+		B3E124EA205F58AE000B3FA9 /* SelPlaybackControls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelPlaybackControls.h; sourceTree = "<group>"; };
+		B3E124EC205F58AE000B3FA9 /* UIViewController+PlayerRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PlayerRotation.m"; sourceTree = "<group>"; };
+		B3E124ED205F58AE000B3FA9 /* SelPlayerConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelPlayerConfiguration.h; sourceTree = "<group>"; };
+		B3E124EE205F58AE000B3FA9 /* UIViewController+PlayerRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PlayerRotation.h"; sourceTree = "<group>"; };
+		B3E124EF205F58AE000B3FA9 /* SelPlayerConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelPlayerConfiguration.m; sourceTree = "<group>"; };
+		B3E124F0205F58AE000B3FA9 /* SelVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelVideoPlayer.h; sourceTree = "<group>"; };
+		B3E124F1205F58AE000B3FA9 /* SelVideoSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelVideoSlider.m; sourceTree = "<group>"; };
+		B3E124F7205F58F1000B3FA9 /* TJVideoPlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJVideoPlayerViewController.h; sourceTree = "<group>"; };
+		B3E124F8205F58F1000B3FA9 /* TJVideoPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJVideoPlayerViewController.m; sourceTree = "<group>"; };
 		B3F321E3205218190008DB2E /* TJCategoryViewContoller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCategoryViewContoller.h; sourceTree = "<group>"; };
 		B3F321E4205218190008DB2E /* TJCategoryViewContoller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCategoryViewContoller.m; sourceTree = "<group>"; };
 		B3F321E7205651770008DB2E /* POPAnimatableProperty+AGGeometryKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "POPAnimatableProperty+AGGeometryKit.h"; sourceTree = "<group>"; };
@@ -393,6 +431,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3E124E5205F4C9D000B3FA9 /* AVFoundation.framework in Frameworks */,
 				715E6E297FF5ABA67B9B8893 /* libPods-omc.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,9 +451,21 @@
 		71E080FE0C1E8CD185C53938 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B3E124E4205F4C9D000B3FA9 /* AVFoundation.framework */,
 				328D0D9E82AF086C78D2D9DC /* libPods-omc.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B314100D205F9D0400F6B902 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B314100E205F9E7B00F6B902 /* TJCategoryDefines.h */,
+				B314100F205F9E7B00F6B902 /* TJCategoryDefines.m */,
+				B3141011205FA04C00F6B902 /* TJCategoryTask.h */,
+				B3141012205FA04C00F6B902 /* TJCategoryTask.m */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		B32ADA71203E4EF0006A6EAB /* Class */ = {
@@ -1036,6 +1087,7 @@
 		B38C50FD205CDC170004D41B /* VideoMudle */ = {
 			isa = PBXGroup;
 			children = (
+				B3E124E6205F58AE000B3FA9 /* VideoPlayer */,
 				B38C5104205CDCC20004D41B /* Network */,
 				B38C50FE205CDC170004D41B /* Models */,
 				B38C50FF205CDC170004D41B /* Controllers */,
@@ -1058,6 +1110,8 @@
 			children = (
 				B38C5101205CDC620004D41B /* TJVideoListViewController.h */,
 				B38C5102205CDC620004D41B /* TJVideoListViewController.m */,
+				B3E124F7205F58F1000B3FA9 /* TJVideoPlayerViewController.h */,
+				B3E124F8205F58F1000B3FA9 /* TJVideoPlayerViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1281,9 +1335,35 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		B3E124E6205F58AE000B3FA9 /* VideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				B3E124E7205F58AE000B3FA9 /* SelPlaybackControls.m */,
+				B3E124E8205F58AE000B3FA9 /* SelVideoPlayer.m */,
+				B3E124E9205F58AE000B3FA9 /* SelVideoSlider.h */,
+				B3E124EA205F58AE000B3FA9 /* SelPlaybackControls.h */,
+				B3E124EB205F58AE000B3FA9 /* Configs */,
+				B3E124F0205F58AE000B3FA9 /* SelVideoPlayer.h */,
+				B3E124F1205F58AE000B3FA9 /* SelVideoSlider.m */,
+			);
+			path = VideoPlayer;
+			sourceTree = "<group>";
+		};
+		B3E124EB205F58AE000B3FA9 /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				B3E124EC205F58AE000B3FA9 /* UIViewController+PlayerRotation.m */,
+				B3E124ED205F58AE000B3FA9 /* SelPlayerConfiguration.h */,
+				B3E124EE205F58AE000B3FA9 /* UIViewController+PlayerRotation.h */,
+				B3E124EF205F58AE000B3FA9 /* SelPlayerConfiguration.m */,
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
 		B3F321DE205215130008DB2E /* CategoryMudule */ = {
 			isa = PBXGroup;
 			children = (
+				B314100D205F9D0400F6B902 /* Network */,
 				B3F321DF205215130008DB2E /* Controller */,
 				B3F321E0205215130008DB2E /* Manager */,
 				B3F321E1205215130008DB2E /* Model */,
@@ -1311,6 +1391,10 @@
 		B3F321E1205215130008DB2E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B314100A205F9B2F00F6B902 /* TJCategoryListModel.h */,
+				B314100B205F9B2F00F6B902 /* TJCategoryListModel.m */,
+				B314101A205FC8B000F6B902 /* TJCategoryProductModel.h */,
+				B314101B205FC8B000F6B902 /* TJCategoryProductModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1318,6 +1402,10 @@
 		B3F321E2205215130008DB2E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B3141014205FA36200F6B902 /* TJCategoryListCell.h */,
+				B3141015205FA36200F6B902 /* TJCategoryListCell.m */,
+				B3141017205FC51600F6B902 /* TJCategoryProductCell.h */,
+				B3141018205FC51600F6B902 /* TJCategoryProductCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1464,7 +1552,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3141013205FA04C00F6B902 /* TJCategoryTask.m in Sources */,
 				B34843742027EA9F008FE754 /* NSUserDefaults+Secure.m in Sources */,
+				B3E124F9205F58F1000B3FA9 /* TJVideoPlayerViewController.m in Sources */,
 				B38C510A205D34AE0004D41B /* TJVideoListModel.m in Sources */,
 				B39D9CFC205A17C7001076AA /* TJUploadDefines.m in Sources */,
 				B34843922027EA9F008FE754 /* TJTableLoadFailView.m in Sources */,
@@ -1474,6 +1564,7 @@
 				B39D9CF82058BAD1001076AA /* TJUploadBottomItemModel.m in Sources */,
 				B38C5103205CDC620004D41B /* TJVideoListViewController.m in Sources */,
 				B34843852027EA9F008FE754 /* TJAdaptiveManager.m in Sources */,
+				B3E124F5205F58AE000B3FA9 /* SelPlayerConfiguration.m in Sources */,
 				B384ED0820552FA800A131BA /* TJCurtainEditSettingAlerView.m in Sources */,
 				B3F321E9205651770008DB2E /* POPAnimatableProperty+AGGeometryKit.m in Sources */,
 				B348438E2027EA9F008FE754 /* TJBannerCell.m in Sources */,
@@ -1483,6 +1574,7 @@
 				B348437B2027EA9F008FE754 /* UITextView+PlaceHolder.m in Sources */,
 				B39D9D0B205A6469001076AA /* TJUploadListModel.m in Sources */,
 				B34843732027EA9F008FE754 /* TJInputChecker.m in Sources */,
+				B3E124F2205F58AE000B3FA9 /* SelPlaybackControls.m in Sources */,
 				B38C510D205D36540004D41B /* TJVideoDefines.m in Sources */,
 				B32ADAA2203E6098006A6EAB /* TJHomeTopBannerCell.m in Sources */,
 				B32ADA91203E5257006A6EAB /* TJAccountTask.m in Sources */,
@@ -1492,6 +1584,7 @@
 				B39D9CF52058B752001076AA /* TJUploadBottomItem.m in Sources */,
 				B34842CC2027E8AD008FE754 /* ViewController.m in Sources */,
 				B39D9D02205A5665001076AA /* TJUploadListViewController.m in Sources */,
+				B3141016205FA36200F6B902 /* TJCategoryListCell.m in Sources */,
 				B32ADA8F203E5257006A6EAB /* TJHTTPSessionManager.m in Sources */,
 				B348436F2027EA9F008FE754 /* NSString+Hash.m in Sources */,
 				B34843802027EA9F008FE754 /* TJLoopScrollView.m in Sources */,
@@ -1506,6 +1599,7 @@
 				B34843902027EA9F008FE754 /* TJTableNetWorkFailView.m in Sources */,
 				B34843702027EA9F008FE754 /* AESUtil.m in Sources */,
 				B34843962027EA9F008FE754 /* TJAlertUtil.m in Sources */,
+				B3141010205F9E7B00F6B902 /* TJCategoryDefines.m in Sources */,
 				B348437C2027EA9F008FE754 /* UIImage+Extension.m in Sources */,
 				B3D095D7204F894C009D19FE /* TJSettingMainTopCell.m in Sources */,
 				B348439D2027EA9F008FE754 /* TJBaseWebViewController.m in Sources */,
@@ -1518,9 +1612,11 @@
 				B39D9D05205A60F4001076AA /* TJUploadListCell.m in Sources */,
 				B348438F2027EA9F008FE754 /* TJTableLoadingView.m in Sources */,
 				B3D095CA204E2414009D19FE /* TJSettingDefines.m in Sources */,
+				B314101C205FC8B000F6B902 /* TJCategoryProductModel.m in Sources */,
 				B348439A2027EA9F008FE754 /* TJBannerView.m in Sources */,
 				B39D9CEC205760AA001076AA /* TJUploadViewController.m in Sources */,
 				B32D7AED2047A1BE00518687 /* TJHomeTask.m in Sources */,
+				B3E124F6205F58AE000B3FA9 /* SelVideoSlider.m in Sources */,
 				B32ADA97203E53A6006A6EAB /* TJRouteManager.m in Sources */,
 				B38C5107205CDF3B0004D41B /* TJVideoListCell.m in Sources */,
 				B34843892027EA9F008FE754 /* TJGCDManager.m in Sources */,
@@ -1543,6 +1639,7 @@
 				B34842C92027E8AD008FE754 /* AppDelegate.m in Sources */,
 				B3C8714D2046D5770061146E /* TJPersonalModel.m in Sources */,
 				B348437F2027EA9F008FE754 /* UIColor+Extension.m in Sources */,
+				B314100C205F9B2F00F6B902 /* TJCategoryListModel.m in Sources */,
 				B34843972027EA9F008FE754 /* TJBaseTableViewCell.m in Sources */,
 				B3F321E5205218190008DB2E /* TJCategoryViewContoller.m in Sources */,
 				B34843752027EA9F008FE754 /* NSString+MD5Password.m in Sources */,
@@ -1567,6 +1664,7 @@
 				B3D095F3205138F6009D19FE /* TJCurtainEditTopBar.m in Sources */,
 				B348437D2027EA9F008FE754 /* UIFont+Extension.m in Sources */,
 				B32D7AEA20479CE700518687 /* TJHomeDefines.m in Sources */,
+				B3141019205FC51600F6B902 /* TJCategoryProductCell.m in Sources */,
 				B3D095DA204FB787009D19FE /* TJSettingMainModel.m in Sources */,
 				B3C871412046D48B0061146E /* TJPersonalView.m in Sources */,
 				B34843912027EA9F008FE754 /* TJTableEmptyView.m in Sources */,
@@ -1574,9 +1672,11 @@
 				B348437E2027EA9F008FE754 /* TJColor.m in Sources */,
 				B39D9CFF205A1C88001076AA /* TJUploadTask.m in Sources */,
 				B348436D2027EA9F008FE754 /* TJDeviceInfo.m in Sources */,
+				B3E124F3205F58AE000B3FA9 /* SelVideoPlayer.m in Sources */,
 				B3C871492046D4FD0061146E /* TJPersonalTableHeaderView.m in Sources */,
 				B3C871582046DAFE0061146E /* TJCurtainEditManager.m in Sources */,
 				B3C8716C204703370061146E /* TJPersonalDataModel.m in Sources */,
+				B3E124F4205F58AE000B3FA9 /* UIViewController+PlayerRotation.m in Sources */,
 				B3C87163204702560061146E /* TJLoginViewController.m in Sources */,
 				B39D9D08205A6364001076AA /* TJUploadListHeaderView.m in Sources */,
 				B32ADA8E203E5257006A6EAB /* TJRequest.m in Sources */,

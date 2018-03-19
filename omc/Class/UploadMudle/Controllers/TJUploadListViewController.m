@@ -75,7 +75,7 @@
     [self cancelTask];
     BLOCK_WEAK_SELF
     //fasle 已上传 其他未通过
-    TJRequest *request = [TJUploadTask getUploadListWithType:self.currentType == 1 ? @"fasle" : @"true" successBlock:^(TJResult *result) {
+    TJRequest *request = [TJUploadTask getUploadListWithType:self.currentType == 1 ? @"all" : @"failed" successBlock:^(TJResult *result) {
         
         weakSelf.dataSource = [TJUploadListModel mj_objectArrayWithKeyValuesArray:result.data];
         [weakSelf.tableView reloadData];

@@ -22,7 +22,7 @@ typedef void (^TJRequestFinishedBlock)(TJResult * result);
 /**
  获取上传列表
 
- @param type 列表类型 (false或者不传返回 已上传,  其他都返回 未通过)
+ @param type 列表类型 (all返回 已上传,  failed时返回未通过的买家秀)
 
  */
 + (TJRequest *)getUploadListWithType:(NSString *)type
