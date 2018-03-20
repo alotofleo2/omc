@@ -14,6 +14,7 @@
 		B3141016205FA36200F6B902 /* TJCategoryListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3141015205FA36200F6B902 /* TJCategoryListCell.m */; };
 		B3141019205FC51600F6B902 /* TJCategoryProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3141018205FC51600F6B902 /* TJCategoryProductCell.m */; };
 		B314101C205FC8B000F6B902 /* TJCategoryProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B314101B205FC8B000F6B902 /* TJCategoryProductModel.m */; };
+		B314101F2060FF4700F6B902 /* TJCategorySearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B314101E2060FF4700F6B902 /* TJCategorySearchBar.m */; };
 		B32ADA79203E4F34006A6EAB /* TJTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B32ADA78203E4F34006A6EAB /* TJTabBarController.m */; };
 		B32ADA7C203E5101006A6EAB /* TJTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B32ADA7B203E5101006A6EAB /* TJTabBar.m */; };
 		B32ADA8E203E5257006A6EAB /* TJRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B32ADA80203E5257006A6EAB /* TJRequest.m */; };
@@ -158,6 +159,8 @@
 		B3141018205FC51600F6B902 /* TJCategoryProductCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCategoryProductCell.m; sourceTree = "<group>"; };
 		B314101A205FC8B000F6B902 /* TJCategoryProductModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCategoryProductModel.h; sourceTree = "<group>"; };
 		B314101B205FC8B000F6B902 /* TJCategoryProductModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCategoryProductModel.m; sourceTree = "<group>"; };
+		B314101D2060FF4700F6B902 /* TJCategorySearchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCategorySearchBar.h; sourceTree = "<group>"; };
+		B314101E2060FF4700F6B902 /* TJCategorySearchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCategorySearchBar.m; sourceTree = "<group>"; };
 		B32ADA77203E4F34006A6EAB /* TJTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJTabBarController.h; sourceTree = "<group>"; };
 		B32ADA78203E4F34006A6EAB /* TJTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJTabBarController.m; sourceTree = "<group>"; };
 		B32ADA7A203E5101006A6EAB /* TJTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJTabBar.h; sourceTree = "<group>"; };
@@ -1406,6 +1409,8 @@
 				B3141015205FA36200F6B902 /* TJCategoryListCell.m */,
 				B3141017205FC51600F6B902 /* TJCategoryProductCell.h */,
 				B3141018205FC51600F6B902 /* TJCategoryProductCell.m */,
+				B314101D2060FF4700F6B902 /* TJCategorySearchBar.h */,
+				B314101E2060FF4700F6B902 /* TJCategorySearchBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1499,6 +1504,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-omc/Pods-omc-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FTImagePickerController/FTImagePickerController.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/PYSearch/PYSearch/PYSearch.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/SCPictureBrowser/SCPictureBrowser.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 				"${PODS_ROOT}/Weibo_SDK/libWeiboSDK/WeiboSDK.bundle",
@@ -1653,6 +1659,7 @@
 				B34843882027EA9F008FE754 /* TJResponder.m in Sources */,
 				B3D095CD204E2471009D19FE /* TJSettingTask.m in Sources */,
 				B3D095EC205122BC009D19FE /* TJSettingChangePhoneVC.m in Sources */,
+				B314101F2060FF4700F6B902 /* TJCategorySearchBar.m in Sources */,
 				B348438C2027EA9F008FE754 /* TJWebViewProgressView.m in Sources */,
 				B3D095E3204FCD6C009D19FE /* TJSettingMainNormalCell.m in Sources */,
 				B348437A2027EA9F008FE754 /* StringUtil.m in Sources */,

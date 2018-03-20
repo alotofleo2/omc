@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B4BD01D676549AF03C905D93CC1CC116"
+               BlueprintIdentifier = "6337B0C7B5B89C860E2702B315C0A089"
                BuildableName = "SCPictureBrowser.bundle"
                BlueprintName = "SCPictureBrowser-SCPictureBrowser"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B4BD01D676549AF03C905D93CC1CC116"
+            BlueprintIdentifier = "6337B0C7B5B89C860E2702B315C0A089"
             BuildableName = "SCPictureBrowser.bundle"
             BlueprintName = "SCPictureBrowser-SCPictureBrowser"
             ReferencedContainer = "container:Pods.xcodeproj">

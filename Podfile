@@ -14,6 +14,7 @@ inhibit_all_warnings!
     pod 'AGGeometryKit'
     pod 'SVProgressHUD'
     pod 'WechatOpenSDK'
+    pod 'PYSearch'
     pod 'Weibo_SDK', :git => 'https://github.com/sinaweibosdk/weibo_ios_sdk.git'
     pod 'FTImagePickerController',:git => 'https://github.com/alotofleo2/FTImagePickerController.git'
     pod 'SCPictureBrowser',:git => 'https://github.com/SeJasonWang/SCPictureBrowser.git'

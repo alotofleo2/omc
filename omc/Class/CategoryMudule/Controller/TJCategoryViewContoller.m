@@ -9,25 +9,36 @@
 #import "TJCategoryViewContoller.h"
 #import "TJCategoryProductModel.h"
 #import "TJCategoryProductCell.h"
+#import "TJCategorySearchBar.h"
 #import "TJCategoryListModel.h"
 #import "TJCategoryListCell.h"
 #import "TJCategoryTask.h"
 
 #define kCategoryMargin TJSystem2Xphone6Width(18)
 
-@interface TJCategoryViewContoller () <UISearchBarDelegate,UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic, strong)UISearchBar *mySearchBar;
+@interface TJCategoryViewContoller () <UISearchBarDelegate,UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate, CustomSearchBarDelegate>
+
+@property (nonatomic, strong)TJCategorySearchBar *searchBar;
 
 @property (nonatomic, strong)UITableView *categoryListTableView;
 
 @property (nonatomic, strong)NSMutableArray<TJCategoryListModel *> *categoryListDataSource;
+
+@property (nonatomic, strong)NSMutableArray *currentContentDataSource;
 @end
 
 @implementation TJCategoryViewContoller
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self initMysearchBarAndMysearchDisPlay];
+    
+    self.rightImageName = @"home_search";
+    
+    self.searchBar = [[TJCategorySearchBar alloc]init];
+    self.searchBar.alpha = 0;
+    self.searchBar.delegate = self;
+    [self.navigationController.view insertSubview:self.searchBar aboveSubview:self.navigationController.navigationBar];
+    
 }
 - (void)setupTableView {
     [super setupTableView];
@@ -99,16 +110,23 @@
         //下拉刷新
     } else {
         //设置查询选中
-        TJCategoryListCateModel *model = nil;
-        for (NSInteger i = 0; i < self.categoryListDataSource.count; i++) {
-            for (NSInteger j = 0; j< self.categoryListDataSource[i].cates.count; j++) {
-                if (self.categoryListDataSource[i].cates[j].isSelected == YES) {
-                    model = self.categoryListDataSource[i].cates[j];
-                }
+
+        [self getCategoryContentDataSourceWithCateId:[self getCurrentCateId] keyWords:nil];
+    }
+}
+
+#pragma mark - privte
+#pragma mark 获取当前二级分类CateId
+- (NSString *)getCurrentCateId {
+    TJCategoryListCateModel *model = nil;
+    for (NSInteger i = 0; i < self.categoryListDataSource.count; i++) {
+        for (NSInteger j = 0; j< self.categoryListDataSource[i].cates.count; j++) {
+            if (self.categoryListDataSource[i].cates[j].isSelected == YES) {
+                model = self.categoryListDataSource[i].cates[j];
             }
         }
-        [self getCategoryContentDataSourceWithCateId:model.cateId keyWords:nil];
     }
+        return model.cateId;
 }
 #pragma mark 获取产品的请求接口
 - (void)getCategoryContentDataSourceWithCateId:(NSString *)cateId keyWords:(NSString *)keyWords {
@@ -118,6 +136,7 @@
         if (result.errcode == 200) {
             
             weakSelf.dataSource = [TJCategoryProductModel mj_objectArrayWithKeyValuesArray:result.data];
+            weakSelf.currentContentDataSource = [TJCategoryProductModel mj_objectArrayWithKeyValuesArray:result.data];
             [weakSelf.tableView reloadData];
             
             [self requestTableViewDataSourceSuccess:@[@(1)]];
@@ -185,7 +204,7 @@
     if (tableView == self.categoryListTableView) {
         return TJSystem2Xphone6Height(90);
     } else {
-        return TJSystem2Xphone6Height(20);
+        return section == 0 ? 0 : TJSystem2Xphone6Height(20);
     }
 }
 
@@ -243,6 +262,19 @@
     }];
     return headerView;
 }
+#pragma mark searchDelegate
+- (void)customSearchBar:(TJCategorySearchBar *)searchBar cancleButton:(UIButton *)sender {
+    
+    [self getCategoryContentDataSourceWithCateId:[self getCurrentCateId] keyWords:nil];
+}
+
+- (void)customSearch:(TJCategorySearchBar *)searchBar inputText:(NSString *)inputText {
+    
+
+    [self getCategoryContentDataSourceWithCateId:[self getCurrentCateId] keyWords:inputText];
+    
+    
+}
 #pragma mark 点击事件
 - (void)headerViewPressed:(UITapGestureRecognizer *)recognizer {
     
@@ -253,45 +285,10 @@
     [self.categoryListTableView reloadData];
 }
 
-//-(void)initMysearchBarAndMysearchDisPlay
-//
-//{
-//
-//    self.mySearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, DEVICE_STATUSBAR_HEIGHT, DEVICE_SCREEN_WIDTH, 44)];
-//
-//    self.mySearchBar.delegate = self;
-//
-//    //设置选项
-//
-//    self.mySearchBar.barTintColor = [UIColor redColor];
-//
-//    self.mySearchBar.searchBarStyle = UISearchBarStyleDefault;
-//
-//    self.mySearchBar.translucent = NO; //是否半透明
-//
-//    [self.mySearchBar setAutocapitalizationType:UITextAutocapitalizationTypeNone];
-//
-//    [self.mySearchBar sizeToFit];
-//
-//
-//
-//   UISearchDisplayController *  mySearchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:self.mySearchBar contentsController:self];
-//
-//    mySearchDisplayController.delegate = self;
-//
-//    mySearchDisplayController.searchResultsDataSource = self;
-//
-//    mySearchDisplayController.searchResultsDelegate = self;
-//
-//    mySearchDisplayController.displaysSearchBarInNavigationBar = YES;
-//
-////    suggestResults = [NSMutableArray arrayWithArray:@[@"此处为推荐词", @"也可以为历史记录"]];
-//
-//
-//
-//}
-
-
+- (void)rigthButtonPressed {
+    
+    [self.searchBar show];
+}
 
 
 @end

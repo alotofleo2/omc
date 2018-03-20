@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'E556D22745F599D42A75C14BE5CCB0D2'
+               BlueprintIdentifier = '6393DAA21C48EA62D830EBBB9C144728'
                BlueprintName = 'pop'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libpop.a'>
