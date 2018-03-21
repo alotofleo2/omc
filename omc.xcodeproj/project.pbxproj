@@ -15,6 +15,7 @@
 		B3141019205FC51600F6B902 /* TJCategoryProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3141018205FC51600F6B902 /* TJCategoryProductCell.m */; };
 		B314101C205FC8B000F6B902 /* TJCategoryProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B314101B205FC8B000F6B902 /* TJCategoryProductModel.m */; };
 		B314101F2060FF4700F6B902 /* TJCategorySearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B314101E2060FF4700F6B902 /* TJCategorySearchBar.m */; };
+		B31410222061E86300F6B902 /* TJDetialProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B31410212061E86300F6B902 /* TJDetialProductViewController.m */; };
 		B32ADA79203E4F34006A6EAB /* TJTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B32ADA78203E4F34006A6EAB /* TJTabBarController.m */; };
 		B32ADA7C203E5101006A6EAB /* TJTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B32ADA7B203E5101006A6EAB /* TJTabBar.m */; };
 		B32ADA8E203E5257006A6EAB /* TJRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B32ADA80203E5257006A6EAB /* TJRequest.m */; };
@@ -29,6 +30,14 @@
 		B32ADAA2203E6098006A6EAB /* TJHomeTopBannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B32ADAA1203E6098006A6EAB /* TJHomeTopBannerCell.m */; };
 		B32D7AEA20479CE700518687 /* TJHomeDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = B32D7AE920479CE700518687 /* TJHomeDefines.m */; };
 		B32D7AED2047A1BE00518687 /* TJHomeTask.m in Sources */ = {isa = PBXBuildFile; fileRef = B32D7AEC2047A1BE00518687 /* TJHomeTask.m */; };
+		B347F61D206202B100C3FA2C /* UIColor+PYSearchExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = B347F610206202B100C3FA2C /* UIColor+PYSearchExtension.m */; };
+		B347F61E206202B100C3FA2C /* PYSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B347F611206202B100C3FA2C /* PYSearchViewController.m */; };
+		B347F61F206202B100C3FA2C /* PYSearchSuggestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B347F612206202B100C3FA2C /* PYSearchSuggestionViewController.m */; };
+		B347F620206202B100C3FA2C /* PYSearchConst.m in Sources */ = {isa = PBXBuildFile; fileRef = B347F614206202B100C3FA2C /* PYSearchConst.m */; };
+		B347F621206202B100C3FA2C /* PYSearch.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B347F615206202B100C3FA2C /* PYSearch.bundle */; };
+		B347F622206202B100C3FA2C /* NSBundle+PYSearchExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = B347F616206202B100C3FA2C /* NSBundle+PYSearchExtension.m */; };
+		B347F623206202B100C3FA2C /* UIView+PYSearchExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = B347F61C206202B100C3FA2C /* UIView+PYSearchExtension.m */; };
+		B347F6262062036D00C3FA2C /* TJSearchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B347F6252062036D00C3FA2C /* TJSearchManager.m */; };
 		B34842C92027E8AD008FE754 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B34842C82027E8AD008FE754 /* AppDelegate.m */; };
 		B34842CC2027E8AD008FE754 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34842CB2027E8AD008FE754 /* ViewController.m */; };
 		B34842D12027E8AD008FE754 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B34842D02027E8AD008FE754 /* Assets.xcassets */; };
@@ -161,6 +170,8 @@
 		B314101B205FC8B000F6B902 /* TJCategoryProductModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCategoryProductModel.m; sourceTree = "<group>"; };
 		B314101D2060FF4700F6B902 /* TJCategorySearchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCategorySearchBar.h; sourceTree = "<group>"; };
 		B314101E2060FF4700F6B902 /* TJCategorySearchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCategorySearchBar.m; sourceTree = "<group>"; };
+		B31410202061E86300F6B902 /* TJDetialProductViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJDetialProductViewController.h; sourceTree = "<group>"; };
+		B31410212061E86300F6B902 /* TJDetialProductViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJDetialProductViewController.m; sourceTree = "<group>"; };
 		B32ADA77203E4F34006A6EAB /* TJTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJTabBarController.h; sourceTree = "<group>"; };
 		B32ADA78203E4F34006A6EAB /* TJTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJTabBarController.m; sourceTree = "<group>"; };
 		B32ADA7A203E5101006A6EAB /* TJTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJTabBar.h; sourceTree = "<group>"; };
@@ -190,6 +201,22 @@
 		B32D7AE920479CE700518687 /* TJHomeDefines.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJHomeDefines.m; sourceTree = "<group>"; };
 		B32D7AEB2047A1BE00518687 /* TJHomeTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJHomeTask.h; sourceTree = "<group>"; };
 		B32D7AEC2047A1BE00518687 /* TJHomeTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJHomeTask.m; sourceTree = "<group>"; };
+		B347F60F206202B100C3FA2C /* NSBundle+PYSearchExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+PYSearchExtension.h"; sourceTree = "<group>"; };
+		B347F610206202B100C3FA2C /* UIColor+PYSearchExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+PYSearchExtension.m"; sourceTree = "<group>"; };
+		B347F611206202B100C3FA2C /* PYSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PYSearchViewController.m; sourceTree = "<group>"; };
+		B347F612206202B100C3FA2C /* PYSearchSuggestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PYSearchSuggestionViewController.m; sourceTree = "<group>"; };
+		B347F613206202B100C3FA2C /* UIView+PYSearchExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+PYSearchExtension.h"; sourceTree = "<group>"; };
+		B347F614206202B100C3FA2C /* PYSearchConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PYSearchConst.m; sourceTree = "<group>"; };
+		B347F615206202B100C3FA2C /* PYSearch.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PYSearch.bundle; sourceTree = "<group>"; };
+		B347F616206202B100C3FA2C /* NSBundle+PYSearchExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+PYSearchExtension.m"; sourceTree = "<group>"; };
+		B347F617206202B100C3FA2C /* PYSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYSearch.h; sourceTree = "<group>"; };
+		B347F618206202B100C3FA2C /* PYSearchSuggestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYSearchSuggestionViewController.h; sourceTree = "<group>"; };
+		B347F619206202B100C3FA2C /* PYSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYSearchViewController.h; sourceTree = "<group>"; };
+		B347F61A206202B100C3FA2C /* UIColor+PYSearchExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+PYSearchExtension.h"; sourceTree = "<group>"; };
+		B347F61B206202B100C3FA2C /* PYSearchConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYSearchConst.h; sourceTree = "<group>"; };
+		B347F61C206202B100C3FA2C /* UIView+PYSearchExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+PYSearchExtension.m"; sourceTree = "<group>"; };
+		B347F6242062036D00C3FA2C /* TJSearchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJSearchManager.h; sourceTree = "<group>"; };
+		B347F6252062036D00C3FA2C /* TJSearchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJSearchManager.m; sourceTree = "<group>"; };
 		B34842C42027E8AD008FE754 /* omc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = omc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B34842C72027E8AD008FE754 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B34842C82027E8AD008FE754 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -581,6 +608,8 @@
 			children = (
 				B32ADA9D203E605E006A6EAB /* TJHomeViewController.h */,
 				B32ADA9E203E605E006A6EAB /* TJHomeViewController.m */,
+				B31410202061E86300F6B902 /* TJDetialProductViewController.h */,
+				B31410212061E86300F6B902 /* TJDetialProductViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -592,6 +621,8 @@
 				B3C871432046D4D90061146E /* TJPersonalDataDelegate.m */,
 				B3D9739820439CB1006AC9AF /* TJHomeDateManager.h */,
 				B3D9739920439CB1006AC9AF /* TJHomeDateManager.m */,
+				B347F6242062036D00C3FA2C /* TJSearchManager.h */,
+				B347F6252062036D00C3FA2C /* TJSearchManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -641,6 +672,35 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		B347F60D206202A700C3FA2C /* ThirdKit */ = {
+			isa = PBXGroup;
+			children = (
+				B347F60E206202B100C3FA2C /* PYSearch */,
+			);
+			path = ThirdKit;
+			sourceTree = "<group>";
+		};
+		B347F60E206202B100C3FA2C /* PYSearch */ = {
+			isa = PBXGroup;
+			children = (
+				B347F60F206202B100C3FA2C /* NSBundle+PYSearchExtension.h */,
+				B347F610206202B100C3FA2C /* UIColor+PYSearchExtension.m */,
+				B347F611206202B100C3FA2C /* PYSearchViewController.m */,
+				B347F612206202B100C3FA2C /* PYSearchSuggestionViewController.m */,
+				B347F613206202B100C3FA2C /* UIView+PYSearchExtension.h */,
+				B347F614206202B100C3FA2C /* PYSearchConst.m */,
+				B347F615206202B100C3FA2C /* PYSearch.bundle */,
+				B347F616206202B100C3FA2C /* NSBundle+PYSearchExtension.m */,
+				B347F617206202B100C3FA2C /* PYSearch.h */,
+				B347F618206202B100C3FA2C /* PYSearchSuggestionViewController.h */,
+				B347F619206202B100C3FA2C /* PYSearchViewController.h */,
+				B347F61A206202B100C3FA2C /* UIColor+PYSearchExtension.h */,
+				B347F61B206202B100C3FA2C /* PYSearchConst.h */,
+				B347F61C206202B100C3FA2C /* UIView+PYSearchExtension.m */,
+			);
+			path = PYSearch;
+			sourceTree = "<group>";
+		};
 		B34842BB2027E8AD008FE754 = {
 			isa = PBXGroup;
 			children = (
@@ -688,6 +748,7 @@
 		B34842DE2027EA9F008FE754 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B347F60D206202A700C3FA2C /* ThirdKit */,
 				B34842DF2027EA9F008FE754 /* TJToolKit */,
 				B34843082027EA9F008FE754 /* TJKit.h */,
 				B34843092027EA9F008FE754 /* TJUIKit */,
@@ -1486,6 +1547,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3C871502046D9300061146E /* Personal_configuration.plist in Resources */,
+				B347F621206202B100C3FA2C /* PYSearch.bundle in Resources */,
 				B34842D42027E8AD008FE754 /* LaunchScreen.storyboard in Resources */,
 				B34843942027EA9F008FE754 /* FTMessagesDefaultDesign.json in Resources */,
 				B34842D12027E8AD008FE754 /* Assets.xcassets in Resources */,
@@ -1504,7 +1566,6 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-omc/Pods-omc-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FTImagePickerController/FTImagePickerController.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
-				"${PODS_ROOT}/PYSearch/PYSearch/PYSearch.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/SCPictureBrowser/SCPictureBrowser.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 				"${PODS_ROOT}/Weibo_SDK/libWeiboSDK/WeiboSDK.bundle",
@@ -1558,6 +1619,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B347F620206202B100C3FA2C /* PYSearchConst.m in Sources */,
 				B3141013205FA04C00F6B902 /* TJCategoryTask.m in Sources */,
 				B34843742027EA9F008FE754 /* NSUserDefaults+Secure.m in Sources */,
 				B3E124F9205F58F1000B3FA9 /* TJVideoPlayerViewController.m in Sources */,
@@ -1572,15 +1634,18 @@
 				B34843852027EA9F008FE754 /* TJAdaptiveManager.m in Sources */,
 				B3E124F5205F58AE000B3FA9 /* SelPlayerConfiguration.m in Sources */,
 				B384ED0820552FA800A131BA /* TJCurtainEditSettingAlerView.m in Sources */,
+				B347F6262062036D00C3FA2C /* TJSearchManager.m in Sources */,
 				B3F321E9205651770008DB2E /* POPAnimatableProperty+AGGeometryKit.m in Sources */,
 				B348438E2027EA9F008FE754 /* TJBannerCell.m in Sources */,
 				B3C8717120482D440061146E /* TJCurtainEditViewController.m in Sources */,
 				B34843862027EA9F008FE754 /* TJUserDefaultsManager.m in Sources */,
+				B347F61D206202B100C3FA2C /* UIColor+PYSearchExtension.m in Sources */,
 				B32ADA9F203E605E006A6EAB /* TJHomeViewController.m in Sources */,
 				B348437B2027EA9F008FE754 /* UITextView+PlaceHolder.m in Sources */,
 				B39D9D0B205A6469001076AA /* TJUploadListModel.m in Sources */,
 				B34843732027EA9F008FE754 /* TJInputChecker.m in Sources */,
 				B3E124F2205F58AE000B3FA9 /* SelPlaybackControls.m in Sources */,
+				B347F622206202B100C3FA2C /* NSBundle+PYSearchExtension.m in Sources */,
 				B38C510D205D36540004D41B /* TJVideoDefines.m in Sources */,
 				B32ADAA2203E6098006A6EAB /* TJHomeTopBannerCell.m in Sources */,
 				B32ADA91203E5257006A6EAB /* TJAccountTask.m in Sources */,
@@ -1593,6 +1658,7 @@
 				B3141016205FA36200F6B902 /* TJCategoryListCell.m in Sources */,
 				B32ADA8F203E5257006A6EAB /* TJHTTPSessionManager.m in Sources */,
 				B348436F2027EA9F008FE754 /* NSString+Hash.m in Sources */,
+				B347F623206202B100C3FA2C /* UIView+PYSearchExtension.m in Sources */,
 				B34843802027EA9F008FE754 /* TJLoopScrollView.m in Sources */,
 				B34843812027EA9F008FE754 /* UIScrollView+EmptyDataView.m in Sources */,
 				B3D9739A20439CB1006AC9AF /* TJHomeDateManager.m in Sources */,
@@ -1638,6 +1704,7 @@
 				B32ADA7C203E5101006A6EAB /* TJTabBar.m in Sources */,
 				B3C871692047031F0061146E /* TJPersonalDataCell.m in Sources */,
 				B34843822027EA9F008FE754 /* UIView+ViewUtils.m in Sources */,
+				B347F61F206202B100C3FA2C /* PYSearchSuggestionViewController.m in Sources */,
 				B3D97397204399EE006AC9AF /* TJHomeBannerModel.m in Sources */,
 				B32ADA93203E5257006A6EAB /* TJTokenManager.m in Sources */,
 				B3F321EC20566A440008DB2E /* TJCurtainContentImagemodel.m in Sources */,
@@ -1651,12 +1718,14 @@
 				B34843752027EA9F008FE754 /* NSString+MD5Password.m in Sources */,
 				B348439C2027EA9F008FE754 /* WKWebView+JSFunction.m in Sources */,
 				B32ADA94203E5257006A6EAB /* TJResult.m in Sources */,
+				B347F61E206202B100C3FA2C /* PYSearchViewController.m in Sources */,
 				B3D9739420439983006AC9AF /* TJBaseModel.m in Sources */,
 				B34843952027EA9F008FE754 /* FTMessage.m in Sources */,
 				B3D095E92051131F009D19FE /* TJSettingChangePasswordVC.m in Sources */,
 				B3C87166204702FD0061146E /* TJPersonalDataVC.m in Sources */,
 				B3C871442046D4D90061146E /* TJPersonalDataDelegate.m in Sources */,
 				B34843882027EA9F008FE754 /* TJResponder.m in Sources */,
+				B31410222061E86300F6B902 /* TJDetialProductViewController.m in Sources */,
 				B3D095CD204E2471009D19FE /* TJSettingTask.m in Sources */,
 				B3D095EC205122BC009D19FE /* TJSettingChangePhoneVC.m in Sources */,
 				B314101F2060FF4700F6B902 /* TJCategorySearchBar.m in Sources */,

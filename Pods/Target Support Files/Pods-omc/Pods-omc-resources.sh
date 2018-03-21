@@ -86,7 +86,6 @@ EOM
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/FTImagePickerController/FTImagePickerController.bundle"
   install_resource "${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle"
-  install_resource "${PODS_ROOT}/PYSearch/PYSearch/PYSearch.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/SCPictureBrowser/SCPictureBrowser.bundle"
   install_resource "${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
   install_resource "${PODS_ROOT}/Weibo_SDK/libWeiboSDK/WeiboSDK.bundle"
@@ -94,7 +93,6 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/FTImagePickerController/FTImagePickerController.bundle"
   install_resource "${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle"
-  install_resource "${PODS_ROOT}/PYSearch/PYSearch/PYSearch.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/SCPictureBrowser/SCPictureBrowser.bundle"
   install_resource "${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
   install_resource "${PODS_ROOT}/Weibo_SDK/libWeiboSDK/WeiboSDK.bundle"

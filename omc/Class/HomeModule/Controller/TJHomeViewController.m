@@ -12,9 +12,11 @@
 #import "TJHomeDateManager.h"
 #import "TJHomeMiddleContentCell.h"
 #import "TJPersonalView.h"
+#import "TJSearchManager.h"
 #import "TJCurtainEditManager.h"
 
-@interface TJHomeViewController ()
+
+@interface TJHomeViewController () 
 @property (nonatomic, strong) UIButton *backToTopButton;
 @end
 
@@ -30,6 +32,8 @@
     [self registerCellWithClassName:@"TJHomeTopBannerCell" reuseIdentifier:@"TJHomeTopBannerCell"];
     [self registerCellWithClassName:@"TJHomeCategoryCell" reuseIdentifier:@"TJHomeCategoryCell"];
     [self registerCellWithClassName:@"TJHomeMiddleContentCell" reuseIdentifier:@"TJHomeMiddleContentCell"];
+    
+    [[TJSearchManager sharedInstance] updateHotSearch];
 }
 - (void)setupNavigation {
     self.navigationItem.title = @"欧曼辰";
@@ -242,8 +246,7 @@
 
 #pragma mark 左边第一个点击事件 搜索
 - (void)rightfirstButtonPressed {
-    NSLog(@"搜索被呗点击");
-    [[TJPageManager sharedInstance] pushViewControllerWithName:@"TJUploadViewController"];
+    
 }
 
 #pragma mark 左边第二个点击事件 照片编辑

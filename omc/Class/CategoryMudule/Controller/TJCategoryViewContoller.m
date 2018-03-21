@@ -24,7 +24,6 @@
 
 @property (nonatomic, strong)NSMutableArray<TJCategoryListModel *> *categoryListDataSource;
 
-@property (nonatomic, strong)NSMutableArray *currentContentDataSource;
 @end
 
 @implementation TJCategoryViewContoller
@@ -136,7 +135,6 @@
         if (result.errcode == 200) {
             
             weakSelf.dataSource = [TJCategoryProductModel mj_objectArrayWithKeyValuesArray:result.data];
-            weakSelf.currentContentDataSource = [TJCategoryProductModel mj_objectArrayWithKeyValuesArray:result.data];
             [weakSelf.tableView reloadData];
             
             [self requestTableViewDataSourceSuccess:@[@(1)]];
