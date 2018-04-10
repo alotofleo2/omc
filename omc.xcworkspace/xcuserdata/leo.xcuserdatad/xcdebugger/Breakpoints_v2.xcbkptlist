@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "omc/Class/SettingModule/Network/TJSettingTask.m"
-            timestampString = "542860668.167604"
+            filePath = "omc/Class/CategoryMudule/Controller/TJCategoryViewContoller.m"
+            timestampString = "545015162.106266"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "+refreshTokenWithSuccessBlock:failureBlock:"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
+            landmarkName = "-tableView:heightForHeaderInSection:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

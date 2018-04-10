@@ -16,12 +16,8 @@
 @property (nonatomic, strong) UIImage *backGoundImage;
 
 /**
- 窗帘数组
+ 产品变化
  */
-@property (nonatomic, strong) NSArray *curtainImages;
+@property (nonatomic, strong) NSString *productNumber;
 
-/**
- 窗头数组
- */
-@property (nonatomic, strong) NSArray *curtainHeadImages;
 @end

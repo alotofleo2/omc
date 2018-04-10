@@ -34,13 +34,15 @@
 #pragma mark 获取分类内容
 + (TJRequest *)getCategoryContentWithCateId:(NSString *)cateId
                                    keywords:(NSString *)keywords
+                                 pageNumber:(NSInteger)pageNumber
                                successBlock:(void (^)(TJResult *result))successBlock
                                failureBlock:(TJRequestFinishedBlock)failureBlock{
     TJRequest *request = [[TJRequest alloc]init];
     
     request.requestType = TJHTTPReuestTypeGET;
     NSDictionary *params = @{@"cateId" : cateId ?: @"",
-                             @"keywords" : keywords ?: @""
+                             @"keywords" : keywords ?: @"",
+                             @"page"   : @(pageNumber).stringValue
                              };
     
     [request startWithURLString:kCateGory_products Params:params successBlock:^(TJResult *result) {

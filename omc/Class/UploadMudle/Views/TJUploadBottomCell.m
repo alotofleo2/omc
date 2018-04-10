@@ -182,7 +182,7 @@
         make.left.mas_offset(((imageModels.count) % 4) * (kItemWidth + kImageMargin) + kImageMargin);
         make.top.mas_offset((imageModels.count / 4) * (kItemWidth + kImageMargin) + kImageMargin);
     }];
-    self.hoderLabel.text = [NSString stringWithFormat:@"%ld / 5", imageModels.count ? : 0];
+    self.hoderLabel.text = [NSString stringWithFormat:@"%ld / 5", (long)imageModels.count ? : (long)0];
     
 }
 #pragma mark - getter

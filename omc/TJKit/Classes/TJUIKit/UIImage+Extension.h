@@ -101,6 +101,8 @@
  */
 - (NSData *)compressedData:(CGFloat)compressionQuality;
 
+//计算质量
+- (CGFloat)compressionQuality;
 
 #pragma mark 圆形图片裁剪
 /**

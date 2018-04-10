@@ -7,13 +7,13 @@
 //
 
 #import "TJHomeViewController.h"
+#import "TJHomeMiddleContentCell.h"
+#import "TJCurtainEditManager.h"
 #import "TJHomeTopBannerCell.h"
 #import "TJHomeCategoryCell.h"
 #import "TJHomeDateManager.h"
-#import "TJHomeMiddleContentCell.h"
-#import "TJPersonalView.h"
 #import "TJSearchManager.h"
-#import "TJCurtainEditManager.h"
+
 
 
 @interface TJHomeViewController () 
@@ -27,6 +27,7 @@
     
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.showsHorizontalScrollIndicator = NO;
+    self.userPullToRefreshEnable = YES;
     
     [self setupNavigation];
     [self registerCellWithClassName:@"TJHomeTopBannerCell" reuseIdentifier:@"TJHomeTopBannerCell"];
@@ -101,7 +102,7 @@
         NSInteger categoryNumb = [TJHomeDateManager sharedInstance].curtainCategoryModel.categoryModels[1].productCateId;
         [[TJHomeDateManager sharedInstance] requestCurtainContentWithCategoryNumb:categoryNumb completeHandle:^{
             
-            [strongSelf.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:2 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+            [strongSelf.tableView reloadData];
         }];
         
         //窗头内容请求
@@ -110,6 +111,8 @@
             
             [weakSelf.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:4 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
         }];
+        
+        [self requestTableViewDataSourceSuccess:@[@1]];
     }];
     
 
@@ -126,12 +129,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TJBaseTableViewCell *cell = nil;
+     BLOCK_WEAK_SELF
     switch (indexPath.row) {
         case 0:
         {
             cell = [tableView dequeueReusableCellWithIdentifier:@"TJHomeTopBannerCell" forIndexPath:indexPath];
             
             [cell setupViewWithModel:[TJHomeDateManager sharedInstance].bannerModels];
+            TJHomeTopBannerCell * bannerCell = (TJHomeTopBannerCell *)cell;
+            bannerCell.bannerPressedHandle = ^(TJHomeBannerModel *model) {[weakSelf bannerPressedWithModel:model];};
+            
         }
             break;
             
@@ -142,7 +149,7 @@
             [cell setupViewWithModel:[TJHomeDateManager sharedInstance].curtainCategoryModel];
             
             TJHomeCategoryCell * categoryCell = (TJHomeCategoryCell *)cell;
-            BLOCK_WEAK_SELF
+            
             categoryCell.itemActionHandle = ^(NSInteger index){
                 [weakSelf curtainCategoryActionWithIndex:index];
             };
@@ -151,7 +158,10 @@
         case 2:
         {
             cell = [tableView dequeueReusableCellWithIdentifier:@"TJHomeMiddleContentCell" forIndexPath:indexPath];
-
+            TJHomeMiddleContentCell *middleCell = (TJHomeMiddleContentCell *)cell;
+            middleCell.imageViewPressedHandle = ^(TJHomeMiddleItemModel *middleItemModel) {
+                [weakSelf contentImagePressedWithModel:middleItemModel];
+            };
             [cell setupViewWithModel:[TJHomeDateManager sharedInstance].curtainContentModel];
         }
             break;
@@ -162,7 +172,7 @@
             [cell setupViewWithModel:[TJHomeDateManager sharedInstance].curtainHeadCategoryModel];
             
             TJHomeCategoryCell * categoryCell = (TJHomeCategoryCell *)cell;
-            BLOCK_WEAK_SELF
+            
             categoryCell.itemActionHandle = ^(NSInteger index){
                 [weakSelf curtainHeadCategoryActionWithIndex:index];
             };
@@ -243,10 +253,22 @@
         [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:4 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
     }];
 }
+#pragma mark 中间展示图片点击事件
+- (void)contentImagePressedWithModel:(TJHomeMiddleItemModel *)model {
+    
+    [[TJPageManager sharedInstance] pushViewControllerWithName:@"TJDetialProductViewController" params:@{@"productId" : model.productId}];
+}
+
+#pragma mark banner点击事件
+- (void)bannerPressedWithModel:(TJHomeBannerModel *)model {
+    
+    [[TJPageManager sharedInstance] pushViewControllerWithName:@"TJDetialProductViewController" params:@{@"productId" : model.productId, @"bannerId" : model.bannerId}];
+}
 
 #pragma mark 左边第一个点击事件 搜索
 - (void)rightfirstButtonPressed {
     
+    [[TJSearchManager sharedInstance] startSearchInViewController:self];
 }
 
 #pragma mark 左边第二个点击事件 照片编辑
@@ -257,7 +279,6 @@
 
 #pragma mark 左边navigation 点击事件
 - (void)leftButtonPressed {
-
 
     [[TJPageManager sharedInstance] pushViewControllerWithName:@"TJSettingMainVC"];
 

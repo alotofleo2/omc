@@ -8,6 +8,7 @@
 
 #import "TJBaseViewController.h"
 #import "TJBaseTableViewCell.h"
+#import "TJPageInfoModel.h"
 
 @protocol TJBaseTableViewControllerDelegate <NSObject>
 
@@ -60,6 +61,12 @@
 
 
 @interface TJBaseTableViewController : TJBaseViewController <UITableViewDataSource, UITableViewDelegate>
+
+//分页相关
+@property (nonatomic, strong) TJPageInfoModel *pageInfo;
+//设置分页信息 参数为 Result的pageInfo
+- (void)setupPageInfoWithDictionary:(NSDictionary *)dictionary;
+
 
 /**
  *  回调对象

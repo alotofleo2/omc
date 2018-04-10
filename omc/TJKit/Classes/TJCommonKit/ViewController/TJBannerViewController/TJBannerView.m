@@ -18,7 +18,7 @@ static NSString * const bannerViewIdentifier = @"Cell";
 
 @property (nonatomic, strong)UIPageControl *pageControl;
 
-@property (nonatomic, strong)NSTimer *timer;
+@property (nonatomic, weak) NSTimer *timer;
 
 @property (nonatomic, assign)BOOL shouldBeginPlay;
 

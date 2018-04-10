@@ -161,16 +161,16 @@
         MJRefreshAutoGifFooter *footer = [MJRefreshAutoGifFooter footerWithRefreshingBlock:^{
             [weakSelf requestLoadMore];
         }];
-        
-        NSArray *animationImages = @[
-                                     [UIImage imageNamed:@"dropdown_loading_01"],
-                                     [UIImage imageNamed:@"dropdown_loading_02"],
-                                     [UIImage imageNamed:@"dropdown_loading_03"],
-                                     ];
-        //设置动画图片
-        [footer setImages:animationImages forState:MJRefreshStateIdle];
-        [footer setImages:animationImages forState:MJRefreshStatePulling];
-        [footer setImages:animationImages forState:MJRefreshStateRefreshing];
+//        
+//        NSArray *animationImages = @[
+//                                     [UIImage imageNamed:@"dropdown_loading_01"],
+//                                     [UIImage imageNamed:@"dropdown_loading_02"],
+//                                     [UIImage imageNamed:@"dropdown_loading_03"],
+//                                     ];
+//        //设置动画图片
+//        [footer setImages:animationImages forState:MJRefreshStateIdle];
+//        [footer setImages:animationImages forState:MJRefreshStatePulling];
+//        [footer setImages:animationImages forState:MJRefreshStateRefreshing];
         
         [footer setTitle:@"上啦加载更多" forState:MJRefreshStateIdle];
         [footer setTitle:@"正在加载更多..." forState:MJRefreshStateRefreshing];
@@ -229,7 +229,10 @@
     [self registerCellWithClassName:NSClassToString(TJBaseTableViewCell) reuseIdentifier:NSClassToString(TJBaseTableViewCell)];
 }
 
-
+#pragma mark 配置分页信息
+- (void)setupPageInfoWithDictionary:(NSDictionary *)dictionary {
+    self.pageInfo = [TJPageInfoModel mj_objectWithKeyValues:dictionary];
+}
 
 #pragma mark 列表数据源懒加载
 - (NSMutableArray *)dataSource {
@@ -305,7 +308,7 @@
 
 #pragma mark 请求列表数据（需重写）
 - (void)requestTableViewDataSource {
-//    [super requestTableViewDataSource];
+    [super requestTableViewDataSource];
     _needReloadData = NO;
     if ([self.delegate respondsToSelector:@selector(tableViewWillRequestDateSource)]) {
         
@@ -393,41 +396,5 @@
     
 }
 
-
-//- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-//    
-//    
-//    if (self.userPullToRefreshEnable) {
-//        
-//        CGFloat contentOffsetY = scrollView.contentOffset.y;
-//        
-//        if (self.pullToRefreshView && contentOffsetY <= -self.pullToRefreshView.height) {
-//            
-//            if (!decelerate) {
-//                
-//                [self requestTableViewDataSource];
-//                
-//            } else {
-//                
-//                self.needReloadData = YES;
-//            }
-//        }
-//    }
-//    
-//    
-//}
-//
-//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-//    
-//    if (self.userPullToRefreshEnable && self.needReloadData) {
-//        
-//        [self requestTableViewDataSource];
-//        
-//        if ([self.delegate respondsToSelector:@selector(tableViewWillRequestDateSource)]) {
-//            
-//            [self.delegate tableViewWillRequestDateSource];
-//        }
-//    }
-//}
 
 @end

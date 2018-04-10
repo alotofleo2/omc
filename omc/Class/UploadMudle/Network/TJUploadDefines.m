@@ -9,4 +9,4 @@
 #import "TJUploadDefines.h"
 
 NSString* const kUpload_upload                              = @"shows";                         //登录
-
+NSString* const kUpload_delete                              = @"shows";

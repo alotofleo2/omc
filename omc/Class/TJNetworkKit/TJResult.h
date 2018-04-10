@@ -77,7 +77,7 @@
 /**
  *  请求状态的附带消息
  */
-@property (nonatomic, copy) NSString * message;
+@property (nonatomic, copy) NSString * _Nullable message;
 
 
 /**
@@ -85,8 +85,16 @@
  */
 @property (nonatomic, copy) NSDictionary * data;
 
+/**
+ 分页信息
+ */
+@property (nonnull, copy) NSDictionary *pageInfo;
+
+
 
 + (id)resultFromResponseObject:(NSDictionary *)responseObject;
 
 - (BOOL)success;
+
+- (void)resultAddPageMessageWithResponse:(NSHTTPURLResponse *)response;
 @end

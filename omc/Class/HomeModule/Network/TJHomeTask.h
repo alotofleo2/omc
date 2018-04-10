@@ -31,4 +31,34 @@ typedef void (^TJRequestFinishedBlock)(TJResult * result);
 + (TJRequest *)getHomeContentWithPrimaryKey:(NSInteger)primaryKey
                                SuccessBlock:(void (^)(TJResult *result))successBlock
                                failureBlock:(TJRequestFinishedBlock)failureBlock;
+
+/**
+ 获取搜索热门搜索关键字
+ */
++ (TJRequest *)getSearchHotKeysWithSuccessBlock:(void (^)(TJResult *result))successBlock
+                                   failureBlock:(TJRequestFinishedBlock)failureBlock;
+
+/**
+ 详情页数据请求
+ 
+ @param productId 产品Id
+ @param successBlock 成功回调
+ @param failureBlock 失败回调
+ */
++ (TJRequest *)getProductDetialWithProductId:(NSString *)productId
+                                SuccessBlock:(void (^)(TJResult *result))successBlock
+                                failureBlock:(TJRequestFinishedBlock)failureBlock;
+
+/**
+ 详情页案例分页
+ 
+ @param productId 产品Id
+ @param pageNumber 分页数
+ @param successBlock 成功回调
+ @param failureBlock 失败回调
+ */
++ (TJRequest *)getProductCaseWithProductId:(NSString *)productId
+                                pageNumber:(NSInteger)pageNumber
+                                SuccessBlock:(void (^)(TJResult *result))successBlock
+                                failureBlock:(TJRequestFinishedBlock)failureBlock;
 @end

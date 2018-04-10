@@ -11,6 +11,7 @@
 #import "TJTableEmptyView.h"
 #import "TJTableLoadingView.h"
 #import "TJTableNetWorkFailView.h"
+#import "TJRefreshViewLoadState.h"
 #import "TJResult.h"
 
 
@@ -123,28 +124,25 @@ typedef NS_ENUM(NSInteger, TJReturnType) {
  */
 @property (nonatomic, assign) BOOL statusBarHidden;
 
-
 /**
- *  数据为空
+ 导航栏隐藏
  */
-@property (nonatomic, strong) TJTableEmptyView  * emptyView;
-
-
+@property (nonatomic, assign) BOOL navigationBarHidden;
 /**
- *  正在加载中
+ * 是否显示加载状态图
  */
-@property (nonatomic, strong) TJTableLoadingView * loadingView;
+@property (nonatomic, assign) BOOL showLoadStateView;
 
 
 /**
- *  数据加载失败
+ * 页面数据加载状态
  */
-@property (nonatomic, strong) TJTableLoadFailView * failView;
+@property (nonatomic, assign) TJRefreshViewLoadState loadState;
 
 /**
- *  网络无连接
+ *  数据加载状态视图
  */
-@property(nonatomic,strong) TJTableNetWorkFailView *netFailView;
+@property (nonatomic, strong) TJRefreshLoadStateView *loadStateView;
 
 
 /**
@@ -215,13 +213,12 @@ typedef NS_ENUM(NSInteger, TJReturnType) {
 
 - (void)requestTableViewDataSource;
 
-
 /**
- 显示加载页面
-
- @param isNeed 是否需要
+ 重新刷新数据源 (需重写)
  */
-- (void)requestTableViewDataSourceIsNeedShowloadView:(BOOL)isNeed;
+- (void)reloadViewControllerDataSource;
+
+
 
 
 /**

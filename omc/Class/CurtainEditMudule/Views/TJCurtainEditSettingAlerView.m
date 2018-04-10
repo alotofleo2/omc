@@ -62,18 +62,18 @@
     [self.secendButton setImage:[UIImage imageNamed:@"editSetting_buttonSelected"] forState:UIControlStateSelected];
     [self.secendButton setTitleEdgeInsets:UIEdgeInsetsMake(0, - TJSystem2Xphone6Width(10), 0, 0)];
     [self.secendButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.secendButton setTitleColor:[UIColor yellowColor] forState:UIControlStateSelected];
+    [self.secendButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     self.secendButton.titleLabel.font = [UIFont systemFontOfSize:13.5 * [TJAdaptiveManager adaptiveScale]];
     [self.secendButton addTarget:self action:@selector(secendButtonButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.secendButton];
     
-    self.hilightView = [self createSiderWithIconName:@"editSetting_hilight" title:@"亮度" value:0.5 type:TJCurtainBackgroundChangeTypeHilight];
+    self.hilightView = [self createSiderWithIconName:@"editSetting_hilight" title:@"亮度" value:0.0 type:TJCurtainBackgroundChangeTypeHilight];
     [self addSubview:self.hilightView];
     
-    self.contrastView = [self createSiderWithIconName:@"editSetting_contrast" title:@"对比" value:0.5 type:TJCurtainBackgroundChangeTypeContrast];
+    self.contrastView = [self createSiderWithIconName:@"editSetting_contrast" title:@"对比度" value:1 type:TJCurtainBackgroundChangeTypeContrast];
     [self addSubview:self.contrastView];
     
-    self.guanganView = [self createSiderWithIconName:@"editSetting_guangan" title:@"暗部改善" value:0.5 type:TJCurtainBackgroundChangeTypeDark];
+    self.guanganView = [self createSiderWithIconName:@"editSetting_guangan" title:@"暗部改善" value:1 type:TJCurtainBackgroundChangeTypeDark];
     [self addSubview:self.guanganView];
 }
 
@@ -97,9 +97,9 @@
     
     UIImage *tubmImage = [[[UIImage imageWithColor:UIColorFromRGB(0x313030)]scaleToSize:CGSizeMake(TJSystem2Xphone6Width(24), TJSystem2Xphone6Width(24))]cutCircleImage];
     [slider setThumbImage:tubmImage forState:UIControlStateNormal];
-    slider.value = vaule ?: 0.5;
+    slider.value = vaule ;
     [view addSubview:slider];
-    [slider addTarget:self action:@selector(sliderChange:) forControlEvents:UIControlEventValueChanged];
+    [slider addTarget:self action:@selector(sliderChange:) forControlEvents:UIControlEventValueChanged ];
     
     UIView *lineview = [[UIView alloc]init];
     lineview.backgroundColor = UIColorFromRGB(0xe8e8e8);
@@ -196,7 +196,8 @@
 
 #pragma mark sliderChanege
 - (void)sliderChange:(UISlider *)sender {
-    if (self.BackgroundChangeHandle) {
+//    sender.state == UIControlEventTouchUpInside;
+    if (self.BackgroundChangeHandle ) {
         self.BackgroundChangeHandle(sender.tag, sender.value);
     }
 }

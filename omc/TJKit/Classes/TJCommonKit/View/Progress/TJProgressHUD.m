@@ -24,7 +24,8 @@
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
     [SVProgressHUD setFont:[UIFont systemFontOfSize:14.f]];
     [SVProgressHUD setMinimumDismissTimeInterval:1.f];
-    [SVProgressHUD showImage:nil status:title];
+    [SVProgressHUD showWithStatus:title];
+//    [SVProgressHUD showImage:nil status:title];
 }
 + (void)showWithTitle:(NSString *)title interval:(NSTimeInterval)interval {
     
@@ -32,7 +33,7 @@
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
     [SVProgressHUD setFont:[UIFont systemFontOfSize:14.f]];
     [SVProgressHUD setMinimumDismissTimeInterval:interval];
-    [SVProgressHUD showImage:nil status:title];
+    [SVProgressHUD showWithStatus:title];
 }
 #pragma clang diagnostic pop
 + (void)dismiss {

@@ -7,7 +7,7 @@
 //
 
 #import "TJBaseTableViewCell.h"
-
+@class TJHomeBannerModel;
 @interface TJHomeTopBannerCell : TJBaseTableViewCell
-
+@property (nonatomic, copy) void(^bannerPressedHandle)(TJHomeBannerModel *);
 @end

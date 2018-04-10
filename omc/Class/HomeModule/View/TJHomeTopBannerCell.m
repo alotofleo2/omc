@@ -79,8 +79,8 @@
 #pragma mark - delegate
 - (void)bannerClickedWithIndex:(NSUInteger)index {
     
-    if (self.models[index].linker && [TJTokenManager sharedInstance].checkLogin) {
-//        [[TJRouteManager sharedInstance] parseWithUrl:self.models[index].linker];
+    if (self.bannerPressedHandle) {
+        self.bannerPressedHandle(self.models[index]);
     }
 }
 @end

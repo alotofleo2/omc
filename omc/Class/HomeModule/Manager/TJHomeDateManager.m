@@ -151,7 +151,11 @@
             completeHandle();
         }
     } failureBlock:^(TJResult *result) {
-        NSLog(@"%@",result.message);
+        if (completeHandle) {
+            completeHandle();
+        }
+        [TJAlertUtil toastWithString:result.message];
+        
     }];
 }
 #pragma mark 窗帘头部分类请求

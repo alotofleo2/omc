@@ -10,8 +10,116 @@
 #import "UIImageView+WebCache.h"
 #import "TJHomeMiddleContentModel.h"
 
+#pragma mark - TJHomeContentItemCell
+@interface TJHomeContentItemCell : UIView
+@property (nonatomic, weak) UIImageView *imageView;
 
-@class TJHomeContentItemCell;
+@property (nonatomic, weak) UILabel *titleLabel;
+
+@property (nonatomic, weak) UILabel *numberLabel;
+
+
+@property (nonatomic, strong) TJHomeMiddleItemModel *model;
+
+@property (nonatomic, copy) void(^imageViewPressedHandle)(TJHomeMiddleItemModel *);
+@end
+
+
+@implementation TJHomeContentItemCell
+- (instancetype)init {
+    self = [super init];
+    
+    if (self) {
+        [self setupSubviews];
+        
+        [self setupLayoutSubviews];
+    }
+    return self;
+}
+- (void)setupSubviews {
+    UIImageView *imageview = [[UIImageView alloc]init];
+    imageview.contentMode = UIViewContentModeScaleToFill;
+
+    self.imageView = imageview;
+    [self addSubview:imageview];
+    
+    UILabel *titleLabel = [[UILabel alloc]init];
+    self.titleLabel = titleLabel;
+    [self addSubview:self.titleLabel];
+    self.titleLabel.textColor = UIColorFromRGB(0x8e8e8d);
+    self.titleLabel.font = [UIFont systemFontOfSize:12 *[TJAdaptiveManager adaptiveScale]];
+    
+    
+    UILabel *numberlabel = [[UILabel alloc]init];
+    self.numberLabel = numberlabel;
+    [self addSubview:self.numberLabel];
+    self.numberLabel.textColor = UIColorFromRGB(0xa0a0a0);
+    self.numberLabel.font = [UIFont systemFontOfSize:10 *[TJAdaptiveManager adaptiveScale]];
+    
+    //设置圆角
+    self.layer.cornerRadius = 7;
+    self.layer.borderWidth = 0.5;
+    self.layer.borderColor = [[UIColor grayColor] colorWithAlphaComponent:0.3].CGColor;
+    self.layer.masksToBounds = YES;
+    
+    self.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imagePressed)];
+    [self addGestureRecognizer:tapGesture];
+    
+}
+
+- (void)setupLayoutSubviews {
+    
+    [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.left.right.top.equalTo(self);
+        make.height.equalTo(self.mas_width).multipliedBy(223.f / 355.f);
+    }];
+    
+    
+    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.left.equalTo(self).mas_offset(TJSystem2Xphone6Width(14));
+        make.top.equalTo(self.imageView.mas_bottom).mas_offset(TJSystem2Xphone6Height(20));
+        
+    }];
+    
+    [self.numberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.left.equalTo(self).mas_offset(TJSystem2Xphone6Width(14));
+        make.top.equalTo(self.titleLabel.mas_bottom).mas_offset(TJSystem2Xphone6Height(20));
+        
+    }];
+}
+
+- (void)setModel:(TJHomeMiddleItemModel *)model {
+    _model = model;
+    BLOCK_WEAK_SELF
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"palceHolder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (image && cacheType == SDImageCacheTypeNone) {
+            CATransition *transition = [CATransition animation];
+            transition.type = kCATransitionFade;
+            transition.duration = 0.3;
+            transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+            [weakSelf.imageView.layer addAnimation:transition forKey:nil];
+        }
+        
+    }];
+    
+    self.titleLabel.text = model.name;
+    
+    self.numberLabel.text = [NSString stringWithFormat:@"编号-%@", model.number];
+}
+
+- (void)imagePressed {
+    if (self.imageViewPressedHandle) {
+        self.imageViewPressedHandle(self.model);
+    }
+}
+@end
+
+//=======================================================================================================================
+#pragma mark - TJHomeMiddleContentCell
 @interface TJHomeMiddleContentCell ()
 @property (nonatomic, strong) UIView *backGroundView;
 
@@ -95,7 +203,11 @@
     self.items = [NSMutableArray arrayWithCapacity:0];
     for (NSInteger i = 0; i < dataArr.count; i++) {
         TJHomeContentItemCell *item = [[TJHomeContentItemCell alloc]init];
-        
+    BLOCK_WEAK_SELF
+        item.imageViewPressedHandle = ^(TJHomeMiddleItemModel *itemModel) {
+            if (weakSelf.imageViewPressedHandle)  weakSelf.imageViewPressedHandle(itemModel);
+            
+        };
         [self.items addObject:item];
         
         [self.backGroundView addSubview:item];
@@ -127,88 +239,7 @@
 
 @end
 
-//=======================================================================================================================================
-#pragma mark -- TJHomeContentItemCell
-@interface TJHomeContentItemCell ()
-@property (nonatomic, weak) UIImageView *imageView;
-
-@property (nonatomic, weak) UILabel *titleLabel;
-
-@property (nonatomic, weak) UILabel *numberLabel;
-
-@end
 
 
-@implementation TJHomeContentItemCell
-- (instancetype)init {
-    self = [super init];
-    
-    if (self) {
-        [self setupSubviews];
-        
-        [self setupLayoutSubviews];
-    }
-    return self;
-}
-- (void)setupSubviews {
-    UIImageView *imageview = [[UIImageView alloc]init];
-    imageview.contentMode = UIViewContentModeScaleToFill;
-    self.imageView = imageview;
-    [self addSubview:imageview];
-    
-    UILabel *titleLabel = [[UILabel alloc]init];
-    self.titleLabel = titleLabel;
-    [self addSubview:self.titleLabel];
-    self.titleLabel.textColor = UIColorFromRGB(0x8e8e8d);
-    self.titleLabel.font = [UIFont systemFontOfSize:12 *[TJAdaptiveManager adaptiveScale]];
-    
-    
-    UILabel *numberlabel = [[UILabel alloc]init];
-    self.numberLabel = numberlabel;
-    [self addSubview:self.numberLabel];
-    self.numberLabel.textColor = UIColorFromRGB(0xa0a0a0);
-    self.numberLabel.font = [UIFont systemFontOfSize:10 *[TJAdaptiveManager adaptiveScale]];
-    
-    //设置圆角
-    self.layer.cornerRadius = 7;
-    self.layer.borderWidth = 0.5;
-    self.layer.borderColor = [[UIColor grayColor] colorWithAlphaComponent:0.3].CGColor;
-    self.layer.masksToBounds = YES;
-}
-
-- (void)setupLayoutSubviews {
-    
-    [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.left.right.top.equalTo(self);
-        make.height.equalTo(self.mas_width).multipliedBy(223.f / 355.f);
-    }];
-    
-    
-    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-       
-        make.left.equalTo(self).mas_offset(TJSystem2Xphone6Width(14));
-        make.top.equalTo(self.imageView.mas_bottom).mas_offset(TJSystem2Xphone6Height(20));
-        
-    }];
-    
-    [self.numberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.left.equalTo(self).mas_offset(TJSystem2Xphone6Width(14));
-        make.top.equalTo(self.titleLabel.mas_bottom).mas_offset(TJSystem2Xphone6Height(20));
-        
-    }];
-}
-
-- (void)setModel:(TJHomeMiddleItemModel *)model {
-    _model = model;
-    
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:nil];
-    
-    self.titleLabel.text = model.name;
-    
-    self.numberLabel.text = [NSString stringWithFormat:@"编号-%@", model.number];
-}
 
 
-@end

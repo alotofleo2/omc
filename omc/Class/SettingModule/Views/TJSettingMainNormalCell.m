@@ -16,7 +16,7 @@
         
         self.textLabel.font = [UIFont systemFontOfSize:16 *[TJAdaptiveManager adaptiveScale]];
         self.detailTextLabel.font = [UIFont systemFontOfSize:16 *[TJAdaptiveManager adaptiveScale]];
-        
+        self.imageView.contentMode = UIViewContentModeScaleToFill;
     }
     return self;
 }

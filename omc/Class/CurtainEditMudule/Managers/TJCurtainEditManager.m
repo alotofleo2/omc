@@ -12,10 +12,16 @@
 #import <MediaPlayer/MediaPlayer.h>
 @interface TJCurtainEditManager () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (nonatomic, strong) UIImagePickerController *imagePickerController;
+
+@property (nonatomic, copy) NSString *productNumber;
 @end
 
 @implementation TJCurtainEditManager
-- (void)startEdit {
+#pragma mark - public
+- (void)startEditWithProductNumber:(NSString *)productNumber {
+    
+    self.productNumber = productNumber.copy;
+    
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"编辑窗帘" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -40,6 +46,11 @@
     [alertController addAction:action3];
     
     [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)startEdit {
+    
+    [self startEditWithProductNumber:nil];
 }
 #pragma mark getter
 - (UIImagePickerController *)imagePickerController {
@@ -77,7 +88,7 @@
 }
 
 #pragma mark delegate
-- (void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+- (void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
 
     
     NSString *type = [info objectForKey:UIImagePickerControllerMediaType];
@@ -88,16 +99,29 @@
         
         UIImage *newImg = [image compressedImage:KEditViewContentHeight];
         
-        NSDictionary *params = @{@"backGoundImage" : newImg};
+        
+        NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:2];
+        [params setObject:newImg forKey:@"backGoundImage"];
+        if (self.productNumber != nil) {
+            [params setObject:self.productNumber forKey:@"productNumber"];
+        }
         [picker dismissViewControllerAnimated:YES completion:^{
             
-            [[TJPageManager sharedInstance] presentViewControllerWithName:@"TJCurtainEditViewController" params:params inNavigationController:YES animated:YES];
+            [[TJPageManager sharedInstance] presentViewControllerWithName:@"TJCurtainEditViewController" params:params.copy inNavigationController:YES animated:YES];
+            
+            self.productNumber = nil;
         }];
     } else {
         NSLog(@"照片选择出错");
+        
+        self.productNumber = nil;
     }
     
 }
-
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    self.productNumber = nil;
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

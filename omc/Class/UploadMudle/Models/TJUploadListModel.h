@@ -7,8 +7,11 @@
 //
 
 #import "TJBaseModel.h"
-
+@class TJUploadListImageModel;
 @interface TJUploadListModel : TJBaseModel
+/**buyersShowId*/
+@property (nonatomic, copy) NSString *buyersShowId;
+
 @property (nonatomic, copy)NSString *desc;
 
 @property (nonatomic, copy)NSString *number;
@@ -19,5 +22,13 @@
 
 @property (nonatomic, assign)NSInteger time;
 
-@property (nonatomic, strong)NSArray *image;
+@property (nonatomic, strong)NSArray <TJUploadListImageModel *>*image;
+@end
+
+@interface TJUploadListImageModel : TJBaseModel
+/**原图*/
+@property (nonatomic, copy) NSString *original;
+
+/**缩略图*/
+@property (nonatomic, copy) NSString *thumb;
 @end

@@ -14,4 +14,7 @@
  产品Id
  */
 @property (nonatomic, copy)NSString *productId;
+
+/**轮播图Id*/
+@property (nonatomic, copy) NSString *bannerId;
 @end

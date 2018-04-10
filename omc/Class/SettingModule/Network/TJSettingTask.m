@@ -174,4 +174,29 @@
     
     return request;
 }
+
+#pragma mark 获取消息接口
++ (TJRequest *)getMessageWithPageNumber:(NSInteger)pageNumber
+                           SuccessBlock:(void (^)(TJResult *result))successBlock
+                           failureBlock:(TJRequestFinishedBlock)failureBlock {
+    TJRequest *request = [[TJRequest alloc]init];
+    
+    request.requestType = TJHTTPReuestTypeGET;
+    NSDictionary * params = nil;
+    if (pageNumber > 0) {
+        params = @{@"page" : @(pageNumber).stringValue,
+                   };
+    }
+    [request startWithURLString:KSetting_notices Params:params successBlock:^(TJResult *result) {
+        
+        if (successBlock) successBlock(result);
+        
+    } failureBlock:^(TJResult *result) {
+        
+        if (failureBlock) failureBlock(result);
+        
+    }];
+    
+    return request;
+}
 @end

@@ -8,11 +8,20 @@
 
 #import "TJBaseView.h"
 #import "TJCurtainContentImagemodel.h"
+#import "TJCurtainEditSettingAlerView.h"
 
 @interface TJCurtainEditContentView : TJBaseView
-@property (nonatomic, strong) UIImageView *backGroundImageView;
+
+
+@property (nonatomic, strong) UIImage *backgroundImage;
 
 - (void)addImageWithModel:(TJCurtainContentImagemodel* )model;
 
+- (void)deleteImage;
+
 - (UIImage *)getCapture;
+
+- (void)backgroundChangeWithType:(TJCurtainBackgroundChangeType)type value:(CGFloat)value;
+
+- (void)contentNumberButtonPressedWithType:(TJCurtainContentNumberType)type;
 @end

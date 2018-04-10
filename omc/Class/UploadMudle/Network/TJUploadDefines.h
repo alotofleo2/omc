@@ -12,6 +12,6 @@
 #define GCAPIDefines_h
 
 extern NSString* const kUpload_upload;           //上传API
-extern NSString* const kSetting_personals;       //获取用户资料API
+extern NSString* const kUpload_delete;           //删除未通过的API (delete....后面拼接/{id})
 extern NSString* const kSetting_logout;          //退出登录API
 #endif

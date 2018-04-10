@@ -44,8 +44,17 @@
     
     if ([imageUrlString hasPrefix:@"http"])
     {
+        __weak typeof(self) weakSelf = self;
         // 网络图片
-        [self.contentImageView sd_setImageWithURL:[NSURL URLWithString:imageUrlString] placeholderImage:[UIImage imageNamed:@"tjbanner"]];
+        [self.contentImageView sd_setImageWithURL:[NSURL URLWithString:imageUrlString] placeholderImage:[UIImage imageNamed:@"placeholder"]completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            if (image && cacheType == SDImageCacheTypeNone) {
+                CATransition *transition = [CATransition animation];
+                transition.type = kCATransitionFade;
+                transition.duration = 0.3;
+                transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+                [weakSelf.contentImageView.layer addAnimation:transition forKey:nil];
+            }
+        }] ;
         
     } else {
         

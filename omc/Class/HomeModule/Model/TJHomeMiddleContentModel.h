@@ -24,7 +24,6 @@
 
 @interface TJHomeMiddleContentModel : TJBaseModel
 
-@property (nonatomic, assign) CGFloat rowHeight;
 
 @property (nonatomic, strong) NSMutableArray <TJHomeMiddleItemModel *>*items;
 

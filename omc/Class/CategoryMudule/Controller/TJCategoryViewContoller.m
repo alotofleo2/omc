@@ -29,6 +29,7 @@
 @implementation TJCategoryViewContoller
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
     self.rightImageName = @"home_search";
@@ -36,6 +37,7 @@
     self.searchBar = [[TJCategorySearchBar alloc]init];
     self.searchBar.alpha = 0;
     self.searchBar.delegate = self;
+    self.showLoadStateView = YES;
     [self.navigationController.view insertSubview:self.searchBar aboveSubview:self.navigationController.navigationBar];
     
 }
@@ -96,12 +98,13 @@
                 self.categoryListDataSource.firstObject.listOpen = YES;
                 [self.categoryListTableView reloadData];
                 
-                [self getCategoryContentDataSourceWithCateId:self.categoryListDataSource.firstObject.cates.firstObject.cateId keyWords:nil];
+                [self getCategoryContentDataSourceWithCateId:self.categoryListDataSource.firstObject.cates.firstObject.cateId keyWords:nil pageNumber:0];
 
             }
         } failureBlock:^(TJResult *result) {
             
             [self showToastWithString:result.message];
+            [self requestTableViewDataSourceFailureWithResult:result];
         }];
         
         [self.taskArray addObject:request];
@@ -110,10 +113,13 @@
     } else {
         //设置查询选中
 
-        [self getCategoryContentDataSourceWithCateId:[self getCurrentCateId] keyWords:nil];
+        [self getCategoryContentDataSourceWithCateId:[self getCurrentCateId] keyWords:nil pageNumber:0];
     }
 }
 
+- (void)requestLoadMore {
+    [self getCategoryContentDataSourceWithCateId:[self getCurrentCateId] keyWords:nil pageNumber:self.pageInfo.currentPage + 1];
+}
 #pragma mark - privte
 #pragma mark 获取当前二级分类CateId
 - (NSString *)getCurrentCateId {
@@ -128,19 +134,36 @@
         return model.cateId;
 }
 #pragma mark 获取产品的请求接口
-- (void)getCategoryContentDataSourceWithCateId:(NSString *)cateId keyWords:(NSString *)keyWords {
+- (void)getCategoryContentDataSourceWithCateId:(NSString *)cateId
+                                      keyWords:(NSString *)keyWords
+                                    pageNumber:(NSInteger)pageNumber {
     [self cancelTask];
     BLOCK_WEAK_SELF
-    TJRequest *request = [TJCategoryTask getCategoryContentWithCateId:cateId keywords:keyWords successBlock:^(TJResult *result) {
+    TJRequest *request = [TJCategoryTask getCategoryContentWithCateId:cateId keywords:keyWords pageNumber:pageNumber successBlock:^(TJResult *result) {
+        //关闭下拉刷新
+        [self requestTableViewDataSourceSuccess:@[@(1), @(2)]];
         if (result.errcode == 200) {
-            
-            weakSelf.dataSource = [TJCategoryProductModel mj_objectArrayWithKeyValuesArray:result.data];
+            if (result.pageInfo) {
+                [self setupPageInfoWithDictionary:result.pageInfo];
+                
+                self.userPullDownToLoadMoreEnable = self.pageInfo.currentPage < self.pageInfo.pageCount;
+                if (self.pageInfo.currentPage == 1) {
+                    
+                    weakSelf.dataSource = [TJCategoryProductModel mj_objectArrayWithKeyValuesArray:result.data];
+                } else {
+                    
+                    [weakSelf.dataSource addObjectsFromArray:[TJCategoryProductModel mj_objectArrayWithKeyValuesArray:result.data]];
+                }
+                
+            } else {
+                weakSelf.dataSource = [TJCategoryProductModel mj_objectArrayWithKeyValuesArray:result.data];
+            }
             [weakSelf.tableView reloadData];
-            
-            [self requestTableViewDataSourceSuccess:@[@(1)]];
+
         }
     } failureBlock:^(TJResult *result) {
         [self showToastWithString:result.message];
+        [self  requestTableViewDataSourceFailureWithResult:result];
     }];
     
     [self.taskArray addObject:request];
@@ -219,9 +242,11 @@
             }
         }
         [self getCategoryContentDataSourceWithCateId:self.categoryListDataSource[indexPath.section].cates[indexPath.row].cateId
-                                            keyWords:nil];
+                                            keyWords:nil pageNumber:0];
     }else {
         [tableView deselectRowAtIndexPath:indexPath animated:NO];
+        TJCategoryProductModel *model = self.dataSource[indexPath.row];
+        [[TJPageManager sharedInstance] pushViewControllerWithName:@"TJDetialProductViewController" params:@{@"productId" : model.productId}];
     }
 }
 
@@ -263,13 +288,13 @@
 #pragma mark searchDelegate
 - (void)customSearchBar:(TJCategorySearchBar *)searchBar cancleButton:(UIButton *)sender {
     
-    [self getCategoryContentDataSourceWithCateId:[self getCurrentCateId] keyWords:nil];
+    [self getCategoryContentDataSourceWithCateId:[self getCurrentCateId] keyWords:nil pageNumber:0];
 }
 
 - (void)customSearch:(TJCategorySearchBar *)searchBar inputText:(NSString *)inputText {
     
 
-    [self getCategoryContentDataSourceWithCateId:[self getCurrentCateId] keyWords:inputText];
+    [self getCategoryContentDataSourceWithCateId:[self getCurrentCateId] keyWords:inputText pageNumber:0];
     
     
 }

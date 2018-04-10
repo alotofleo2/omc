@@ -42,14 +42,44 @@
 }
 
 + (TJRequest *)getUploadListWithType:(NSString *)type
+                          pageNumber:(NSInteger)pageNumber
                         successBlock:(void (^)(TJResult *result))successBlock
                         failureBlock:(TJRequestFinishedBlock)failureBlock {
     TJRequest *request = [[TJRequest alloc]init];
     
     request.requestType = TJHTTPReuestTypeGET;
     
-    NSDictionary * params = @{@"status" : type ?: @"" };
+    NSDictionary * params = @{@"status" : type ?: @"",
+                              @"per-page" : @"4",
+                              @"page" : @(pageNumber).stringValue
+                              };
     [request startWithURLString:kUpload_upload Params:params successBlock:^(TJResult *result) {
+        
+        if (successBlock) successBlock(result);
+        
+    } failureBlock:^(TJResult *result) {
+        
+        if (failureBlock) failureBlock(result);
+        
+    }];
+    
+    return request;
+}
+
+/**
+ 删除未通过上传的方法
+ 
+ @param BuyrsShowId 主键(在获取列表时获取到)
+ */
++ (TJRequest *)deleteUploadListItemWithBuyrsShowId:(NSString *)BuyrsShowId
+                                      successBlock:(void (^)(TJResult *result))successBlock
+                                      failureBlock:(TJRequestFinishedBlock)failureBlock {
+    TJRequest *request = [[TJRequest alloc]init];
+    
+    request.requestType = TJHTTPReuestTypeDELETE;
+    
+
+    [request startWithURLString:[NSString stringWithFormat:@"%@/%@",kUpload_delete, BuyrsShowId ?: @""] Params:nil successBlock:^(TJResult *result) {
         
         if (successBlock) successBlock(result);
         

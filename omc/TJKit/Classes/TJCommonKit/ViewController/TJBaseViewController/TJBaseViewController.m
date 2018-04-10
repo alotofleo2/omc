@@ -81,6 +81,7 @@
     
     self.navigationController.navigationBar.translucent = NO;
     
+    
     [self setupSubviews];
 }
 
@@ -97,6 +98,11 @@
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
     [[UIApplication sharedApplication] setStatusBarStyle:self.statusBarStyle animated:NO];
+    
+    if (self.navigationBarHidden) {
+        
+        [self.navigationController setNavigationBarHidden:YES animated:NO];
+    }
 }
 #pragma clang diagnostic pop
 
@@ -104,14 +110,7 @@
     
     [super viewDidAppear:animated];
     
-//    [[UIApplication sharedApplication] setStatusBarStyle:self.statusBarStyle animated:NO];
-    /*
-     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
-     
-     self.navigationController.interactivePopGestureRecognizer.delegate = self;
-     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
-     }
-     */
+
 }
 
 
@@ -120,9 +119,13 @@
     
     [self cancelTask];
     
-    //    [MobClick endLogPageView:NSStringFromClass(self.class)];
+     [self.view endEditing:YES];
+    
 }
-
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    
+    return self.statusBarStyle;
+}
 
 
 - (void)didReceiveMemoryWarning {
@@ -130,11 +133,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-- (UIStatusBarStyle)preferredStatusBarStyle
-{
-    return self.statusBarStyle;
-}
 
 
 - (BOOL)prefersStatusBarHidden
@@ -249,51 +247,9 @@
 
 #pragma mark - Getter
 #pragma mark 加载中界面
-- (TJTableLoadingView *)loadingView {
-    
-    if (!_loadingView) {
-        
-        _loadingView = [[TJTableLoadingView alloc] initWithFrame:CGRectMake(0, 0, 300,300)];
-    }
-    
-    return _loadingView;
-}
 
 #pragma mark 数据为空界面
-- (TJTableEmptyView *)emptyView
-{
-    if (!_emptyView) {
-        
-        _emptyView = [[TJTableEmptyView alloc] init];
-    }
-    
-    return _emptyView;
-}
 
-#pragma mark 加载失败界面
-- (TJTableLoadFailView *)failView{
-    
-    if (!_failView) {
-        
-        _failView = [[TJTableLoadFailView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
-        _failView.delegate = self;
-    }
-    
-    return _failView;
-}
-
-#pragma mark 网络加载失败
--(TJTableNetWorkFailView *)netFailView
-{
-    
-    if (!_netFailView) {
-        
-        _netFailView = [[TJTableNetWorkFailView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
-        _netFailView.delegate = self;
-        
-    }
-    return _netFailView;
-}
 
 -(UIButton *)leftButton{
     
@@ -375,81 +331,6 @@
 }
 
 
-#pragma mark 显示加载界面
-- (void)showLoadingView {
-    
-    self.loadingView.alpha = 1;
-    [self.view addSubview:self.loadingView];
-    [self.view bringSubviewToFront:self.loadingView];
-}
-
-
-#pragma mark 显示加载失败界面
-- (void)showLoadFailedView {
-    
-    self.failView.alpha = 1;
-    [self.view addSubview:self.failView];
-    [self.view bringSubviewToFront:self.failView];
-}
-
-#pragma mark  显示网络加载失败
--(void)showNetWordFailedView
-{
-    
-    self.netFailView.alpha = 1;
-    [self.view addSubview:self.netFailView];
-    [self.view bringSubviewToFront:self.netFailView];
-    
-}
-#pragma mark 数据为空时显示
-- (void)showEmptyView
-{
-    
-    self.emptyView.alpha = 1;
-    [self.view addSubview:self.emptyView];
-    [self.view  bringSubviewToFront:self.emptyView];
-    
-}
-
-#pragma mark 加载成功
--(void)showSuccessView
-{
-    
-//    if (self.loadingView) {
-//        
-//        [UIView animateWithDuration:0.3 animations:^{
-//            self.loadingView.alpha = 0;
-//            
-//        } completion:^(BOOL finished) {
-//            
-//            [self.loadingView removeFromSuperview];
-//            
-//        }];
-//    }
-//    if (self.failView) {
-//        
-//        [UIView animateWithDuration:0.3 animations:^{
-//            self.failView.alpha = 0;
-//        } completion:^(BOOL finished) {
-//            [self.failView removeFromSuperview];
-//            
-//        }];
-//        
-//    }
-//    if (self.netFailView) {
-//        
-//        [UIView animateWithDuration:0.3 animations:^{
-//            self.netFailView.alpha = 0;
-//        } completion:^(BOOL finished) {
-//            [self.netFailView removeFromSuperview];
-//            
-//        }];
-//        
-//    }
-    
-}
-
-
 #pragma mark 取消正在进行的网络请求
 - (void)cancelTask {
     
@@ -476,10 +357,10 @@
     
     if (dataSource.count==0) {
         
-        [self showEmptyView];
+         self.loadState = TJRefreshViewLoadStateEmpty;
     }else{
         
-        [self showSuccessView];
+        self.loadState = TJRefreshViewLoadStateSuccess;
     }
     
 }
@@ -497,95 +378,36 @@
  *
  *  @param result 服务端返回的错误结果
  */
-- (void)requestTableViewDataSourceFailureWithResult:(TJResult *)result
-{
-    [self removeSubViewsFromSuperView];
+- (void)requestTableViewDataSourceFailureWithResult:(TJResult *)result {
     
-    if (result.errcode ==kCFURLErrorCannotConnectToHost||result.errcode==kCFURLErrorNotConnectedToInternet) {
+    if (result.errcode == kCFURLErrorCannotConnectToHost || result.errcode == kCFURLErrorNotConnectedToInternet) {
+        // 网络连接失败
+        self.loadState = TJRefreshViewLoadStateNetFailure;
+    } else {
         
-        //网络连接失败
-        [self showNetWordFailedView];
-        
-    }else{
-        // 加载第一页失败，显示加载失败界面
-        [self showLoadFailedView];
-        
-    }}
+        // 请求异常显示加载失败界面
+        self.loadState = TJRefreshViewLoadStateFailure;
+    }
+}
 
 /**
  *  请求列表数据（需重写）
  */
 - (void)requestTableViewDataSource {
+
+}
+/**
+ 重新刷新数据源 (需重写)
+ */
+- (void)reloadViewControllerDataSource {
     
+    [self requestTableViewDataSource];
 }
 
-- (void)requestTableViewDataSourceIsNeedShowloadView:(BOOL)isNeed
-{
-    if (isNeed) {
-        
-        [self  showLoadingView];
-    }
-    
-}
+
 
 #pragma mark 清除所有的加载状态视图
--(void)removeSubViewsFromSuperView
-{
-    
-    [self removeSubViewsFromSuperViewAnimation:NO];
-    
-}
--(void)removeSubViewsFromSuperViewAnimation:(BOOL) animation;
-{
-    
-    if (!animation) {
-        
-        [self.loadingView removeFromSuperview];
-        [self.failView removeFromSuperview];
-        [self.emptyView removeFromSuperview];
-        [self.netFailView removeFromSuperview];
-        
-    }else{
-        if (self.loadingView) {
-            [UIView animateWithDuration:0.1 animations:^{
-                self.loadingView.alpha = 0;
-                
-            } completion:^(BOOL finished) {
-                [self.loadingView removeFromSuperview];
-                
-            }];
-        }
-        if (self.failView) {
-            
-            [UIView animateWithDuration:0.1 animations:^{
-                self.failView.alpha = 0;
-            } completion:^(BOOL finished) {
-                [self.failView removeFromSuperview];
-                
-            }];
-            
-        }
-        if (self.netFailView) {
-            
-            [UIView animateWithDuration:0.1 animations:^{
-                self.netFailView.alpha = 0;
-            } completion:^(BOOL finished) {
-                [self.netFailView removeFromSuperview];
-                
-            }];
-            
-        }
-        if (self.emptyView) {
-            [UIView animateWithDuration:0.1 animations:^{
-                self.emptyView.alpha = 0;
-            } completion:^(BOOL finished) {
-                
-                [self.emptyView removeFromSuperview];
-                
-            }];
-        }
-    }
-}
+
 
 
 #pragma mark - Private
@@ -639,5 +461,51 @@
 - (void)showToastWithString:(NSString *)string {
     
     [self.view makeToast:string duration:2 position:CSToastPositionCenter];
+}
+
+// 是否显示加载状态图
+- (void)setShowLoadStateView:(BOOL)showLoadStateView {
+    
+    _showLoadStateView = showLoadStateView;
+    if (showLoadStateView) {
+        
+        [self.view addSubview:self.loadStateView];
+        self.loadState = TJRefreshViewLoadStateLoading;
+        
+        BLOCK_WEAK_SELF
+        [self.loadStateView mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.edges.equalTo(weakSelf.view);
+        }];
+        
+    } else {
+        
+        if (self.loadStateView.superview) {
+            [self.loadStateView removeFromSuperview];
+            self.loadStateView = nil;
+        }
+    }
+}
+
+// tableView的加载状态
+- (void)setLoadState:(TJRefreshViewLoadState)loadState {
+    
+    self.loadStateView.loadState = loadState;
+}
+
+// 加载视图
+- (TJRefreshLoadStateView *)loadStateView {
+    
+    if (!_loadStateView) {
+        _loadStateView = [[TJRefreshLoadStateView alloc] initWithFrame:self.view.bounds];
+        
+        BLOCK_WEAK_SELF
+        _loadStateView.reLoadBlock = ^{
+            
+            weakSelf.loadState = TJRefreshViewLoadStateLoading;
+            [weakSelf reloadViewControllerDataSource];
+        };
+    }
+    return _loadStateView;
 }
 @end

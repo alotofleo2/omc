@@ -101,8 +101,8 @@
     [self.items removeAllObjects];
     
     //重新创建imageview
-    for (NSString *imageUrl in model.image) {
-      UIImageView *imageView =  [self createImageViewWithImageName:imageUrl];
+    for (TJUploadListImageModel *imageUrl in model.image) {
+      UIImageView *imageView =  [self createImageViewWithImageName:imageUrl.thumb];
         [self.contentView addSubview:imageView];
         [self.imageViews addObject:imageView];
         NSInteger index = [model.image indexOfObject:imageUrl];
@@ -116,7 +116,8 @@
         
         //添加图片浏览模型数组
         SCPictureItem *item = [[SCPictureItem alloc] init];
-        item.url = [NSURL URLWithString:imageUrl];
+        item.url = [NSURL URLWithString:imageUrl.original];
+        
         
         // 如果sourceView为nil，则以其他动画开启和关闭
         item.sourceView = imageView;
@@ -147,7 +148,22 @@
 
 - (UIImageView *)createImageViewWithImageName:(NSString *)imageName {
     UIImageView *imageView = [[UIImageView alloc]init];
-    [imageView sd_setImageWithURL:[NSURL URLWithString:imageName] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    BLOCK_WEAK_SELF
+    [imageView sd_setImageWithURL:[NSURL URLWithString:imageName] placeholderImage:[UIImage imageNamed:@"placeholder"]completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        for (SCPictureItem *item in weakSelf.items) {
+            if (item.sourceView == imageView) {
+                item.originImage = image;
+                break;
+            }
+        }
+        if (image && cacheType == SDImageCacheTypeNone) {
+            CATransition *transition = [CATransition animation];
+            transition.type = kCATransitionFade;
+            transition.duration = 0.3;
+            transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+            [imageView.layer addAnimation:transition forKey:nil];
+        }
+    }];
     imageView.contentMode = UIViewContentModeScaleAspectFill;
     imageView.clipsToBounds = YES;
     imageView.userInteractionEnabled = YES;
@@ -162,7 +178,7 @@
     browser.items = self.items;
     browser.index = [self.imageViews indexOfObject:(UIImageView *)recognizer.view];
     browser.numberOfPrefetchURLs = 2;
-    browser.supportDelete = YES;
+    browser.supportDelete = NO;
     [browser show];
 }
 @end

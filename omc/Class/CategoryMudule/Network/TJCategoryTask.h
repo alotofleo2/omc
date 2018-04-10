@@ -27,6 +27,7 @@
  */
 + (TJRequest *)getCategoryContentWithCateId:(NSString *)cateId
                                    keywords:(NSString *)keywords
+                                 pageNumber:(NSInteger)pageNumber
                                successBlock:(void (^)(TJResult *result))successBlock
                                failureBlock:(TJRequestFinishedBlock)failureBlock;
 

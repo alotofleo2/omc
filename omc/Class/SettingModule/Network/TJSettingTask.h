@@ -69,4 +69,14 @@ typedef void (^TJRequestFinishedBlock)(TJResult * result);
                                     authCode:(NSString *)authCode
                                 SuccessBlock:(void (^)(TJResult *result))successBlock
                                 failureBlock:(TJRequestFinishedBlock)failureBlock;
+
+/**
+ 获取消息接口
+
+ @param pageNumber 分页数(传0获取全部)
+
+ */
++ (TJRequest *)getMessageWithPageNumber:(NSInteger)pageNumber
+                                SuccessBlock:(void (^)(TJResult *result))successBlock
+                                failureBlock:(TJRequestFinishedBlock)failureBlock;
 @end

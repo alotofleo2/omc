@@ -8,6 +8,7 @@
 
 #import "TJUploadListViewController.h"
 #import "TJUploadListHeaderView.h"
+#import "TJUploadListFailCell.h"
 #import "TJUploadListModel.h"
 #import "TJUploadListCell.h"
 #import "TJUploadTask.h"
@@ -16,15 +17,23 @@
 @interface TJUploadListViewController ()
 @property (nonatomic, strong) TJUploadListHeaderView *headerView;
 
-//1已上传 2未通过
+//0待审核 1已上传 2未通过
 @property (nonatomic, assign) NSInteger currentType;
 @end
 
 @implementation TJUploadListViewController
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (void)viewDidLoad {
+    self.tableViewStyle = UITableViewStyleGrouped;
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLogout) name:TJLogoutNotificationName object:nil];
+    
     [self registerCellWithClassName:@"TJUploadListCell" reuseIdentifier:@"TJUploadListCell"];
+    [self registerCellWithClassName:@"TJUploadListFailCell" reuseIdentifier:@"TJUploadListFailCell"];
     
     self.headerView = [[TJUploadListHeaderView alloc]init];
     BLOCK_WEAK_SELF
@@ -44,7 +53,7 @@
     }];
     
     self.userPullToRefreshEnable = YES;
-    self.needReloadData = YES;
+    self.needReloadData = NO;
     self.tableView.estimatedRowHeight = 44.f;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
@@ -56,31 +65,39 @@
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    BLOCK_WEAK_SELF
-    if (![TJTokenManager sharedInstance].isLogin) {
-        void(^backBlock)(void)  = ^{
-            UITabBarController *tabbarVC = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
-            [tabbarVC setSelectedIndex:0];
-            [weakSelf dismissViewControllerAnimated:YES completion:^{
-
-            }];
-        };
-        NSDictionary * params = @{@"backBlock" : backBlock};
-        [[TJPageManager sharedInstance] presentViewControllerWithName:@"TJLoginViewController" params:params inNavigationController:YES animated:YES];
-    }
+    
+    [self checkLogin];
 }
 
 - (void)requestTableViewDataSource {
+    [super requestTableViewDataSource];
+    [self getDataSourceWithPageNumber:0];
+}
 
+- (void)getDataSourceWithPageNumber:(NSInteger)pageNumber {
     [self cancelTask];
     BLOCK_WEAK_SELF
-    //fasle 已上传 其他未通过
-    TJRequest *request = [TJUploadTask getUploadListWithType:self.currentType == 1 ? @"all" : @"failed" successBlock:^(TJResult *result) {
-        
-        weakSelf.dataSource = [TJUploadListModel mj_objectArrayWithKeyValuesArray:result.data];
-        [weakSelf.tableView reloadData];
+    
+    TJRequest *request = [TJUploadTask getUploadListWithType:@(self.currentType).stringValue pageNumber:pageNumber successBlock:^(TJResult *result) {
         //关闭下拉刷新
         [self requestTableViewDataSourceSuccess:@[@(1), @(2)]];
+        if (result.pageInfo) {
+            [self setupPageInfoWithDictionary:result.pageInfo];
+            
+            self.userPullDownToLoadMoreEnable = self.pageInfo.currentPage < self.pageInfo.pageCount;
+            if (self.pageInfo.currentPage == 1) {
+                
+                weakSelf.dataSource = [TJUploadListModel mj_objectArrayWithKeyValuesArray:result.data];
+            } else {
+                
+                [weakSelf.dataSource addObjectsFromArray:[TJUploadListModel mj_objectArrayWithKeyValuesArray:result.data]];
+            }
+            
+        } else {
+            weakSelf.dataSource = [TJUploadListModel mj_objectArrayWithKeyValuesArray:result.data];
+        }
+        [weakSelf.tableView reloadData];
+
     } failureBlock:^(TJResult *result) {
         
         //关闭下拉刷新
@@ -89,13 +106,28 @@
     }];
     [self.taskArray addObject:request];
 }
+- (void)requestLoadMore {
+    [self getDataSourceWithPageNumber:self.pageInfo.currentPage + 1];
+}
 #pragma mark - UITableViewDelegate UITableViewDateSource
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    TJUploadListModel *model = self.dataSource[indexPath.section];
     
-    TJUploadListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TJUploadListCell" forIndexPath:indexPath];
+    if ([model.status isEqualToString:@"未通过"]) {
+        
+        TJUploadListFailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TJUploadListFailCell" forIndexPath:indexPath];
+        cell.reuploadHandle = ^(TJUploadListModel *CellModel) {[self reUpLoadWithModel:CellModel];};
+        cell.deleteHandle   = ^(TJUploadListModel *CellModel) {[self deleteWithModel:CellModel];};
+        [cell setupViewWithModel:model];
+        return cell;
+    } else {
+
+        
+        TJUploadListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TJUploadListCell" forIndexPath:indexPath];
+        [cell setupViewWithModel:model];
+        return cell;
+    }
     
-    [cell setupViewWithModel:self.dataSource[indexPath.section]];
-    return cell;
     
 }
 
@@ -108,7 +140,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
-    return TJSystem2Xphone6Height(26);
+    return section == 0 ? 0.1 : TJSystem2Xphone6Height(26);
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     
@@ -120,6 +152,7 @@
     return NO;
 }
 #pragma mark - 点击事件
+#pragma mark type点击事件
 - (void)topViewButtonPressedWithIndex:(NSInteger)index {
     self.currentType = index;
     
@@ -130,5 +163,50 @@
 - (void)rigthButtonPressed {
     NSDictionary *params = nil;
     [[TJPageManager sharedInstance] pushViewControllerWithName:@"TJUploadViewController" params:params];
+}
+
+#pragma mark 重新上传按钮
+- (void)reUpLoadWithModel:(TJUploadListModel *)model {
+    [self rigthButtonPressed];
+}
+
+#pragma mark 删除按钮
+- (void)deleteWithModel:(TJUploadListModel *)model {
+    
+    [TJProgressHUD showWithTitle:@"删除中..."];
+    TJRequest *request = [TJUploadTask deleteUploadListItemWithBuyrsShowId:model.buyersShowId successBlock:^(TJResult *result) {
+        [TJProgressHUD dismiss];
+        
+        [self.dataSource removeObject:model];
+        [self.tableView reloadData];
+        
+    } failureBlock:^(TJResult *result) {
+        
+        [TJProgressHUD dismiss];
+        [TJAlertUtil toastWithString:result.message];
+    }];
+    [self.taskArray addObject:request];
+
+}
+
+
+#pragma mark 退出登录通知
+- (void)didLogout {
+    [self checkLogin];
+}
+
+- (void)checkLogin {
+    BLOCK_WEAK_SELF
+    if (![TJTokenManager sharedInstance].isLogin) {
+        void(^backBlock)(void)  = ^{
+            UITabBarController *tabbarVC = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+            [tabbarVC setSelectedIndex:0];
+            [weakSelf dismissViewControllerAnimated:YES completion:^{
+                
+            }];
+        };
+        NSDictionary * params = @{@"backBlock" : backBlock};
+        [[TJPageManager sharedInstance] presentViewControllerWithName:@"TJLoginViewController" params:params inNavigationController:YES animated:YES];
+    }
 }
 @end

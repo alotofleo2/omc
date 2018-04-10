@@ -72,9 +72,17 @@ static NSString * const categoryViewIdentifier = @"categoryViewIdentifier";
         }
         self.nameLabel.textColor = UIColorFromRGB(0x808283);
     } else {
-        
+        BLOCK_WEAK_SELF
         if ([categoryModel.activeIcon hasPrefix:@"http"]) {
-            [self.iconImage sd_setImageWithURL:[NSURL URLWithString:categoryModel.inactiveIcon]];
+            [self.iconImage sd_setImageWithURL:[NSURL URLWithString:categoryModel.inactiveIcon]completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                if (image && cacheType == SDImageCacheTypeNone) {
+                    CATransition *transition = [CATransition animation];
+                    transition.type = kCATransitionFade;
+                    transition.duration = 0.3;
+                    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+                    [weakSelf.iconImage.layer addAnimation:transition forKey:nil];
+                }
+            }];
         } else {
             
             self.iconImage.image = [UIImage imageNamed:categoryModel.inactiveIcon];

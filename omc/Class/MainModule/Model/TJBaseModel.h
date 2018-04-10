@@ -10,6 +10,9 @@
 
 @interface TJBaseModel : NSObject
 
+/**tableViewCellHeight*/
+@property (nonatomic, assign) CGFloat rowHeight;
+
 /**
  跳转链接
  */

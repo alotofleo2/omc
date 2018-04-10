@@ -126,7 +126,7 @@
                                                              forKey:AVURLAssetPreferPreciseDurationAndTimingKey];
             AVURLAsset *urlAsset = [AVURLAsset URLAssetWithURL:[NSURL URLWithString:model.videoUrl] options:opts];  // 初始化视频媒体文件
             NSInteger  minute = 0, second = 0;
-            second = urlAsset.duration.value / urlAsset.duration.timescale; // 获取视频总时长,单位秒
+            second = (NSInteger)urlAsset.duration.value / urlAsset.duration.timescale; // 获取视频总时长,单位秒
             //NSLog(@"movie duration : %d", second);
             if (second >= 60) {
                 NSInteger index = second / 60;
@@ -137,11 +137,11 @@
             //从网络获取
             UIImage *image = [weakSelf thumbnailImageForVideo:[NSURL URLWithString:model.videoUrl] atTime:1];
             //缓存图片
-            [self cacheImageWithImage:image urlString:model.videoUrl timeString:[NSString stringWithFormat:@"%02ld:%02ld", minute, second]];
+            [self cacheImageWithImage:image urlString:model.videoUrl timeString:[NSString stringWithFormat:@"%02ld:%02ld", (long)minute, (long)second]];
             //转主线程设置图片和时间
             [TJGCDManager asyncMainThreadBlock:^{
                 self.videoImageView.image = image;
-                weakSelf.timeLabel.text = [NSString stringWithFormat:@"%02ld:%02ld", minute, second];
+                weakSelf.timeLabel.text = [NSString stringWithFormat:@"%02ld:%02ld", (long)minute, (long)second];
             }];
         }];
         

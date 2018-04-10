@@ -13,15 +13,18 @@
 
 @property (nonatomic, strong)UIImageView *backgroundImageView;
 
+@property (nonatomic, strong)UIView *closeBackground;
 //关闭按钮
 @property (nonatomic, strong)UIImageView *closeImageView;
 
+@property (nonatomic, strong)UIView *contentSelectBackground;
 //内容选择按钮
 @property (nonatomic, strong)UIImageView *contentSelectImageView;
 
 //设置按钮
 @property (nonatomic, strong)UIButton *settingButton;
 
+@property (nonatomic, strong)UIView *csureBackground;
 //确认按钮
 @property (nonatomic, strong)UIImageView *sureImageView;
 
@@ -61,21 +64,30 @@
     self.backgroundImageView.image = [UIImage imageWithColor:[[UIColor blackColor]colorWithAlphaComponent:0.6]];
     [self addSubview:self.backgroundImageView];
     
+    self.closeBackground = [[UIView alloc]init];
+    self.closeBackground.backgroundColor = [UIColor clearColor];
+    self.closeBackground.userInteractionEnabled = YES;
+    UITapGestureRecognizer *closeGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(actionPressed:)];
+    [self.closeBackground addGestureRecognizer:closeGesture];
+    [self addSubview:self.closeBackground];
+    
     self.closeImageView = [[UIImageView alloc]init];
     self.closeImageView.image = [UIImage imageNamed:@"edit_cancel"] ;
-    self.closeImageView.userInteractionEnabled = YES;
+//    self.closeImageView.userInteractionEnabled = YES;
     self.closeImageView.contentMode = UIViewContentModeScaleAspectFit;
-    UITapGestureRecognizer *closeGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(actionPressed:)];
-    [self.closeImageView addGestureRecognizer:closeGesture];
     [self addSubview:self.closeImageView];
     
+    self.contentSelectBackground = [[UIView alloc]init];
+    self.contentSelectBackground.backgroundColor = [UIColor clearColor];
+    self.contentSelectBackground.userInteractionEnabled = YES;
+    UITapGestureRecognizer *contentGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(actionPressed:)];
+    [self.contentSelectBackground addGestureRecognizer:contentGesture];
+    [self addSubview:self.contentSelectBackground];
     
     self.contentSelectImageView = [[UIImageView alloc]init];
     self.contentSelectImageView.image = [UIImage imageNamed:@"edit_image"] ;
-    self.contentSelectImageView.userInteractionEnabled = YES;
+//    self.contentSelectImageView.userInteractionEnabled = YES;
     self.contentSelectImageView.contentMode = UIViewContentModeScaleAspectFill;
-    UITapGestureRecognizer *contentGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(actionPressed:)];
-    [self.contentSelectImageView addGestureRecognizer:contentGesture];
     [self addSubview:self.contentSelectImageView];
     
     self.settingButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -90,12 +102,17 @@
     [self.settingButton setBackgroundColor:[UIColor whiteColor]];
     [self addSubview:self.settingButton];
     
+    self.csureBackground = [[UIView alloc]init];
+    self.csureBackground.backgroundColor = [UIColor clearColor];
+    self.csureBackground.userInteractionEnabled = YES;
+    UITapGestureRecognizer *sureGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(actionPressed:)];
+    [self.csureBackground addGestureRecognizer:sureGesture];
+    [self addSubview:self.csureBackground];
+    
     self.sureImageView = [[UIImageView alloc]init];
     self.sureImageView.image = [UIImage imageNamed:@"edit_selected"] ;
-    self.sureImageView.userInteractionEnabled = YES;
+//    self.sureImageView.userInteractionEnabled = YES;
     self.sureImageView.contentMode = UIViewContentModeScaleAspectFit;
-    UITapGestureRecognizer *sureGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(actionPressed:)];
-    [self.sureImageView addGestureRecognizer:sureGesture];
     [self addSubview:self.sureImageView];
 }
 
@@ -114,12 +131,26 @@
         make.width.equalTo(@(TJSystem2Xphone6Width(30)));
     }];
     
+    [self.closeBackground mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.top.bottom.left.equalTo(self);
+        make.right.equalTo(self.closeImageView).mas_offset(30);
+    }];
+    
     [self.contentSelectImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         
        make.centerY.equalTo(self.closeImageView);
         make.right.equalTo(self.mas_centerX).mas_offset(-TJSystem2Xphone6Width(110));
         make.height.width.equalTo(@(TJSystem2Xphone6Width(41)));
     }];
+    
+    [self.contentSelectBackground mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+         make.top.bottom.equalTo(self);
+        make.right.equalTo(self.contentSelectImageView).mas_offset(30);
+        make.left.equalTo(self.contentSelectImageView).mas_offset(- 30);
+    }];
+    
     [self.settingButton mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.centerY.equalTo(self.closeImageView);
@@ -132,6 +163,12 @@
         make.bottom.mas_offset(-TJSystem2Xphone6Height(25));
         make.right.mas_offset(-TJSystem2Xphone6Width(20));
         make.height.width.equalTo(@(TJSystem2Xphone6Width(38)));
+    }];
+    
+    [self.csureBackground mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.bottom.right.equalTo(self);
+        make.left.equalTo(self.sureImageView).mas_offset(- 30);
     }];
 }
 
@@ -179,6 +216,18 @@
             make.height.equalTo(@(TJSystem2Xphone6Height(420)));
             make.width.equalTo(@(TJSystem2Xphone6Width(480)));
         }];
+        BLOCK_WEAK_SELF
+        _settingAlerView.BackgroundChangeHandle = ^(TJCurtainBackgroundChangeType type, CGFloat value) {
+            if (weakSelf.BackgroundChangeHandle) {
+                weakSelf.BackgroundChangeHandle(type, value);
+            }
+        };
+        
+        _settingAlerView.ContentNumberButtonPressedHandle = ^(TJCurtainContentNumberType type) {
+            if (weakSelf.ContentNumberButtonPressedHandle) {
+                weakSelf.ContentNumberButtonPressedHandle(type);
+            }
+        };
     }
     return _settingAlerView;
 }
@@ -197,16 +246,16 @@
 #pragma mark - 点击事件
 - (void)actionPressed:(UIGestureRecognizer *)recognizer {
     
-    if (recognizer.view == self.closeImageView) {
+    if (recognizer.view == self.closeBackground) {
         
         if (self.closeActionHandle) self.closeActionHandle();
         
-    } else if (recognizer.view == self.contentSelectImageView) {
+    } else if (recognizer.view == self.contentSelectBackground) {
             
         self.contentAlerView.hidden = !self.contentAlerView.isHidden;
         self.maskView.hidden = self.contentAlerView.isHidden;
         [self.contentAlerView.superview bringSubviewToFront:self.contentAlerView];
-    } else if (recognizer.view == self.sureImageView) {
+    } else if (recognizer.view == self.csureBackground) {
         
         if (self.sureActionHandle) self.sureActionHandle();
         
@@ -218,7 +267,7 @@
     self.settingAlerView.hidden = !self.settingAlerView.isHidden;
     self.maskView.hidden = self.settingAlerView.isHidden;
     [self.settingAlerView.superview bringSubviewToFront:self.settingAlerView];
-    if (self.settingActionHandle) self.settingActionHandle();
+    
 }
 
 - (void)maskViewPressed {

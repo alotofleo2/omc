@@ -10,5 +10,9 @@
 #define KEditViewContentHeight DEVICE_SCREEN_HEIGHT - TJSystem2Xphone6Height(348)
 
 @interface TJCurtainEditManager : TJBaseSharedInstance
+//正常开始编辑
 - (void)startEdit;
+
+//详情页进入编辑
+- (void)startEditWithProductNumber:(NSString *)productNumber;
 @end

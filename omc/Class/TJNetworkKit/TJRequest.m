@@ -331,7 +331,7 @@
             TJResult * result = [TJResult resultFromResponseObject:responseObject];
             
             if (result.success) {
-                
+                [result resultAddPageMessageWithResponse:response];
                 successBlock(result);
                 
             } else {

@@ -40,6 +40,7 @@
     // 点击屏幕回收键盘
     UITapGestureRecognizer *viewGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyBoardresignFirstResponder)];
     [self.view addGestureRecognizer:viewGesture];
+
     
 }
 #pragma mark tableView delegate
@@ -303,7 +304,7 @@
     NSMutableDictionary *images = [NSMutableDictionary dictionaryWithCapacity:self.imageModels.count];
     for (NSInteger i = 0; i < self.imageModels.count; i++) {
         NSData *data = UIImagePNGRepresentation(self.imageModels[i].image);
-        [images setObject:data forKey:[NSString stringWithFormat:@"image%ld", i + 1]];
+        [images setObject:data forKey:[NSString stringWithFormat:@"image%ld", (long)i + 1]];
     }
     
     TJRequest *request = [TJUploadTask uploadWithImages:images number:self.firstCell.textView.text describe:self.secendCell.textView.text progressBlock:^(NSProgress *progress) {
@@ -311,7 +312,7 @@
     } successBlock:^(TJResult *result) {
         if (result.errcode == 200) {
             [TJAlertUtil toastWithString:@"上传成功"];
-            [[TJPageManager sharedInstance]popViewControllerWithParams:nil];
+            [[TJPageManager sharedInstance]popViewControllerWithParams:@{@"needReloadData": @(YES)}];
         }
         [TJProgressHUD dismiss];
         sender.enabled = YES;
@@ -327,4 +328,5 @@
 - (void)keyBoardresignFirstResponder {
     [self.view endEditing:YES];
 }
+
 @end

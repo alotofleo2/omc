@@ -12,9 +12,7 @@
  中间窗帘内容cell
  */
 @interface TJHomeMiddleContentCell : TJBaseTableViewCell
-
+@property (nonatomic, copy) void(^imageViewPressedHandle)(TJHomeMiddleItemModel *);
 @end
 
-@interface TJHomeContentItemCell : UIView
-@property (nonatomic, strong) TJHomeMiddleItemModel *model;
-@end
+

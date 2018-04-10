@@ -22,10 +22,20 @@ typedef void (^TJRequestFinishedBlock)(TJResult * result);
 /**
  获取上传列表
 
- @param type 列表类型 (all返回 已上传,  failed时返回未通过的买家秀)
+ @param type 列表类型 参数或参数为0时，查询待审核的案例，传参为1时查询已通过的案例，传参为2时查询未通过的案例
 
  */
 + (TJRequest *)getUploadListWithType:(NSString *)type
+                          pageNumber:(NSInteger)pageNumber
                         successBlock:(void (^)(TJResult *result))successBlock
                         failureBlock:(TJRequestFinishedBlock)failureBlock;
+
+/**
+ 删除未通过上传的方法
+
+ @param BuyrsShowId 主键(在获取列表时获取到)
+ */
++ (TJRequest *)deleteUploadListItemWithBuyrsShowId:(NSString *)BuyrsShowId
+                                      successBlock:(void (^)(TJResult *result))successBlock
+                                      failureBlock:(TJRequestFinishedBlock)failureBlock;
 @end

@@ -41,7 +41,77 @@
     request.requestType = TJHTTPReuestTypeGET;
     
     
-    [request startWithURLString:[NSString stringWithFormat:@"%@/%ld", kHome_homes, primaryKey] Params:nil successBlock:^(TJResult *result) {
+    [request startWithURLString:[NSString stringWithFormat:@"%@/%ld", kHome_homes, (long)primaryKey] Params:nil successBlock:^(TJResult *result) {
+        
+        if (successBlock) successBlock(result);
+        
+    } failureBlock:^(TJResult *result) {
+        
+        if (failureBlock) failureBlock(result);
+        
+    }];
+    
+    return request;
+}
+
+
+ #pragma mark 获取搜索热门搜索关键字
+ 
++ (TJRequest *)getSearchHotKeysWithSuccessBlock:(void (^)(TJResult *result))successBlock
+                                   failureBlock:(TJRequestFinishedBlock)failureBlock {
+    TJRequest *request = [[TJRequest alloc]init];
+    
+    request.requestType = TJHTTPReuestTypeGET;
+    
+    
+    [request startWithURLString:kSearch_hots Params:nil successBlock:^(TJResult *result) {
+        
+        if (successBlock) successBlock(result);
+        
+    } failureBlock:^(TJResult *result) {
+        
+        if (failureBlock) failureBlock(result);
+        
+    }];
+    
+    return request;
+}
+
+
+
+#pragma mark  详情页数据请求
++ (TJRequest *)getProductDetialWithProductId:(NSString *)productId
+                                SuccessBlock:(void (^)(TJResult *result))successBlock
+                                failureBlock:(TJRequestFinishedBlock)failureBlock {
+    TJRequest *request = [[TJRequest alloc]init];
+    
+    request.requestType = TJHTTPReuestTypeGET;
+    
+    
+    [request startWithURLString:[NSString stringWithFormat:@"%@/%@", kProducts_products, productId] Params:nil successBlock:^(TJResult *result) {
+        
+        if (successBlock) successBlock(result);
+        
+    } failureBlock:^(TJResult *result) {
+        
+        if (failureBlock) failureBlock(result);
+        
+    }];
+    
+    return request;
+}
+#pragma mark 详情页分页
++ (TJRequest *)getProductCaseWithProductId:(NSString *)productId
+                                pageNumber:(NSInteger)pageNumber
+                              SuccessBlock:(void (^)(TJResult *result))successBlock
+                              failureBlock:(TJRequestFinishedBlock)failureBlock {
+    TJRequest *request = [[TJRequest alloc]init];
+    
+    request.requestType = TJHTTPReuestTypeGET;
+    
+    NSDictionary *params = @{@"productId" : productId ?: @"",
+                             @"page" : @(pageNumber).stringValue};
+    [request startWithURLString:kProducts_cases Params:params successBlock:^(TJResult *result) {
         
         if (successBlock) successBlock(result);
         

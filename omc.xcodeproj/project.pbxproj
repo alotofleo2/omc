@@ -92,6 +92,9 @@
 		B348439B2027EA9F008FE754 /* TJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34843652027EA9F008FE754 /* TJNavigationController.m */; };
 		B348439C2027EA9F008FE754 /* WKWebView+JSFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = B34843672027EA9F008FE754 /* WKWebView+JSFunction.m */; };
 		B348439D2027EA9F008FE754 /* TJBaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B348436A2027EA9F008FE754 /* TJBaseWebViewController.m */; };
+		B3550BF62076507800B21391 /* TJCurtainMaterialModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3550BF52076507800B21391 /* TJCurtainMaterialModel.m */; };
+		B3550BF92076551300B21391 /* TJCurtainMaterialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3550BF82076551300B21391 /* TJCurtainMaterialCell.m */; };
+		B3550BFC20784C7400B21391 /* TJCurtainSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B3550BFB20784C7400B21391 /* TJCurtainSearchBar.m */; };
 		B384ED052055084A00A131BA /* TJCurtainEditTopContentAlerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B384ED042055084A00A131BA /* TJCurtainEditTopContentAlerView.m */; };
 		B384ED0820552FA800A131BA /* TJCurtainEditSettingAlerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B384ED0720552FA800A131BA /* TJCurtainEditSettingAlerView.m */; };
 		B38C5103205CDC620004D41B /* TJVideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B38C5102205CDC620004D41B /* TJVideoListViewController.m */; };
@@ -99,6 +102,22 @@
 		B38C510A205D34AE0004D41B /* TJVideoListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B38C5109205D34AE0004D41B /* TJVideoListModel.m */; };
 		B38C510D205D36540004D41B /* TJVideoDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = B38C510C205D36540004D41B /* TJVideoDefines.m */; };
 		B38C5110205D36A40004D41B /* TJVideoTask.m in Sources */ = {isa = PBXBuildFile; fileRef = B38C510F205D36A40004D41B /* TJVideoTask.m */; };
+		B38EA1512079B67F00ABE457 /* TJSettingMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B38EA1502079B67F00ABE457 /* TJSettingMessageViewController.m */; };
+		B38EA1542079BE8400ABE457 /* TJSettingMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B38EA1532079BE8400ABE457 /* TJSettingMessageCell.m */; };
+		B38EA15E2079E50200ABE457 /* TJSettingMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B38EA15D2079E50200ABE457 /* TJSettingMessageModel.m */; };
+		B38EA1602079EAE300ABE457 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B38EA15F2079EAE300ABE457 /* libsqlite3.tbd */; };
+		B38EA1622079EAF900ABE457 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B38EA1612079EAF900ABE457 /* libz.tbd */; };
+		B38EA1642079F04100ABE457 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38EA1632079F04100ABE457 /* CoreTelephony.framework */; };
+		B38EA1662079F04F00ABE457 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38EA1652079F04F00ABE457 /* SystemConfiguration.framework */; };
+		B38EA16C207A528900ABE457 /* TJPageInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B38EA16B207A528900ABE457 /* TJPageInfoModel.m */; };
+		B38EA16F207C21A000ABE457 /* TJCurtainSharedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B38EA16E207C21A000ABE457 /* TJCurtainSharedViewController.m */; };
+		B38EA172207C245300ABE457 /* TJCurtainSharedBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B38EA171207C245300ABE457 /* TJCurtainSharedBottomCell.m */; };
+		B38EA175207C2CDC00ABE457 /* TJCurtainSharedBottomModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B38EA174207C2CDC00ABE457 /* TJCurtainSharedBottomModel.m */; };
+		B38F7C792066D45C00887257 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38F7C782066D45B00887257 /* TencentOpenAPI.framework */; };
+		B38F7C812066D48300887257 /* TJShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B38F7C7C2066D48300887257 /* TJShareManager.m */; };
+		B38F7C822066D48300887257 /* ELShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = B38F7C7E2066D48300887257 /* ELShareView.m */; };
+		B38F7C832066D48300887257 /* ELShareApi.m in Sources */ = {isa = PBXBuildFile; fileRef = B38F7C802066D48300887257 /* ELShareApi.m */; };
+		B38F7C862067AAA300887257 /* TJUploadListFailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B38F7C852067AAA300887257 /* TJUploadListFailCell.m */; };
 		B39D9CEC205760AA001076AA /* TJUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B39D9CEB205760AA001076AA /* TJUploadViewController.m */; };
 		B39D9CEF205761AE001076AA /* TJUploadNormalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B39D9CEE205761AE001076AA /* TJUploadNormalCell.m */; };
 		B39D9CF22057BEB2001076AA /* TJUploadBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B39D9CF12057BEB2001076AA /* TJUploadBottomCell.m */; };
@@ -110,11 +129,14 @@
 		B39D9D05205A60F4001076AA /* TJUploadListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B39D9D04205A60F4001076AA /* TJUploadListCell.m */; };
 		B39D9D08205A6364001076AA /* TJUploadListHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B39D9D07205A6364001076AA /* TJUploadListHeaderView.m */; };
 		B39D9D0B205A6469001076AA /* TJUploadListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B39D9D0A205A6469001076AA /* TJUploadListModel.m */; };
+		B3B2E8942070015B00D290BE /* TJRefreshViewLoadState.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B2E8932070015B00D290BE /* TJRefreshViewLoadState.m */; };
+		B3B2E8972071065800D290BE /* TJCollectMessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B2E8962071065800D290BE /* TJCollectMessageManager.m */; };
+		B3B2E89B207106A000D290BE /* TJcollectMessageDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B2E89A207106A000D290BE /* TJcollectMessageDefine.m */; };
+		B3B2E89E207107A400D290BE /* TJcollectMessageTask.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B2E89D207107A400D290BE /* TJcollectMessageTask.m */; };
+		B3B2E8A020712EE600D290BE /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B2E89F20712EE600D290BE /* CoreImage.framework */; };
+		B3B2E8A42072A30900D290BE /* TJCurtainEditDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B2E8A32072A30900D290BE /* TJCurtainEditDefines.m */; };
+		B3B2E8A72072A3DC00D290BE /* TJCurtainEditTask.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B2E8A62072A3DC00D290BE /* TJCurtainEditTask.m */; };
 		B3C8713E2045A6FE0061146E /* TJHomeMiddleContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C8713D2045A6FE0061146E /* TJHomeMiddleContentModel.m */; };
-		B3C871412046D48B0061146E /* TJPersonalView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C871402046D48B0061146E /* TJPersonalView.m */; };
-		B3C871442046D4D90061146E /* TJPersonalDataDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C871432046D4D90061146E /* TJPersonalDataDelegate.m */; };
-		B3C871492046D4FD0061146E /* TJPersonalTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C871472046D4FD0061146E /* TJPersonalTableHeaderView.m */; };
-		B3C8714A2046D4FD0061146E /* TJPersonalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C871482046D4FD0061146E /* TJPersonalTableViewCell.m */; };
 		B3C8714D2046D5770061146E /* TJPersonalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C8714B2046D5760061146E /* TJPersonalModel.m */; };
 		B3C871502046D9300061146E /* Personal_configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = B3C8714F2046D9300061146E /* Personal_configuration.plist */; };
 		B3C871582046DAFE0061146E /* TJCurtainEditManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C871572046DAFE0061146E /* TJCurtainEditManager.m */; };
@@ -136,6 +158,14 @@
 		B3D095EC205122BC009D19FE /* TJSettingChangePhoneVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D095EB205122BC009D19FE /* TJSettingChangePhoneVC.m */; };
 		B3D095F0205133F2009D19FE /* TJCurtainEditContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D095EF205133F2009D19FE /* TJCurtainEditContentView.m */; };
 		B3D095F3205138F6009D19FE /* TJCurtainEditTopBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D095F2205138F6009D19FE /* TJCurtainEditTopBar.m */; };
+		B3D11084206D2C2A0056C00E /* TJProductBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D11083206D2C2A0056C00E /* TJProductBannerModel.m */; };
+		B3D11087206D2CF90056C00E /* TJProductMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D11086206D2CF90056C00E /* TJProductMessageModel.m */; };
+		B3D1108A206D32630056C00E /* TJProductImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D11089206D32630056C00E /* TJProductImageModel.m */; };
+		B3D1108D206D3A480056C00E /* TJProductBannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D1108C206D3A480056C00E /* TJProductBannerCell.m */; };
+		B3D11090206D3AB20056C00E /* TJProductMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D1108F206D3AB20056C00E /* TJProductMessageCell.m */; };
+		B3D11093206D3AC90056C00E /* TJProductImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D11092206D3AC90056C00E /* TJProductImageCell.m */; };
+		B3D11096206FC7250056C00E /* TJProductBuyerShowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D11095206FC7250056C00E /* TJProductBuyerShowModel.m */; };
+		B3D11099206FCBF70056C00E /* TJProductBuyerShowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D11098206FCBF70056C00E /* TJProductBuyerShowCell.m */; };
 		B3D9739420439983006AC9AF /* TJBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D9739320439983006AC9AF /* TJBaseModel.m */; };
 		B3D97397204399EE006AC9AF /* TJHomeBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D97396204399EE006AC9AF /* TJHomeBannerModel.m */; };
 		B3D9739A20439CB1006AC9AF /* TJHomeDateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D9739920439CB1006AC9AF /* TJHomeDateManager.m */; };
@@ -332,6 +362,12 @@
 		B348436A2027EA9F008FE754 /* TJBaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJBaseWebViewController.m; sourceTree = "<group>"; };
 		B348436C2027EA9F008FE754 /* TJCommonKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJCommonKit.h; sourceTree = "<group>"; };
 		B348439E2027EB96008FE754 /* omc-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "omc-Prefix.pch"; sourceTree = "<group>"; };
+		B3550BF42076507800B21391 /* TJCurtainMaterialModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCurtainMaterialModel.h; sourceTree = "<group>"; };
+		B3550BF52076507800B21391 /* TJCurtainMaterialModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCurtainMaterialModel.m; sourceTree = "<group>"; };
+		B3550BF72076551300B21391 /* TJCurtainMaterialCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCurtainMaterialCell.h; sourceTree = "<group>"; };
+		B3550BF82076551300B21391 /* TJCurtainMaterialCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCurtainMaterialCell.m; sourceTree = "<group>"; };
+		B3550BFA20784C7400B21391 /* TJCurtainSearchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCurtainSearchBar.h; sourceTree = "<group>"; };
+		B3550BFB20784C7400B21391 /* TJCurtainSearchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCurtainSearchBar.m; sourceTree = "<group>"; };
 		B384ED032055084A00A131BA /* TJCurtainEditTopContentAlerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCurtainEditTopContentAlerView.h; sourceTree = "<group>"; };
 		B384ED042055084A00A131BA /* TJCurtainEditTopContentAlerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCurtainEditTopContentAlerView.m; sourceTree = "<group>"; };
 		B384ED0620552FA800A131BA /* TJCurtainEditSettingAlerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCurtainEditSettingAlerView.h; sourceTree = "<group>"; };
@@ -346,6 +382,33 @@
 		B38C510C205D36540004D41B /* TJVideoDefines.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJVideoDefines.m; sourceTree = "<group>"; };
 		B38C510E205D36A40004D41B /* TJVideoTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJVideoTask.h; sourceTree = "<group>"; };
 		B38C510F205D36A40004D41B /* TJVideoTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJVideoTask.m; sourceTree = "<group>"; };
+		B38EA14F2079B67F00ABE457 /* TJSettingMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJSettingMessageViewController.h; sourceTree = "<group>"; };
+		B38EA1502079B67F00ABE457 /* TJSettingMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJSettingMessageViewController.m; sourceTree = "<group>"; };
+		B38EA1522079BE8400ABE457 /* TJSettingMessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJSettingMessageCell.h; sourceTree = "<group>"; };
+		B38EA1532079BE8400ABE457 /* TJSettingMessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJSettingMessageCell.m; sourceTree = "<group>"; };
+		B38EA15C2079E50200ABE457 /* TJSettingMessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJSettingMessageModel.h; sourceTree = "<group>"; };
+		B38EA15D2079E50200ABE457 /* TJSettingMessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJSettingMessageModel.m; sourceTree = "<group>"; };
+		B38EA15F2079EAE300ABE457 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		B38EA1612079EAF900ABE457 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		B38EA1632079F04100ABE457 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		B38EA1652079F04F00ABE457 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B38EA16A207A528900ABE457 /* TJPageInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJPageInfoModel.h; sourceTree = "<group>"; };
+		B38EA16B207A528900ABE457 /* TJPageInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJPageInfoModel.m; sourceTree = "<group>"; };
+		B38EA16D207C21A000ABE457 /* TJCurtainSharedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCurtainSharedViewController.h; sourceTree = "<group>"; };
+		B38EA16E207C21A000ABE457 /* TJCurtainSharedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCurtainSharedViewController.m; sourceTree = "<group>"; };
+		B38EA170207C245300ABE457 /* TJCurtainSharedBottomCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCurtainSharedBottomCell.h; sourceTree = "<group>"; };
+		B38EA171207C245300ABE457 /* TJCurtainSharedBottomCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCurtainSharedBottomCell.m; sourceTree = "<group>"; };
+		B38EA173207C2CDC00ABE457 /* TJCurtainSharedBottomModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCurtainSharedBottomModel.h; sourceTree = "<group>"; };
+		B38EA174207C2CDC00ABE457 /* TJCurtainSharedBottomModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCurtainSharedBottomModel.m; sourceTree = "<group>"; };
+		B38F7C782066D45B00887257 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
+		B38F7C7B2066D48300887257 /* ELShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELShareView.h; sourceTree = "<group>"; };
+		B38F7C7C2066D48300887257 /* TJShareManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJShareManager.m; sourceTree = "<group>"; };
+		B38F7C7D2066D48300887257 /* ELShareApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELShareApi.h; sourceTree = "<group>"; };
+		B38F7C7E2066D48300887257 /* ELShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELShareView.m; sourceTree = "<group>"; };
+		B38F7C7F2066D48300887257 /* TJShareManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJShareManager.h; sourceTree = "<group>"; };
+		B38F7C802066D48300887257 /* ELShareApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELShareApi.m; sourceTree = "<group>"; };
+		B38F7C842067AAA300887257 /* TJUploadListFailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJUploadListFailCell.h; sourceTree = "<group>"; };
+		B38F7C852067AAA300887257 /* TJUploadListFailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJUploadListFailCell.m; sourceTree = "<group>"; };
 		B39D9CEA205760AA001076AA /* TJUploadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJUploadViewController.h; sourceTree = "<group>"; };
 		B39D9CEB205760AA001076AA /* TJUploadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJUploadViewController.m; sourceTree = "<group>"; };
 		B39D9CED205761AE001076AA /* TJUploadNormalCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJUploadNormalCell.h; sourceTree = "<group>"; };
@@ -368,16 +431,21 @@
 		B39D9D07205A6364001076AA /* TJUploadListHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJUploadListHeaderView.m; sourceTree = "<group>"; };
 		B39D9D09205A6469001076AA /* TJUploadListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJUploadListModel.h; sourceTree = "<group>"; };
 		B39D9D0A205A6469001076AA /* TJUploadListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJUploadListModel.m; sourceTree = "<group>"; };
+		B3B2E8922070015B00D290BE /* TJRefreshViewLoadState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJRefreshViewLoadState.h; sourceTree = "<group>"; };
+		B3B2E8932070015B00D290BE /* TJRefreshViewLoadState.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJRefreshViewLoadState.m; sourceTree = "<group>"; };
+		B3B2E8952071065800D290BE /* TJCollectMessageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCollectMessageManager.h; sourceTree = "<group>"; };
+		B3B2E8962071065800D290BE /* TJCollectMessageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCollectMessageManager.m; sourceTree = "<group>"; };
+		B3B2E899207106A000D290BE /* TJcollectMessageDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJcollectMessageDefine.h; sourceTree = "<group>"; };
+		B3B2E89A207106A000D290BE /* TJcollectMessageDefine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJcollectMessageDefine.m; sourceTree = "<group>"; };
+		B3B2E89C207107A400D290BE /* TJcollectMessageTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJcollectMessageTask.h; sourceTree = "<group>"; };
+		B3B2E89D207107A400D290BE /* TJcollectMessageTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJcollectMessageTask.m; sourceTree = "<group>"; };
+		B3B2E89F20712EE600D290BE /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		B3B2E8A22072A30900D290BE /* TJCurtainEditDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCurtainEditDefines.h; sourceTree = "<group>"; };
+		B3B2E8A32072A30900D290BE /* TJCurtainEditDefines.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCurtainEditDefines.m; sourceTree = "<group>"; };
+		B3B2E8A52072A3DC00D290BE /* TJCurtainEditTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCurtainEditTask.h; sourceTree = "<group>"; };
+		B3B2E8A62072A3DC00D290BE /* TJCurtainEditTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCurtainEditTask.m; sourceTree = "<group>"; };
 		B3C8713C2045A6FE0061146E /* TJHomeMiddleContentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJHomeMiddleContentModel.h; sourceTree = "<group>"; };
 		B3C8713D2045A6FE0061146E /* TJHomeMiddleContentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJHomeMiddleContentModel.m; sourceTree = "<group>"; };
-		B3C8713F2046D48B0061146E /* TJPersonalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJPersonalView.h; sourceTree = "<group>"; };
-		B3C871402046D48B0061146E /* TJPersonalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJPersonalView.m; sourceTree = "<group>"; };
-		B3C871422046D4D90061146E /* TJPersonalDataDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJPersonalDataDelegate.h; sourceTree = "<group>"; };
-		B3C871432046D4D90061146E /* TJPersonalDataDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJPersonalDataDelegate.m; sourceTree = "<group>"; };
-		B3C871452046D4FC0061146E /* TJPersonalTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJPersonalTableHeaderView.h; sourceTree = "<group>"; };
-		B3C871462046D4FC0061146E /* TJPersonalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJPersonalTableViewCell.h; sourceTree = "<group>"; };
-		B3C871472046D4FD0061146E /* TJPersonalTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJPersonalTableHeaderView.m; sourceTree = "<group>"; };
-		B3C871482046D4FD0061146E /* TJPersonalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJPersonalTableViewCell.m; sourceTree = "<group>"; };
 		B3C8714B2046D5760061146E /* TJPersonalModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJPersonalModel.m; sourceTree = "<group>"; };
 		B3C8714C2046D5760061146E /* TJPersonalModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJPersonalModel.h; sourceTree = "<group>"; };
 		B3C8714F2046D9300061146E /* Personal_configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Personal_configuration.plist; sourceTree = "<group>"; };
@@ -421,6 +489,22 @@
 		B3D095EF205133F2009D19FE /* TJCurtainEditContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCurtainEditContentView.m; sourceTree = "<group>"; };
 		B3D095F1205138F6009D19FE /* TJCurtainEditTopBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJCurtainEditTopBar.h; sourceTree = "<group>"; };
 		B3D095F2205138F6009D19FE /* TJCurtainEditTopBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJCurtainEditTopBar.m; sourceTree = "<group>"; };
+		B3D11082206D2C2A0056C00E /* TJProductBannerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJProductBannerModel.h; sourceTree = "<group>"; };
+		B3D11083206D2C2A0056C00E /* TJProductBannerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJProductBannerModel.m; sourceTree = "<group>"; };
+		B3D11085206D2CF90056C00E /* TJProductMessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJProductMessageModel.h; sourceTree = "<group>"; };
+		B3D11086206D2CF90056C00E /* TJProductMessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJProductMessageModel.m; sourceTree = "<group>"; };
+		B3D11088206D32630056C00E /* TJProductImageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJProductImageModel.h; sourceTree = "<group>"; };
+		B3D11089206D32630056C00E /* TJProductImageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJProductImageModel.m; sourceTree = "<group>"; };
+		B3D1108B206D3A480056C00E /* TJProductBannerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJProductBannerCell.h; sourceTree = "<group>"; };
+		B3D1108C206D3A480056C00E /* TJProductBannerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJProductBannerCell.m; sourceTree = "<group>"; };
+		B3D1108E206D3AB20056C00E /* TJProductMessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJProductMessageCell.h; sourceTree = "<group>"; };
+		B3D1108F206D3AB20056C00E /* TJProductMessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJProductMessageCell.m; sourceTree = "<group>"; };
+		B3D11091206D3AC90056C00E /* TJProductImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJProductImageCell.h; sourceTree = "<group>"; };
+		B3D11092206D3AC90056C00E /* TJProductImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJProductImageCell.m; sourceTree = "<group>"; };
+		B3D11094206FC7250056C00E /* TJProductBuyerShowModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJProductBuyerShowModel.h; sourceTree = "<group>"; };
+		B3D11095206FC7250056C00E /* TJProductBuyerShowModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJProductBuyerShowModel.m; sourceTree = "<group>"; };
+		B3D11097206FCBF70056C00E /* TJProductBuyerShowCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJProductBuyerShowCell.h; sourceTree = "<group>"; };
+		B3D11098206FCBF70056C00E /* TJProductBuyerShowCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJProductBuyerShowCell.m; sourceTree = "<group>"; };
 		B3D9739220439982006AC9AF /* TJBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJBaseModel.h; sourceTree = "<group>"; };
 		B3D9739320439983006AC9AF /* TJBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJBaseModel.m; sourceTree = "<group>"; };
 		B3D97395204399EE006AC9AF /* TJHomeBannerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJHomeBannerModel.h; sourceTree = "<group>"; };
@@ -461,7 +545,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B38EA1662079F04F00ABE457 /* SystemConfiguration.framework in Frameworks */,
+				B38EA1642079F04100ABE457 /* CoreTelephony.framework in Frameworks */,
+				B38EA1622079EAF900ABE457 /* libz.tbd in Frameworks */,
+				B38EA1602079EAE300ABE457 /* libsqlite3.tbd in Frameworks */,
+				B3B2E8A020712EE600D290BE /* CoreImage.framework in Frameworks */,
 				B3E124E5205F4C9D000B3FA9 /* AVFoundation.framework in Frameworks */,
+				B38F7C792066D45C00887257 /* TencentOpenAPI.framework in Frameworks */,
 				715E6E297FF5ABA67B9B8893 /* libPods-omc.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,6 +571,12 @@
 		71E080FE0C1E8CD185C53938 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B38EA1652079F04F00ABE457 /* SystemConfiguration.framework */,
+				B38EA1632079F04100ABE457 /* CoreTelephony.framework */,
+				B38EA1612079EAF900ABE457 /* libz.tbd */,
+				B38EA15F2079EAE300ABE457 /* libsqlite3.tbd */,
+				B3B2E89F20712EE600D290BE /* CoreImage.framework */,
+				B38F7C782066D45B00887257 /* TencentOpenAPI.framework */,
 				B3E124E4205F4C9D000B3FA9 /* AVFoundation.framework */,
 				328D0D9E82AF086C78D2D9DC /* libPods-omc.a */,
 			);
@@ -516,6 +612,7 @@
 		B32ADA72203E4EF0006A6EAB /* MainModule */ = {
 			isa = PBXGroup;
 			children = (
+				B3B2E8982071067D00D290BE /* Network */,
 				B32ADA73203E4EF0006A6EAB /* Controller */,
 				B32ADA74203E4EF0006A6EAB /* Manager */,
 				B32ADA75203E4EF0006A6EAB /* Model */,
@@ -538,6 +635,8 @@
 			children = (
 				B32ADA95203E53A6006A6EAB /* TJRouteManager.h */,
 				B32ADA96203E53A6006A6EAB /* TJRouteManager.m */,
+				B3B2E8952071065800D290BE /* TJCollectMessageManager.h */,
+				B3B2E8962071065800D290BE /* TJCollectMessageManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -563,6 +662,7 @@
 		B32ADA7D203E5257006A6EAB /* TJNetworkKit */ = {
 			isa = PBXGroup;
 			children = (
+				B32ADA83203E5257006A6EAB /* TJAPI */,
 				B32ADA7E203E5257006A6EAB /* TJURLConfigurator.h */,
 				B32ADA88203E5257006A6EAB /* TJURLConfigurator.m */,
 				B32ADA7F203E5257006A6EAB /* TJTokenManager.h */,
@@ -571,7 +671,6 @@
 				B32ADA81203E5257006A6EAB /* TJResult.h */,
 				B32ADA8D203E5257006A6EAB /* TJHTTPSessionManager.h */,
 				B32ADA82203E5257006A6EAB /* TJHTTPSessionManager.m */,
-				B32ADA83203E5257006A6EAB /* TJAPI */,
 				B32ADA8A203E5257006A6EAB /* TJResult.m */,
 				B32ADA8B203E5257006A6EAB /* TJRequest.h */,
 				B32ADA8C203E5257006A6EAB /* TJNetworkKit.h */,
@@ -617,8 +716,6 @@
 		B32ADA9A203E6031006A6EAB /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				B3C871422046D4D90061146E /* TJPersonalDataDelegate.h */,
-				B3C871432046D4D90061146E /* TJPersonalDataDelegate.m */,
 				B3D9739820439CB1006AC9AF /* TJHomeDateManager.h */,
 				B3D9739920439CB1006AC9AF /* TJHomeDateManager.m */,
 				B347F6242062036D00C3FA2C /* TJSearchManager.h */,
@@ -638,6 +735,14 @@
 				B3D9739F2043A9AC006AC9AF /* TJHomeCategoryModel.m */,
 				B3C8713C2045A6FE0061146E /* TJHomeMiddleContentModel.h */,
 				B3C8713D2045A6FE0061146E /* TJHomeMiddleContentModel.m */,
+				B3D11082206D2C2A0056C00E /* TJProductBannerModel.h */,
+				B3D11083206D2C2A0056C00E /* TJProductBannerModel.m */,
+				B3D11085206D2CF90056C00E /* TJProductMessageModel.h */,
+				B3D11086206D2CF90056C00E /* TJProductMessageModel.m */,
+				B3D11088206D32630056C00E /* TJProductImageModel.h */,
+				B3D11089206D32630056C00E /* TJProductImageModel.m */,
+				B3D11094206FC7250056C00E /* TJProductBuyerShowModel.h */,
+				B3D11095206FC7250056C00E /* TJProductBuyerShowModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -645,18 +750,20 @@
 		B32ADA9C203E6031006A6EAB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B3C8713F2046D48B0061146E /* TJPersonalView.h */,
-				B3C871402046D48B0061146E /* TJPersonalView.m */,
-				B3C871452046D4FC0061146E /* TJPersonalTableHeaderView.h */,
-				B3C871472046D4FD0061146E /* TJPersonalTableHeaderView.m */,
-				B3C871462046D4FC0061146E /* TJPersonalTableViewCell.h */,
-				B3C871482046D4FD0061146E /* TJPersonalTableViewCell.m */,
 				B32ADAA0203E6098006A6EAB /* TJHomeTopBannerCell.h */,
 				B32ADAA1203E6098006A6EAB /* TJHomeTopBannerCell.m */,
 				B3D9739B2043A264006AC9AF /* TJHomeCategoryCell.h */,
 				B3D9739C2043A264006AC9AF /* TJHomeCategoryCell.m */,
 				B3D973A12045385A006AC9AF /* TJHomeMiddleContentCell.h */,
 				B3D973A22045385A006AC9AF /* TJHomeMiddleContentCell.m */,
+				B3D1108B206D3A480056C00E /* TJProductBannerCell.h */,
+				B3D1108C206D3A480056C00E /* TJProductBannerCell.m */,
+				B3D1108E206D3AB20056C00E /* TJProductMessageCell.h */,
+				B3D1108F206D3AB20056C00E /* TJProductMessageCell.m */,
+				B3D11091206D3AC90056C00E /* TJProductImageCell.h */,
+				B3D11092206D3AC90056C00E /* TJProductImageCell.m */,
+				B3D11097206FCBF70056C00E /* TJProductBuyerShowCell.h */,
+				B3D11098206FCBF70056C00E /* TJProductBuyerShowCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1025,6 +1132,7 @@
 		B348433A2027EA9F008FE754 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B3B2E8912070014E00D290BE /* TJRefreshViewLoadState */,
 				B3D095CE204F81D1009D19FE /* Progress */,
 				B348434C2027EA9F008FE754 /* TJButton.h */,
 				B348433B2027EA9F008FE754 /* TJButton.m */,
@@ -1107,6 +1215,8 @@
 				B348435D2027EA9F008FE754 /* TJBaseTableViewController.h */,
 				B348435E2027EA9F008FE754 /* TJBaseViewController.m */,
 				B348435F2027EA9F008FE754 /* TJBaseTableViewController.m */,
+				B38EA16A207A528900ABE457 /* TJPageInfoModel.h */,
+				B38EA16B207A528900ABE457 /* TJPageInfoModel.m */,
 			);
 			path = TJBaseViewController;
 			sourceTree = "<group>";
@@ -1200,6 +1310,19 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		B38F7C7A2066D48300887257 /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				B38F7C7B2066D48300887257 /* ELShareView.h */,
+				B38F7C7C2066D48300887257 /* TJShareManager.m */,
+				B38F7C7D2066D48300887257 /* ELShareApi.h */,
+				B38F7C7E2066D48300887257 /* ELShareView.m */,
+				B38F7C7F2066D48300887257 /* TJShareManager.h */,
+				B38F7C802066D48300887257 /* ELShareApi.m */,
+			);
+			path = Share;
+			sourceTree = "<group>";
+		};
 		B39D9CE62057602E001076AA /* UploadMudle */ = {
 			isa = PBXGroup;
 			children = (
@@ -1244,6 +1367,8 @@
 				B39D9CF42058B752001076AA /* TJUploadBottomItem.m */,
 				B39D9D03205A60F4001076AA /* TJUploadListCell.h */,
 				B39D9D04205A60F4001076AA /* TJUploadListCell.m */,
+				B38F7C842067AAA300887257 /* TJUploadListFailCell.h */,
+				B38F7C852067AAA300887257 /* TJUploadListFailCell.m */,
 				B39D9D06205A6364001076AA /* TJUploadListHeaderView.h */,
 				B39D9D07205A6364001076AA /* TJUploadListHeaderView.m */,
 			);
@@ -1261,6 +1386,37 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		B3B2E8912070014E00D290BE /* TJRefreshViewLoadState */ = {
+			isa = PBXGroup;
+			children = (
+				B3B2E8922070015B00D290BE /* TJRefreshViewLoadState.h */,
+				B3B2E8932070015B00D290BE /* TJRefreshViewLoadState.m */,
+			);
+			path = TJRefreshViewLoadState;
+			sourceTree = "<group>";
+		};
+		B3B2E8982071067D00D290BE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B3B2E899207106A000D290BE /* TJcollectMessageDefine.h */,
+				B3B2E89A207106A000D290BE /* TJcollectMessageDefine.m */,
+				B3B2E89C207107A400D290BE /* TJcollectMessageTask.h */,
+				B3B2E89D207107A400D290BE /* TJcollectMessageTask.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		B3B2E8A120729EE700D290BE /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				B3B2E8A22072A30900D290BE /* TJCurtainEditDefines.h */,
+				B3B2E8A32072A30900D290BE /* TJCurtainEditDefines.m */,
+				B3B2E8A52072A3DC00D290BE /* TJCurtainEditTask.h */,
+				B3B2E8A62072A3DC00D290BE /* TJCurtainEditTask.m */,
+			);
+			path = NetWork;
+			sourceTree = "<group>";
+		};
 		B3C8714E2046D90F0061146E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -1272,6 +1428,7 @@
 		B3C871512046DADC0061146E /* CurtainEditMudule */ = {
 			isa = PBXGroup;
 			children = (
+				B3B2E8A120729EE700D290BE /* NetWork */,
 				B3C871522046DADC0061146E /* Managers */,
 				B3D095ED205133D7009D19FE /* Views */,
 				B3C871542046DADC0061146E /* Controllers */,
@@ -1284,6 +1441,7 @@
 		B3C871522046DADC0061146E /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				B38F7C7A2066D48300887257 /* Share */,
 				B3C871562046DAFE0061146E /* TJCurtainEditManager.h */,
 				B3C871572046DAFE0061146E /* TJCurtainEditManager.m */,
 			);
@@ -1295,6 +1453,10 @@
 			children = (
 				B3F321EA20566A440008DB2E /* TJCurtainContentImagemodel.h */,
 				B3F321EB20566A440008DB2E /* TJCurtainContentImagemodel.m */,
+				B3550BF42076507800B21391 /* TJCurtainMaterialModel.h */,
+				B3550BF52076507800B21391 /* TJCurtainMaterialModel.m */,
+				B38EA173207C2CDC00ABE457 /* TJCurtainSharedBottomModel.h */,
+				B38EA174207C2CDC00ABE457 /* TJCurtainSharedBottomModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1304,6 +1466,8 @@
 			children = (
 				B3C8716F20482D440061146E /* TJCurtainEditViewController.h */,
 				B3C8717020482D440061146E /* TJCurtainEditViewController.m */,
+				B38EA16D207C21A000ABE457 /* TJCurtainSharedViewController.h */,
+				B38EA16E207C21A000ABE457 /* TJCurtainSharedViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1328,6 +1492,8 @@
 				B3D095D9204FB787009D19FE /* TJSettingMainModel.m */,
 				B3D095DE204FB9FA009D19FE /* TJUserModel.h */,
 				B3D095DF204FB9FA009D19FE /* TJUserModel.m */,
+				B38EA15C2079E50200ABE457 /* TJSettingMessageModel.h */,
+				B38EA15D2079E50200ABE457 /* TJSettingMessageModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1345,6 +1511,8 @@
 				B3D095E82051131F009D19FE /* TJSettingChangePasswordVC.m */,
 				B3D095EA205122BC009D19FE /* TJSettingChangePhoneVC.h */,
 				B3D095EB205122BC009D19FE /* TJSettingChangePhoneVC.m */,
+				B38EA14F2079B67F00ABE457 /* TJSettingMessageViewController.h */,
+				B38EA1502079B67F00ABE457 /* TJSettingMessageViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1360,6 +1528,8 @@
 				B3D095E2204FCD6C009D19FE /* TJSettingMainNormalCell.m */,
 				B3D095E420510F38009D19FE /* TJSettingPersonalDataCell.h */,
 				B3D095E520510F38009D19FE /* TJSettingPersonalDataCell.m */,
+				B38EA1522079BE8400ABE457 /* TJSettingMessageCell.h */,
+				B38EA1532079BE8400ABE457 /* TJSettingMessageCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1395,6 +1565,12 @@
 				B384ED042055084A00A131BA /* TJCurtainEditTopContentAlerView.m */,
 				B384ED0620552FA800A131BA /* TJCurtainEditSettingAlerView.h */,
 				B384ED0720552FA800A131BA /* TJCurtainEditSettingAlerView.m */,
+				B3550BF72076551300B21391 /* TJCurtainMaterialCell.h */,
+				B3550BF82076551300B21391 /* TJCurtainMaterialCell.m */,
+				B3550BFA20784C7400B21391 /* TJCurtainSearchBar.h */,
+				B3550BFB20784C7400B21391 /* TJCurtainSearchBar.m */,
+				B38EA170207C245300ABE457 /* TJCurtainSharedBottomCell.h */,
+				B38EA171207C245300ABE457 /* TJCurtainSharedBottomCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1564,9 +1740,9 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-omc/Pods-omc-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FTImagePickerController/FTImagePickerController.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/FTImagePickerController/FTImagePickerController.bundle,
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/SCPictureBrowser/SCPictureBrowser.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/SCPictureBrowser/SCPictureBrowser.bundle,
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 				"${PODS_ROOT}/Weibo_SDK/libWeiboSDK/WeiboSDK.bundle",
 			);
@@ -1619,9 +1795,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3D1108A206D32630056C00E /* TJProductImageModel.m in Sources */,
 				B347F620206202B100C3FA2C /* PYSearchConst.m in Sources */,
 				B3141013205FA04C00F6B902 /* TJCategoryTask.m in Sources */,
 				B34843742027EA9F008FE754 /* NSUserDefaults+Secure.m in Sources */,
+				B38EA16C207A528900ABE457 /* TJPageInfoModel.m in Sources */,
 				B3E124F9205F58F1000B3FA9 /* TJVideoPlayerViewController.m in Sources */,
 				B38C510A205D34AE0004D41B /* TJVideoListModel.m in Sources */,
 				B39D9CFC205A17C7001076AA /* TJUploadDefines.m in Sources */,
@@ -1630,10 +1808,12 @@
 				B38C5110205D36A40004D41B /* TJVideoTask.m in Sources */,
 				B39D9CEF205761AE001076AA /* TJUploadNormalCell.m in Sources */,
 				B39D9CF82058BAD1001076AA /* TJUploadBottomItemModel.m in Sources */,
+				B3D11090206D3AB20056C00E /* TJProductMessageCell.m in Sources */,
 				B38C5103205CDC620004D41B /* TJVideoListViewController.m in Sources */,
 				B34843852027EA9F008FE754 /* TJAdaptiveManager.m in Sources */,
 				B3E124F5205F58AE000B3FA9 /* SelPlayerConfiguration.m in Sources */,
 				B384ED0820552FA800A131BA /* TJCurtainEditSettingAlerView.m in Sources */,
+				B3D11093206D3AC90056C00E /* TJProductImageCell.m in Sources */,
 				B347F6262062036D00C3FA2C /* TJSearchManager.m in Sources */,
 				B3F321E9205651770008DB2E /* POPAnimatableProperty+AGGeometryKit.m in Sources */,
 				B348438E2027EA9F008FE754 /* TJBannerCell.m in Sources */,
@@ -1641,6 +1821,9 @@
 				B34843862027EA9F008FE754 /* TJUserDefaultsManager.m in Sources */,
 				B347F61D206202B100C3FA2C /* UIColor+PYSearchExtension.m in Sources */,
 				B32ADA9F203E605E006A6EAB /* TJHomeViewController.m in Sources */,
+				B3B2E8A42072A30900D290BE /* TJCurtainEditDefines.m in Sources */,
+				B3B2E89E207107A400D290BE /* TJcollectMessageTask.m in Sources */,
+				B38F7C862067AAA300887257 /* TJUploadListFailCell.m in Sources */,
 				B348437B2027EA9F008FE754 /* UITextView+PlaceHolder.m in Sources */,
 				B39D9D0B205A6469001076AA /* TJUploadListModel.m in Sources */,
 				B34843732027EA9F008FE754 /* TJInputChecker.m in Sources */,
@@ -1655,6 +1838,7 @@
 				B39D9CF52058B752001076AA /* TJUploadBottomItem.m in Sources */,
 				B34842CC2027E8AD008FE754 /* ViewController.m in Sources */,
 				B39D9D02205A5665001076AA /* TJUploadListViewController.m in Sources */,
+				B3550BF62076507800B21391 /* TJCurtainMaterialModel.m in Sources */,
 				B3141016205FA36200F6B902 /* TJCategoryListCell.m in Sources */,
 				B32ADA8F203E5257006A6EAB /* TJHTTPSessionManager.m in Sources */,
 				B348436F2027EA9F008FE754 /* NSString+Hash.m in Sources */,
@@ -1666,9 +1850,9 @@
 				B3D973A32045385A006AC9AF /* TJHomeMiddleContentCell.m in Sources */,
 				B34843832027EA9F008FE754 /* NSArray+Log.m in Sources */,
 				B34843722027EA9F008FE754 /* ThreeDES.m in Sources */,
-				B3C8714A2046D4FD0061146E /* TJPersonalTableViewCell.m in Sources */,
 				B34843842027EA9F008FE754 /* TJPageManager.m in Sources */,
 				B34843902027EA9F008FE754 /* TJTableNetWorkFailView.m in Sources */,
+				B3D1108D206D3A480056C00E /* TJProductBannerCell.m in Sources */,
 				B34843702027EA9F008FE754 /* AESUtil.m in Sources */,
 				B34843962027EA9F008FE754 /* TJAlertUtil.m in Sources */,
 				B3141010205F9E7B00F6B902 /* TJCategoryDefines.m in Sources */,
@@ -1683,26 +1867,32 @@
 				B3D973A02043A9AC006AC9AF /* TJHomeCategoryModel.m in Sources */,
 				B39D9D05205A60F4001076AA /* TJUploadListCell.m in Sources */,
 				B348438F2027EA9F008FE754 /* TJTableLoadingView.m in Sources */,
+				B3B2E8972071065800D290BE /* TJCollectMessageManager.m in Sources */,
 				B3D095CA204E2414009D19FE /* TJSettingDefines.m in Sources */,
 				B314101C205FC8B000F6B902 /* TJCategoryProductModel.m in Sources */,
 				B348439A2027EA9F008FE754 /* TJBannerView.m in Sources */,
+				B3550BF92076551300B21391 /* TJCurtainMaterialCell.m in Sources */,
 				B39D9CEC205760AA001076AA /* TJUploadViewController.m in Sources */,
 				B32D7AED2047A1BE00518687 /* TJHomeTask.m in Sources */,
 				B3E124F6205F58AE000B3FA9 /* SelVideoSlider.m in Sources */,
 				B32ADA97203E53A6006A6EAB /* TJRouteManager.m in Sources */,
+				B38EA15E2079E50200ABE457 /* TJSettingMessageModel.m in Sources */,
 				B38C5107205CDF3B0004D41B /* TJVideoListCell.m in Sources */,
 				B34843892027EA9F008FE754 /* TJGCDManager.m in Sources */,
 				B348438D2027EA9F008FE754 /* TJModalView.m in Sources */,
 				B3C8713E2045A6FE0061146E /* TJHomeMiddleContentModel.m in Sources */,
+				B3D11096206FC7250056C00E /* TJProductBuyerShowModel.m in Sources */,
 				B34843872027EA9F008FE754 /* TJBaseSharedInstance.m in Sources */,
 				B34843792027EA9F008FE754 /* NSString+Size.m in Sources */,
 				B34843762027EA9F008FE754 /* TJURLParser.m in Sources */,
 				B348436E2027EA9F008FE754 /* GTMBase64.m in Sources */,
 				B3D9739D2043A264006AC9AF /* TJHomeCategoryCell.m in Sources */,
+				B38F7C832066D48300887257 /* ELShareApi.m in Sources */,
 				B34843782027EA9F008FE754 /* NSString+JSON.m in Sources */,
 				B348438B2027EA9F008FE754 /* TJBaseView.m in Sources */,
 				B32ADA7C203E5101006A6EAB /* TJTabBar.m in Sources */,
 				B3C871692047031F0061146E /* TJPersonalDataCell.m in Sources */,
+				B3B2E8942070015B00D290BE /* TJRefreshViewLoadState.m in Sources */,
 				B34843822027EA9F008FE754 /* UIView+ViewUtils.m in Sources */,
 				B347F61F206202B100C3FA2C /* PYSearchSuggestionViewController.m in Sources */,
 				B3D97397204399EE006AC9AF /* TJHomeBannerModel.m in Sources */,
@@ -1711,11 +1901,15 @@
 				B32ADA90203E5257006A6EAB /* TJAccountDefines.m in Sources */,
 				B34842C92027E8AD008FE754 /* AppDelegate.m in Sources */,
 				B3C8714D2046D5770061146E /* TJPersonalModel.m in Sources */,
+				B38EA172207C245300ABE457 /* TJCurtainSharedBottomCell.m in Sources */,
 				B348437F2027EA9F008FE754 /* UIColor+Extension.m in Sources */,
+				B3D11084206D2C2A0056C00E /* TJProductBannerModel.m in Sources */,
+				B38EA1512079B67F00ABE457 /* TJSettingMessageViewController.m in Sources */,
 				B314100C205F9B2F00F6B902 /* TJCategoryListModel.m in Sources */,
 				B34843972027EA9F008FE754 /* TJBaseTableViewCell.m in Sources */,
 				B3F321E5205218190008DB2E /* TJCategoryViewContoller.m in Sources */,
 				B34843752027EA9F008FE754 /* NSString+MD5Password.m in Sources */,
+				B38EA1542079BE8400ABE457 /* TJSettingMessageCell.m in Sources */,
 				B348439C2027EA9F008FE754 /* WKWebView+JSFunction.m in Sources */,
 				B32ADA94203E5257006A6EAB /* TJResult.m in Sources */,
 				B347F61E206202B100C3FA2C /* PYSearchViewController.m in Sources */,
@@ -1723,33 +1917,39 @@
 				B34843952027EA9F008FE754 /* FTMessage.m in Sources */,
 				B3D095E92051131F009D19FE /* TJSettingChangePasswordVC.m in Sources */,
 				B3C87166204702FD0061146E /* TJPersonalDataVC.m in Sources */,
-				B3C871442046D4D90061146E /* TJPersonalDataDelegate.m in Sources */,
 				B34843882027EA9F008FE754 /* TJResponder.m in Sources */,
 				B31410222061E86300F6B902 /* TJDetialProductViewController.m in Sources */,
+				B38F7C812066D48300887257 /* TJShareManager.m in Sources */,
 				B3D095CD204E2471009D19FE /* TJSettingTask.m in Sources */,
+				B38EA175207C2CDC00ABE457 /* TJCurtainSharedBottomModel.m in Sources */,
 				B3D095EC205122BC009D19FE /* TJSettingChangePhoneVC.m in Sources */,
 				B314101F2060FF4700F6B902 /* TJCategorySearchBar.m in Sources */,
 				B348438C2027EA9F008FE754 /* TJWebViewProgressView.m in Sources */,
+				B3B2E89B207106A000D290BE /* TJcollectMessageDefine.m in Sources */,
+				B3D11087206D2CF90056C00E /* TJProductMessageModel.m in Sources */,
 				B3D095E3204FCD6C009D19FE /* TJSettingMainNormalCell.m in Sources */,
+				B3550BFC20784C7400B21391 /* TJCurtainSearchBar.m in Sources */,
+				B38EA16F207C21A000ABE457 /* TJCurtainSharedViewController.m in Sources */,
 				B348437A2027EA9F008FE754 /* StringUtil.m in Sources */,
 				B3D095D1204F8202009D19FE /* TJProgressHUD.m in Sources */,
 				B34843712027EA9F008FE754 /* NSData+AES.m in Sources */,
 				B32ADA92203E5257006A6EAB /* TJURLConfigurator.m in Sources */,
 				B34843932027EA9F008FE754 /* TJAlertView.m in Sources */,
 				B348439B2027EA9F008FE754 /* TJNavigationController.m in Sources */,
+				B3B2E8A72072A3DC00D290BE /* TJCurtainEditTask.m in Sources */,
 				B3D095F3205138F6009D19FE /* TJCurtainEditTopBar.m in Sources */,
 				B348437D2027EA9F008FE754 /* UIFont+Extension.m in Sources */,
 				B32D7AEA20479CE700518687 /* TJHomeDefines.m in Sources */,
 				B3141019205FC51600F6B902 /* TJCategoryProductCell.m in Sources */,
 				B3D095DA204FB787009D19FE /* TJSettingMainModel.m in Sources */,
-				B3C871412046D48B0061146E /* TJPersonalView.m in Sources */,
 				B34843912027EA9F008FE754 /* TJTableEmptyView.m in Sources */,
 				B3D095E0204FB9FA009D19FE /* TJUserModel.m in Sources */,
 				B348437E2027EA9F008FE754 /* TJColor.m in Sources */,
 				B39D9CFF205A1C88001076AA /* TJUploadTask.m in Sources */,
 				B348436D2027EA9F008FE754 /* TJDeviceInfo.m in Sources */,
+				B3D11099206FCBF70056C00E /* TJProductBuyerShowCell.m in Sources */,
+				B38F7C822066D48300887257 /* ELShareView.m in Sources */,
 				B3E124F3205F58AE000B3FA9 /* SelVideoPlayer.m in Sources */,
-				B3C871492046D4FD0061146E /* TJPersonalTableHeaderView.m in Sources */,
 				B3C871582046DAFE0061146E /* TJCurtainEditManager.m in Sources */,
 				B3C8716C204703370061146E /* TJPersonalDataModel.m in Sources */,
 				B3E124F4205F58AE000B3FA9 /* UIViewController+PlayerRotation.m in Sources */,
@@ -1889,6 +2089,10 @@
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T6HBF7SS63;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREFIX_HEADER = "./omc/omc-Prefix.pch";
 				INFOPLIST_FILE = omc/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1907,6 +2111,10 @@
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T6HBF7SS63;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREFIX_HEADER = "./omc/omc-Prefix.pch";
 				INFOPLIST_FILE = omc/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

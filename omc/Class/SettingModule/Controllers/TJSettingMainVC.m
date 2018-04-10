@@ -175,7 +175,7 @@
                       @[@{@"title": @"关于我们", @"iconImageName":@"setting_about", @"targetControllerName" : @"TJPersonalDataVC"},
                         @{@"title":@"意见反馈", @"iconImageName":@"setting_advice", @"targetControllerName" : @"TJPersonalDataVC"}],
                       @[@{@"title":[NSString stringWithFormat:@"当前版本%@", [TJUserDefaultsManager currentVersion]], @"detial":@"已最新", @"iconImageName":@"setting_version", @"targetControllerName" : @"TJPersonalDataVC"},
-                        @{@"title":@"消息", @"iconImageName":@"setting_message", @"targetControllerName" : @"TJPersonalDataVC"}],];
+                        @{@"title":@"消息", @"iconImageName":@"setting_message", @"targetControllerName" : @"TJSettingMessageViewController"}],];
     
     for (NSArray *item in data) {
         [self.dataSource addObject:[TJSettingMainModel mj_objectArrayWithKeyValuesArray:item]];
