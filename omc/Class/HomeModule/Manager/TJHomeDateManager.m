@@ -66,15 +66,7 @@
     if (!_curtainContentModel) {
         _curtainContentModel = [[TJHomeMiddleContentModel alloc]init];
         _curtainContentModel.titleName = @"热销窗帘";
-//        _curtainContentModel.items = [NSMutableArray arrayWithCapacity:6];
-//        for (int i = 0; i < 6; i++) {
-//            TJHomeMiddleItemModel *model = [[TJHomeMiddleItemModel alloc]init];
-//
-//            model.image =@"http://wimg.spriteapp.cn/picture/2016/0616/57620c1f354ae_31.jpg";
-//            model.name =@"雨后星晴";
-//            model.number = @"123123123";
-//            [_curtainContentModel.items addObject:model];
-//        }
+
     }
     return _curtainContentModel;
 }
@@ -106,14 +98,7 @@
         _curtainHeadContentModel = [[TJHomeMiddleContentModel alloc]init];
         _curtainHeadContentModel.titleName = @"热销窗帘";
         _curtainHeadContentModel.items = [NSMutableArray arrayWithCapacity:6];
-//        for (int i = 0; i < 6; i++) {
-//            TJHomeMiddleItemModel *model = [[TJHomeMiddleItemModel alloc]init];
-//
-//            model.image =@"http://wimg.spriteapp.cn/picture/2016/0616/57620c1f354ae_31.jpg";
-//            model.name =@"雨后星晴";
-//            model.number = @"123123123";
-//            [_curtainHeadContentModel.items addObject:model];
-//        }
+
     }
     return _curtainHeadContentModel;
 }
@@ -131,7 +116,7 @@
         firstModel.isSelected = YES;
         [self.curtainCategoryModel.categoryModels insertObject:firstModel atIndex:0];
         //设置第二个分类选择状态
-        self.curtainCategoryModel.categoryModels[1].isSelected = YES;
+        self.curtainCategoryModel.categoryModels[self.currentCurtainIndex].isSelected = YES;
         
         
         //设置一级分类窗头
@@ -143,7 +128,7 @@
         headFirstModel.isSelected = YES;
         [self.curtainHeadCategoryModel.categoryModels insertObject:headFirstModel atIndex:0];
         //设置第二个分类选择状态
-        self.curtainHeadCategoryModel.categoryModels[1].isSelected = YES;
+        self.curtainHeadCategoryModel.categoryModels[self.currentCurtainHeaderIndex].isSelected = YES;
         
         
         

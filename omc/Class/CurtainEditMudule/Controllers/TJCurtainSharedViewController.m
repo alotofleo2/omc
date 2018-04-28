@@ -36,7 +36,20 @@ static NSString * const curtainSharedIdentifier = @"curtainSharedIdentifier";
     [super viewDidLoad];
     [self setupSubViews];
     [self setupLayoutSubViews];
+    
+    [self saveImage:self.snapImage];
 }
+
+- (void)saveImage:(UIImage *)image {
+        UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    
+    NSLog(@"image = %@, error = %@, contextInfo = %@", image, error, contextInfo);
+}
+
 
 - (void)setupSubViews {
     
@@ -168,8 +181,11 @@ static NSString * const curtainSharedIdentifier = @"curtainSharedIdentifier";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    [[TJShareManager sharedInstance] shareWithTpye:self.dataSource[indexPath.row].platType title:@"欧曼臣" shareText:@"实景窗帘" shareUrl:nil shareImage:self.snapImage];
+    [[TJShareManager sharedInstance] shareWithTpye:self.dataSource[indexPath.row].platType title:@"欧曼臣" shareText:@"实景窗帘" shareUrl:@"www.baidu.com" shareImage:self.snapImage];
 }
-
+#pragma mark 点击事件
+-(void)rigthButtonPressed {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

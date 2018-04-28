@@ -18,6 +18,8 @@
 
 @interface TJHomeViewController () 
 @property (nonatomic, strong) UIButton *backToTopButton;
+
+
 @end
 
 @implementation TJHomeViewController
@@ -28,6 +30,8 @@
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.showsHorizontalScrollIndicator = NO;
     self.userPullToRefreshEnable = YES;
+    [TJHomeDateManager sharedInstance].currentCurtainIndex = 1;
+    [TJHomeDateManager sharedInstance].currentCurtainHeaderIndex = 1;
     
     [self setupNavigation];
     [self registerCellWithClassName:@"TJHomeTopBannerCell" reuseIdentifier:@"TJHomeTopBannerCell"];
@@ -82,6 +86,7 @@
     
     self.backToTopButton = [TJButton buttonWithType:UIButtonTypeCustom];
     [self.view addSubview:self.backToTopButton];
+    self.backToTopButton.hidden = YES;
     [self.backToTopButton addTarget:self action:@selector(backtoTopButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.backToTopButton setImage:[UIImage imageNamed:@"home_backToTop"] forState:UIControlStateNormal];
     
@@ -93,21 +98,23 @@
     
 }
 - (void)requestTableViewDataSource {
+    TJHomeDateManager *dataManager = [TJHomeDateManager sharedInstance];
+    
     BLOCK_WEAK_SELF
-    [[TJHomeDateManager sharedInstance]requestHomeWithCompleteHandle:^{
+    [dataManager requestHomeWithCompleteHandle:^{
         [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0], [NSIndexPath indexPathForRow:1 inSection:0],[NSIndexPath indexPathForRow:3 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
         
         BLOCK_STRONG_SELF
         //窗帘内容请求
-        NSInteger categoryNumb = [TJHomeDateManager sharedInstance].curtainCategoryModel.categoryModels[1].productCateId;
+        NSInteger categoryNumb = dataManager.curtainCategoryModel.categoryModels[dataManager.currentCurtainIndex].productCateId;
         [[TJHomeDateManager sharedInstance] requestCurtainContentWithCategoryNumb:categoryNumb completeHandle:^{
             
             [strongSelf.tableView reloadData];
         }];
         
         //窗头内容请求
-        NSInteger headCategoryNumb = [TJHomeDateManager sharedInstance].curtainHeadCategoryModel.categoryModels[1].productCateId;
-        [[TJHomeDateManager sharedInstance] requestCurtainHeadContentWithCategoryNumb:headCategoryNumb completeHandle:^{
+        NSInteger headCategoryNumb = dataManager.curtainHeadCategoryModel.categoryModels[dataManager.currentCurtainHeaderIndex].productCateId;
+        [dataManager requestCurtainHeadContentWithCategoryNumb:headCategoryNumb completeHandle:^{
             
             [weakSelf.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:4 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
         }];
@@ -221,16 +228,22 @@
     
     return NO;
 }
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    self.backToTopButton.hidden = scrollView.contentOffset.y <= 0;
+}
 #pragma mark - 点击事件
 #pragma mark 窗帘分类item点击事件
 - (void)curtainCategoryActionWithIndex:(NSInteger)index {
     //第一个查看全部 就push
     if (index == 0) {
-        [[TJPageManager sharedInstance] pushViewControllerWithName:@""];
+        UITabBarController *tabbarVC = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+        [tabbarVC setSelectedIndex:1];
+
         return ;
     }
     BLOCK_WEAK_SELF
     //如果不是第一个请求数据
+    [TJHomeDateManager sharedInstance].currentCurtainIndex = index;
     NSInteger categoryNumb = [TJHomeDateManager sharedInstance].curtainCategoryModel.categoryModels[index].productCateId;
     [[TJHomeDateManager sharedInstance] requestCurtainContentWithCategoryNumb:categoryNumb completeHandle:^{
         BLOCK_STRONG_SELF
@@ -241,11 +254,12 @@
 - (void)curtainHeadCategoryActionWithIndex:(NSInteger)index {
     //第一个查看全部 就push
     if (index == 0) {
-        [[TJPageManager sharedInstance] pushViewControllerWithName:@""];
+        UITabBarController *tabbarVC = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+        [tabbarVC setSelectedIndex:1];
         return ;
     }
     
-    
+    [TJHomeDateManager sharedInstance].currentCurtainHeaderIndex = index;
     //如果不是第一个请求数据
     NSInteger categoryNumb = [TJHomeDateManager sharedInstance].curtainHeadCategoryModel.categoryModels[index].productCateId;
     [[TJHomeDateManager sharedInstance] requestCurtainHeadContentWithCategoryNumb:categoryNumb completeHandle:^{

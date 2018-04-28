@@ -97,6 +97,10 @@
         [self.delegate customSearch:self inputText:textField.text];
     }
 }
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
 
 - (void)cancleClick:(UIButton *)sender {
     [self dismiss];
@@ -105,6 +109,10 @@
         [self.delegate customSearchBar:self cancleButton:sender];
     }
     [self.searchBarText resignFirstResponder];
+}
+
+- (BOOL)isFirstResponder {
+    return  self.searchBarText.isFirstResponder;
 }
 
 - (void)show {

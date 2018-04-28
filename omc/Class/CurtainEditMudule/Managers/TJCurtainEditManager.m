@@ -13,14 +13,19 @@
 @interface TJCurtainEditManager () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (nonatomic, strong) UIImagePickerController *imagePickerController;
 
+//产品编号
 @property (nonatomic, copy) NSString *productNumber;
+
+//一级分类主键
+@property (nonatomic, copy) NSString *parentCateId;
 @end
 
 @implementation TJCurtainEditManager
 #pragma mark - public
-- (void)startEditWithProductNumber:(NSString *)productNumber {
+- (void)startEditWithProductNumber:(NSString *)productNumber parentCateId:(NSString *)parentCateId {
     
     self.productNumber = productNumber.copy;
+    self.parentCateId = parentCateId.copy;
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"编辑窗帘" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
@@ -50,7 +55,7 @@
 
 - (void)startEdit {
     
-    [self startEditWithProductNumber:nil];
+    [self startEditWithProductNumber:nil parentCateId:nil];
 }
 #pragma mark getter
 - (UIImagePickerController *)imagePickerController {
@@ -104,23 +109,26 @@
         [params setObject:newImg forKey:@"backGoundImage"];
         if (self.productNumber != nil) {
             [params setObject:self.productNumber forKey:@"productNumber"];
+            [params setObject:self.parentCateId forKey:@"parentCateId"];
         }
         [picker dismissViewControllerAnimated:YES completion:^{
             
             [[TJPageManager sharedInstance] presentViewControllerWithName:@"TJCurtainEditViewController" params:params.copy inNavigationController:YES animated:YES];
             
             self.productNumber = nil;
+            self.parentCateId = nil;
         }];
     } else {
         NSLog(@"照片选择出错");
         
         self.productNumber = nil;
+        self.parentCateId = nil;
     }
     
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     self.productNumber = nil;
-    
+    self.parentCateId = nil;
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 

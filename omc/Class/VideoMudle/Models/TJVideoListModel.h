@@ -22,5 +22,5 @@
 @property (nonatomic, assign) NSTimeInterval videoTime;
 
 //视频截图url
-@property (nonatomic, copy) NSString *videoCipeImageUrl;
+@property (nonatomic, copy) NSString *videoImage;
 @end

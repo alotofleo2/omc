@@ -102,7 +102,7 @@ static NSString * const curtainMaterialCellIdentifier = @"curtainMaterialCellIde
                 [weakSelf.curtainProductIds setObject:[dataArr[1] valueForKey:@"parentId"] forKey:@(TJCurtainContentTypeCurtainHead).stringValue];
             }
             
-            [weakSelf getMaterialsWithProductId:[weakSelf.curtainProductIds valueForKey:@(weakSelf.currentCurtainType).stringValue]number:weakSelf.productNumber];
+            [weakSelf getMaterialsWithProductId:[weakSelf.curtainProductIds valueForKey:self.parentCateId ?: @(weakSelf.currentCurtainType).stringValue]number:weakSelf.productNumber];
         }
     } failureBlock:^(TJResult *result) {
         [self showToastWithString:result.message];

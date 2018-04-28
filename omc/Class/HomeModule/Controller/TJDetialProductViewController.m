@@ -74,9 +74,9 @@
     self.showLoadStateView = YES;
     self.backToTopButton = [TJButton buttonWithType:UIButtonTypeCustom];
     [self.view addSubview:self.backToTopButton];
+    self.backToTopButton.hidden = YES;
     [self.backToTopButton addTarget:self action:@selector(backtoTopButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.backToTopButton setImage:[UIImage imageNamed:@"home_backToTop"] forState:UIControlStateNormal];
-    
     [self.backToTopButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_offset(-TJSystem2Xphone6Width(38));
         make.centerY.equalTo(self.view.mas_centerY).multipliedBy(1.5);
@@ -105,7 +105,6 @@
     
     [self.bottomEditButton mas_makeConstraints:^(MASConstraintMaker *make) {
        
-//        make.centerY.equalTo(self.bottomView);
         make.top.mas_offset(@(TJSystem2Xphone6Height(10)));
         make.right.mas_offset(- TJSystem2Xphone6Width(5));
         make.height.equalTo(@(TJSystem2Xphone6Height(75)));
@@ -328,9 +327,14 @@
     return NO;
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    self.backToTopButton.hidden = scrollView.contentOffset.y <= 0;
+}
+
+#pragma mark private
 - (void)requestTableViewDataSource {
     [self cancelTask];
-    TJRequest *request =  [TJHomeTask getProductDetialWithProductId:self.productId SuccessBlock:^(TJResult *result) {
+    TJRequest *request =  [TJHomeTask getProductDetialWithProductId:self.productId bannerId:self.bannerId SuccessBlock:^(TJResult *result) {
         //关闭下拉刷新
         [self requestTableViewDataSourceSuccess:@[@(1), @(2)]];
         if (result.errcode == 200) {
@@ -422,6 +426,6 @@
 
 #pragma mark 拍照编辑
 - (void)editButtonPressed:(UIButton *)sender {
-    [[TJCurtainEditManager sharedInstance] startEditWithProductNumber:self.messageModel.productNumber];
+    [[TJCurtainEditManager sharedInstance] startEditWithProductNumber:self.messageModel.productNumber parentCateId:self.messageModel.parentCateId];
 }
 @end

@@ -210,6 +210,8 @@
 - (void)setupSubviews {
     self.backGroundImageView = [[UIImageView alloc]init];
     self.backGroundImageView.userInteractionEnabled = YES;
+    self.backGroundImageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.backGroundImageView.layer.masksToBounds = YES;
    
     
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapGesture:)];

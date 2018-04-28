@@ -166,6 +166,8 @@
 		B3D11093206D3AC90056C00E /* TJProductImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D11092206D3AC90056C00E /* TJProductImageCell.m */; };
 		B3D11096206FC7250056C00E /* TJProductBuyerShowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D11095206FC7250056C00E /* TJProductBuyerShowModel.m */; };
 		B3D11099206FCBF70056C00E /* TJProductBuyerShowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D11098206FCBF70056C00E /* TJProductBuyerShowCell.m */; };
+		B3D8F75C207CC03E00EBA616 /* TJSettingAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D8F75B207CC03E00EBA616 /* TJSettingAboutViewController.m */; };
+		B3D8F75F207CF06100EBA616 /* TJSettingVersionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D8F75E207CF06100EBA616 /* TJSettingVersionViewController.m */; };
 		B3D9739420439983006AC9AF /* TJBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D9739320439983006AC9AF /* TJBaseModel.m */; };
 		B3D97397204399EE006AC9AF /* TJHomeBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D97396204399EE006AC9AF /* TJHomeBannerModel.m */; };
 		B3D9739A20439CB1006AC9AF /* TJHomeDateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D9739920439CB1006AC9AF /* TJHomeDateManager.m */; };
@@ -505,6 +507,10 @@
 		B3D11095206FC7250056C00E /* TJProductBuyerShowModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJProductBuyerShowModel.m; sourceTree = "<group>"; };
 		B3D11097206FCBF70056C00E /* TJProductBuyerShowCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJProductBuyerShowCell.h; sourceTree = "<group>"; };
 		B3D11098206FCBF70056C00E /* TJProductBuyerShowCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJProductBuyerShowCell.m; sourceTree = "<group>"; };
+		B3D8F75A207CC03E00EBA616 /* TJSettingAboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJSettingAboutViewController.h; sourceTree = "<group>"; };
+		B3D8F75B207CC03E00EBA616 /* TJSettingAboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJSettingAboutViewController.m; sourceTree = "<group>"; };
+		B3D8F75D207CF06100EBA616 /* TJSettingVersionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJSettingVersionViewController.h; sourceTree = "<group>"; };
+		B3D8F75E207CF06100EBA616 /* TJSettingVersionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJSettingVersionViewController.m; sourceTree = "<group>"; };
 		B3D9739220439982006AC9AF /* TJBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJBaseModel.h; sourceTree = "<group>"; };
 		B3D9739320439983006AC9AF /* TJBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJBaseModel.m; sourceTree = "<group>"; };
 		B3D97395204399EE006AC9AF /* TJHomeBannerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJHomeBannerModel.h; sourceTree = "<group>"; };
@@ -1513,6 +1519,10 @@
 				B3D095EB205122BC009D19FE /* TJSettingChangePhoneVC.m */,
 				B38EA14F2079B67F00ABE457 /* TJSettingMessageViewController.h */,
 				B38EA1502079B67F00ABE457 /* TJSettingMessageViewController.m */,
+				B3D8F75A207CC03E00EBA616 /* TJSettingAboutViewController.h */,
+				B3D8F75B207CC03E00EBA616 /* TJSettingAboutViewController.m */,
+				B3D8F75D207CF06100EBA616 /* TJSettingVersionViewController.h */,
+				B3D8F75E207CF06100EBA616 /* TJSettingVersionViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1911,6 +1921,7 @@
 				B34843752027EA9F008FE754 /* NSString+MD5Password.m in Sources */,
 				B38EA1542079BE8400ABE457 /* TJSettingMessageCell.m in Sources */,
 				B348439C2027EA9F008FE754 /* WKWebView+JSFunction.m in Sources */,
+				B3D8F75F207CF06100EBA616 /* TJSettingVersionViewController.m in Sources */,
 				B32ADA94203E5257006A6EAB /* TJResult.m in Sources */,
 				B347F61E206202B100C3FA2C /* PYSearchViewController.m in Sources */,
 				B3D9739420439983006AC9AF /* TJBaseModel.m in Sources */,
@@ -1948,6 +1959,7 @@
 				B39D9CFF205A1C88001076AA /* TJUploadTask.m in Sources */,
 				B348436D2027EA9F008FE754 /* TJDeviceInfo.m in Sources */,
 				B3D11099206FCBF70056C00E /* TJProductBuyerShowCell.m in Sources */,
+				B3D8F75C207CC03E00EBA616 /* TJSettingAboutViewController.m in Sources */,
 				B38F7C822066D48300887257 /* ELShareView.m in Sources */,
 				B3E124F3205F58AE000B3FA9 /* SelVideoPlayer.m in Sources */,
 				B3C871582046DAFE0061146E /* TJCurtainEditManager.m in Sources */,

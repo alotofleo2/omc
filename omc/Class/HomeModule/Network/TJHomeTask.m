@@ -81,14 +81,18 @@
 
 #pragma mark  详情页数据请求
 + (TJRequest *)getProductDetialWithProductId:(NSString *)productId
+                                    bannerId:(NSString *)bannerId
                                 SuccessBlock:(void (^)(TJResult *result))successBlock
                                 failureBlock:(TJRequestFinishedBlock)failureBlock {
     TJRequest *request = [[TJRequest alloc]init];
     
     request.requestType = TJHTTPReuestTypeGET;
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+    if (bannerId != nil) {
+        params[@"bannerId"] = bannerId;
+    }
     
-    
-    [request startWithURLString:[NSString stringWithFormat:@"%@/%@", kProducts_products, productId] Params:nil successBlock:^(TJResult *result) {
+    [request startWithURLString:[NSString stringWithFormat:@"%@/%@", kProducts_products, productId] Params:params successBlock:^(TJResult *result) {
         
         if (successBlock) successBlock(result);
         

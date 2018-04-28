@@ -45,16 +45,16 @@
 - (void)setupSubviews {
     self.leftButton = [UIButton buttonWithType:UIButtonTypeSystem];
     self.leftButton.titleLabel.font = [UIFont systemFontOfSize:16 * [TJAdaptiveManager adaptiveScale]];
-    [self.leftButton setTitle:@"已上传" forState:UIControlStateNormal];
-    self.leftButton.tag = 1001;
+    [self.leftButton setTitle:@"待审核" forState:UIControlStateNormal];
+    self.leftButton.tag = 1000;
     [self.leftButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.leftButton];
     
     self.middleButton = [UIButton buttonWithType:UIButtonTypeSystem];
     self.middleButton.titleLabel.font = [UIFont systemFontOfSize:16 * [TJAdaptiveManager adaptiveScale]];
-    [self.middleButton setTitle:@"待审核" forState:UIControlStateNormal];
+    [self.middleButton setTitle:@"已通过" forState:UIControlStateNormal];
     [self.middleButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    self.middleButton.tag = 1000;
+    self.middleButton.tag = 1001;
     [self.middleButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.middleButton];
     

@@ -60,8 +60,8 @@
     self.rightImageName = @"upload_upload";
     
     //设置当前选中的类型(已上传或者未通过)
-    self.currentType = 1;
-    
+    self.currentType = 0;
+    [self requestTableViewDataSource];
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -91,6 +91,7 @@
             } else {
                 
                 [weakSelf.dataSource addObjectsFromArray:[TJUploadListModel mj_objectArrayWithKeyValuesArray:result.data]];
+            
             }
             
         } else {
@@ -176,7 +177,7 @@
     [TJProgressHUD showWithTitle:@"删除中..."];
     TJRequest *request = [TJUploadTask deleteUploadListItemWithBuyrsShowId:model.buyersShowId successBlock:^(TJResult *result) {
         [TJProgressHUD dismiss];
-        
+        [self showToastWithString:@"删除成功"];
         [self.dataSource removeObject:model];
         [self.tableView reloadData];
         
@@ -198,6 +199,7 @@
 - (void)checkLogin {
     BLOCK_WEAK_SELF
     if (![TJTokenManager sharedInstance].isLogin) {
+        self.needReloadData = YES;
         void(^backBlock)(void)  = ^{
             UITabBarController *tabbarVC = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
             [tabbarVC setSelectedIndex:0];
@@ -206,6 +208,7 @@
             }];
         };
         NSDictionary * params = @{@"backBlock" : backBlock};
+        
         [[TJPageManager sharedInstance] presentViewControllerWithName:@"TJLoginViewController" params:params inNavigationController:YES animated:YES];
     }
 }

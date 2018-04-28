@@ -258,6 +258,7 @@
     [UIView animateWithDuration:0.25 animations:^{
         self.actionButton.layer.shadowOpacity = 0;
     }];
+    
 }
 
 

@@ -292,10 +292,12 @@
     
     if (self.secendCell.textView.text.length  == 0) {
         [self showToastWithString:@"请输入产品介绍"];
+        return;
     }
     
-    if (self.imageModels.count == 0) {
+    if (!(self.imageModels.count > 0)) {
         [self showToastWithString:@"请添加图片"];
+        return;
     }
     
     [self cancelTask];

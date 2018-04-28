@@ -16,7 +16,7 @@
 
 #define kCategoryMargin TJSystem2Xphone6Width(18)
 
-@interface TJCategoryViewContoller () <UISearchBarDelegate,UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate, CustomSearchBarDelegate>
+@interface TJCategoryViewContoller () <UIGestureRecognizerDelegate,UISearchBarDelegate,UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate, CustomSearchBarDelegate>
 
 @property (nonatomic, strong)TJCategorySearchBar *searchBar;
 
@@ -27,7 +27,10 @@
 @end
 
 @implementation TJCategoryViewContoller
-
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.searchBar.alpha = 0;
+}
 - (void)viewDidLoad {
     
     [super viewDidLoad];
@@ -39,6 +42,11 @@
     self.searchBar.delegate = self;
     self.showLoadStateView = YES;
     [self.navigationController.view insertSubview:self.searchBar aboveSubview:self.navigationController.navigationBar];
+    
+    // 点击屏幕回收键盘
+    UITapGestureRecognizer *viewGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyBoardresignFirstResponder)];
+    viewGesture.delegate = self;
+    [self.view addGestureRecognizer:viewGesture];
     
 }
 - (void)setupTableView {
@@ -285,6 +293,7 @@
     }];
     return headerView;
 }
+
 #pragma mark searchDelegate
 - (void)customSearchBar:(TJCategorySearchBar *)searchBar cancleButton:(UIButton *)sender {
     
@@ -312,6 +321,13 @@
     
     [self.searchBar show];
 }
+#pragma mark - 隐藏键盘
+- (void)keyBoardresignFirstResponder{
+    [self.searchBar endEditing:YES];
+}
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    
 
-
+    return self.searchBar.isFirstResponder;
+}
 @end

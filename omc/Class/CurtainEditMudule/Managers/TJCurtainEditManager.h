@@ -14,5 +14,5 @@
 - (void)startEdit;
 
 //详情页进入编辑
-- (void)startEditWithProductNumber:(NSString *)productNumber;
+- (void)startEditWithProductNumber:(NSString *)productNumber parentCateId:(NSString *)parentCateId;
 @end

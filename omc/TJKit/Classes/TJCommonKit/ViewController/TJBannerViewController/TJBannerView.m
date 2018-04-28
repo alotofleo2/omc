@@ -181,9 +181,10 @@ static NSString * const bannerViewIdentifier = @"Cell";
         
         BLOCK_WEAK_SELF
         
-        _timer = [NSTimer timerWithTimeInterval:(self.interval?: 2) target:weakSelf selector:@selector(scrollConllectionView) userInfo:nil repeats:YES];
+      NSTimer *timer = [NSTimer timerWithTimeInterval:(self.interval?: 2) target:weakSelf selector:@selector(scrollConllectionView) userInfo:nil repeats:YES];
         
-        [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
+        [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+        _timer = timer;
     }
     return _timer;
 }

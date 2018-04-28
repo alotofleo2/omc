@@ -139,6 +139,32 @@
         sender.layer.shadowOpacity = 0.3;
     }];
     
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"是否退出登录" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"退出登录" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        
+        [self requestLogout];
+        [alertController dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+        
+        [alertController dismissViewControllerAnimated:YES completion:nil];
+        
+    }];
+    
+    
+    [alertController addAction:action1];
+    [alertController addAction:action2];
+
+    
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alertController animated:YES completion:nil];
+    
+}
+
+- (void)requestLogout {
     [self cancelTask];
     
     TJRequest *requeset = [TJSettingTask logoutWithSuccessBlock:^(TJResult *result) {
@@ -149,13 +175,12 @@
             self.logoutButton.hidden = ![TJTokenManager sharedInstance].isLogin;
             [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
         }
-        sender.enabled = YES;
+        self.logoutButton.enabled = YES;
     } failureBlock:^(TJResult *result) {
         [self showToastWithString:@"退出登录失败"];
-        sender.enabled = YES;
+        self.logoutButton.enabled = YES;
     }];
     [self.taskArray addObject:requeset];
-    
 }
 - (void)logoutButtonTouchDown:(UIButton *)sender {
     [UIView animateWithDuration:0.25 animations:^{
@@ -172,9 +197,9 @@
     self.dataSource = [NSMutableArray arrayWithCapacity:3];
     
     NSArray *data = @[@[@{ @"targetControllerName" : @"TJPersonalDataVC"}],
-                      @[@{@"title": @"关于我们", @"iconImageName":@"setting_about", @"targetControllerName" : @"TJPersonalDataVC"},
+                      @[@{@"title": @"关于我们", @"iconImageName":@"setting_about", @"targetControllerName" : @"TJSettingAboutViewController"},
                         @{@"title":@"意见反馈", @"iconImageName":@"setting_advice", @"targetControllerName" : @"TJPersonalDataVC"}],
-                      @[@{@"title":[NSString stringWithFormat:@"当前版本%@", [TJUserDefaultsManager currentVersion]], @"detial":@"已最新", @"iconImageName":@"setting_version", @"targetControllerName" : @"TJPersonalDataVC"},
+                      @[@{@"title":[NSString stringWithFormat:@"当前版本%@", [TJUserDefaultsManager currentVersion]], @"detial":@"已最新", @"iconImageName":@"setting_version", @"targetControllerName" : @"TJSettingVersionViewController"},
                         @{@"title":@"消息", @"iconImageName":@"setting_message", @"targetControllerName" : @"TJSettingMessageViewController"}],];
     
     for (NSArray *item in data) {

@@ -98,8 +98,17 @@
 }
 
 - (void)setupViewWithModel:(TJVideoListModel *)model {
-    
-    self.videoImageView.image = [UIImage imageWithColor:[UIColor grayColor]];
+    BLOCK_WEAK_SELF
+    [self.videoImageView sd_setImageWithURL:[NSURL URLWithString:model.videoImage] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (image && cacheType == SDImageCacheTypeNone) {
+            CATransition *transition = [CATransition animation];
+            transition.type = kCATransitionFade;
+            transition.duration = 0.3;
+            transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+            [weakSelf.videoImageView.layer addAnimation:transition forKey:nil];
+        }
+
+    }];
     
     self.titleLabel.text = model.videoName;
     
@@ -107,15 +116,13 @@
     
     self.timeLabel.text = @"00:00";
     
-    BLOCK_WEAK_SELF
-    
     //设置图片
     //读取缓存文件
     NSMutableDictionary *plistDic = [[NSMutableDictionary alloc] initWithContentsOfFile:[self getFilePathWithUrlString:model.videoUrl]];
     NSLog(@"%@", plistDic[@"timeString"]);
-    if ([plistDic valueForKey:@"image"]) {
-        NSData *data = [[NSData alloc]initWithBase64EncodedString:[plistDic valueForKey:@"image"] options:NSDataBase64DecodingIgnoreUnknownCharacters];
-        self.videoImageView.image = [UIImage imageWithData:data];
+    if ([plistDic valueForKey:@"timeString"]) {
+//        NSData *data = [[NSData alloc]initWithBase64EncodedString:[plistDic valueForKey:@"image"] options:NSDataBase64DecodingIgnoreUnknownCharacters];
+//        self.videoImageView.image = [UIImage imageWithData:data];
         
         self.timeLabel.text = [plistDic valueForKey:@"timeString"];
         
@@ -135,12 +142,12 @@
             }
             
             //从网络获取
-            UIImage *image = [weakSelf thumbnailImageForVideo:[NSURL URLWithString:model.videoUrl] atTime:1];
+//            UIImage *image = [weakSelf thumbnailImageForVideo:[NSURL URLWithString:model.videoUrl] atTime:1];
             //缓存图片
-            [self cacheImageWithImage:image urlString:model.videoUrl timeString:[NSString stringWithFormat:@"%02ld:%02ld", (long)minute, (long)second]];
+            [self cacheImageWithImage:nil urlString:model.videoUrl timeString:[NSString stringWithFormat:@"%02ld:%02ld", (long)minute, (long)second]];
             //转主线程设置图片和时间
             [TJGCDManager asyncMainThreadBlock:^{
-                self.videoImageView.image = image;
+//                self.videoImageView.image = image;
                 weakSelf.timeLabel.text = [NSString stringWithFormat:@"%02ld:%02ld", (long)minute, (long)second];
             }];
         }];
@@ -156,10 +163,15 @@
 }
 
 - (void)cacheImageWithImage:(UIImage *)image urlString:(NSString *)urlString timeString:(NSString *)timeString {
-   NSData *data = UIImagePNGRepresentation(image);
-    NSString *base64StringImage = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
-    NSDictionary *addDic = @{@"image" : base64StringImage ?: @"",
-                             @"timeString" : timeString ?: @""};
+
+    
+    NSMutableDictionary *addDic = @{@"timeString" : timeString ?: @""}.mutableCopy;
+    if (image) {
+        
+        NSData *data = UIImagePNGRepresentation(image);
+        NSString *base64StringImage = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+        addDic[@"image"] = base64StringImage;
+    }
     NSString *filePath = [self getFilePathWithUrlString:urlString];
     //将字典写入文件
     [TJGCDManager asyncGlobalQueueThreadBlock:^{

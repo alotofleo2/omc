@@ -23,7 +23,7 @@
 @interface TJCategorySearchBar : TJBaseView
 @property (nonatomic, weak) id<CustomSearchBarDelegate>  delegate;
 
-
+@property (nonatomic, assign, readonly)BOOL isFirstResponder;
 - (void)show;
 
 - (void)dismiss;

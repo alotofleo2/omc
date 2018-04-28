@@ -26,6 +26,13 @@
  */
 @property (nonatomic, strong) TJHomeMiddleContentModel *curtainContentModel;
 
+/**
+ 窗帘当前选择二级分类index
+ */
+@property (nonatomic, assign) NSInteger currentCurtainIndex;
+
+
+
 //=============窗头
 /**
  窗头分类头模型
@@ -37,7 +44,10 @@
  */
 @property (nonatomic, strong) TJHomeMiddleContentModel *curtainHeadContentModel;
 
-
+/**
+ 窗头当前选择二级分类index
+ */
+@property (nonatomic, assign) NSInteger currentCurtainHeaderIndex;
 /**
  首页内容请求
 

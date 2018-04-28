@@ -46,6 +46,7 @@ typedef void (^TJRequestFinishedBlock)(TJResult * result);
  @param failureBlock 失败回调
  */
 + (TJRequest *)getProductDetialWithProductId:(NSString *)productId
+                                    bannerId:(NSString *)bannerId
                                 SuccessBlock:(void (^)(TJResult *result))successBlock
                                 failureBlock:(TJRequestFinishedBlock)failureBlock;
 

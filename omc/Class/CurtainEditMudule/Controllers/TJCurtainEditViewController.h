@@ -16,8 +16,11 @@
 @property (nonatomic, strong) UIImage *backGoundImage;
 
 /**
- 产品变化
+ 产品编号
  */
 @property (nonatomic, strong) NSString *productNumber;
+
+/**一级分类主键*/
+@property (nonatomic, copy) NSString *parentCateId;
 
 @end
